@@ -1,0 +1,87 @@
+
+.label{
+    flexDirection: 'row'
+}
+
+body {
+    background-color:lightgoldenrodyellow;
+}
+
+#reg-text-login{
+    
+    margin-bottom: 10%;
+
+}
+
+#formcard{
+    margin: auto;
+    margin-top: 5%;
+    height: 400px;
+    width: 400px;
+    
+}
+
+#logincard{
+    margin: auto ;
+    margin-top: 5%;
+    height: 300px;
+    width:300px;
+    /* margin-top: 25%;
+    mar */
+    
+}
+
+#card-input  {
+   text-align: center;
+}
+
+#login-text{
+    text-align: center;
+    padding: 0px 35px 0px 35px;
+}
+
+.form{
+    text-align: center;
+    padding: 0px 2% 0% 2%;
+}
+
+#register-btn-div{
+margin: 25px;
+}
+
+#login-btn-div{
+    margin: 15px ;
+    margin-left: 27%;  
+}
+
+.register-btn{
+    width: 50%;
+    background-image: linear-gradient(to bottom right, rgb(0, 203, 253), rgb(0, 76, 255));
+    
+}
+
+.login-btn{
+    width: 70%;
+    background-image: linear-gradient(to bottom right, rgb(0, 203, 253), rgb(0, 76, 255));
+    
+}
+
+@media only screen and (max-width: 600px ) {
+    
+    body {
+        background-color:lightgoldenrodyellow;
+    }
+    #formcard{
+        margin: auto;
+        margin-top: 30%;
+        height: 100%;
+        width: 100%;
+        bottom: 100%;
+        margin-bottom: 30%
+    }
+
+    .register-btn{
+        width:100%;
+    }
+}
+/* 0px 35px 0px 35px */
