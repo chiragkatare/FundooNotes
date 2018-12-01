@@ -12,10 +12,10 @@ export default class Input extends Component {
     }
     sendDataToParent() {
         this.setState({ data: event.target.value })
-        this.props.onClick(this.state.data)
+        this.props.onChange(this.state.data)
     }
     render() {
-        console.log("from input", this.state.data);
+        // console.log("from input", this.state.data);
 
 
         return (

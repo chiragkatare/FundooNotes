@@ -31,7 +31,7 @@ body {
     
 }
 
-#card-input  {
+#card-heading     {
    text-align: center;
 }
 
@@ -66,6 +66,14 @@ margin: 25px;
     
 }
 
+span.below-txt{
+    float: right;
+}
+
+#newuser{
+    float: right
+}
+
 @media only screen and (max-width: 600px ) {
     
     body {
@@ -80,7 +88,25 @@ margin: 25px;
         margin-bottom: 30%
     }
 
+    #logincard{
+        margin: auto;
+        margin-top: 40%;
+        height: 100%;
+        width: 100%;
+        bottom: 100%;
+        margin-bottom: 30%
+    }
+
+    #login-btn-div{
+        margin: 15px ;
+        margin-left: 0%%;  
+    }
+
     .register-btn{
+        width:100%;
+    }
+
+    .login-btn{
         width:100%;
     }
 }

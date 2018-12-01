@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Input from '../components/Input';
 import {Card ,Typography ,Button ,CardContent} from '@material-ui/core/';
+import axios from 'axios';
 
 class Register extends Component {
   constructor(props) {
@@ -9,42 +10,52 @@ class Register extends Component {
       firstname: '',
       lastname: '',
       email: '',
-      password: ''
+      password: '',
+      rpassword: '',
     }
     this.getDataFromInput = this.getDataFromInput.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
   getDataFromInput(data) {
-    console.log("From register", data);
+    //console.log( this.state);
 
     this.setState({
-      first_name: data
+      [event.target.name]: data
     })
   }
+
+  handleClick(){
+    axios({
+      method: 'post',
+    });
+    
+  }
+
   render() {
     return (
       <div>
         <Card id='formcard'>
           <CardContent>
             <div >
-              <Typography variant="h5" component="h2" className='login' color='primary' id = 'card-input' >
+              <Typography variant="h5" component="h2" className='login' color='primary' id = 'card-heading' >
                 Register
         </Typography>
               <div className='form'>
                 <div>
-                  <Input type={'text'} placeholder={'Enter First Name'} label={'First name'} onClick={this.getDataFromInput} />
-                  <Input type={'text'} placeholder={'Enter Last Name'} label={'Last Name'} onClick={this.getDataFromInput} />
+                  <Input name={'firstname'} type={'text'} placeholder={'Enter First Name'} label={'First name'} onChange={this.getDataFromInput} />
+                  <Input name={'lastname'} type={'text'} placeholder={'Enter Last Name'} label={'Last Name'} onChange={this.getDataFromInput} />
                 </div>
                 <div>
-                  <Input type={'Email'} placeholder={'Enter Your Email'} label={'Email'} onClick={this.getDataFromInput} required={'true'} />
+                  <Input name={'email'} type={'Email'} placeholder={'Enter Your Email'} label={'Email'} onChange={this.getDataFromInput} required={true} />
                 </div>
                 <div>
-                  <Input type={'password'} placeholder={'Enter Password'} label={'PassWord'} onClick={this.getDataFromInput} />
+                  <Input name={'password'} type={'password'} placeholder={'Enter Password'} label={'PassWord'} onChange={this.getDataFromInput} />
                 </div>
                 <div>
-                  <Input type={'password'} placeholder={'Confirm PassWord'} label={'Confirm Password'} onClick={this.getDataFromInput} required={'true'} />
+                  <Input name={'rpassword'} type={'password'} placeholder={'Confirm PassWord'} label={'Confirm Password'} onChange={this.getDataFromInput} required={true} />
                 </div>
                 <div id='register-btn-div'>
-                  <Button className='register-btn' variant="contained" color="primary">
+                  <Button onClick={this.handleClick} className='register-btn' variant="contained" color="primary" type="submit">
                     Submit
                   </Button>
                 </div>

@@ -21199,12 +21199,13 @@ var Input = function (_Component) {
         key: "sendDataToParent",
         value: function sendDataToParent() {
             this.setState({ data: event.target.value });
-            this.props.onClick(this.state.data);
+            this.props.onChange(this.state.data);
         }
     }, {
         key: "render",
         value: function render() {
-            console.log("from input", this.state.data);
+            // console.log("from input", this.state.data);
+
 
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__material_ui_core__["d" /* TextField */], {
                 className: "label",
@@ -71631,10 +71632,16 @@ var Login = function (_Component) {
       password: ''
     };
     _this.getDataFromInput = _this.getDataFromInput.bind(_this);
+    //this.login = this.login.bind(this);
     return _this;
   }
 
   _createClass(Login, [{
+    key: "login",
+    value: function login() {
+      console.log(this.state);
+    }
+  }, {
     key: "getDataFromInput",
     value: function getDataFromInput(data) {
       console.log("From register", data);
@@ -71684,8 +71691,30 @@ var Login = function (_Component) {
                 { id: "login-btn-div" },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["a" /* Button */],
-                  { variant: "contained", color: "primary", type: "submit", className: "login-btn" },
+                  { variant: "contained", color: "primary", type: "submit", onClick: this.login(), className: "login-btn" },
                   "Login"
+                )
+              )
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "div",
+              null,
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "span",
+                { className: "below-txt" },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["e" /* Typography */],
+                  { color: "primary" },
+                  "Fogot Password?"
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "span",
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["e" /* Typography */],
+                  { color: "primary" },
+                  "New User"
                 )
               )
             )
@@ -104326,7 +104355,7 @@ exports = module.exports = __webpack_require__(523)(false);
 
 
 // module
-exports.push([module.i, "\n.label{\n    flexDirection: 'row'\n}\n\nbody {\n    background-color:lightgoldenrodyellow;\n}\n\n#reg-text-login{\n    \n    margin-bottom: 10%;\n\n}\n\n#formcard{\n    margin: auto;\n    margin-top: 5%;\n    height: 400px;\n    width: 400px;\n    \n}\n\n#logincard{\n    margin: auto ;\n    margin-top: 5%;\n    height: 300px;\n    width:300px;\n    /* margin-top: 25%;\n    mar */\n    \n}\n\n#card-input  {\n   text-align: center;\n}\n\n#login-text{\n    text-align: center;\n    padding: 0px 35px 0px 35px;\n}\n\n.form{\n    text-align: center;\n    padding: 0px 2% 0% 2%;\n}\n\n#register-btn-div{\nmargin: 25px;\n}\n\n#login-btn-div{\n    margin: 15px ;\n    margin-left: 27%;  \n}\n\n.register-btn{\n    width: 50%;\n    background-image: linear-gradient(to bottom right, rgb(0, 203, 253), rgb(0, 76, 255));\n    \n}\n\n.login-btn{\n    width: 70%;\n    background-image: linear-gradient(to bottom right, rgb(0, 203, 253), rgb(0, 76, 255));\n    \n}\n\n@media only screen and (max-width: 600px ) {\n    \n    body {\n        background-color:lightgoldenrodyellow;\n    }\n    #formcard{\n        margin: auto;\n        margin-top: 30%;\n        height: 100%;\n        width: 100%;\n        bottom: 100%;\n        margin-bottom: 30%\n    }\n\n    .register-btn{\n        width:100%;\n    }\n}\n/* 0px 35px 0px 35px */", ""]);
+exports.push([module.i, "\n.label{\n    flexDirection: 'row'\n}\n\nbody {\n    background-color:lightgoldenrodyellow;\n}\n\n#reg-text-login{\n    \n    margin-bottom: 10%;\n\n}\n\n#formcard{\n    margin: auto;\n    margin-top: 5%;\n    height: 400px;\n    width: 400px;\n    \n}\n\n#logincard{\n    margin: auto ;\n    margin-top: 5%;\n    height: 300px;\n    width:300px;\n    /* margin-top: 25%;\n    mar */\n    \n}\n\n#card-heading     {\n   text-align: center;\n}\n\n#login-text{\n    text-align: center;\n    padding: 0px 35px 0px 35px;\n}\n\n.form{\n    text-align: center;\n    padding: 0px 2% 0% 2%;\n}\n\n#register-btn-div{\nmargin: 25px;\n}\n\n#login-btn-div{\n    margin: 15px ;\n    margin-left: 27%;  \n}\n\n.register-btn{\n    width: 50%;\n    background-image: linear-gradient(to bottom right, rgb(0, 203, 253), rgb(0, 76, 255));\n    \n}\n\n.login-btn{\n    width: 70%;\n    background-image: linear-gradient(to bottom right, rgb(0, 203, 253), rgb(0, 76, 255));\n    \n}\n\nspan.below-txt{\n    float: right;\n}\n\n#newuser{\n    float: right\n}\n\n@media only screen and (max-width: 600px ) {\n    \n    body {\n        background-color:lightgoldenrodyellow;\n    }\n    #formcard{\n        margin: auto;\n        margin-top: 30%;\n        height: 100%;\n        width: 100%;\n        bottom: 100%;\n        margin-bottom: 30%\n    }\n\n    #logincard{\n        margin: auto;\n        margin-top: 40%;\n        height: 100%;\n        width: 100%;\n        bottom: 100%;\n        margin-bottom: 30%\n    }\n\n    #login-btn-div{\n        margin: 15px ;\n        margin-left: 0%%;  \n    }\n\n    .register-btn{\n        width:100%;\n    }\n\n    .login-btn{\n        width:100%;\n    }\n}\n/* 0px 35px 0px 35px */", ""]);
 
 // exports
 
@@ -104876,13 +104905,18 @@ module.exports = function (css) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Input__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_ui_core___ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_axios__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -104900,19 +104934,26 @@ var Register = function (_Component) {
       firstname: '',
       lastname: '',
       email: '',
-      password: ''
+      password: '',
+      rpassword: ''
     };
     _this.getDataFromInput = _this.getDataFromInput.bind(_this);
+    _this.handleClick = _this.handleClick.bind(_this);
     return _this;
   }
 
   _createClass(Register, [{
     key: 'getDataFromInput',
     value: function getDataFromInput(data) {
-      console.log("From register", data);
+      //console.log( this.state);
 
-      this.setState({
-        first_name: data
+      this.setState(_defineProperty({}, event.target.name, data));
+    }
+  }, {
+    key: 'handleClick',
+    value: function handleClick() {
+      __WEBPACK_IMPORTED_MODULE_3_axios___default()({
+        method: 'post'
       });
     }
   }, {
@@ -104932,7 +104973,7 @@ var Register = function (_Component) {
               null,
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["e" /* Typography */],
-                { variant: 'h5', component: 'h2', className: 'login', color: 'primary', id: 'card-input' },
+                { variant: 'h5', component: 'h2', className: 'login', color: 'primary', id: 'card-heading' },
                 'Register'
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -104941,30 +104982,30 @@ var Register = function (_Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'div',
                   null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_Input__["a" /* default */], { type: 'text', placeholder: 'Enter First Name', label: 'First name', onClick: this.getDataFromInput }),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_Input__["a" /* default */], { type: 'text', placeholder: 'Enter Last Name', label: 'Last Name', onClick: this.getDataFromInput })
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_Input__["a" /* default */], { name: 'firstname', type: 'text', placeholder: 'Enter First Name', label: 'First name', onChange: this.getDataFromInput }),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_Input__["a" /* default */], { name: 'lastname', type: 'text', placeholder: 'Enter Last Name', label: 'Last Name', onChange: this.getDataFromInput })
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'div',
                   null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_Input__["a" /* default */], { type: 'Email', placeholder: 'Enter Your Email', label: 'Email', onClick: this.getDataFromInput, required: 'true' })
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_Input__["a" /* default */], { name: 'email', type: 'Email', placeholder: 'Enter Your Email', label: 'Email', onChange: this.getDataFromInput, required: true })
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'div',
                   null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_Input__["a" /* default */], { type: 'password', placeholder: 'Enter Password', label: 'PassWord', onClick: this.getDataFromInput })
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_Input__["a" /* default */], { name: 'password', type: 'password', placeholder: 'Enter Password', label: 'PassWord', onChange: this.getDataFromInput })
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'div',
                   null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_Input__["a" /* default */], { type: 'password', placeholder: 'Confirm PassWord', label: 'Confirm Password', onClick: this.getDataFromInput, required: 'true' })
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_Input__["a" /* default */], { name: 'rpassword', type: 'password', placeholder: 'Confirm PassWord', label: 'Confirm Password', onChange: this.getDataFromInput, required: true })
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'div',
                   { id: 'register-btn-div' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["a" /* Button */],
-                    { className: 'register-btn', variant: 'contained', color: 'primary' },
+                    { onClick: this.handleClick, className: 'register-btn', variant: 'contained', color: 'primary', type: 'submit' },
                     'Submit'
                   )
                 ),

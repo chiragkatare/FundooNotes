@@ -14,7 +14,8 @@ class RegisterController extends Controller
         public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
+            'firstname' => 'required',
+            'lastname' => 'required',
             'email' => 'required|email',
             'password' => 'required',
             'rpassword' => 'required|same:password',
@@ -25,8 +26,8 @@ class RegisterController extends Controller
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
-        $success['token'] = $user->createToken('MyApp')->accessToken;
-        $success['name'] = $user->name;
+        // $success['token'] = $user->createToken('MyApp')->accessToken;
+        $success['firstname'] = $user->name;
         return response()->json(['success' => $success], 200);
     }
 }

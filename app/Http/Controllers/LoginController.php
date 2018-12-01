@@ -3,17 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class LoginController extends Controller
 {
-    public function login(){ 
-        if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){ 
-            $user = Auth::user(); 
-            $success['token'] =  $user->createToken('MyApp')-> accessToken; 
-            return response()->json(['success' => $success], $this-> successStatus); 
-        } 
-        else{ 
-            return response()->json(['error'=>'Unauthorised'], 401); 
-        } 
+    /**
+     * login api
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function login()
+    {
+   if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
+       $user = Auth::user();
+       print_r($user);
+       $success['token'] =  $user->createToken('MyApp')->accessToken;
+       return response()->json(['success' => $success], 200);
+   }
+   else{
+       return response()->json(['error'=>'Unauthorised'], 401);
+   }
+     echo 'login';
+    }
+
+    function userDetails(){
+        echo 'got to';
     }
 }

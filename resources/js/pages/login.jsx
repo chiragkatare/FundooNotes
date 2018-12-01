@@ -12,7 +12,14 @@ class Login extends Component {
       password: ''
     }
     this.getDataFromInput = this.getDataFromInput.bind(this);
+    //this.login = this.login.bind(this);
   }
+
+  login(){
+    console.log(this.state);
+  }
+
+
   getDataFromInput(data) {
     console.log("From register", data);
 
@@ -43,13 +50,20 @@ class Login extends Component {
                 <Input type={'Password'} placeholder={'Enter PassWord'} label={'PassWord'} onClick={this.getDataFromInput} />
               </div>
               <div id = 'login-btn-div'>
-                <Button variant="contained" color="primary" type='submit' className='login-btn'>
+                <Button variant="contained" color="primary" type='submit' onClick={this.login()} className='login-btn'>
                   Login
                 </Button>
               </div>
             </div>
+            <div >
+              <span className='below-txt' > 
+            <Typography color='primary' >Fogot Password?</Typography>
+            </span>
+            <span >
+            <Typography color='primary' >New User</Typography>
+            </span>
+            </div>
           </CardContent>
-
         </Card>
       </div>
 

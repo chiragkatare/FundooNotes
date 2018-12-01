@@ -1,7 +1,7 @@
 class UserService{
 
 
-    loginService(user) {
+    loginService(userdata) {
         axion
     }
 
