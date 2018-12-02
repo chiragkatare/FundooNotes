@@ -10,14 +10,13 @@ export default class Input extends Component {
         }
         this.sendDataToParent = this.sendDataToParent.bind(this);
     }
-    sendDataToParent() {
+    sendDataToParent(event) {
+        
         this.setState({ data: event.target.value })
-        this.props.onChange(this.state.data)
+        this.props.onChange(event.target.value)
+       // console.log("from input", this.state.data);
     }
     render() {
-        // console.log("from input", this.state.data);
-
-
         return (
             <TextField
                 className='label'

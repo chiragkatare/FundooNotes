@@ -13,6 +13,7 @@ class RegisterController extends Controller
 
         public function register(Request $request)
     {
+        $inp = $request->all();
         $validator = Validator::make($request->all(), [
             'firstname' => 'required',
             'lastname' => 'required',
@@ -21,13 +22,13 @@ class RegisterController extends Controller
             'rpassword' => 'required|same:password',
         ]);
         if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()], 401);
+            return response()->json(['error' => $validator->errors()],210);
         }
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
         // $success['token'] = $user->createToken('MyApp')->accessToken;
         $success['firstname'] = $user->name;
-        return response()->json(['success' => $success], 200);
+        return response()->json('registration succesfull', 200);
     }
 }

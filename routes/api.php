@@ -21,7 +21,22 @@ use Illuminate\Http\Request;
 
 Route::post('login', 'LoginController@login');
 Route::post('register','RegisterController@register');
+Route::get('/user', 'LoginController@userDetails')->middleware('auth:api');
 
-Route::group(['middleware' => 'auth:api'], function () {
-    Route::post('userdetail', 'LoginController@getDetails');
-});
+// Route::group(['middleware' => ['auth:api']], function()
+// {
+//     Route::get('/', function()
+//     {
+//         // Has Foo And Bar Middleware
+//     });
+
+//     Route::get('user/profile', function()
+//     {
+//         // Has Foo And Bar Middleware
+//     });
+
+// });
+
+// Route::group(['middleware' => 'auth:api'], function () {
+//     Route::post('userdetail', 'LoginController@userDetails');
+// });

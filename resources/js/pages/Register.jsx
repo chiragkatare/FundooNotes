@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Input from '../components/Input';
 import {Card ,Typography ,Button ,CardContent} from '@material-ui/core/';
-import axios from 'axios';
+import registerReq from '../services/RegisterService'
 
 class Register extends Component {
   constructor(props) {
@@ -16,18 +16,31 @@ class Register extends Component {
     this.getDataFromInput = this.getDataFromInput.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
-  getDataFromInput(data) {
-    //console.log( this.state);
 
+  handleValidation(){
+    if(event.target.value='')
+  }
+
+  getDataFromInput(data) {
+    console.log('register',data);
     this.setState({
       [event.target.name]: data
     })
   }
 
   handleClick(){
-    axios({
-      method: 'post',
-    });
+    // debugger;
+    console.log('sosos',this.state);
+
+  if(this.state.isValidated){
+    var data ={
+      firstname: this.state.firstname,
+      lastname: this.state.lastname,
+      email: this.state.email,
+      password: this.state.password,
+    }
+    registerReq(data);
+  }
     
   }
 

@@ -15,6 +15,7 @@ class LoginController extends Controller
      */
     public function login()
     {
+        $pass = request('password');
    if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
        $user = Auth::user();
        print_r($user);
@@ -28,6 +29,8 @@ class LoginController extends Controller
     }
 
     function userDetails(){
-        echo 'got to';
+        Auth::user();
     }
 }
+
+
