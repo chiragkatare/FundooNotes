@@ -16,7 +16,7 @@ body {
 #formcard{
     margin: auto;
     margin-top: 5%;
-    height: 400px;
+    height: 500px;
     width: 400px;
     
 }
@@ -72,6 +72,11 @@ span.below-txt{
 
 #newuser{
     float: right
+}
+
+.error{
+    color: #F44336;
+    float: right;
 }
 
 @media only screen and (max-width: 600px ) {

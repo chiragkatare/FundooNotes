@@ -26,6 +26,7 @@ export default class Input extends Component {
                 label={this.props.label}
                 onChange={this.sendDataToParent}
                 fullWidth
+                color={this.props.color}
                 required={this.props.required}
             />
 

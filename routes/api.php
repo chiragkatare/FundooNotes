@@ -19,9 +19,9 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-Route::post('login', 'LoginController@login');
-Route::post('register','RegisterController@register');
-Route::get('/user', 'LoginController@userDetails')->middleware('auth:api');
+Route::any('login', 'UserController@login')->name('login');
+Route::post('register','UserController@register');
+// Route::get('/user', 'UserController@userDetails')->middleware('auth:api');
 
 // Route::group(['middleware' => ['auth:api']], function()
 // {
@@ -37,6 +37,7 @@ Route::get('/user', 'LoginController@userDetails')->middleware('auth:api');
 
 // });
 
-// Route::group(['middleware' => 'auth:api'], function () {
-//     Route::post('userdetail', 'LoginController@userDetails');
-// });
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::get('/user', 'UserController@userDetails');
+    Route::get('/logout', 'UserController@logout');
+});

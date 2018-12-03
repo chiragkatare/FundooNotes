@@ -13,6 +13,7 @@ export default {
     },
     error: {
       main: '#DD2C00',
+      dark: '#DD2C00',
     }
   },
   typography: {

@@ -1,36 +1,32 @@
 import React, { Component } from "react";
 import Input from "../components/Input"
 import { Card, Typography, Button, CardContent } from '@material-ui/core/';
+import UserService from "../services/UserService";
 
-
+var userService= new UserService();
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
     }
     this.getDataFromInput = this.getDataFromInput.bind(this);
-    //this.login = this.login.bind(this);
-  }
 
-  login(){
-    console.log(this.state);
   }
-
 
   getDataFromInput(data) {
-    console.log("From register", data);
 
     this.setState({
-      email: data
+      [event.target.name]: data
     })
   }
 
   handleClick(event) {
     console.log(event);
-    alert("login");
+    console.log(this.state);
+    userService.login(this.state).then().catch();
   }
 
   render() {
@@ -44,23 +40,23 @@ class Login extends Component {
                 Login
         </Typography>
               <div>
-                <Input type={'Email'} placeholder={'Enter Your Email'} label={'Email'} onClick={this.getDataFromInput} color />
+                <Input name='email' type={'Email'} placeholder={'Enter Your Email'} label={'Email'} onChange={this.getDataFromInput}  />
               </div>
               <div>
-                <Input type={'Password'} placeholder={'Enter PassWord'} label={'PassWord'} onClick={this.getDataFromInput} />
+                <Input name='password' type={'Password'} placeholder={'Enter PassWord'} label={'PassWord'} onChange={this.getDataFromInput} />
               </div>
               <div id = 'login-btn-div'>
-                <Button variant="contained" color="primary" type='submit' onClick={this.login()} className='login-btn'>
+                <Button variant="contained" color="primary" type='submit' onClick={this.handleClick.bind(this)} className='login-btn'>
                   Login
                 </Button>
               </div>
             </div>
             <div >
               <span className='below-txt' > 
-            <Typography color='primary' >Fogot Password?</Typography>
+            <Typography >Fogot Password?</Typography>
             </span>
             <span >
-            <Typography color='primary' >New User</Typography>
+            <Typography >New User,<a href="/register">SignUp</a></Typography>
             </span>
             </div>
           </CardContent>
