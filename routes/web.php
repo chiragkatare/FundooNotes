@@ -18,3 +18,9 @@ Route::get('/', function () {
 Route::get('/register', function () {
     return view('welcome');
 });
+Route::get('/details', function () {
+    return view('welcome');
+});
+Route::get('/forgetpassword', function () {
+    return view('welcome');
+});

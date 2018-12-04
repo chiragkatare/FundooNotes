@@ -38,6 +38,6 @@ Route::post('register','UserController@register');
 // });
 
 Route::group(['middleware' => 'auth:api'], function () {
-    Route::get('/user', 'UserController@userDetails');
+    Route::get('/userdetails', 'UserController@userDetails');
     Route::get('/logout', 'UserController@logout');
 });

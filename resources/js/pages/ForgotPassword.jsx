@@ -2,34 +2,41 @@ import React, { Component } from "react";
 import Input from "../components/Input"
 import { Card, Typography, Button, CardContent } from '@material-ui/core/';
 import UserService from "../services/UserService";
+import {Redirect} from "react-router-dom"
 
 var userService= new UserService();
 
-class Login extends Component {
+export default class ForgotPassword extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: '',
-      password: '',
     }
     this.getDataFromInput = this.getDataFromInput.bind(this);
 
   }
 
   getDataFromInput(data) {
-
     this.setState({
       [event.target.name]: data
-    })
+    });
+    // console.log();
+    
   }
 
   handleClick(event) {
-    console.log(event);
-    console.log(this.state);
-    userService.login(this.state).then().catch();
+    userService.forgotPass(this.state).then(res=>{
+      if(res.status==200){
+        
+      }
+    }).catch();
   }
 
   render() {
+    if(localStorage.getItem('fundootoken')!==null){
+       this.props.history.push("/");
+    }
+
     return (
 
       <div>
@@ -37,27 +44,16 @@ class Login extends Component {
           <CardContent>
             <div>
               <Typography variant="h5" component="h2" color='primary' id='login-text'>
-                Login
+                Forget Password
         </Typography>
               <div>
                 <Input name='email' type={'Email'} placeholder={'Enter Your Email'} label={'Email'} onChange={this.getDataFromInput}  />
               </div>
-              <div>
-                <Input name='password' type={'Password'} placeholder={'Enter PassWord'} label={'PassWord'} onChange={this.getDataFromInput} />
-              </div>
               <div id = 'login-btn-div'>
                 <Button variant="contained" color="primary" type='submit' onClick={this.handleClick.bind(this)} className='login-btn'>
-                  Login
+                  Submit
                 </Button>
               </div>
-            </div>
-            <div >
-              <span className='below-txt' > 
-            <Typography >Fogot Password?</Typography>
-            </span>
-            <span >
-            <Typography >New User,<a href="/register">SignUp</a></Typography>
-            </span>
             </div>
           </CardContent>
         </Card>
@@ -65,7 +61,4 @@ class Login extends Component {
 
     );
   }
-
 }
-
-export default Login;

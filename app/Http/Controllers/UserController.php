@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\User;
 
+/**
+ * controller for 
+ */
 class UserController extends Controller
 {
 
