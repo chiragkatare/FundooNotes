@@ -45,18 +45,28 @@ class UserController extends Controller
             return response()->json(['token' => $token], 200);
         }
         else{
-            return response()->json(['error'=>'Unauthorised'], 401);
+            return response()->json(['error'=>'Unauthorised'], 204);
         }
     }
 
-    function userDetails(){
+    public function userDetails(){
         $user = Auth::user();
-        return response()->json($user);
+        return response()->json([$user],200);
     }
     
-    function logout(){
+    public function logout(){
         Auth::user()->token()->revoke();
         echo 'logout successfull';
         // return response()->json(['message'=>'Logout SuccesFull'],204);
     }
+
+    public function forgotPassword(){
+        $validator = Validator::make($request->all(), [
+            'email' => 'bail|required|email|unique:users',
+        ]);
+        if($validator->fails()){
+            return response()->json(['error'=>$validator->errors()],200);
+        }
+    }
+
 }

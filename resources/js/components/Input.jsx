@@ -6,7 +6,8 @@ export default class Input extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: ''
+            data: '',
+            color:this.props.color
         }
         this.sendDataToParent = this.sendDataToParent.bind(this);
     }
@@ -26,7 +27,7 @@ export default class Input extends Component {
                 label={this.props.label}
                 onChange={this.sendDataToParent}
                 fullWidth
-                color={this.props.color}
+                color={this.state.color}
                 required={this.props.required}
             />
 

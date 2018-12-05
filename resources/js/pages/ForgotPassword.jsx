@@ -54,6 +54,8 @@ export default class ForgotPassword extends Component {
                   Submit
                 </Button>
               </div>
+              <span id ='right-text'><a href="/register">Sign Up</a></span>
+              <span id='left-text' ><a href="/">Login</a></span>
             </div>
           </CardContent>
         </Card>

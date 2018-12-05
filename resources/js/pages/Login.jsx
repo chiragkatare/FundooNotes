@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import Input from "../components/Input"
 import { Card, Typography, Button, CardContent } from '@material-ui/core/';
 import UserService from "../services/UserService";
-import {Redirect} from "react-router-dom"
+import { Redirect } from "react-router-dom"
 
-var userService= new UserService();
+var userService = new UserService();
 
 class Login extends Component {
   constructor(props) {
@@ -12,10 +12,37 @@ class Login extends Component {
     this.state = {
       email: '',
       password: '',
-      isLoggedIn:false,
+      isValid: '',
+      error: '',
+      isLoggedIn: false,
     }
     this.getDataFromInput = this.getDataFromInput.bind(this);
+    this.validate = this.validate.bind(this);
 
+  }
+
+  validate(event) {
+    var error = {
+      email: '',
+      password: '',
+    };
+    var isvalid = true;
+    // if(event.target.name==='firstname'){
+
+    if (this.state.email.length < 1) {
+      error.email = 'Email is required'
+      isvalid = false;
+    }
+    //}
+    //else if(event.target.name==='password'){
+    if (this.state.password.length < 1) {
+      error.password = 'Password cannot be empty'
+      isvalid = false;
+    }
+    this.setState({
+      error: error,
+    })
+    return isvalid;
   }
 
   getDataFromInput(data) {
@@ -26,20 +53,45 @@ class Login extends Component {
   }
 
   handleClick(event) {
-    // console.log(event);
-    // console.log(this.state);
-    userService.login(this.state).then(this.setState({
-      isLoggedIn:true,
-    })).catch();
+    if (this.validate()) {
+      let data = {
+        email: this.state.email,
+        password: this.state.password,
+      }
+      userService.login(data).then((response) => {
+        console.log(res);
+        debugger;
+        if (response.status === 200) {
+          this.setState({
+            isLoggedIn: true,
+          });
+        }
+        else if (response.status === 204) {
+          this.setState({
+            error: {
+              email: "invalid credentials"
+            }
+          })
+        }
+
+      }
+      ).catch(error => {
+        //console.log("401",error);
+
+      });
+    }
   }
 
   /**
    * render function to render on html page
    */
   render() {
-   
-    if((localStorage.getItem('fundootoken'))!== null||this.state.isLoggedIn==true){
-      return(<Redirect to='/details'></Redirect>);
+
+    /**
+     * redirect user if already logged in
+     */
+    if ((localStorage.getItem('fundootoken')) !== null || this.state.isLoggedIn == true) {
+      return (<Redirect to='/details'></Redirect>);
     }
 
     return (
@@ -52,24 +104,26 @@ class Login extends Component {
                 Login
         </Typography>
               <div>
-                <Input name='email' type={'Email'} placeholder={'Enter Your Email'} label={'Email'} onChange={this.getDataFromInput}  />
+                <Input name='email' type={'Email'} placeholder={'Enter Your Email'} label={'Email'} onChange={this.getDataFromInput} />
+                <div className='error'>{this.state.error.email}</div>
               </div>
               <div>
                 <Input name='password' type={'Password'} placeholder={'Enter PassWord'} label={'PassWord'} onChange={this.getDataFromInput} />
+                <div className='error'>{this.state.error.password}</div>
               </div>
-              <div id = 'login-btn-div'>
+              <div id='login-btn-div'>
                 <Button variant="contained" color="primary" type='submit' onClick={this.handleClick.bind(this)} className='login-btn'>
                   Login
                 </Button>
               </div>
             </div>
             <div >
-              <span className='below-txt' > 
-            <Typography >Fogot Password?</Typography>
-            </span>
-            <span >
-            <Typography >New User,<a href="/register">SignUp</a></Typography>
-            </span>
+              <span className='below-txt' >
+                <span><a href="/forgetpassword">Forgot Password</a></span>
+              </span>
+              <span >
+                <Typography >New User,<a href="/register">SignUp</a></Typography>
+              </span>
             </div>
           </CardContent>
         </Card>

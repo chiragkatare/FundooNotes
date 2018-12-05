@@ -40,6 +40,13 @@ body {
     padding: 0px 35px 0px 35px;
 }
 
+#left-text{
+    float: left;
+}
+
+#right-text{
+    float: right;
+}
 .form{
     text-align: center;
     padding: 0px 2% 0% 2%;

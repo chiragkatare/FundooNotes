@@ -9,12 +9,16 @@ export default class UserDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            hello:'hello',
            userDetails:'',
         }
       this.logout = this.logout.bind(this);
     }
 
+    /**
+     * Logout service for the user sends ajax request
+     * 
+     * @return promise
+     */
     logout(){
         userService.logout().then(res=>{
             alert('logout succesful');

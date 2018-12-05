@@ -8,6 +8,7 @@ export default class UserService {
      * @param {array} data 
      */
     login(data) {
+    //    / debugger;
         return axios.post('/api/login',data)
         .then((response)=>{
             if (response.status==200){
@@ -16,7 +17,7 @@ export default class UserService {
             }
         }
         ).catch((error)=>{
-            console.log('rereerrors',error);
+            // /console.log('rereerrors',error);
             return error;
         });
 
