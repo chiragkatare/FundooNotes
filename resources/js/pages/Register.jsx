@@ -22,6 +22,11 @@ class Register extends Component {
     this.validate = this.validate.bind(this);
   }
 
+   /**
+   * function to get data from the object
+   * 
+   * @param {var} data 
+   */
   getDataFromInput(data) {
     // console.log('register', data);
     this.setState({
@@ -29,6 +34,11 @@ class Register extends Component {
     })
   }
 
+  /**
+   * function to handle the input validations of the page
+   * 
+   * @param {event} event 
+   */
   validate(event) {
     var error = {
       firstname: '',
@@ -99,6 +109,11 @@ class Register extends Component {
     event.target.color = 'error';
   }
 
+   /**
+   * function to handle click of the button of login
+   * 
+   * @param {event} event 
+   */
   handleClick() {
 
     if (this.validate()) {

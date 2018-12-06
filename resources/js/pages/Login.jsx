@@ -18,9 +18,15 @@ class Login extends Component {
     }
     this.getDataFromInput = this.getDataFromInput.bind(this);
     this.validate = this.validate.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
   }
 
+  /**
+   * function to handle the input validations of the page
+   * 
+   * @param {event} event 
+   */
   validate(event) {
     var error = {
       email: '',
@@ -45,22 +51,32 @@ class Login extends Component {
     return isvalid;
   }
 
-  getDataFromInput(data) {
-
+  /**
+   * function to get data from the object
+   * 
+   * @param {var} data 
+   */
+   getDataFromInput(data){
     this.setState({
       [event.target.name]: data
     })
   }
 
-  handleClick(event) {
+  /**
+   * function to handle click of the button of login
+   * 
+   * @param {event} event 
+   */
+  handleClick() {
     if (this.validate()) {
       let data = {
         email: this.state.email,
         password: this.state.password,
       }
-      userService.login(data).then((response) => {
-        console.log(res);
-        debugger;
+      userService.login(data).then(response => {
+        console.log("asasa",response);
+        console.log(this.state);
+        
         if (response.status === 200) {
           this.setState({
             isLoggedIn: true,
@@ -69,7 +85,7 @@ class Login extends Component {
         else if (response.status === 204) {
           this.setState({
             error: {
-              email: "invalid credentials"
+              email: 'invalid credentials',
             }
           })
         }
@@ -112,7 +128,7 @@ class Login extends Component {
                 <div className='error'>{this.state.error.password}</div>
               </div>
               <div id='login-btn-div'>
-                <Button variant="contained" color="primary" type='submit' onClick={this.handleClick.bind(this)} className='login-btn'>
+                <Button variant="contained" color="primary" type='submit' onClick={this.handleClick} className='login-btn'>
                   Login
                 </Button>
               </div>

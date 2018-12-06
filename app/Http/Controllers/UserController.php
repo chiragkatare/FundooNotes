@@ -7,14 +7,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\User;
+use App\Events\UserRegistered;
 
 /**
- * controller for 
+ * controller for user api
  */
 class UserController extends Controller
 {
 
 
+    /**
+     * function to register user 
+     * @var request the request which it gets from uri
+     * @return response to send to the uri
+     */
     public function register(Request $request)
     {
         $inp = $request->all();
@@ -32,11 +38,19 @@ class UserController extends Controller
         $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
         $success['firstname'] = $user->name;
+        //calling the event user registered
+        event(new UserRegistered($user));
         return response()->json(['message'=>'registration succesfull'], 201);
     }
     
+    /**
+     * function to login user 
+     * 
+     * @return response
+     */
     public function login()
     {
+        //getting user email
         $email=request('email');
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
             $user = Auth::user();
@@ -49,17 +63,32 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * function to get details of the user 
+     * 
+     * @return response
+     */
     public function userDetails(){
         $user = Auth::user();
         return response()->json([$user],200);
     }
     
+    /**
+     * function to logout user 
+     * 
+     * @return response
+     */
     public function logout(){
         Auth::user()->token()->revoke();
         echo 'logout successfull';
         // return response()->json(['message'=>'Logout SuccesFull'],204);
     }
 
+    /**
+     * function to help forgot password of the user 
+     * 
+     * @return response
+     */
     public function forgotPassword(){
         $validator = Validator::make($request->all(), [
             'email' => 'bail|required|email|unique:users',

@@ -5,6 +5,7 @@
 
 body {
     background-color:lightgoldenrodyellow;
+    text-decoration: none;
 }
 
 #reg-text-login{
@@ -38,14 +39,17 @@ body {
 #login-text{
     text-align: center;
     padding: 0px 35px 0px 35px;
+  
 }
 
 #left-text{
     float: left;
+    text-decoration: none;
 }
 
 #right-text{
     float: right;
+    text-decoration: none;
 }
 .form{
     text-align: center;

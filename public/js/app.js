@@ -5334,8 +5334,8 @@ var UserService = function () {
             return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/api/login', data).then(function (response) {
                 if (response.status == 200) {
                     localStorage.setItem('fundootoken', response.data.token);
-                    return response;
                 }
+                return response;
             }).catch(function (error) {
                 // /console.log('rereerrors',error);
                 return error;
@@ -8600,7 +8600,7 @@ var Input = function (_Component) {
 
             this.setState({ data: event.target.value });
             this.props.onChange(event.target.value);
-            // console.log("from input", this.state.data);
+            console.log("from input", this.state.data);
         }
     }, {
         key: "render",
@@ -71771,9 +71771,17 @@ var Login = function (_Component) {
     };
     _this.getDataFromInput = _this.getDataFromInput.bind(_this);
     _this.validate = _this.validate.bind(_this);
+    _this.handleClick = _this.handleClick.bind(_this);
 
     return _this;
   }
+
+  /**
+   * function to handle the input validations of the page
+   * 
+   * @param {event} event 
+   */
+
 
   _createClass(Login, [{
     key: "validate",
@@ -71800,15 +71808,28 @@ var Login = function (_Component) {
       });
       return isvalid;
     }
+
+    /**
+     * function to get data from the object
+     * 
+     * @param {var} data 
+     */
+
   }, {
     key: "getDataFromInput",
     value: function getDataFromInput(data) {
-
       this.setState(_defineProperty({}, event.target.name, data));
     }
+
+    /**
+     * function to handle click of the button of login
+     * 
+     * @param {event} event 
+     */
+
   }, {
     key: "handleClick",
-    value: function handleClick(event) {
+    value: function handleClick() {
       var _this2 = this;
 
       if (this.validate()) {
@@ -71817,8 +71838,9 @@ var Login = function (_Component) {
           password: this.state.password
         };
         userService.login(data).then(function (response) {
-          console.log(res);
-          debugger;
+          console.log("asasa", response);
+          console.log(_this2.state);
+
           if (response.status === 200) {
             _this2.setState({
               isLoggedIn: true
@@ -71826,7 +71848,7 @@ var Login = function (_Component) {
           } else if (response.status === 204) {
             _this2.setState({
               error: {
-                email: "invalid credentials"
+                email: 'invalid credentials'
               }
             });
           }
@@ -71894,7 +71916,7 @@ var Login = function (_Component) {
                 { id: "login-btn-div" },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["a" /* Button */],
-                  { variant: "contained", color: "primary", type: "submit", onClick: this.handleClick.bind(this), className: "login-btn" },
+                  { variant: "contained", color: "primary", type: "submit", onClick: this.handleClick, className: "login-btn" },
                   "Login"
                 )
               )
@@ -104567,7 +104589,7 @@ exports = module.exports = __webpack_require__(524)(false);
 
 
 // module
-exports.push([module.i, "\n.label{\n    flexDirection: 'row'\n}\n\nbody {\n    background-color:lightgoldenrodyellow;\n}\n\n#reg-text-login{\n    \n    margin-bottom: 10%;\n\n}\n\n#formcard{\n    margin: auto;\n    margin-top: 5%;\n    height: 500px;\n    width: 400px;\n    \n}\n\n#logincard{\n    margin: auto ;\n    margin-top: 5%;\n    height: 300px;\n    width:300px;\n    /* margin-top: 25%;\n    mar */\n    \n}\n\n#card-heading     {\n   text-align: center;\n}\n\n#login-text{\n    text-align: center;\n    padding: 0px 35px 0px 35px;\n}\n\n#left-text{\n    float: left;\n}\n\n#right-text{\n    float: right;\n}\n.form{\n    text-align: center;\n    padding: 0px 2% 0% 2%;\n}\n\n#register-btn-div{\nmargin: 25px;\n}\n\n#login-btn-div{\n    margin: 15px ;\n    margin-left: 27%;  \n}\n\n.register-btn{\n    width: 50%;\n    background-image: linear-gradient(to bottom right, rgb(0, 203, 253), rgb(0, 76, 255));\n    \n}\n\n.login-btn{\n    width: 70%;\n    background-image: linear-gradient(to bottom right, rgb(0, 203, 253), rgb(0, 76, 255));\n    \n}\n\nspan.below-txt{\n    float: right;\n}\n\n#newuser{\n    float: right\n}\n\n.error{\n    color: #F44336;\n    float: right;\n}\n\n@media only screen and (max-width: 600px ) {\n    \n    body {\n        background-color:lightgoldenrodyellow;\n    }\n    #formcard{\n        margin: auto;\n        margin-top: 30%;\n        height: 100%;\n        width: 100%;\n        bottom: 100%;\n        margin-bottom: 30%\n    }\n\n    #logincard{\n        margin: auto;\n        margin-top: 40%;\n        height: 100%;\n        width: 100%;\n        bottom: 100%;\n        margin-bottom: 30%\n    }\n\n    #login-btn-div{\n        margin: 15px ;\n        margin-left: 0%;  \n    }\n\n    .register-btn{\n        width:100%;\n    }\n\n    .login-btn{\n        width:100%;\n    }\n}\n/* 0px 35px 0px 35px */", ""]);
+exports.push([module.i, "\n.label{\n    flexDirection: 'row'\n}\n\nbody {\n    background-color:lightgoldenrodyellow;\n    text-decoration: none;\n}\n\n#reg-text-login{\n    \n    margin-bottom: 10%;\n\n}\n\n#formcard{\n    margin: auto;\n    margin-top: 5%;\n    height: 500px;\n    width: 400px;\n    \n}\n\n#logincard{\n    margin: auto ;\n    margin-top: 5%;\n    height: 300px;\n    width:300px;\n    /* margin-top: 25%;\n    mar */\n    \n}\n\n#card-heading     {\n   text-align: center;\n}\n\n#login-text{\n    text-align: center;\n    padding: 0px 35px 0px 35px;\n  \n}\n\n#left-text{\n    float: left;\n    text-decoration: none;\n}\n\n#right-text{\n    float: right;\n    text-decoration: none;\n}\n.form{\n    text-align: center;\n    padding: 0px 2% 0% 2%;\n}\n\n#register-btn-div{\nmargin: 25px;\n}\n\n#login-btn-div{\n    margin: 15px ;\n    margin-left: 27%;  \n}\n\n.register-btn{\n    width: 50%;\n    background-image: linear-gradient(to bottom right, rgb(0, 203, 253), rgb(0, 76, 255));\n    \n}\n\n.login-btn{\n    width: 70%;\n    background-image: linear-gradient(to bottom right, rgb(0, 203, 253), rgb(0, 76, 255));\n    \n}\n\nspan.below-txt{\n    float: right;\n}\n\n#newuser{\n    float: right\n}\n\n.error{\n    color: #F44336;\n    float: right;\n}\n\n@media only screen and (max-width: 600px ) {\n    \n    body {\n        background-color:lightgoldenrodyellow;\n    }\n    #formcard{\n        margin: auto;\n        margin-top: 30%;\n        height: 100%;\n        width: 100%;\n        bottom: 100%;\n        margin-bottom: 30%\n    }\n\n    #logincard{\n        margin: auto;\n        margin-top: 40%;\n        height: 100%;\n        width: 100%;\n        bottom: 100%;\n        margin-bottom: 30%\n    }\n\n    #login-btn-div{\n        margin: 15px ;\n        margin-left: 0%;  \n    }\n\n    .register-btn{\n        width:100%;\n    }\n\n    .login-btn{\n        width:100%;\n    }\n}\n/* 0px 35px 0px 35px */", ""]);
 
 // exports
 
@@ -105161,12 +105183,26 @@ var Register = function (_Component) {
     return _this;
   }
 
+  /**
+  * function to get data from the object
+  * 
+  * @param {var} data 
+  */
+
+
   _createClass(Register, [{
     key: 'getDataFromInput',
     value: function getDataFromInput(data) {
       // console.log('register', data);
       this.setState(_defineProperty({}, event.target.name, data));
     }
+
+    /**
+     * function to handle the input validations of the page
+     * 
+     * @param {event} event 
+     */
+
   }, {
     key: 'validate',
     value: function validate(event) {
@@ -105236,6 +105272,13 @@ var Register = function (_Component) {
     value: function unsetcolor(event) {
       event.target.color = 'error';
     }
+
+    /**
+    * function to handle click of the button of login
+    * 
+    * @param {event} event 
+    */
+
   }, {
     key: 'handleClick',
     value: function handleClick() {
@@ -105597,6 +105640,11 @@ var ForgotPassword = function (_Component) {
       this.setState(_defineProperty({}, event.target.name, data));
       // console.log();
     }
+
+    /**
+     * handle the click of button event and send the email to backend
+     */
+
   }, {
     key: "handleClick",
     value: function handleClick(event) {

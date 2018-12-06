@@ -24,6 +24,9 @@ export default class ForgotPassword extends Component {
     
   }
 
+  /**
+   * handle the click of button event and send the email to backend
+   */
   handleClick(event) {
     userService.forgotPass(this.state).then(res=>{
       if(res.status==200){
