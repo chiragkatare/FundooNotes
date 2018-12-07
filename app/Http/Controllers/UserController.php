@@ -32,17 +32,16 @@ class UserController extends Controller
             'rpassword' => 'required|same:password',
         ]);
         if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()],210);
+            return response()->json(['error' => $validator->errors()], 210);
         }
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
-        $success['firstname'] = $user->name;
-        //calling the event user registered
+        $success['firstname'] = $user->firstname;
         event(new UserRegistered($user));
-        return response()->json(['message'=>'registration succesfull'], 201);
+        return response()->json(['message' => 'registration succesfull'], 201);
     }
-    
+
     /**
      * function to login user 
      * 
@@ -51,15 +50,14 @@ class UserController extends Controller
     public function login()
     {
         //getting user email
-        $email=request('email');
-        if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
+        $email = request('email');
+        if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
             $user = Auth::user();
 
-            $token =  $user->createToken('fundoo')->accessToken;
+            $token = $user->createToken('fundoo')->accessToken;
             return response()->json(['token' => $token], 200);
-        }
-        else{
-            return response()->json(['error'=>'Unauthorised'], 204);
+        } else {
+            return response()->json(['error' => 'Unauthorised'], 204);
         }
     }
 
@@ -68,17 +66,19 @@ class UserController extends Controller
      * 
      * @return response
      */
-    public function userDetails(){
+    public function userDetails()
+    {
         $user = Auth::user();
-        return response()->json([$user],200);
+        return response()->json([$user], 200);
     }
-    
+
     /**
      * function to logout user 
      * 
      * @return response
      */
-    public function logout(){
+    public function logout()
+    {
         Auth::user()->token()->revoke();
         echo 'logout successfull';
         // return response()->json(['message'=>'Logout SuccesFull'],204);
@@ -89,12 +89,30 @@ class UserController extends Controller
      * 
      * @return response
      */
-    public function forgotPassword(){
+    public function forgotPassword()
+    {
         $validator = Validator::make($request->all(), [
             'email' => 'bail|required|email|unique:users',
         ]);
-        if($validator->fails()){
-            return response()->json(['error'=>$validator->errors()],200);
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 200);
+        }
+    }
+
+    public function verifyEmail()
+    {
+        $email = request('email');
+        $user = User::where("email", $email)->first();
+        if (!$user) {
+            return response()->json(['message' => "Not a Registered Emai"], 200);
+        } 
+        else if($user->email_verified_at === null) {
+            $user->email_verified_at = now();
+            $user->save();
+            return response()->json(['message' => "Email Successfully Verified"], 201);
+        }
+        else {
+            return response()->json(['message' => "Email Already Verified"], 201);
         }
     }
 

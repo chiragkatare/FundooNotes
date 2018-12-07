@@ -5,9 +5,9 @@ namespace App\Listeners;
 use App\Events\UserRegistered;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Support\Facades\Mail;
+use App\Notifications\VerificationMail;
 
-class SendRegisterationEmail
+class SendVerficationMail
 {
     /**
      * Create the event listener.
@@ -27,7 +27,7 @@ class SendRegisterationEmail
      */
     public function handle(UserRegistered $event)
     {
-        
-        Mail::to($event->user->email)->send(new VerifyEmail($event->user->name));
+        $user = $event->user ;
+        $user->notify(new VerificationMail($user->email,$user->id));
     }
 }

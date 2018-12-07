@@ -21,6 +21,7 @@ use Illuminate\Http\Request;
 
 Route::any('login', 'UserController@login')->name('login');
 Route::post('register','UserController@register');
+Route::post('verifyemail','UserController@verifyEmail');
 // Route::get('/user', 'UserController@userDetails')->middleware('auth:api');
 
 // Route::group(['middleware' => ['auth:api']], function()
@@ -36,6 +37,8 @@ Route::post('register','UserController@register');
 //     });
 
 // });
+
+
 
 Route::group(['middleware' => 'auth:api'], function () {
     Route::get('/userdetails', 'UserController@userDetails');

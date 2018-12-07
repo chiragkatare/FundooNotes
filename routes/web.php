@@ -27,3 +27,6 @@ Route::get('/details', function () {
 Route::get('/forgetpassword', function () {
     return view('welcome');
 });
+Route::get('/verifyemail/{email}', function () {
+    return view('welcome');
+});
