@@ -22,6 +22,9 @@ use Illuminate\Http\Request;
 Route::any('login', 'UserController@login')->name('login');
 Route::post('register','UserController@register');
 Route::post('verifyemail','UserController@verifyEmail');
+Route::post('forgotpassword','PasswordResetController@create');
+Route::post('forgotpassword/find','PasswordResetController@find');
+Route::post('forgotpassword/reset','PasswordResetController@reset');
 // Route::get('/user', 'UserController@userDetails')->middleware('auth:api');
 
 // Route::group(['middleware' => ['auth:api']], function()

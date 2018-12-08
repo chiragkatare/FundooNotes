@@ -1,4 +1,11 @@
 <?php
+/**
+ * 
+ * Listener class for UserRegistered Event 
+ * sends verification email to user to verify email 
+ */
+
+
 
 namespace App\Listeners;
 

@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Notification fot sending the verifi=cation mail to the user 
- * queued mail so happens on different process 
- * run "php artisan queue:listen" to clear queue
- */
-
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
@@ -13,22 +7,19 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class VerificationMail extends Notification implements ShouldQueue
+class PasswordResetRequest extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    public $email;
-    public $id;
-
+    private $token;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(string $email, string $id)
+    public function __construct($token)
     {
-        $this->email = $email;
-        $this->id = $id;
+        $this->token = $token;
     }
 
     /**
@@ -50,11 +41,12 @@ class VerificationMail extends Notification implements ShouldQueue
      */
     public function toMail($notifiable)
     {
-        $url = "verifyemail/$this->email";
+        $url = url("/passwordreset/$this->token");
         return (new MailMessage)
-            ->line('Welcome to Fundoo Notes')
-            ->action('Verify Email', url($url))
-            ->line('Thank you for Registering!');
+            ->line('You are receiving this email because we received a password reset request for your account.')
+            ->action('Reset Password', url($url))
+            ->line('Link is valid only for 12 hours')
+            ->line('If you did not request a password reset, no further action is required.');
     }
 
     /**

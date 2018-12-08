@@ -4,10 +4,12 @@
         <meta charset="utf-8">
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
         <meta
+        
   name="viewport"
   content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
 />
         <title>Laravel</title>
+        <!-- <link rel="shortcut icon" sizes="114x114" href="resources/js/assets/images/logo.svg"> -->
 
         <!-- Fonts -->
         <!-- <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css"> -->

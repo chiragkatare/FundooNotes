@@ -90,6 +90,79 @@ span.below-txt{
     float: right;
 }
 
+/*
+email Verificatio  page css
+*/
+#verify-card{
+    margin: auto;
+    margin-top: 5%;
+    height: 400px;
+    width: 350px;
+    
+}
+
+.logo{
+    margin: auto;
+    height: 70px;
+    width: 70px ;
+}
+
+.label-page{
+    padding: 10px;
+    background-color: rgb(54, 54, 54);
+    margin-bottom: 35px;
+    
+}
+
+.label-forgetpass{
+    padding: 10px;
+    background-color: rgb(54, 54, 54);
+    margin-bottom: 5px;    
+}
+
+div .label-text{
+    color: aliceblue;
+}
+
+
+@media only screen and (max-width: 720px ) {
+    
+    body {
+        background-color:lightgoldenrodyellow;
+    }
+    #formcard{
+        margin: auto;
+        margin-top: 30%;
+        height: 100%;
+        width: 100%;
+        bottom: 100%;
+        margin-bottom: 30%
+    }
+
+    #logincard{
+        margin: auto;
+        margin-top: 40%;
+        height: 100%;
+      
+        bottom: 100%;
+        margin-bottom: 30%
+    }
+
+    #login-btn-div{
+        margin: 15px ;
+        margin-left: 0%;  
+    }
+
+    .register-btn{
+        width:100%;
+    }
+
+    .login-btn{
+        width:100%;
+    }
+}
+
+
 @media only screen and (max-width: 600px ) {
     
     body {

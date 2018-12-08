@@ -35,6 +35,7 @@ class UserController extends Controller
             return response()->json(['error' => $validator->errors()], 210);
         }
         $input = $request->all();
+        $input["created_at"]=now();
         $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
         $success['firstname'] = $user->firstname;
@@ -99,12 +100,17 @@ class UserController extends Controller
         }
     }
 
+     /**
+     * function to verify email of the user and add the time stamp to user verified field in user table
+     * 
+     * @return response
+     */
     public function verifyEmail()
     {
         $email = request('email');
         $user = User::where("email", $email)->first();
         if (!$user) {
-            return response()->json(['message' => "Not a Registered Emai"], 200);
+            return response()->json(['message' => "Not a Registered Email"], 200);
         } 
         else if($user->email_verified_at === null) {
             $user->email_verified_at = now();
@@ -112,7 +118,7 @@ class UserController extends Controller
             return response()->json(['message' => "Email Successfully Verified"], 201);
         }
         else {
-            return response()->json(['message' => "Email Already Verified"], 201);
+            return response()->json(['message' => "Email Already Verified"], 202);
         }
     }
 

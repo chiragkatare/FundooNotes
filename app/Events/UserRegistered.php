@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * event for user Registration
+ * executed automatically by registration api at successfull registration 
+ * 
+ * listener = app/listener/SendVerificationMail
+ */
+
+
 namespace App\Events;
 
 use Illuminate\Broadcasting\Channel;
@@ -26,7 +34,7 @@ class UserRegistered
         $this->user = $user;
     }
 
-    /**
+    /**        
      * Get the channels the event should broadcast on.
      *
      * @return \Illuminate\Broadcasting\Channel|array
