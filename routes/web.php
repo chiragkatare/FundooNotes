@@ -27,9 +27,12 @@ Route::get('/details', function () {
 Route::get('/forgetpassword', function () {
     return view('welcome');
 });
-Route::get('/verifyemail/{email}', function () {
+Route::get('/verifyemail/{token}', function () {
     return view('welcome');
 });
 Route::get('/passwordreset/{token}', function () {
+    return view('welcome');
+});
+Route::get('/dashboard', function () {
     return view('welcome');
 });

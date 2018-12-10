@@ -37,9 +37,10 @@ class UserController extends Controller
         $input = $request->all();
         $input["created_at"]=now();
         $input['password'] = bcrypt($input['password']);
+        $input['verifytoken'] = str_random(60);
         $user = User::create($input);
         $success['firstname'] = $user->firstname;
-        event(new UserRegistered($user));
+        event(new UserRegistered($user,$input['verifytoken']));
         return response()->json(['message' => 'registration succesfull'], 201);
     }
 
@@ -107,8 +108,10 @@ class UserController extends Controller
      */
     public function verifyEmail()
     {
-        $email = request('email');
-        $user = User::where("email", $email)->first();
+        $id = request('id');
+        $token = request('token');
+          $user =  User::where("verifytoken", $token)->first();
+    //    / $user = User::where("email", $email)->first();
         if (!$user) {
             return response()->json(['message' => "Not a Registered Email"], 200);
         } 

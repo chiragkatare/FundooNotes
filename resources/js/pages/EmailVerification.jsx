@@ -8,32 +8,34 @@ export default class EmailVerification extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
+      token: '',
       status: false,
       message: '',
+      data:''
     }
   }
 
   componentDidMount() {
-    let eemail = (window.location.pathname).substring(13);
-    console.log(eemail);
-    this.setState({ email: eemail})
+    let token = (window.location.pathname).substring(13);
+    //let iid = (window.location.pathname).substring(43);
+    console.log(token);
+   // this.setState({ email: eemail});
+    // this.setState({ id: iid});
 
-    // this.setState(
-    //   {
-    //     email: eemail,
-    //   });
-    //   this.forceUpdate();
-    // console.log(this.state);
+    this.setState(
+      {
+        token: token,
+      });
+      this.forceUpdate();
+    console.log(this.state);
     
   }
 
   handleClick() {
     //var data = {email:eemail}
-    console.log('email', this.state.email);
 
 
-    axios.post('/api/verifyemail', { email: this.state.email })
+    axios.post('/api/verifyemail', { token: this.state.token })
       .then((response) => {
         this.setState(
           {
@@ -52,7 +54,6 @@ export default class EmailVerification extends Component {
   }
 
   render() {
-    console.log(this.state.email);
     
 
     return (
@@ -81,7 +82,7 @@ export default class EmailVerification extends Component {
              (
             <div> <Typography align='center' variant='h5' component='h4' >Just One More Step..</Typography>
               <Typography component='p' >Click On the Button to Activate Your Account</Typography>
-              <Typography align='center' component='p' >Email is <span>{this.state.email}</span></Typography>
+              <Typography align='center' component='p' >Email is <span>email</span></Typography>
               <Button fullWidth variant="contained" color="primary" type='submit' onClick={this.handleClick.bind(this)} >Activate Account</Button></div>
               )}
           </CardContent>

@@ -133,7 +133,7 @@ class Register extends Component {
           });
         }
         else if (res.status === 201) {
-          alert('hehe')
+          alert('Registration Successfull')
         }
 
       }).catch();

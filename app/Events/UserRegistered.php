@@ -22,15 +22,16 @@ class UserRegistered
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $token;
     public $user;
-
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($user,$token)
     {
+        $this->token = $token;
         $this->user = $user;
     }
 

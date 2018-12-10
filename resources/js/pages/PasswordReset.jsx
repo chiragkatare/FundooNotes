@@ -12,8 +12,19 @@ export default class EmailVerification extends Component {
             token: '',
             status: false,
             message: '',
+            password:'',
+            rpassword:''
         }
+        this.getDataFromInput = this.getDataFromInput.bind(this);
     }
+
+
+    getDataFromInput(data) {
+        // console.log('register', data);
+        this.setState({
+          [event.target.name]: data
+        })
+      }
 
     componentDidMount() {
         let ptoken = (window.location.pathname).substring(15);
@@ -22,11 +33,19 @@ export default class EmailVerification extends Component {
     //    / debugger;
         userservice.findToken({token:ptoken})
             .then((response) => {
+               if(response.status===200){
                 this.setState(
                     {
                         status: true,
                         message: response.data.message,
                     });
+               }
+               else{
+                this.setState(
+                    {
+                        message: response.data.message,
+                    });
+               }
                 console.log('emaiasasasal', this.state);
             }
             ).catch((error) => {
@@ -44,7 +63,11 @@ export default class EmailVerification extends Component {
     handleClick() {
 
 
-        axios.post('/api/passwordreset/reset', { email: this.state.email })
+        axios.post('/api/forgotpassword/reset',
+         { token: this.state.token,
+           password:this.state.password,
+           rpassword:this.state.rpassword
+        })
             .then((response) => {
                 this.setState(
                     {

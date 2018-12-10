@@ -62,7 +62,7 @@ class Login extends Component {
     })
   }
 
-  /**
+  /***
    * function to handle click of the button of login
    * 
    * @param {event} event 

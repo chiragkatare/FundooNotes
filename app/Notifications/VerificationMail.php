@@ -18,17 +18,17 @@ class VerificationMail extends Notification implements ShouldQueue
     use Queueable;
 
     public $email;
-    public $id;
+    public $token;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(string $email, string $id)
+    public function __construct(string $email, string $token)
     {
         $this->email = $email;
-        $this->id = $id;
+        $this->token = $token;
     }
 
     /**
@@ -50,9 +50,11 @@ class VerificationMail extends Notification implements ShouldQueue
      */
     public function toMail($notifiable)
     {
-        $url = "verifyemail/$this->email";
+       // $url = "verifyemail/".$this->id;
+        $url = "verifyemail/$this->token";
         return (new MailMessage)
             ->line('Welcome to Fundoo Notes')
+            ->line('Please Verify your email to get started with us')
             ->action('Verify Email', url($url))
             ->line('Thank you for Registering!');
     }

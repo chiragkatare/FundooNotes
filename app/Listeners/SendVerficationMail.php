@@ -34,7 +34,8 @@ class SendVerficationMail
      */
     public function handle(UserRegistered $event)
     {
-        $user = $event->user ;
-        $user->notify(new VerificationMail($user->email,$user->id));
+        $user = $event->user;
+        
+        $user->notify(new VerificationMail($user->email,$event->token));
     }
 }
