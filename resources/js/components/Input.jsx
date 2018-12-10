@@ -19,7 +19,7 @@ export default class Input extends Component {
     }
     render() {
         return (
-            <TextField
+            <TextField 
                 className='label'
                 name={this.props.name}
                 type={this.props.type}
@@ -29,6 +29,7 @@ export default class Input extends Component {
                 fullWidth
                 color={this.state.color}
                 required={this.props.required}
+                // variant='outlined'
             />
 
         );

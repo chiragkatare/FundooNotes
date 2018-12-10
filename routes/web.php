@@ -30,3 +30,6 @@ Route::get('/forgetpassword', function () {
 Route::get('/verifyemail/{email}', function () {
     return view('welcome');
 });
+Route::get('/passwordreset/{token}', function () {
+    return view('welcome');
+});

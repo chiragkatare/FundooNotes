@@ -25,6 +25,10 @@ export default class ForgotPassword extends Component {
     // console.log();
   }
 
+  handleLoginClick(){
+    this.props.history.push('/');
+  }
+
   /**
    * handle the click of button event and send the email to backend
    */
@@ -70,7 +74,7 @@ export default class ForgotPassword extends Component {
                 <Typography variant="h" component="p" >
                   {this.state.message}
                 </Typography>
-                <Button fullWidth color="primary" type='submit' onClick={this.handleClick.bind(this)} >
+                <Button fullWidth color="primary" type='submit' onClick={this.handleLoginClick.bind(this)} >
                  Login
               </Button>
               </div>)

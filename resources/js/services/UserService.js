@@ -93,4 +93,15 @@ export default class UserService {
             return error;
         });
     }
+
+
+    findToken(token){
+        return axios.post('/api/forgotpassword/find',token)
+        .then((response) => {
+            return response;
+        }
+        ).catch((error) => {
+            return error;
+        });
+    }
 }

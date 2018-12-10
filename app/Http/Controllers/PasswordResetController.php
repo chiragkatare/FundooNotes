@@ -63,7 +63,7 @@ class PasswordResetController extends Controller
                 'message' => 'This password reset token is invalid.'
             ], 200);
         }
-        return response()->json(['message' => $passwordReset], 201);
+        return response()->json(['message' => $passwordreset], 201);
     }
 
     /**
@@ -79,28 +79,26 @@ class PasswordResetController extends Controller
     public function reset(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'email' => 'required|email',
             'password' => 'required|min:8|max:15',
             'rpassword' => 'required|same:password',
         ]);
         $passwordReset = PasswordReset::where([
-            ['token', $request->token],
-            ['email', $request->email]
+            ['token', $request->token]
         ])->first();
         if (!$passwordReset)
             return response()->json([
             'message' => 'This password reset token is invalid.'
-        ], 404);
+        ], 200);
         $user = User::where('email', $passwordReset->email)->first();
         if (!$user)
             return response()->json([
             'message' => "We can't find a user with that e-mail address."
-        ], 404);
+        ], 200);
         $user->password = bcrypt($request->password);
         $user->save();
         $passwordReset->delete();
      //   $user->notify(new PasswordResetSuccess($passwordReset));
-        return response()->json($user);
+        return response()->json([$user],200);
     }
 
 
