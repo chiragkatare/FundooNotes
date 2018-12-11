@@ -1,20 +1,21 @@
-//import AppBar from "../components/AppBar";
-import { Component } from "react";
+import CAppBar from "../components/CAppBar";
+import React from "react";
 
-class DashBoard extends Component{
+export default class DashBoard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          token: '',
-          status: false,
-          message: '',
-          data:'' 
+            token: '',
+            status: false,
+            message: '',
+            data: ''
         }
-      }
-      render(){
-          return(
-             // <AppBar/>
-             <div></div>
-          );
-      }
+    }
+    render() {
+        return (
+            <div style={{background: 'red'}}> 
+                <div><CAppBar /></div>
+            </div>
+        );
+    }
 }

@@ -6,7 +6,7 @@
 
 
 body {
-    background-color:lightgoldenrodyellow;
+    /* background-color:lightgoldenrodyellow; */
     text-decoration: none;
 }
 
@@ -171,6 +171,29 @@ div .label-text{
         width:100%;
     }
 }
+
+.appbar-search{
+    margin-left: 70px;
+    border: solid 1px;
+    box-shadow: 0px 0px 5px grey ;
+    border-radius: 5px;
+    padding-top: 0px;
+    line-height: 20%;
+    display: flex;
+    width : 650px; 
+}
+.icon{
+    opacity:0.5 ;
+}
+.icon:hover:hover {opacity: 1}
+
+.appbar-logo{
+    height: 48px;
+    width: 48px ;
+    padding-right: 15px;
+    
+}
+
 
 
 @media only screen and (max-width: 600px ) {

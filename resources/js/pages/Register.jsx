@@ -144,7 +144,7 @@ class Register extends Component {
     //console.log("email", this.state.email);
 
     return (
-      <div>
+      <div >
         <Card id='formcard'>
           <CardContent>
             <div >
