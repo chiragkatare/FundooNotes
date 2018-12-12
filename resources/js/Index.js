@@ -11,6 +11,7 @@ import  ForgotPassword  from "./pages/ForgotPassword";
 import EmailVerification from  "./pages/EmailVerification";
 import PasswordReset from "./pages/PasswordReset";
 import DashBoard from "./pages/DashBoard";
+import Notverified from "./pages/Notverified";
 
 const theme = createMuiTheme(defTheme);
 
@@ -28,6 +29,7 @@ export default class Index extends Component {
                    <Route path='/verifyemail/:email' component={EmailVerification}></Route>
                    <Route path='/passwordreset/:token' component={PasswordReset}></Route>
                    <Route path='/dashboard' component={DashBoard}></Route>
+                   <Route path='/notverified' component={Notverified}></Route>
                    </MuiThemeProvider>
                </div>
            </Router>

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\User;
 use App\Events\UserRegistered;
+use Illuminate\Support\Facades\Redirect;
 
 /**
  * controller for user api
@@ -55,7 +56,9 @@ class UserController extends Controller
         $email = request('email');
         if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
             $user = Auth::user();
-
+            if($user->email_verified_at === null){
+                return response()->json(['message' => 'Email Not Verified'], 211);
+            }
             $token = $user->createToken('fundoo')->accessToken;
             return response()->json(['token' => $token], 200);
         } else {

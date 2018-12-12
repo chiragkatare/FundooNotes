@@ -8,7 +8,7 @@
   name="viewport"
   content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
 />
-        <title>Laravel</title>
+        <title>Fundoo Notes</title>
         <!-- <link rel="shortcut icon" sizes="114x114" href="resources/js/assets/images/logo.svg"> -->
 
         <!-- Fonts -->

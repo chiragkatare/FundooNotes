@@ -1,12 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import MenuIcon from '@material-ui/icons/Menu';
-import IconButton from '@material-ui/core/IconButton';
-import InputBase from '@material-ui/core/InputBase';
-import SearchIcon from '@material-ui/icons/Search';
+import { AppBar, Toolbar, IconButton, Typography, InputBase, Avatar } from '@material-ui/core/';
+
 
 
 export default class CAppBar extends React.Component {
@@ -15,31 +10,19 @@ export default class CAppBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            heading: 'FundooNotes',
             anchorEl: null,
             mobileMoreAnchorEl: null,
         };
+       
     }
 
-
+  
 
     handleProfileMenuOpen = (event) => {
         this.setState({ anchorEl: event.currentTarget });
     };
 
-    // handleMenuClose = () => {
-    //     this.setState({ anchorEl: null });
-    //     this.handleMobileMenuClose();
-    // };
-
-    // handleMobileMenuOpen = event => {
-    //     this.setState({ mobileMoreAnchorEl: event.currentTarget });
-    // };
-
-
-
-    // handleMobileMenuClose = () => {
-    //     this.setState({ mobileMoreAnchorEl: null });
-    // };
 
     render() {
 
@@ -47,15 +30,15 @@ export default class CAppBar extends React.Component {
         return (
             <AppBar style={{ backgroundColor: "white" }}>
                 <Toolbar>
-                    <IconButton color="inherit" aria-label="Open drawer">
+                    <IconButton color="inherit"  onClick={this.props.menuClick} >
                         <img className='icon' src={require('../assets/icons/menu.svg')} alt="" />
                     </IconButton>
                     <div className='appbar-logo'>
                         <img src={require('../assets/images/logo.svg')} alt="" />
                     </div>
-                    <Typography variant="h6">
-                        Notes
-                      </Typography>
+                    <Typography className='appbar-heading' variant="h6">
+                        {this.state.heading}
+                    </Typography>
                     <div className='appbar-search'>
                         <IconButton>
                             <img className='icon' src={require('../assets/icons/search.svg')} alt="" />
@@ -71,32 +54,21 @@ export default class CAppBar extends React.Component {
 
                     </div>
                     <IconButton>
-                            <img className='icon' src={require('../assets/icons/refresh.svg')} alt="" />
+                        <img className='icon' src={require('../assets/icons/refresh.svg')} alt="" />
+                    </IconButton>
+                    <IconButton>
+                        <img className='icon' src={require('../assets/icons/grid.svg')} alt="" />
+                    </IconButton>
+                    <IconButton>
+                        <img className='icon' src={require('../assets/icons/setting.svg')} alt="" />
+                    </IconButton>
+                    <div className='appbar-avatar-btn'>
+                        <IconButton  >
+                            <Avatar alt="Remy Sharp" src={require('../assets/images/avatar.jpg')} />
                         </IconButton>
-                        <IconButton>
-                            <img className='icon' src={require('../assets/icons/grid.svg')} alt="" />
-                        </IconButton>
-                        <IconButton>
-                            <img className='icon' src={require('../assets/icons/setting.svg')} alt="" />
-                        </IconButton>
+                    </div>
                 </Toolbar>
             </AppBar >
-            // <AppBar position="static" >
-            //     <Toolbar>
-            //         <IconButton color="inherit" aria-label="Open drawer">
-            //             <img src={require('../assets/icons/menu.svg')} alt="" />
-            //         </IconButton>
-            //         <Typography variant="h6" noWrap>
-            //             Fundoo Notes
-            // </Typography>
-            //         <div className='appbar-search'>
-            //             <span className='icon'><SearchIcon color='action' /></span>
-            //             <InputBase
-            //                 placeholder="Search…"
-            //             />
-            //         </div>
-            //     </Toolbar>
-            // </AppBar>
         );
     }
 }

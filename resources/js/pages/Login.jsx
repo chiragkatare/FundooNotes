@@ -89,6 +89,11 @@ class Login extends Component {
             }
           })
         }
+        else if (response.status === 211) {
+          localStorage.removeItem('fundootoken');
+          this.props.history.push('/notverified');
+        }
+        
 
       }
       ).catch(error => {

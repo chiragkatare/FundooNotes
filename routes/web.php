@@ -36,3 +36,6 @@ Route::get('/passwordreset/{token}', function () {
 Route::get('/dashboard', function () {
     return view('welcome');
 });
+Route::get('/notverified', function () {
+    return view('welcome');
+});
