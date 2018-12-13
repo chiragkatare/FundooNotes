@@ -22,7 +22,8 @@ export default class Index extends Component {
            <Router>
                <div>
                <MuiThemeProvider theme={theme}>
-                   <Route path='/' exact component={Login}></Route>
+                   <Route path='/' exact component={DashBoard}></Route>
+                   <Route path='/login' component={Login}></Route>
                    <Route path='/register' component={Register}></Route>
                    <Route path='/details' component={UserDetails}></Route>
                    <Route path='/forgetpassword' component={ForgotPassword}></Route>

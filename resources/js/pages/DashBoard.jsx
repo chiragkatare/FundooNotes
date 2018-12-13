@@ -1,6 +1,7 @@
 import CAppBar from "../components/CAppBar";
 import React from "react";
 import SideDrawer from '../components/SideDrawer'
+import TakeNote from '../components/TakeNote';
 
 export default class DashBoard extends React.Component {
     constructor(props) {
@@ -25,7 +26,9 @@ export default class DashBoard extends React.Component {
         return (
             <div > 
                 <div><CAppBar menuClick={this.handleMenuClick} /></div>
-                <SideDrawer open={this.state.drawerOpen}/>
+                <div><SideDrawer open={this.state.drawerOpen}/></div>
+                <div><TakeNote/></div>
+                
             </div>
         );
     }

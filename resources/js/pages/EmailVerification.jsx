@@ -50,7 +50,7 @@ export default class EmailVerification extends Component {
   }
 
   handleLogin() {
-    this.props.history.push('/');
+    this.props.history.push('/login');
   }
 
   render() {

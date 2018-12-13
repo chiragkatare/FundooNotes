@@ -22,7 +22,7 @@ export default class NotVerified extends Component {
  */
    
   handleLogin() {
-    this.props.history.push('/');
+    this.props.history.push('/login');
 }
 
   render() {

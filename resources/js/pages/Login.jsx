@@ -112,7 +112,7 @@ class Login extends Component {
      * redirect user if already logged in
      */
     if ((localStorage.getItem('fundootoken')) !== null || this.state.isLoggedIn == true) {
-      return (<Redirect to='/details'></Redirect>);
+      return (<Redirect to='/dashboard'></Redirect>);
     }
 
     return (

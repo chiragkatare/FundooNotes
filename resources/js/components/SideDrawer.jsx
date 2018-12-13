@@ -1,19 +1,13 @@
-import Drawer from '@material-ui/core/Drawer';
 import React from 'react';
-import Divider from '@material-ui/core/Divider';
-import { Component } from 'react';
-import List from "@material-ui/core/List";
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-
+import Drawer from '@material-ui/core/Drawer';
+import { Divider, List, ListItem, Typography, ListItemIcon, ListItemText } from '@material-ui/core/';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 
 const theme = createMuiTheme({
     overrides: {
         MuiDrawer: {
             paper: {
-                top: 64,
+                top: 66,
                 width: 270,
             }
         }
@@ -23,14 +17,13 @@ const theme = createMuiTheme({
     // .MuiDrawer-paper-107
 })
 
-export default class SideDrawer extends Component {
+export default class SideDrawer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             open: true,
         }
     }
-
 
     render() {
 
@@ -45,6 +38,22 @@ export default class SideDrawer extends Component {
                     <ListItemText primary='Reminder' />
                 </ListItem>
                 <Divider />
+                <Typography >
+                    Label
+                </Typography>
+                <ListItem button>
+                    <ListItemIcon><img src={require('../assets/icons/EditLabels.svg')} alt="" /></ListItemIcon>
+                    <ListItemText primary='Edit Labels' />
+                </ListItem>
+                <ListItem button>
+                    <ListItemIcon><img src={require('../assets/icons/Archive.svg')} alt="" /></ListItemIcon>
+                    <ListItemText primary='Archive' />
+                </ListItem>
+                <Divider />
+                <ListItem button>
+                    <ListItemIcon><img src={require('../assets/icons/Bin.svg')} alt="" /></ListItemIcon>
+                    <ListItemText primary='Bin' />
+                </ListItem>
             </List>
         );
 

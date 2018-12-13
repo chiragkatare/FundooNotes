@@ -23,7 +23,7 @@ export default class UserDetails extends Component {
         userService.logout().then(res=>{
             alert('logout succesful');
             console.log('res');
-            this.props.history.push('/');
+            this.props.history.push('/login');
             
         }).catch();
     }

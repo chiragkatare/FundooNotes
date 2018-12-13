@@ -39,3 +39,6 @@ Route::get('/dashboard', function () {
 Route::get('/notverified', function () {
     return view('welcome');
 });
+Route::get('/login', function () {
+    return view('welcome');
+});

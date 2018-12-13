@@ -26,7 +26,7 @@ export default class ForgotPassword extends Component {
   }
 
   handleLoginClick(){
-    this.props.history.push('/');
+    this.props.history.push('/login');
   }
 
   /**
@@ -55,7 +55,7 @@ export default class ForgotPassword extends Component {
 
   render() {
     if (localStorage.getItem('fundootoken') !== null) {
-      this.props.history.push("/");
+      this.props.history.push("/login");
     }
 
     return (
@@ -91,7 +91,7 @@ export default class ForgotPassword extends Component {
               </Button>
                 </div>
                 <span id='right-text'><a href="/register">Sign Up</a></span>
-                <span id='left-text' ><a href="/">Login</a></span>
+                <span id='left-text' ><a href="/login">Login</a></span>
               </div>)
             }
           </CardContent>

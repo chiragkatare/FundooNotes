@@ -177,7 +177,7 @@ class Register extends Component {
                     Submit
                   </Button>
                 </div>
-                <span><Typography id='reg-text-login'>Already have an account <a href="/">Login</a></Typography></span>
+                <span><Typography id='reg-text-login'>Already have an account <a href="/login">Login</a></Typography></span>
               </div>
             </div>
             
