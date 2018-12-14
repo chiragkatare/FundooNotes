@@ -1,7 +1,7 @@
 
-.label{
-    flexDirection: 'row'
-}
+/* .label{
+    /* flexDirection: 'row' */
+/* } */
 
 
 
@@ -167,6 +167,7 @@ div .label-text{
 .icon{
     opacity:0.5 ;
 }
+
 .icon:hover:hover {opacity: 1}
 
 .appbar-logo{
@@ -215,6 +216,54 @@ div .label-text{
 .card-button-close{
     float: right;
 }
+
+.appbar-menu-profile{
+    left: 90%;
+}
+
+.note-card{
+    width:250px;
+    margin: 1%;
+    margin-bottom: 0%;
+    /*
+    flex-direction: row; */
+}
+
+.notes-div{
+    display: flex;
+    position: inherit;
+    left: 142px;
+    margin-left: 23%;
+    margin-top: 5%;
+
+}
+
+.notes-div-grid{
+    position: inherit;
+    left: 142px;
+    margin-left: 23%;
+    margin-top: 5%;
+
+}
+.note-icon-div{
+    opacity:0.5 ;
+    /* margin: 5px; */
+}
+.note-icon-div img{
+    height: 20px;
+    /* margin: 5px; */
+} 
+
+.note-icon-div:hover:hover {opacity: 1}
+
+.note-bottom-icons-div{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2%;
+}
+
+
+
 @media only screen and (max-width: 720px ) {
     
     /* body {

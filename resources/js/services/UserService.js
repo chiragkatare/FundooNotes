@@ -71,7 +71,7 @@ export default class UserService {
      */
     logout(){
         var AuthStr="Bearer ".concat(localStorage.getItem('fundootoken'));
-        return axios.get('/api/userdetails', { headers: { Authorization: AuthStr } })
+        return axios.get('/api/logout', { headers: { Authorization: AuthStr } })
         .then((response) => {
             localStorage.removeItem('fundootoken');
             return response;
