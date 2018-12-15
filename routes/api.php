@@ -46,4 +46,6 @@ Route::post('forgotpassword/reset','PasswordResetController@reset');
 Route::group(['middleware' => 'auth:api'], function () {
     Route::get('/userdetails', 'UserController@userDetails');
     Route::get('/logout', 'UserController@logout');
+    Route::post('/getnotes', 'NotesController@getNotes');
+    Route::post('/createnote', 'NotesController@create');
 });
