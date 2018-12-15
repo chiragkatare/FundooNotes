@@ -29,13 +29,12 @@ class NotesController extends Controller
     public function getNotes()
     {
         
-        // $notes = Cache::remember('notes',(15),function(){
-        //     $nn =  Notes::where('useremail',Auth::user()->email)->get();
-            
-        //     return $nn;
-        // });
-        $notes =  Notes::where('useremail',Auth::user()->email)->get();
-         Redis::set('Note',$notes);
-        return response()->json(['message'=>$notes],200);
+        $notes = Cache::remember('notes',(15),function(){
+            $nn =  Notes::where('useremail',Auth::user()->email)->get();
+            return $nn;
+        });
+        // $notes =  Notes::where('useremail',Auth::user()->email)->get();
+        //  Redis::set('Note',$notes);
+        // return response()->json(['message'=>$notes],200);
     }
 }
