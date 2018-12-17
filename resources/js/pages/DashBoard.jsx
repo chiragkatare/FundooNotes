@@ -4,8 +4,11 @@ import SideDrawer from '../components/SideDrawer'
 import TakeNote from '../components/TakeNote';
 import UserService from '../services/UserService';
 import Note from "../components/Note";
+import NotesService from "../services/NotesService";
+import moment from 'moment';
 
 var userService = new UserService();
+var noteService = new NotesService();
 
 
 export default class DashBoard extends React.Component {
@@ -14,10 +17,25 @@ export default class DashBoard extends React.Component {
         this.state = {
             drawerOpen: false,
             Notes: [],
+            gridView:true,
         }
         this.handleMenuClick = this.handleMenuClick.bind(this);
         this.logout = this.logout.bind(this);
         this.getNewNote = this.getNewNote.bind(this);
+    }
+
+    componentDidMount(){
+        noteService.getNotes().then(
+            resp=>{
+                console.log(resp);
+                
+                if(resp.status===200){
+                    this.setState({
+                        Notes:resp.data.message,
+                    });
+                }
+            }
+        ).catch();
     }
 
     getNewNote = (note) => {
@@ -38,7 +56,7 @@ export default class DashBoard extends React.Component {
         else
             this.setState({ drawerOpen: false });
 
-        console.log(this.state);
+       
 
     }
 
@@ -48,32 +66,38 @@ export default class DashBoard extends React.Component {
     logout() {
         userService.logout().then(res => {
             alert('logout succesful');
-            console.log('res');
+            
             this.props.history.push('/login');
 
         }).catch();
     }
 
+    changeView=()=>{
+        this.setState({
+            gridView:!this.state.gridView,
+        });
+    }
+
     render() {
-        console.log('dash render', this.state.Notes);
+        console.log(moment().format("MMM Do YY"));
 
         if ((localStorage.getItem('fundootoken')) === null) {
             this.props.history.push('/login');
         }
 
-        var notes = (  this.state.Notes.map((note ,index) => {
-            return <Note key={index} title={note.title} body={note.body}></Note>
+        var notes = (  this.state.Notes.map((note) => {
+            return <Note key={note.id} title={note.title} body={note.body} reminder={note.reminder} ></Note>
         })
 
         );
 
         return (
             <div >
-                <div><CAppBar menuClick={this.handleMenuClick} logout={this.logout} /></div>
+                <div><CAppBar menuClick={this.handleMenuClick}  changeView={this.changeView} logout={this.logout} /></div>
                 <div><SideDrawer open={this.state.drawerOpen} /></div>
                 <div><TakeNote sendNote={this.getNewNote} /></div>
               
-                <div className='notes-div'>{notes}</div>
+                <div className={this.state.gridView===true?'notes-div':'notes-div-grid'} >{notes}</div>
 
             </div>
         );

@@ -78,7 +78,7 @@ export default class CAppBar extends React.Component {
                     <IconButton>
                         <img className='icon' src={require('../assets/icons/refresh.svg')} alt="" />
                     </IconButton>
-                    <IconButton>
+                    <IconButton onClick={this.props.changeView}>
                         <img className='icon' src={require('../assets/icons/grid.svg')} alt="" />
                     </IconButton>
                     <IconButton>

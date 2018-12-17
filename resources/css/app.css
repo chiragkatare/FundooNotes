@@ -263,7 +263,9 @@ div .label-text{
     padding: 2%;
 }
 
-
+.reminder-popper{
+    z-index: 1;
+}
 
 @media only screen and (max-width: 720px ) {
     

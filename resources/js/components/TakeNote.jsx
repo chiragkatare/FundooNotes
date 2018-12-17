@@ -1,24 +1,33 @@
 import React from 'react';
 import { Card, InputBase, IconButton, Typography, Button, CardContent, createMuiTheme, MuiThemeProvider } from '@material-ui/core/';
-import Grow from '@material-ui/core/Grow';
-import Paper from '@material-ui/core/Paper';
-import Popper from '@material-ui/core/Popper';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuList from '@material-ui/core/MenuList';
-import {DateFormatInput, TimeFormatInput} from 'material-ui-next-pickers'
+import NotesService from "../services/NotesService";
+import Reminder from '../components/Reminder';
+import Chip from '@material-ui/core/Chip';
+import DoneIcon from '@material-ui/icons/Done';
 
+
+var noteService = new NotesService();
+
+
+/**
+ * theme for material ui to override the defaults
+ * 
+ */
 const theme = createMuiTheme({
     overrides: {
-        MuiIconButton: {
+        MuiChip: {
+            label: {
+                fontSize:'0.81 rem'
+            },
             root: {
-                padding: 7,
+                height: 26
             }
         }
     }, typography: {
         useNextVariants: true,
     },
-    // .MuiIconButton-root-41
-});
+    // MuiChip-label-408
+});//MuiChip-root-389 MuiChip-deletable-395
 
 
 export default class TakeNote extends React.Component {
@@ -26,9 +35,10 @@ export default class TakeNote extends React.Component {
         super(props);
         this.state = {
             active: false,
+            id: '',
             title: '',
             body: '',
-            reminder: '',
+            reminder: null,
         };
         this.handleTakeNote = this.handleTakeNote.bind(this);
     }
@@ -36,18 +46,34 @@ export default class TakeNote extends React.Component {
     handleNewNote = () => {
         // debugger;
         var Note = {
+            id: '',
             title: this.state.title,
             body: this.state.body,
-            reminder: ''
+            reminder: this.state.reminder,
         }
         if (Note.title !== '' || Note.body !== '') {
+            Note = this.sendNote(Note);
             this.props.sendNote(Note);
+
             this.setState({
                 title: '',
                 body: '',
-                reminder: '',
+                reminder: null,
             });
         }
+    }
+
+    sendNote = (note) => {
+
+        noteService.sendNote(note).then(resp => {
+            if (resp.status === 201) {
+                alert("note Created");
+                //console.log('resp', resp);
+
+                note.id = resp.data.id;
+            }
+        }).catch();
+        return note;
     }
 
     handleInput = (event) => {
@@ -64,56 +90,63 @@ export default class TakeNote extends React.Component {
         this.handleNewNote();
     }
 
-    render() {
-        console.log('takenote', this.state);
+    deleteReminder = () => {
+        this.setState({
+            reminder: null,
+        });
+    }
 
-        var Open = (<Card className='takenote-div-open' >
+    setReminder = (rem) => {
+        this.setState({
+            reminder: rem,
+        });
+    }
+
+    render() {
+        
+
+        
+        var Open = (<MuiThemeProvider theme={theme}>
+        <Card className='takenote-div-open' >
             <InputBase name='title' fullWidth placeholder='Title' onChange={this.handleInput} />
             <InputBase name='body' multiline fullWidth placeholder='Take a note..' onChange={this.handleInput} />
-
-            <IconButton className='icon'>
-                <img src={require('../assets/icons/RemindMe.svg')} alt="" />
-            </IconButton>
-            <Popper className='appbar-menu-profile' open={true} transition disablePortal>
-                {({ TransitionProps, placement }) => (
-                    <Grow
-                        {...TransitionProps}
-                        style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-                    >
-                        <Paper>
-                            <MenuList>
-                                <MenuItem >Profile</MenuItem>
-                                <MenuItem >My account</MenuItem>
-                            </MenuList>
-                        </Paper>
-                    </Grow>
-                )}
-            </Popper>
-            <IconButton className='icon'>
-                <img src={require('../assets/icons/search.svg')} alt="" />
-            </IconButton>
-            <IconButton className='icon'>
-                <img src={require('../assets/icons/Collaborator.svg')} alt="" />
-            </IconButton>
-            <IconButton className='icon'>
-                <img src={require('../assets/icons/ColorPallate.svg')} alt="" />
-            </IconButton>
-            <IconButton className='icon'>
-                <img src={require('../assets/icons/AddImage.svg')} alt="" />
-            </IconButton>
-            <IconButton className='icon'>
-                <img src={require('../assets/icons/Archive.svg')} alt="" />
-            </IconButton>
-            {/* <IconButton className='icon'>
+            <div className='note-chip-div'>{this.state.reminder === null ? ('') : (<Chip
+                label={this.state.reminder}
+                onDelete={this.deleteReminder}
+                icon={<img className='icon' src={require('../assets/icons/ReminderClock.svg')} alt="" />}
+                variant='default'
+            />)}</div>
+            <div className='note-bottom-icons-div'>
+                <div>
+                    <Reminder setReminder={this.setReminder} />
+                </div>
+                <div className='note-icon-div' role='Button'>
+                    <img src={require('../assets/icons/search.svg')} alt="" />
+                </div>
+                <div className='note-icon-div' role='button'>
+                    <img src={require('../assets/icons/Collaborator.svg')} alt="" />
+                </div>
+                <div className='note-icon-div' role='Button'>
+                    <img src={require('../assets/icons/ColorPallate.svg')} alt="" />
+                </div>
+                <div className='note-icon-div' role='Button'>
+                    <img src={require('../assets/icons/AddImage.svg')} alt="" />
+                </div>
+                <div className='note-icon-div' role='Button'>
+                    <img src={require('../assets/icons/Archive.svg')} alt="" />
+                </div>
+                <div className='note-icon-div' role='Button'>
                     <img src={require('../assets/icons/More.svg')} alt="" />
-                </IconButton>
-             */}
-            <Button className='card-button-close' component="span" onClick={this.handleTakeNote}>
-                Close
+                </div>
+                <Button className='card-button-close' component="span" onClick={this.handleTakeNote}>
+                    Close
         </Button>
+
+            </div>
 
 
         </Card>
+        </MuiThemeProvider>
         );
 
         var Close = (<div className='takenote-div' onClick={this.handleTakeNote} >
