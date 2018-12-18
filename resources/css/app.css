@@ -128,7 +128,10 @@ div .label-text{
 }
 
 
-
+.appbar-divbutton{
+    margin-left: auto;
+    display: flex;
+}
 
 .appbar-search{
     margin-left: 30px;
@@ -229,21 +232,36 @@ div .label-text{
     flex-direction: row; */
 }
 
+.note-card-grid{
+    width: 553px;
+    /* margin: 1%; */
+    /* margin-bottom: 0%; */
+    /* flex-direction: row; */
+    margin: 25px auto 0 auto;
+    /* width:600px;
+    margin: 1%;
+    margin-bottom: 0%; */
+    /*
+    flex-direction: row; */
+}
+
 .notes-div{
     display: flex;
     flex-wrap: wrap;
-    position: inherit;
+    /* position: inherit; */
     left: 142px;
-    margin-left: 23%;
-    margin-top: 5%;
+    
+    margin:5% 14%;
+    margin-left: 22%;
 
 }
 
 .notes-div-grid{
-    position: inherit;
+    /* display: flex;
+    justify-content: center;
+    flex-direction: column;
     left: 142px;
-    margin-left: 23%;
-    margin-top: 5%;
+    margin: 5% auto 0px 26%; */
 
 }
 .note-icon-div{
@@ -356,6 +374,55 @@ div .label-text{
 
     .login-btn{
         width:100%;
+    }
+
+    .appbar-search{
+        display: none;
+       
+    }
+
+    .notes-div-grid{
+        width: 100%;
+    
+    }
+    .takenote-div{
+        display: flex ;
+        padding: 6px 20px 6px 20px;
+        margin: 100px auto 0px auto ;
+        width: auto;
+        /* margin-left: 350px; */
+        height: 30px;
+        box-shadow: 0px 0px 5px rgb(44, 44, 44);
+        border-radius: 8px;
+        /* line-height: 10%; */
+    }
+
+    button.MuiButtonBase-root-47.MuiIconButton-root-41.appbar-iconbutton-grid{
+       display:none;
+    }
+    .note-card-grid{
+        width: auto;
+        /* margin: 1%; */
+        /* margin-bottom: 0%; */
+        /* flex-direction: row; */
+        margin: 25px auto 0 auto;
+        /* width:600px;
+        margin: 1%;
+        margin-bottom: 0%; */
+        /*
+        flex-direction: row; */
+    }
+    .appbar-logo{
+        display: none;
+    }
+
+    .appbar-divbutton{
+        margin-left: auto;
+        display: flex;
+    }
+
+    .appbar-avatar-btn{
+        margin: 0;
     }
 }
 /* 0px 35px 0px 35px */

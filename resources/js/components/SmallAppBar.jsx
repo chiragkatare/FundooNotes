@@ -7,7 +7,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 
-export default class CAppBar extends React.Component {
+export default class SmallAppBar extends React.Component {
 
 
     constructor(props) {
@@ -52,15 +52,12 @@ export default class CAppBar extends React.Component {
         return (
             <AppBar style={{ backgroundColor: "white" }}>
                 <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        onClick={this.props.menuClick}
-                    >
+                    <IconButton color="inherit" onClick={this.props.menuClick} >
                         <img className='icon' src={require('../assets/icons/menu.svg')} alt="" />
                     </IconButton>
-                    <div className='appbar-logo'>
+                    {/* <div className='appbar-logo'>
                         <img src={require('../assets/images/logo.svg')} alt="" />
-                    </div>
+                    </div> */}
                     <Typography className='appbar-heading' variant="h6">
                         {this.state.heading}
                     </Typography>
@@ -78,22 +75,20 @@ export default class CAppBar extends React.Component {
                         </IconButton>
 
                     </div>
-                    <div className='appbar-divbutton'>
-                        <IconButton>
-                            <img className='icon' src={require('../assets/icons/refresh.svg')} alt="" />
-                        </IconButton >
-                        <IconButton className='appbar-iconbutton-grid' onClick={this.props.changeView}>
-                            <img className='icon' src={this.props.gridView === true ? require('../assets/icons/Grid.svg') : require('../assets/icons/List.svg')} alt="" />
-                        </IconButton>
-                        <IconButton>
-                            <img className='icon' src={require('../assets/icons/setting.svg')} alt="" />
-                        </IconButton>
-                    </div>
+                    <IconButton>
+                        <img className='icon' src={require('../assets/icons/refresh.svg')} alt="" />
+                    </IconButton>
+                    <IconButton onClick={this.props.changeView}>
+                        <img className='icon' src={this.props.gridView===true?require('../assets/icons/Grid.svg'):require('../assets/icons/List.svg')} alt="" />
+                    </IconButton>
+                    <IconButton>
+                        <img className='icon' src={require('../assets/icons/setting.svg')} alt="" />
+                    </IconButton>
                     <div className='appbar-avatar-btn'>
                         <ClickAwayListener onClickAway={this.closeProfileMenu} >
-                            <IconButton onClick={this.handleProfileMenu} >
-                                <Avatar alt="Remy Sharp" src={require('../assets/images/avatar.jpg')} />
-                            </IconButton>
+                        <IconButton onClick={this.handleProfileMenu} >
+                            <Avatar alt="Remy Sharp" src={require('../assets/images/avatar.jpg')} />
+                        </IconButton>
                         </ClickAwayListener>
                         <Popper className='appbar-menu-profile' open={this.state.profileMenu} transition disablePortal>
                             {({ TransitionProps, placement }) => (
@@ -106,7 +101,7 @@ export default class CAppBar extends React.Component {
                                             {/* <MenuItem >Profile</MenuItem>
                                             <MenuItem >My account</MenuItem> */}
                                             <MenuItem >
-                                                <Button className='card-button-close' component="span" onClick={this.props.logout}>
+                                                <Button  className='card-button-close' component="span" onClick={this.props.logout}>
                                                     LogOut
                                                 </Button>
                                             </MenuItem>

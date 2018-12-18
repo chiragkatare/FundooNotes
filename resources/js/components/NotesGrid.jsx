@@ -6,7 +6,7 @@ import Chip from '@material-ui/core/Chip';
 // import Moment from 'react-moment';
 
 
-export default class Note extends React.Component {
+export default class NotesGrid extends React.Component {
 
     constructor(props) {
         super(props);
@@ -33,10 +33,10 @@ export default class Note extends React.Component {
 
     render() {
         return (
-            <div className={this.props.gridView===true?'note-card-grid':'note-card'}>
+            <div className='note-card-grid'>
                 <Card >
                     <CardContent>
-                        <Typography  component="p">
+                        <Typography variant='h6' component="p">
                             {this.state.title}
                         </Typography>
                         <Typography component="p">

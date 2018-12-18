@@ -4,6 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
+import TextField from '@material-ui/core/TextField';
 import moment from 'moment';
 import { Typography } from '@material-ui/core';
 
@@ -16,6 +17,17 @@ export default class Reminder extends React.Component {
             custom: false,
             anchorEl: null,
         };
+    }
+
+    /**
+     * function to get the custom date of the reminder and set it in the notes
+     * 
+     * */
+    customDate = (event) => {
+        var reminder = moment(event.target.value).format('DD MMM YYYY , h:mm a');
+        console.log('remnder', reminder);
+
+        this.props.setReminder(reminder);
     }
 
     handleReminder = (event) => {
@@ -83,7 +95,16 @@ export default class Reminder extends React.Component {
                                                     <Paper>
                                                         <MenuList>
 
-                                                            <MenuItem  >Custom</MenuItem>
+                                                            <MenuItem  ><TextField
+                                                                onChange={this.customDate}
+                                                                id="datetime-local"
+                                                                label="Select date"
+                                                                type="datetime-local"
+
+                                                                InputLabelProps={{
+                                                                    shrink: true,
+                                                                }}
+                                                            /></MenuItem>
 
                                                         </MenuList>
                                                     </Paper>

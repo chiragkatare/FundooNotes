@@ -6,6 +6,8 @@ import UserService from '../services/UserService';
 import Note from "../components/Note";
 import NotesService from "../services/NotesService";
 import moment from 'moment';
+// import NotesGrid from "../components/NotesGrid";
+// import SmallAppBar from '../components/SmallAppBar';
 
 var userService = new UserService();
 var noteService = new NotesService();
@@ -17,26 +19,60 @@ export default class DashBoard extends React.Component {
         this.state = {
             drawerOpen: false,
             Notes: [],
-            gridView:true,
+            gridView: false,
+            smallScreen:false,
         }
         this.handleMenuClick = this.handleMenuClick.bind(this);
         this.logout = this.logout.bind(this);
         this.getNewNote = this.getNewNote.bind(this);
     }
 
-    componentDidMount(){
+    componentDidMount() {
         noteService.getNotes().then(
-            resp=>{
+            resp => {
                 console.log(resp);
-                
-                if(resp.status===200){
+
+                if (resp.status === 200) {
                     this.setState({
-                        Notes:resp.data.message,
+                        Notes: resp.data.message,
                     });
                 }
             }
         ).catch();
+        setInterval(this.remind,1000);
+        this.changeRender();
+        window.addEventListener("resize", this.changeRender);
     }
+
+    remind=()=>{
+        console.log('hehe');
+        this.state.Notes.forEach(note => {
+            if(note.reminder=== moment().format('DD MMM YYYY , h:mm a')){
+                alert(note.reminder);
+            }
+        });
+    }
+    
+      componentWillUnmount() {
+        window.removeEventListener("resize", this.changeRender);
+      }
+
+      changeRender=()=>{
+          this.setState({
+              smallScreen:window.innerWidth < 830,
+          })
+          if(this.state.smallScreen===true){
+              this.setState({
+                  gridView:true,
+              });
+          }
+        //   else{
+        //     this.setState({
+        //         gridView:false,
+        //     });
+        //   }
+          
+      }
 
     getNewNote = (note) => {
         // debugger;
@@ -56,7 +92,7 @@ export default class DashBoard extends React.Component {
         else
             this.setState({ drawerOpen: false });
 
-       
+
 
     }
 
@@ -66,38 +102,40 @@ export default class DashBoard extends React.Component {
     logout() {
         userService.logout().then(res => {
             alert('logout succesful');
-            
+
             this.props.history.push('/login');
 
         }).catch();
     }
 
-    changeView=()=>{
+    changeView = () => {
         this.setState({
-            gridView:!this.state.gridView,
+            gridView: !this.state.gridView,
         });
     }
 
     render() {
-        console.log(moment().format("MMM Do YY"));
+        console.log(this.state);
 
         if ((localStorage.getItem('fundootoken')) === null) {
             this.props.history.push('/login');
         }
 
-        var notes = (  this.state.Notes.map((note) => {
-            return <Note key={note.id} title={note.title} body={note.body} reminder={note.reminder} ></Note>
+        var notes = (this.state.Notes.map((note) => {
+           
+                return <Note gridView={this.state.gridView} key={note.id} title={note.title} body={note.body} reminder={note.reminder} ></Note>
+            
         })
 
         );
 
         return (
             <div >
-                <div><CAppBar menuClick={this.handleMenuClick}  changeView={this.changeView} logout={this.logout} /></div>
+                <div><CAppBar gridView={this.state.gridView} menuClick={this.handleMenuClick} changeView={this.changeView} logout={this.logout} /></div>
                 <div><SideDrawer open={this.state.drawerOpen} /></div>
                 <div><TakeNote sendNote={this.getNewNote} /></div>
-              
-                <div className={this.state.gridView===true?'notes-div':'notes-div-grid'} >{notes}</div>
+                {/* this.state.gridView===true? */}
+                <div className={this.state.gridView===true?'notes-div-grid':'notes-div'} >{notes}</div>
 
             </div>
         );

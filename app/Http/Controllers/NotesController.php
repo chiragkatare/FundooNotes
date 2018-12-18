@@ -18,6 +18,11 @@ class NotesController extends Controller
 
     }
 
+    /**
+     * Function to create new note
+     * 
+     * @return response
+     */
     public function create(Request $req)
     {
         $data = $req->all();
@@ -26,6 +31,11 @@ class NotesController extends Controller
         return response()->json(['message' => 'Note Created','id'=>$note->id], 201);
     }
 
+    /**
+     * Function to getb all the notes of the user
+     * 
+     * @return response
+     */
     public function getNotes()
     {
         
