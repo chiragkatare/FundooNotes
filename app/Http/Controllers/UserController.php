@@ -26,8 +26,8 @@ class UserController extends Controller
     {
         $inp = $request->all();
         $validator = Validator::make($request->all(), [
-            'firstname' => 'required|max:10',
-            'lastname' => 'required|max:10',
+            'firstname' => 'required|max:20',
+            'lastname' => 'required|max:20',
             'email' => 'bail|required|email|unique:users',
             'password' => 'required|min:8|max:15',
             'rpassword' => 'required|same:password',
@@ -36,12 +36,12 @@ class UserController extends Controller
             return response()->json(['error' => $validator->errors()], 210);
         }
         $input = $request->all();
-        $input["created_at"]=now();
+        $input["created_at"] = now();
         $input['password'] = bcrypt($input['password']);
         $input['verifytoken'] = str_random(60);
         $user = User::create($input);
         $success['firstname'] = $user->firstname;
-        event(new UserRegistered($user,$input['verifytoken']));
+        event(new UserRegistered($user, $input['verifytoken']));
         return response()->json(['message' => 'registration succesfull'], 201);
     }
 
@@ -56,7 +56,7 @@ class UserController extends Controller
         $email = request('email');
         if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
             $user = Auth::user();
-            if($user->email_verified_at === null){
+            if ($user->email_verified_at === null) {
                 return response()->json(['message' => 'Email Not Verified'], 211);
             }
             $token = $user->createToken('fundoo')->accessToken;
@@ -104,7 +104,7 @@ class UserController extends Controller
         }
     }
 
-     /**
+    /**
      * function to verify email of the user and add the time stamp to user verified field in user table
      * 
      * @return response
@@ -113,17 +113,15 @@ class UserController extends Controller
     {
         $id = request('id');
         $token = request('token');
-          $user =  User::where("verifytoken", $token)->first();
+        $user = User::where("verifytoken", $token)->first();
     //    / $user = User::where("email", $email)->first();
         if (!$user) {
             return response()->json(['message' => "Not a Registered Email"], 200);
-        } 
-        else if($user->email_verified_at === null) {
+        } else if ($user->email_verified_at === null) {
             $user->email_verified_at = now();
             $user->save();
             return response()->json(['message' => "Email Successfully Verified"], 201);
-        }
-        else {
+        } else {
             return response()->json(['message' => "Email Already Verified"], 202);
         }
     }

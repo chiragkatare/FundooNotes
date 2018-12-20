@@ -19,7 +19,7 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-Route::any('login', 'UserController@login')->name('login');
+Route::post('login', 'UserController@login')->name('login');
 Route::post('register','UserController@register');
 Route::post('verifyemail','UserController@verifyEmail');
 Route::post('forgotpassword','PasswordResetController@create');

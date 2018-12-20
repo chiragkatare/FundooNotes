@@ -3,6 +3,7 @@ import { Card } from '@material-ui/core';
 import { Button, IconButton, Typography, InputBase, CardActions, CardContent } from '@material-ui/core/';
 import Reminder from './Reminder';
 import Chip from '@material-ui/core/Chip';
+import { red } from "@material-ui/core/colors";
 // import Moment from 'react-moment';
 
 
@@ -34,7 +35,7 @@ export default class Note extends React.Component {
     render() {
         return (
             <div className={this.props.gridView===true?'note-card-grid':'note-card'}>
-                <Card >
+                <Card  >
                     <CardContent>
                         <Typography  component="p">
                             {this.state.title}

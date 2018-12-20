@@ -71,7 +71,7 @@ export default class ForgotPassword extends Component {
           <CardContent>
             {this.state.status ?
               (<div>
-                <Typography variant="h" component="p" >
+                <Typography variant="h6" component="p" >
                   {this.state.message}
                 </Typography>
                 <Button fullWidth color="primary" type='submit' onClick={this.handleLoginClick.bind(this)} >

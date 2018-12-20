@@ -142,7 +142,7 @@ div .label-text{
     line-height: 20%;
     display: flex;
     width : 650px; 
-    background: rgba(0,0,0,0.04)
+    background: rgba(0,0,0,0.04);
 }
 
 .appbar-search:hover{

@@ -43,6 +43,9 @@ class NotesController extends Controller
         return response()->json(['message'=>$notes],200);
     }
 
+    /**
+     * Function to edit notes
+     */
     public function editNotes(Request $req){
         $data = $req->all();
         

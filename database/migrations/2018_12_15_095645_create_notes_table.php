@@ -17,7 +17,7 @@ class CreateNotesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('body');
-            $table->timestamp('reminder')->nullable();
+            $table->string('reminder')->nullable();
             $table->string('color')->nullable();
             $table->unsignedInteger('userid');
             $table->foreign('userid')->references('id')->on('users')->onDelete('cascade');

@@ -67,7 +67,7 @@ export default class TakeNote extends React.Component {
 
         noteService.sendNote(note).then(resp => {
             if (resp.status === 201) {
-                alert("note Created");
+                // alert("note Created");
                 //console.log('resp', resp);
 
                 note.id = resp.data.id;
