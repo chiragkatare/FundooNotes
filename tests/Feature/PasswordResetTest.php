@@ -63,7 +63,7 @@ class PasswordResetTest extends TestCase
             ->assertExactJson(['message' => "We can't find a user with that email address."]);
     }
 
-     /**
+    /**
      * A test to see if User can access the forget password using link
      *
      * @group forgotpassword
@@ -78,7 +78,7 @@ class PasswordResetTest extends TestCase
                 'email' => $user->email,
                 'token' => str_random(60)
             ]
-            );
+        );
         $response = $this->withHeaders([
             'Content-Type' => 'Application/json',
         ])->json('POST', '/api/forgotpassword/find', [
@@ -90,7 +90,7 @@ class PasswordResetTest extends TestCase
             ->assertJsonCount(1);
     }
 
-     /**
+    /**
      * A test to see if User can reset the password
      *
      * @group forgotpassword
@@ -105,14 +105,14 @@ class PasswordResetTest extends TestCase
                 'email' => $user->email,
                 'token' => str_random(60)
             ]
-            );
+        );
         $response = $this->withHeaders([
             'Content-Type' => 'Application/json',
         ])->json('POST', '/api/forgotpassword/reset', [
             //wrong email
-            'token'=>$passwordReset->token,
+            'token' => $passwordReset->token,
             "password" => '123456789',
-            'rpassword'=>'123456789'
+            'rpassword' => '123456789'
         ]);
 
         $response->assertStatus(201)
@@ -120,7 +120,7 @@ class PasswordResetTest extends TestCase
     }
 
 
-     /**
+    /**
      * A test to see if User can access the forget password using link
      *
      * @group forgotpassword
@@ -135,14 +135,14 @@ class PasswordResetTest extends TestCase
                 'email' => $user->email,
                 'token' => str_random(60)
             ]
-            );
+        );
         $response = $this->withHeaders([
             'Content-Type' => 'Application/json',
-        ])->json('POST', '/api/forgotpassword/find', [
-            //wrong email
-            "token" => $passwordReset->token
+        ])->json('POST', '/api/forgotpassword/reset', [
+            'token' => $passwordReset->token,
+            "password" => '12345a6789',
+            'rpassword' => '123456789sas'
         ]);
-
         $response->assertStatus(201)
             ->assertJsonCount(1);
     }

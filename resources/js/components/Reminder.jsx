@@ -7,6 +7,7 @@ import MenuList from '@material-ui/core/MenuList';
 import TextField from '@material-ui/core/TextField';
 import moment from 'moment';
 import { Typography } from '@material-ui/core';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 
 export default class Reminder extends React.Component {
 
@@ -33,6 +34,12 @@ export default class Reminder extends React.Component {
     handleReminder = (event) => {
         this.setState({
             active: !this.state.active,
+        });
+    }
+
+    handleClickAway=()=>{
+        this.setState({
+            active: false,
         });
     }
 
@@ -67,7 +74,7 @@ export default class Reminder extends React.Component {
     render() {
         return (
             <div >
-                <div className='note-icon-div' role='Button' onClick={this.handleReminder}>
+                <div className='note-icon-div' role='Button' onClick={this.handleReminder} >
                     <img src={require('../assets/icons/RemindMe.svg')} alt="" />
                 </div>
                 <div >
@@ -78,6 +85,7 @@ export default class Reminder extends React.Component {
                                 {...TransitionProps}
                                 style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
                             >
+                            <ClickAwayListener onClickAway={this.handleClickAway} >
                                 <Paper>
                                     <MenuList>
                                         <Typography align='center'>Reminder:</Typography>
@@ -113,6 +121,7 @@ export default class Reminder extends React.Component {
                                         </Popper>
                                     </MenuList>
                                 </Paper>
+                                </ClickAwayListener>
                             </Grow>
                         )}
                     </Popper>

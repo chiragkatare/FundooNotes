@@ -82,6 +82,9 @@ class PasswordResetController extends Controller
             'password' => 'required|min:8|max:15',
             'rpassword' => 'required|same:password',
         ]);
+        if ($validator->fails()) {
+            return response()->json(['message' => 'password doesnt match'], 201);
+        }
         $passwordReset = PasswordReset::where([
             ['token', $request->token]
         ])->first();

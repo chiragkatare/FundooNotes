@@ -216,18 +216,32 @@ div .label-text{
     justify-content: center;
 }
 
+.takenote-bottom-icons-div {
+    /* position: absolute; */
+    display: flex;
+    justify-content: space-between;
+    padding: 3px;
+    bottom: 0;
+    width: 100%;
+}
+
 .card-button-close{
     float: right;
 }
 
 .appbar-menu-profile{
+    
     left: 90%;
 }
 
 .note-card{
-    width:250px;
-    margin: 1%;
+    width:240px;
+    margin: 6px 3px;
     margin-bottom: 0%;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 2px;
+    /* bwlow experimental */
+    
     /*
     flex-direction: row; */
 }
@@ -245,25 +259,38 @@ div .label-text{
     flex-direction: row; */
 }
 
+
+
 .notes-div{
+
+    width: 773px;
     display: flex;
     flex-wrap: wrap;
+    position: inherit;
+
+
+    /* display: flex;
+    flex-wrap: wrap;
     /* position: inherit; */
-    left: 142px;
+    /* left: 142px;  */
     
-    margin:5% 14%;
-    margin-left: 22%;
+    margin: 27px auto 0px auto
 
 }
 
-.notes-div-grid{
-    /* display: flex;
+/* .notes-div-grid{
+    display: flex;
     justify-content: center;
     flex-direction: column;
     left: 142px;
-    margin: 5% auto 0px 26%; */
+    margin: 5% auto 0px 26%;
 
+} */
+
+div .remainder-chip{
+    height: 24px;
 }
+
 .note-icon-div{
     opacity:0.5 ;
     /* margin: 5px; */
@@ -276,14 +303,28 @@ div .label-text{
 .note-icon-div:hover:hover {opacity: 1}
 
 .note-bottom-icons-div{
+    /* display: flex;
+    justify-content: space-evenly;
+    padding: 3px; */
+    /* position: absolute; */
     display: flex;
     justify-content: space-evenly;
-    padding: 2%;
+    padding: 3px;
+    bottom: 0;
+    width: 100%;
 }
 
 .reminder-popper{
     z-index: 1;
 }
+@media only screen and (max-width: 780px ) {
+
+    .notes-div {
+        width: 500px;
+    }
+
+}
+
 
 @media only screen and (max-width: 720px ) {
     
@@ -330,6 +371,9 @@ div .label-text{
         width:100%;
     }
 }
+
+/*********************************************************************************************************************
+********************/
 
 @media only screen and (max-width: 600px ) {
     
@@ -385,6 +429,12 @@ div .label-text{
         width: 100%;
     
     }
+
+    .notes-div{
+    width: 100%;
+    display: block;
+    }
+
     .takenote-div{
         display: flex ;
         padding: 6px 20px 6px 20px;
@@ -397,9 +447,21 @@ div .label-text{
         /* line-height: 10%; */
     }
 
+    .takenote-div-open{
+        width: auto;
+        min-width: 345;
+    }
+
     button.MuiButtonBase-root-47.MuiIconButton-root-41.appbar-iconbutton-grid{
        display:none;
     }
+
+    
+
+.note-card {
+    width: 100%;
+
+}
     .note-card-grid{
         width: auto;
         /* margin: 1%; */
@@ -424,5 +486,13 @@ div .label-text{
     .appbar-avatar-btn{
         margin: 0;
     }
+}
+
+@media only screen and (max-width: 320px ) {
+
+    .takenote-div-open{
+        width: 320;
+    }
+
 }
 /* 0px 35px 0px 35px */

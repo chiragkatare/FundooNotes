@@ -4,6 +4,7 @@ import NotesService from "../services/NotesService";
 import Reminder from '../components/Reminder';
 import Chip from '@material-ui/core/Chip';
 import DoneIcon from '@material-ui/icons/Done';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 
 
 var noteService = new NotesService();
@@ -90,6 +91,13 @@ export default class TakeNote extends React.Component {
         this.handleNewNote();
     }
 
+    handleClickAway=()=>{
+        this.setState({
+            active: false,
+        });
+        this.handleNewNote();
+    }
+
     deleteReminder = () => {
         this.setState({
             reminder: null,
@@ -107,6 +115,7 @@ export default class TakeNote extends React.Component {
 
         
         var Open = (<MuiThemeProvider theme={theme}>
+        <ClickAwayListener onClickAway={this.handleClickAway} >
         <Card className='takenote-div-open' >
             <InputBase name='title' fullWidth placeholder='Title' onChange={this.handleInput} />
             <InputBase name='body' multiline fullWidth placeholder='Take a note..' onChange={this.handleInput} />
@@ -116,13 +125,11 @@ export default class TakeNote extends React.Component {
                 icon={<img className='icon' src={require('../assets/icons/ReminderClock.svg')} alt="" />}
                 variant='default'
             />)}</div>
-            <div className='note-bottom-icons-div'>
+            <div className='takenote-bottom-icons-div'>
                 <div>
                     <Reminder setReminder={this.setReminder} />
                 </div>
-                <div className='note-icon-div' role='Button'>
-                    <img src={require('../assets/icons/search.svg')} alt="" />
-                </div>
+                
                 <div className='note-icon-div' role='button'>
                     <img src={require('../assets/icons/Collaborator.svg')} alt="" />
                 </div>
@@ -146,6 +153,7 @@ export default class TakeNote extends React.Component {
 
 
         </Card>
+        </ClickAwayListener>
         </MuiThemeProvider>
         );
 

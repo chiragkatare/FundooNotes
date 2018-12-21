@@ -4,11 +4,12 @@
         <meta charset="utf-8">
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
         <meta name="csrf-token" value=''>
-        <meta
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <meta
         
   name="viewport"
-  content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
-/>
+  content="minimum-scale=1,maximum-scale=1, initial-scale=2, width=device-width, shrink-to-fit=no"
+/> -->
         <title>Fundoo Notes</title>
         <!-- <link rel="shortcut icon" sizes="114x114" href="resources/js/assets/images/logo.svg"> -->
 

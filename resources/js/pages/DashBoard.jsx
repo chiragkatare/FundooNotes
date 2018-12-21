@@ -7,6 +7,7 @@ import Note from "../components/Note";
 import NotesService from "../services/NotesService";
 import moment from 'moment';
 import SnakeBars from '../components/Snakebars';
+import Draggable from 'react-draggable';
 // import NotesGrid from "../components/NotesGrid";
 // import SmallAppBar from '../components/SmallAppBar';
 
@@ -42,8 +43,8 @@ export default class DashBoard extends React.Component {
             }
         ).catch();
         setInterval(this.remind, 60000);
-        this.changeRender();
-        window.addEventListener("resize", this.changeRender);
+        // this.changeRender();
+        // window.addEventListener("resize", this.changeRender);
     }
 
     changeSnakebarStatus = (status) => {
@@ -61,26 +62,26 @@ export default class DashBoard extends React.Component {
         });
     }
 
-    componentWillUnmount() {
-        window.removeEventListener("resize", this.changeRender);
-    }
+    // componentWillUnmount() {
+    //     window.removeEventListener("resize", this.changeRender);
+    // }
 
-    changeRender = () => {
-        this.setState({
-            smallScreen: window.innerWidth < 830,
-        })
-        if (this.state.smallScreen === true) {
-            this.setState({
-                gridView: true,
-            });
-        }
+    // changeRender = () => {
+    //     this.setState({
+    //         smallScreen: window.innerWidth < 830,
+    //     })
+    //     if (this.state.smallScreen === true) {
+    //         this.setState({
+    //             gridView: true,
+    //         });
+    //     }
         //   else{
         //     this.setState({
         //         gridView:false,
         //     });
         //   }
 
-    }
+    // }
 
     notify = (message) => {
         this.snakebar.current.handleNewMessage(message);
@@ -134,8 +135,8 @@ export default class DashBoard extends React.Component {
         }
 
         var notes = (this.state.Notes.map((note) => {
-
-            return <Note gridView={this.state.gridView} key={note.id} title={note.title} body={note.body} reminder={note.reminder} ></Note>
+           
+            return  <Draggable><Note gridView={this.state.gridView} key={note.id} title={note.title} body={note.body} reminder={note.reminder} ></Note></Draggable>
 
         })
 
