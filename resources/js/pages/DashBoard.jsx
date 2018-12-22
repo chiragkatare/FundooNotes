@@ -36,6 +36,7 @@ export default class DashBoard extends React.Component {
                 console.log(resp);
 
                 if (resp.status === 200) {
+                    
                     this.setState({
                         Notes: resp.data.message,
                     });
@@ -75,11 +76,11 @@ export default class DashBoard extends React.Component {
     //             gridView: true,
     //         });
     //     }
-        //   else{
-        //     this.setState({
-        //         gridView:false,
-        //     });
-        //   }
+    //   else{
+    //     this.setState({
+    //         gridView:false,
+    //     });
+    //   }
 
     // }
 
@@ -135,8 +136,10 @@ export default class DashBoard extends React.Component {
         }
 
         var notes = (this.state.Notes.map((note) => {
-           
-            return  <Draggable><Note gridView={this.state.gridView} key={note.id} title={note.title} body={note.body} reminder={note.reminder} ></Note></Draggable>
+
+            return <Draggable key={note.id}>
+                <Note gridView={this.state.gridView} key={note.id} title={note.title} body={note.body} reminder={note.reminder} ></Note>
+            </Draggable>
 
         })
 

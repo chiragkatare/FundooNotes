@@ -37,7 +37,7 @@ export default class Reminder extends React.Component {
         });
     }
 
-    handleClickAway=()=>{
+    handleClickAway = () => {
         this.setState({
             active: false,
         });
@@ -72,60 +72,66 @@ export default class Reminder extends React.Component {
     }
 
     render() {
+        
+
         return (
             <div >
-                <div className='note-icon-div' role='Button' onClick={this.handleReminder} >
-                    <img src={require('../assets/icons/RemindMe.svg')} alt="" />
-                </div>
-                <div >
-                    <Popper className='reminder-popper' open={this.state.active} transition disablePortal
-                    >
-                        {({ TransitionProps, placement }) => (
-                            <Grow
-                                {...TransitionProps}
-                                style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+                <ClickAwayListener onClickAway={this.handleClickAway} >
+                    <div>
+                        <div className='note-icon-div' role='Button' onClick={this.handleReminder} >
+                            <img src={require('../assets/icons/RemindMe.svg')} alt="" />
+                        </div>
+                        <div >
+                            <Popper className='reminder-popper' style={{position:'fixed'}} open={this.state.active} transition disablePortal
                             >
-                            <ClickAwayListener onClickAway={this.handleClickAway} >
-                                <Paper>
-                                    <MenuList>
-                                        <Typography align='center'>Reminder:</Typography>
-                                        <MenuItem onClick={this.handleToday} >Later Today</MenuItem>
-                                        <MenuItem onClick={this.handleTomorrow} >Tommorow</MenuItem>
-                                        <MenuItem onClick={this.handleCustom} >Custom</MenuItem>
-                                        <Popper open={this.state.custom} anchorEl={this.state.anchorEl} transition disablePortal
-                                            placement={'right'}
-                                        >
-                                            {({ TransitionProps, placement }) => (
-                                                <Grow
-                                                    {...TransitionProps}
-                                                    style={{ transformOrigin: 'center bottom' }}
+                                {({ TransitionProps, placement }) => (
+                                    <Grow
+                                        {...TransitionProps}
+                                        style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+                                    >
+
+                                        <Paper>
+                                            <MenuList>
+                                                <Typography align='center'>Reminder:</Typography>
+                                                <MenuItem onClick={this.handleToday} >Later Today</MenuItem>
+                                                <MenuItem onClick={this.handleTomorrow} >Tommorow</MenuItem>
+                                                <MenuItem onClick={this.handleCustom} >Custom</MenuItem>
+                                                <Popper open={this.state.custom} anchorEl={this.state.anchorEl} transition disablePortal
+                                                    placement={'right-end'}
                                                 >
-                                                    <Paper>
-                                                        <MenuList>
+                                                    {({ TransitionProps, placement }) => (
+                                                        <Grow
+                                                            {...TransitionProps}
+                                                            style={{ transformOrigin: 'center bottom' }}
+                                                        >
+                                                            <Paper>
+                                                                <MenuList>
 
-                                                            <MenuItem  ><TextField
-                                                                onChange={this.customDate}
-                                                                id="datetime-local"
-                                                                label="Select date"
-                                                                type="datetime-local"
+                                                                    <MenuItem  ><TextField
+                                                                        onChange={this.customDate}
+                                                                        id="datetime-local"
+                                                                        label="Select date"
+                                                                        type="datetime-local"
 
-                                                                InputLabelProps={{
-                                                                    shrink: true,
-                                                                }}
-                                                            /></MenuItem>
+                                                                        InputLabelProps={{
+                                                                            shrink: true,
+                                                                        }}
+                                                                    /></MenuItem>
 
-                                                        </MenuList>
-                                                    </Paper>
-                                                </Grow>
-                                            )}
-                                        </Popper>
-                                    </MenuList>
-                                </Paper>
-                                </ClickAwayListener>
-                            </Grow>
-                        )}
-                    </Popper>
-                </div>
+                                                                </MenuList>
+                                                            </Paper>
+                                                        </Grow>
+                                                    )}
+                                                </Popper>
+                                            </MenuList>
+                                        </Paper>
+
+                                    </Grow>
+                                )}
+                            </Popper>
+                        </div>
+                    </div>
+                </ClickAwayListener>
             </div>
         );
     }

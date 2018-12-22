@@ -300,6 +300,10 @@ div .remainder-chip{
     /* margin: 5px; */
 } 
 
+.note-body-text{
+    white-space: pre-line;
+}
+
 .note-icon-div:hover:hover {opacity: 1}
 
 .note-bottom-icons-div{
@@ -314,8 +318,25 @@ div .remainder-chip{
     width: 100%;
 }
 
+.noteEdit-dialog{
+
+}
+
+.note-card .note-card-def:hover{
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+    transition-duration: .218s;
+    /* transition-property: background,opacity,box-shadow,transform; */
+}
+
+.note-card-grid .note-card-def:hover{
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+
+
 .reminder-popper{
     z-index: 1;
+    position: fixed;
 }
 @media only screen and (max-width: 780px ) {
 
