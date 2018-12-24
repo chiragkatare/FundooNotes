@@ -19,7 +19,7 @@ export default class Snackbars extends React.Component {
   };
 
   handleNewMessage = message => {
-    debugger;
+    // debugger;
     this.queue.push({
       message,
       key: new Date().getTime(),

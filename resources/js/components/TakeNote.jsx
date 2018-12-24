@@ -18,7 +18,7 @@ const theme = createMuiTheme({
     overrides: {
         MuiChip: {
             label: {
-                fontSize:'0.81 rem'
+                fontSize: '0.81 rem'
             },
             root: {
                 height: 26
@@ -39,11 +39,15 @@ export default class TakeNote extends React.Component {
             id: '',
             title: '',
             body: '',
+            pinned: false,
             reminder: null,
         };
         this.handleTakeNote = this.handleTakeNote.bind(this);
     }
 
+    /**
+     * function to handle creation of new note
+     */
     handleNewNote = () => {
         // debugger;
         var Note = {
@@ -51,19 +55,24 @@ export default class TakeNote extends React.Component {
             title: this.state.title,
             body: this.state.body,
             reminder: this.state.reminder,
+            pinned: this.state.pinned,
         }
-        if (Note.title !== '' || Note.body !== '') {
+        if ((Note.title !== '' || Note.body !== '')) {
             Note = this.sendNote(Note);
             this.props.sendNote(Note);
-
             this.setState({
+                id: '',
                 title: '',
                 body: '',
-                reminder: null,
+                reminder: '',
+                pinned: 0,
             });
         }
     }
 
+    /**
+     * function to send newly created note to the backend
+     */
     sendNote = (note) => {
 
         noteService.sendNote(note).then(resp => {
@@ -77,6 +86,9 @@ export default class TakeNote extends React.Component {
         return note;
     }
 
+    /**
+     * function to handle input of the value in text fields
+     */
     handleInput = (event) => {
         this.setState({
             [event.target.name]: event.target.value,
@@ -84,6 +96,9 @@ export default class TakeNote extends React.Component {
 
     }
 
+    /**
+     * function to get the notes and change the take note column
+     */
     handleTakeNote = () => {
         this.setState({
             active: !this.state.active,
@@ -91,69 +106,92 @@ export default class TakeNote extends React.Component {
         this.handleNewNote();
     }
 
-    handleClickAway=()=>{
+    /**
+     * handle the click aeay event of take note
+     */
+    handleClickAway = () => {
         this.setState({
             active: false,
         });
         this.handleNewNote();
     }
 
+    /**
+     * function handle delete of reminder
+     */
     deleteReminder = () => {
         this.setState({
             reminder: null,
         });
     }
 
+    /**
+     * function to set reminder in the state
+     */
     setReminder = (rem) => {
         this.setState({
             reminder: rem,
         });
     }
 
-    render() {
-        
+    /**
+     * function to pin the notes
+     */
+    handlePin = () => {
+        this.setState({
+            pinned: !this.state.pinned
+        });
+    }
 
-        
+    /**
+     * render method called automaticaly by 
+     */
+    render() {
         var Open = (<MuiThemeProvider theme={theme}>
-        <ClickAwayListener onClickAway={this.handleClickAway} >
-        <Card className='takenote-div-open' >
-            <InputBase name='title' fullWidth placeholder='Title' onChange={this.handleInput} />
-            <InputBase name='body' multiline fullWidth placeholder='Take a note..' onChange={this.handleInput} />
-            <div className='note-chip-div'>{this.state.reminder === null ? ('') : (<Chip
-                label={this.state.reminder}
-                onDelete={this.deleteReminder}
-                icon={<img className='icon' src={require('../assets/icons/ReminderClock.svg')} alt="" />}
-                variant='default'
-            />)}</div>
-            <div className='takenote-bottom-icons-div'>
-                <div>
-                    <Reminder setReminder={this.setReminder} />
-                </div>
-                
-                <div className='note-icon-div' role='button'>
-                    <img src={require('../assets/icons/Collaborator.svg')} alt="" />
-                </div>
-                <div className='note-icon-div' role='Button'>
-                    <img src={require('../assets/icons/ColorPallate.svg')} alt="" />
-                </div>
-                <div className='note-icon-div' role='Button'>
-                    <img src={require('../assets/icons/AddImage.svg')} alt="" />
-                </div>
-                <div className='note-icon-div' role='Button'>
-                    <img src={require('../assets/icons/Archive.svg')} alt="" />
-                </div>
-                <div className='note-icon-div' role='Button'>
-                    <img src={require('../assets/icons/More.svg')} alt="" />
-                </div>
-                <Button className='card-button-close' component="span" onClick={this.handleTakeNote}>
-                    Close
+            <ClickAwayListener onClickAway={this.handleClickAway} >
+                <Card className='takenote-div-open' >
+                    <div className='note-top-div'>
+                        <InputBase name='title' fullWidth placeholder='Title' onChange={this.handleInput} />
+                        <div className='note-icon-pin' role='button' onClick={this.handlePin} >
+                            <img src={this.state.pinned ? require('../assets/icons/pin.svg') : require('../assets/icons/unpin.svg')} alt="" />
+                        </div>
+                    </div>
+                    <InputBase name='body' multiline fullWidth placeholder='Take a note..' onChange={this.handleInput} />
+                    <div className='note-chip-div'>{this.state.reminder === null ? ('') : (<Chip
+                        label={this.state.reminder}
+                        onDelete={this.deleteReminder}
+                        icon={<img className='icon' src={require('../assets/icons/ReminderClock.svg')} alt="" />}
+                        variant='default'
+                    />)}</div>
+                    <div className='takenote-bottom-icons-div'>
+                        <div>
+                            <Reminder setReminder={this.setReminder} />
+                        </div>
+
+                        <div className='note-icon-div' role='button'>
+                            <img src={require('../assets/icons/Collaborator.svg')} alt="" />
+                        </div>
+                        <div className='note-icon-div' role='Button'>
+                            <img src={require('../assets/icons/ColorPallate.svg')} alt="" />
+                        </div>
+                        <div className='note-icon-div' role='Button'>
+                            <img src={require('../assets/icons/AddImage.svg')} alt="" />
+                        </div>
+                        <div className='note-icon-div' role='Button'>
+                            <img src={require('../assets/icons/Archive.svg')} alt="" />
+                        </div>
+                        <div className='note-icon-div' role='Button'>
+                            <img src={require('../assets/icons/More.svg')} alt="" />
+                        </div>
+                        <Button className='card-button-close' component="span" onClick={this.handleTakeNote}>
+                            Close
         </Button>
 
-            </div>
+                    </div>
 
 
-        </Card>
-        </ClickAwayListener>
+                </Card>
+            </ClickAwayListener>
         </MuiThemeProvider>
         );
 

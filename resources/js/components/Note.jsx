@@ -18,6 +18,7 @@ const theme = createMuiTheme({
             root: {
                 paddingTop: 6,
                 paddingBottom: 6,
+                // paddingRight:4,
             }
         },
         MuiPaper: {
@@ -32,7 +33,7 @@ const theme = createMuiTheme({
     }, typography: {
         useNextVariants: true,
     },
-    //..MuiPaper-elevation1-252
+    //..MuiPaper-elevation1-252  .MuiCardContent-root-276
 });
 
 
@@ -46,6 +47,7 @@ export default class Note extends React.Component {
             body: '',
             reminder: null,
             reminderstatus: true,
+            pinned: 0,
         };
 
         this.noteEdit = React.createRef();
@@ -58,9 +60,10 @@ export default class Note extends React.Component {
      */
     componentWillMount() {
         this.setState({
-            title: this.props.title,
-            body: this.props.body,
-            reminder: this.props.reminder,
+            title: this.props.note.title,
+            body: this.props.note.body,
+            reminder: this.props.note.reminder,
+            pinned:this.props.note.pinned,
         })
     }
 
@@ -71,14 +74,21 @@ export default class Note extends React.Component {
     }
 
     render() {
+        console.log('note',this.props.index)
         return (
             <div className={this.props.gridView === true ? 'note-card-grid' : 'note-card'}>
                 <MuiThemeProvider theme={theme}>
                     <Card className='note-card-def' style={{ border: '1px solid #dadce0' }} >
-                        <CardContent onClick={this.editNote}>
-                            <Typography component="p">
-                                {this.state.title}
-                            </Typography>
+                        <CardContent className='note-card-content' onClick={this.editNote}>
+                            <div className='note-top-div'>
+
+                                <Typography variant='h6' component="p">
+                                    {this.state.title}
+                                </Typography>
+                                <div className='note-icon-pin' role='button'>
+                                    <img src={this.state.pinned==='1'?require('../assets/icons/pin.svg'):require('../assets/icons/unpin.svg')} alt="" />
+                                </div>
+                            </div>
                             <Typography className='note-body-text' component="p">
                                 {this.state.body}
                             </Typography>
@@ -111,7 +121,12 @@ export default class Note extends React.Component {
                             </div>
                         </div>
                     </Card>
-                    <NoteEdit ref={this.noteEdit} note={this.state} ></NoteEdit>
+                    <NoteEdit 
+                    ref={this.noteEdit} 
+                    note={this.state} 
+                    index={this.props.index} 
+                    handleNoteEdit={this.props.handleNoteEdit}
+                    />
                 </MuiThemeProvider>
             </div>
         );

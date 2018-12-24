@@ -14,12 +14,21 @@ class CreateNotesTable extends Migration
     public function up()
     {
         Schema::create('notes', function (Blueprint $table) {
+            //for id
             $table->increments('id');
-            $table->string('title');
-            $table->text('body');
+            //title of note
+            $table->string('title')->nullable();
+            //body of the note
+            $table->text('body')->nullable();
+            //reminder of the note
             $table->string('reminder')->nullable();
+            //color of the note
             $table->string('color')->nullable();
+            //user id if the note it belongs to 
             $table->unsignedInteger('userid');
+            //state of note pinned or unpinned
+            $table->boolean('pinned')->default(false);
+            //making the userid foreign key
             $table->foreign('userid')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

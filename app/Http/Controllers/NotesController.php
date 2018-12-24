@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redis;
 use Facades\App\Notes;
 
 
+
 class NotesController extends Controller
 {
 
@@ -40,6 +41,8 @@ class NotesController extends Controller
     {
         
         $notes = Notes::getUserNotes();
+        // $noteee = Cache::get('notes'.Auth::user()->id);
+        // $ss = $noteee->where('id',24);
         return response()->json(['message'=>$notes],200);
     }
 
@@ -48,6 +51,10 @@ class NotesController extends Controller
      */
     public function editNotes(Request $req){
         $data = $req->all();
+        $notes = Cache::get('notes'.Auth::user()->id);
+        $note = $notes->where('id',$data['id']);
+        $note = Notes::updateOrCreate('id'->$data['id'],$data);
+        return response()->json(['message'=>$note],201);
         
     }
 }

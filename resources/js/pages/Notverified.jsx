@@ -39,13 +39,13 @@ export default class NotVerified extends Component {
           <CardContent>
           <div>
           <Typography align='center' variant='h5' component='h4' >!Email Not Verfied!</Typography>
-                <Typography align='center' variant="h" component="p" >
+                <Typography align='center'  component="p" >
                   Your email is not verified pls Verify your email 
                 </Typography>
-                <Typography align='center' variant="h" component="p" >
+                <Typography align='center'  component="p" >
                   Please Verify your email 
                 </Typography>
-                <Typography align='center' variant="h" component="p" >
+                <Typography align='center' component="p" >
                   We have sent a link to your email , check you inbox
                 </Typography>
                 <Button fullWidth variant="contained" color="primary" type='submit' onClick={this.handleLogin.bind(this)} >Login Page</Button>

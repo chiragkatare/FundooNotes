@@ -9,12 +9,15 @@ const theme = createMuiTheme({
             paper: {
                 top: 66,
                 width: 270,
+            },
+            paperAnchorDockedLeft:{
+                borderRight:0,
             }
         }
     }, typography: {
         useNextVariants: true,
     },
-    // .MuiDrawer-paper-107
+    // .MuiDrawer-paper-107  .MuiDrawer-paperAnchorDockedLeft-112
 })
 
 export default class SideDrawer extends React.Component {
@@ -29,16 +32,16 @@ export default class SideDrawer extends React.Component {
 
         var list = (
             <List component="nav">
-                <ListItem button>
+                <ListItem button onClick={this.props.notesPage} >
                     <ListItemIcon><img src={require('../assets/icons/NotesBulb.svg')} alt="" /></ListItemIcon>
                     <ListItemText primary='Notes' />
                 </ListItem>
-                <ListItem button>
+                <ListItem button onClick={this.props.reminderPage} >
                     <ListItemIcon><img src={require('../assets/icons/Reminder.svg')} alt="" /></ListItemIcon>
                     <ListItemText primary='Reminder' />
                 </ListItem>
                 <Divider />
-                <Typography >
+                <Typography className='sidebar-labels' variant='h6' component='p' >
                     Label
                 </Typography>
                 <ListItem button>

@@ -30,17 +30,17 @@ const theme = createMuiTheme({
 
       },
     },
-     MuiDialog:
-      {
-        paperWidthSm: {
-          width:'550px',
-        }
-      },
-      MuiPaper:{
-        rounded:{
-          borderRadius: 8
-        }
-      },
+    MuiDialog:
+    {
+      paperWidthSm: {
+        width: '550px',
+      }
+    },
+    MuiPaper: {
+      rounded: {
+        borderRadius: 8
+      }
+    },
 
   }, typography: {
     useNextVariants: true,
@@ -48,9 +48,11 @@ const theme = createMuiTheme({
   // MuiChip-label-408  .MuiPaper-rounded-1165  .MuiDialogTitle-root-1429  padding: 0px 12px 6px;
 });
 
-export default class ResponsiveDialog extends React.Component {
+export default class NoteEdit extends React.Component {
   state = {
     open: false,
+    index: this.props.index,
+    note: this.props.note,
   };
 
   handleClickOpen = () => {
@@ -61,6 +63,52 @@ export default class ResponsiveDialog extends React.Component {
     // debugger;
     this.setState({ open: false });
   };
+
+  handleTitleChange = (event) => {
+    let note = this.state.note;
+    note.title = event.target.value;
+    this.setState({
+      note: note,
+    });
+  }
+
+  handleBodyChange = (event) => {
+    let note = this.state.note;
+    note.body = event.target.value;
+    this.setState({
+      note: note,
+    });
+  }
+
+  handleReminderChange = (reminder) => {
+    let note = this.state.note;
+    note.reminder = reminder;
+    this.setState({
+      note: note,
+    });
+  }
+
+  handleDeleteReminder=()=>{
+    let note = this.state.note;
+    note.reminder = null;
+    this.setState({
+      note: note,
+    });
+  }
+
+  handlePinChange = (event) => {
+    let note = this.state.note;
+    note.pinned = event.target.value;
+    this.setState({
+      note: note,
+    });
+  }
+
+  handleEditNote=()=>{
+    this.handleClose();
+    //dashboard function
+    this.props.handleNoteEdit(this.props.index,this.state.note);
+  }
 
   render() {
     const { fullScreen } = this.props;
@@ -78,12 +126,28 @@ export default class ResponsiveDialog extends React.Component {
             onClose={this.handleClose}
             aria-labelledby="responsive-dialog-title"
           >
-            <DialogTitle><InputBase name='title' fullWidth placeholder='Title' defaultValue={this.props.note.title} /></DialogTitle>
+            <DialogTitle>
+              <InputBase
+                name='title'
+                fullWidth
+                placeholder='Title'
+                defaultValue={this.props.note.title}
+                onChange={this.handleTitleChange}
+              />
+            </DialogTitle>
             <DialogContent>
-            <InputBase name='body' multiline fullWidth defaultValue={this.props.note.body}  />
-              <div className='note-chip-div'>{this.props.note.reminder === null ? ('') : (<Chip
-                label={this.props.note.reminder}
-                // onDelete={this.deleteReminder}
+              <InputBase 
+              name='body' 
+              multiline 
+              fullWidth 
+              defaultValue={this.props.note.body} 
+              onChange={this.handleBodyChange}
+              />
+              <div className='note-chip-div'>{(this.state.note.reminder === null||this.state.note.reminder === '') ? ('') : 
+              (
+              <Chip
+                label={this.state.note.reminder}
+                onDelete={this.handleDeleteReminder}
                 icon={<img className='icon' src={require('../assets/icons/ReminderClock.svg')} alt="" />}
                 variant='default'
               />)}</div>
@@ -91,7 +155,7 @@ export default class ResponsiveDialog extends React.Component {
             <DialogActions>
               <div className='takenote-bottom-icons-div'>
                 <div>
-                  <Reminder setReminder={this.setReminder} />
+                  <Reminder setReminder={this.handleReminderChange} />
                 </div>
 
                 <div className='note-icon-div' role='button'>
@@ -109,10 +173,9 @@ export default class ResponsiveDialog extends React.Component {
                 <div className='note-icon-div' role='Button'>
                   <img src={require('../assets/icons/More.svg')} alt="" />
                 </div>
-                <Button className='card-button-close' component="span" onClick={this.handleTakeNote}>
+                <Button className='card-button-close' component="span" onClick={this.handleEditNote}>
                   Close
         </Button>
-
               </div>
             </DialogActions>
           </Dialog>

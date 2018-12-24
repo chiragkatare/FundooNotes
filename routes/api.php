@@ -48,4 +48,5 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('/logout', 'UserController@logout');
     Route::get('/getnotes', 'NotesController@getNotes');
     Route::post('/createnote', 'NotesController@create');
+    Route::post('/editnote', 'NotesController@editNotes');
 });

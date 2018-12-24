@@ -10,12 +10,14 @@ use Laravel\Passport\Bridge\User;
 class Notes extends Model
 {
     protected $fillable = [
-        'title', 'body', 'reminder', 'color', 'userid',
+        'title', 'body', 'reminder', 'color', 'userid','pinned',
     ];
 
     public function createNewNote($data)
     {
         Cache::flush();
+        // $noteee = Cache::get('notes'.Auth::user()->id);
+        // $ss = $noteee->where('id',24);
         $note = Notes::create($data);
         Cache::remember('notes', (15), function () {
             $nn = Notes::where('userid', Auth::user()->id)->get();

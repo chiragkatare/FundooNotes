@@ -23,6 +23,7 @@ export default class DashBoard extends React.Component {
             Notes: [],
             gridView: false,
             smallScreen: false,
+            reminderPage: false,
         }
         this.snakebar = React.createRef();
         this.handleMenuClick = this.handleMenuClick.bind(this);
@@ -30,13 +31,13 @@ export default class DashBoard extends React.Component {
         this.getNewNote = this.getNewNote.bind(this);
     }
 
-    componentDidMount() {
+    componentWillMount() {
         noteService.getNotes().then(
             resp => {
                 console.log(resp);
 
                 if (resp.status === 200) {
-                    
+
                     this.setState({
                         Notes: resp.data.message,
                     });
@@ -67,22 +68,6 @@ export default class DashBoard extends React.Component {
     //     window.removeEventListener("resize", this.changeRender);
     // }
 
-    // changeRender = () => {
-    //     this.setState({
-    //         smallScreen: window.innerWidth < 830,
-    //     })
-    //     if (this.state.smallScreen === true) {
-    //         this.setState({
-    //             gridView: true,
-    //         });
-    //     }
-    //   else{
-    //     this.setState({
-    //         gridView:false,
-    //     });
-    //   }
-
-    // }
 
     notify = (message) => {
         this.snakebar.current.handleNewMessage(message);
@@ -94,21 +79,51 @@ export default class DashBoard extends React.Component {
         // debugger;
         this.notify("Note Created");
         var arr = this.state.Notes;
-        arr.push(note);;
+        arr.unshift(note);
         this.setState({
             Notes: arr,
         })
 
     }
 
+    /**
+     * 
+     */
+    handleReminderTab = () => {
+        this.setState({
+            reminderPage: true
+        });
+    }
+
+    /**
+     * 
+     */
+    handleNotesTab = () => {
+        this.setState({
+            reminderPage: false
+        });
+    }
+
+    /**
+     * 
+     */
     handleMenuClick() {
         if (this.state.drawerOpen === false)
             this.setState({ drawerOpen: true });
         else
             this.setState({ drawerOpen: false });
 
+    }
 
-
+    /**
+     * 
+     */
+    handleNoteEdit=(index,note)=>{
+        let TempNotes=this.state.Notes;
+        TempNotes[index]=note,
+        this.setState({
+            Notes:TempNotes
+        });
     }
 
     /**
@@ -130,29 +145,62 @@ export default class DashBoard extends React.Component {
     }
 
     render() {
-        console.log(this.state);
+        console.log('dash', this.state);
         if ((localStorage.getItem('fundootoken')) === null) {
             this.props.history.push('/login');
         }
 
-        var notes = (this.state.Notes.map((note) => {
+        var notes = (this.state.Notes.map((note, index) => {
 
             return <Draggable key={note.id}>
-                <Note gridView={this.state.gridView} key={note.id} title={note.title} body={note.body} reminder={note.reminder} ></Note>
+                <Note gridView={this.state.gridView} key={note.id}
+                    note={note}
+                    index={index} ></Note>
             </Draggable>
 
         })
 
         );
 
+        var reminderNotes = (this.state.Notes.map((note, index) => {
+            if (note.reminder !== null) {
+                return <Draggable key={note.id}>
+                    <Note gridView={this.state.gridView}
+                        index={index}
+                        key={note.id}
+                        note={note}
+                        handlenoteEdit={this.handleNoteEdit}
+                    ></Note>
+                </Draggable>
+            }
+        })
+
+        );
+
         return (
             <div >
-                <div><CAppBar gridView={this.state.gridView} menuClick={this.handleMenuClick} changeView={this.changeView} logout={this.logout} /></div>
-                <div><SideDrawer open={this.state.drawerOpen} /></div>
-                <div><TakeNote sendNote={this.getNewNote} /></div>
+                <div><CAppBar gridView={this.state.gridView}
+                    menuClick={this.handleMenuClick}
+                    changeView={this.changeView}
+                    logout={this.logout}
+                /></div>
+                <div>
+                    <SideDrawer
+                        reminderPage={this.handleReminderTab}
+                        notesPage={this.handleNotesTab}
+                        open={this.state.drawerOpen}
+                    />
+                </div>
+                <div>
+                    <TakeNote
+                        sendNote={this.getNewNote}
+                    />
+                </div>
                 {/* this.state.gridView===true? */}
-                <div className={this.state.gridView === true ? 'notes-div-grid' : 'notes-div'} >{notes}</div>
-                <SnakeBars ref={this.snakebar} open={this.state.snakebarStatus} changeStatus={this.changeSnakebarStatus} />
+                <div className={this.state.gridView === true ? 'notes-div-grid' : 'notes-div'} >
+                    {this.state.reminderPage ? reminderNotes : notes}
+                </div>
+                <SnakeBars ref={this.snakebar} open={this.state.snakebarStatus} changeStatus={this.changeSnakebarStatus}  />
 
             </div>
         );

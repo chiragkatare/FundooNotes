@@ -286,9 +286,20 @@ div .label-text{
     margin: 5% auto 0px 26%;
 
 } */
+/* 
+.note-card .note-card-def .note-card-content{
+    padding-right: 4px,
+} */
+
 
 div .remainder-chip{
     height: 24px;
+}
+
+.note-icon-pin{
+   
+        opacity:0.5 ;
+        /* margin: 5px; */
 }
 
 .note-icon-div{
@@ -299,6 +310,11 @@ div .remainder-chip{
     height: 20px;
     /* margin: 5px; */
 } 
+
+.note-top-div{
+    display: flex;
+    justify-content: space-between;
+}
 
 .note-body-text{
     white-space: pre-line;
