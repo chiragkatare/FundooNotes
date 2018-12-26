@@ -15,7 +15,7 @@ class Notes extends Model
 
     public function createNewNote($data)
     {
-        Cache::flush();
+        Cache::forget('notes' . Auth::user()->id);
         // $noteee = Cache::get('notes'.Auth::user()->id);
         // $ss = $noteee->where('id',24);
         $note = Notes::create($data);
@@ -28,7 +28,8 @@ class Notes extends Model
 
     public function getUserNotes()
     {
-        $notes = Cache::remember('notes' . Auth::user()->id, (15), function () {
+        Cache::forget('notes' . Auth::user()->id);
+        $notes = Cache::remember('notes' . Auth::user()->id, (30), function () {
             $nn = Notes::where('userid', Auth::user()->id)->get();
             return $nn;
         });

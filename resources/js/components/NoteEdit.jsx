@@ -2,12 +2,10 @@ import React from 'react';
 import Reminder from '../components/Reminder';
 import Button from '@material-ui/core/Button';
 import Chip from '@material-ui/core/Chip';
-
+import ColorPallate from './ColorPallate';
 import { InputBase, DialogTitle, DialogContentText, DialogContent, DialogActions, Dialog, createMuiTheme, MuiThemeProvider } from '@material-ui/core/';
 // import Draggable from 'react-draggable';
 import withMobileDialog from '@material-ui/core/withMobileDialog';
-
-
 
 
 const theme = createMuiTheme({
@@ -38,7 +36,7 @@ const theme = createMuiTheme({
     },
     MuiPaper: {
       rounded: {
-        borderRadius: 8
+        borderRadius: 8,
       }
     },
 
@@ -48,13 +46,14 @@ const theme = createMuiTheme({
   // MuiChip-label-408  .MuiPaper-rounded-1165  .MuiDialogTitle-root-1429  padding: 0px 12px 6px;
 });
 
+
 export default class NoteEdit extends React.Component {
   state = {
     open: false,
     index: this.props.index,
     note: this.props.note,
   };
-
+  
   handleClickOpen = () => {
     this.setState({ open: true });
   };
@@ -104,6 +103,18 @@ export default class NoteEdit extends React.Component {
     });
   }
 
+  /**
+   * 
+   */
+  handleColor=(color)=>{
+    let note = this.state.note;
+    note.color = color;
+    this.setState({
+      note: note,
+    });
+  }
+  
+
   handleEditNote=()=>{
     this.handleClose();
     //dashboard function
@@ -112,7 +123,8 @@ export default class NoteEdit extends React.Component {
 
   render() {
     const { fullScreen } = this.props;
-    console.log('edit', this.state);
+    // console.log('edit', this.state);
+
 
 
     return (
@@ -120,12 +132,12 @@ export default class NoteEdit extends React.Component {
         <MuiThemeProvider theme={theme}>
 
           <Dialog
-
             fullScreen={fullScreen}
             open={this.state.open}
             onClose={this.handleClose}
             aria-labelledby="responsive-dialog-title"
           >
+          <div style={{background: this.state.note.color}}>
             <DialogTitle>
               <InputBase
                 name='title'
@@ -161,9 +173,7 @@ export default class NoteEdit extends React.Component {
                 <div className='note-icon-div' role='button'>
                   <img src={require('../assets/icons/Collaborator.svg')} alt="" />
                 </div>
-                <div className='note-icon-div' role='Button'>
-                  <img src={require('../assets/icons/ColorPallate.svg')} alt="" />
-                </div>
+                <ColorPallate setColor={this.handleColor} />
                 <div className='note-icon-div' role='Button'>
                   <img src={require('../assets/icons/AddImage.svg')} alt="" />
                 </div>
@@ -173,11 +183,12 @@ export default class NoteEdit extends React.Component {
                 <div className='note-icon-div' role='Button'>
                   <img src={require('../assets/icons/More.svg')} alt="" />
                 </div>
-                <Button className='card-button-close' component="span" onClick={this.handleEditNote}>
+                <Button className='card-button-close' component="span" onClick={(this.handleEditNote)}>
                   Close
         </Button>
               </div>
             </DialogActions>
+            </div>
           </Dialog>
 
         </MuiThemeProvider>

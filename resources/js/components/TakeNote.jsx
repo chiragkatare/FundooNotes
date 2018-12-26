@@ -5,6 +5,7 @@ import Reminder from '../components/Reminder';
 import Chip from '@material-ui/core/Chip';
 import DoneIcon from '@material-ui/icons/Done';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import ColorPallate from './ColorPallate';
 
 
 var noteService = new NotesService();
@@ -40,6 +41,7 @@ export default class TakeNote extends React.Component {
             title: '',
             body: '',
             pinned: false,
+            color: 'rgb(255, 255, 255)',
             reminder: null,
         };
         this.handleTakeNote = this.handleTakeNote.bind(this);
@@ -56,6 +58,7 @@ export default class TakeNote extends React.Component {
             body: this.state.body,
             reminder: this.state.reminder,
             pinned: this.state.pinned,
+            color:this.state.color,
         }
         if ((Note.title !== '' || Note.body !== '')) {
             Note = this.sendNote(Note);
@@ -66,6 +69,7 @@ export default class TakeNote extends React.Component {
                 body: '',
                 reminder: '',
                 pinned: 0,
+                color: 'rgb(255, 255, 255)',
             });
         }
     }
@@ -143,13 +147,20 @@ export default class TakeNote extends React.Component {
         });
     }
 
+    handleColor = (color) => {
+        this.setState({
+            color: color
+        });
+    }
+
+
     /**
      * render method called automaticaly by 
      */
     render() {
         var Open = (<MuiThemeProvider theme={theme}>
             <ClickAwayListener onClickAway={this.handleClickAway} >
-                <Card className='takenote-div-open' >
+                <Card className='takenote-div-open' style={{ backgroundColor: this.state.color }} >
                     <div className='note-top-div'>
                         <InputBase name='title' fullWidth placeholder='Title' onChange={this.handleInput} />
                         <div className='note-icon-pin' role='button' onClick={this.handlePin} >
@@ -171,9 +182,8 @@ export default class TakeNote extends React.Component {
                         <div className='note-icon-div' role='button'>
                             <img src={require('../assets/icons/Collaborator.svg')} alt="" />
                         </div>
-                        <div className='note-icon-div' role='Button'>
-                            <img src={require('../assets/icons/ColorPallate.svg')} alt="" />
-                        </div>
+                        <ColorPallate
+                            setColor={this.handleColor} />
                         <div className='note-icon-div' role='Button'>
                             <img src={require('../assets/icons/AddImage.svg')} alt="" />
                         </div>

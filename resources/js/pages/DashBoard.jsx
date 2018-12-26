@@ -20,6 +20,7 @@ export default class DashBoard extends React.Component {
         super(props);
         this.state = {
             drawerOpen: false,
+            user:null,
             Notes: [],
             gridView: false,
             smallScreen: false,
@@ -31,6 +32,9 @@ export default class DashBoard extends React.Component {
         this.getNewNote = this.getNewNote.bind(this);
     }
 
+    /**
+     * 
+     */
     componentWillMount() {
         noteService.getNotes().then(
             resp => {
@@ -45,16 +49,30 @@ export default class DashBoard extends React.Component {
             }
         ).catch();
         setInterval(this.remind, 60000);
-        // this.changeRender();
-        // window.addEventListener("resize", this.changeRender);
+        
+        userService.getUserData().then(resp=>{
+            this.setState({
+                user:resp.data[0]
+            });
+            localStorage.setItem('userFirstname',resp.data[0].firstname);
+        }).catch(error=>{
+            console.log(error);
+            
+        });
     }
 
+    /**
+     * 
+     */
     changeSnakebarStatus = (status) => {
         this.setState({
             snakebarStatus: status,
         });
     }
 
+    /**
+     * 
+     */
     remind = () => {
         console.log('hello');
         this.state.Notes.forEach(note => {
@@ -75,7 +93,7 @@ export default class DashBoard extends React.Component {
 
     getNewNote = (note) => {
         // debugger;
-        console.log(note);
+        
         // debugger;
         this.notify("Note Created");
         var arr = this.state.Notes;
@@ -87,7 +105,7 @@ export default class DashBoard extends React.Component {
     }
 
     /**
-     * 
+     * handle the clock on remonder tab in sidbar by changin to show only reminder tab in the dashBoard
      */
     handleReminderTab = () => {
         this.setState({
@@ -118,12 +136,19 @@ export default class DashBoard extends React.Component {
     /**
      * 
      */
-    handleNoteEdit=(index,note)=>{
-        let TempNotes=this.state.Notes;
-        TempNotes[index]=note,
-        this.setState({
-            Notes:TempNotes
-        });
+    handleNoteEdit = (index, note) => {
+        // debugger;
+        let TempNotes = this.state.Notes;
+        noteService.editNote(note).then(resp=>{
+            // this.notify('Note Updated');
+        }).catch(error=>{
+            alert(error);
+        }
+        );
+        TempNotes[index] = note;
+            this.setState({
+                Notes: TempNotes
+            });
     }
 
     /**
@@ -153,9 +178,11 @@ export default class DashBoard extends React.Component {
         var notes = (this.state.Notes.map((note, index) => {
 
             return <Draggable key={note.id}>
-                <Note gridView={this.state.gridView} key={note.id}
+                <Note gridView={this.state.gridView}
+                    key={note.id}
                     note={note}
-                    index={index} ></Note>
+                    index={index}
+                    handleNoteEdit={this.handleNoteEdit}></Note>
             </Draggable>
 
         })
@@ -169,7 +196,7 @@ export default class DashBoard extends React.Component {
                         index={index}
                         key={note.id}
                         note={note}
-                        handlenoteEdit={this.handleNoteEdit}
+                        handleNoteEdit={this.handleNoteEdit}
                     ></Note>
                 </Draggable>
             }
@@ -180,6 +207,7 @@ export default class DashBoard extends React.Component {
         return (
             <div >
                 <div><CAppBar gridView={this.state.gridView}
+                    user={this.state.user}
                     menuClick={this.handleMenuClick}
                     changeView={this.changeView}
                     logout={this.logout}
@@ -200,7 +228,7 @@ export default class DashBoard extends React.Component {
                 <div className={this.state.gridView === true ? 'notes-div-grid' : 'notes-div'} >
                     {this.state.reminderPage ? reminderNotes : notes}
                 </div>
-                <SnakeBars ref={this.snakebar} open={this.state.snakebarStatus} changeStatus={this.changeSnakebarStatus}  />
+                <SnakeBars ref={this.snakebar} open={this.state.snakebarStatus} changeStatus={this.changeSnakebarStatus} />
 
             </div>
         );

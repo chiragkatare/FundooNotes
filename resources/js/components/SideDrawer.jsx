@@ -42,7 +42,7 @@ export default class SideDrawer extends React.Component {
                 </ListItem>
                 <Divider />
                 <Typography className='sidebar-labels' variant='h6' component='p' >
-                    Label
+                    Labels
                 </Typography>
                 <ListItem button>
                     <ListItemIcon><img src={require('../assets/icons/EditLabels.svg')} alt="" /></ListItemIcon>

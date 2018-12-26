@@ -5,6 +5,7 @@ import Reminder from './Reminder';
 import Chip from '@material-ui/core/Chip';
 import { red } from "@material-ui/core/colors";
 import NoteEdit from './NoteEdit';
+import ColorPallate from './ColorPallate';
 // import Moment from 'react-moment';
 
 
@@ -43,11 +44,7 @@ export default class Note extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: '',
-            body: '',
-            reminder: null,
-            reminderstatus: true,
-            pinned: 0,
+            note:this.props.note,
         };
 
         this.noteEdit = React.createRef();
@@ -60,56 +57,73 @@ export default class Note extends React.Component {
      */
     componentWillMount() {
         this.setState({
-            title: this.props.note.title,
-            body: this.props.note.body,
-            reminder: this.props.note.reminder,
-            pinned:this.props.note.pinned,
+           note:this.props.note,
         })
     }
 
     editNote = () => {
-        console.log
-            (this.noteEdit);
         this.noteEdit.current.handleClickOpen();
     }
 
+    /**
+     * 
+     */
+    setReminder=(s)=>{
+       let tempNote =  this.state.note;
+       tempNote.reminder = s;
+       this.props.handleNoteEdit(this.props.index,tempNote);
+    }
+
+    /**
+     * 
+     */
+    handleColor=(color)=>{
+        let tempNote =  this.state.note;
+        if(tempNote.color!==color){
+            debugger;
+            tempNote.color=color;
+            this.props.handleNoteEdit(this.props.index,tempNote);
+        }
+    }
+
     render() {
-        console.log('note',this.props.index)
+        // console.log('note'+this.props.index,this.state)
         return (
             <div className={this.props.gridView === true ? 'note-card-grid' : 'note-card'}>
                 <MuiThemeProvider theme={theme}>
-                    <Card className='note-card-def' style={{ border: '1px solid #dadce0' }} >
+                    <Card className='note-card-def' style={{ border: '1px solid #dadce0' , backgroundColor:this.state.note.color }} >
                         <CardContent className='note-card-content' onClick={this.editNote}>
                             <div className='note-top-div'>
 
                                 <Typography variant='h6' component="p">
-                                    {this.state.title}
+                                    {this.state.note.title}
                                 </Typography>
                                 <div className='note-icon-pin' role='button'>
-                                    <img src={this.state.pinned==='1'?require('../assets/icons/pin.svg'):require('../assets/icons/unpin.svg')} alt="" />
+                                    <img src={this.state.note.pinned==='1'?require('../assets/icons/pin.svg'):require('../assets/icons/unpin.svg')} alt="" />
                                 </div>
                             </div>
                             <Typography className='note-body-text' component="p">
-                                {this.state.body}
+                                {this.state.note.body}
                             </Typography>
-                            <div className='note-card-chip-div' >{this.state.reminder === null ? <div> </div> : (<Chip
+                            <div className='note-card-chip-div' >{this.state.note.reminder === null ? <div> </div> : (
+                            <Chip
                                 className='remainder-chip'
-                                label={this.state.reminder}
+                                label={this.state.note.reminder}
                                 onDelete={this.deleteReminder}
                                 icon={<img className='icon' src={require('../assets/icons/ReminderClock.svg')} alt="" />}
                                 variant='default'
                             />)}</div>
                         </CardContent>
                         <div className='note-bottom-icons-div'>
-                            <Reminder />
+                            <Reminder
+                            setReminder={this.setReminder}
+                             />
 
 
                             <div className='note-icon-div' role='button'>
                                 <img src={require('../assets/icons/Collaborator.svg')} alt="" />
                             </div>
-                            <div className='note-icon-div' role='Button'>
-                                <img src={require('../assets/icons/ColorPallate.svg')} alt="" />
-                            </div>
+                            <ColorPallate setColor={this.handleColor} />
                             <div className='note-icon-div' role='Button'>
                                 <img src={require('../assets/icons/AddImage.svg')} alt="" />
                             </div>
@@ -123,7 +137,7 @@ export default class Note extends React.Component {
                     </Card>
                     <NoteEdit 
                     ref={this.noteEdit} 
-                    note={this.state} 
+                    note={this.props.note} 
                     index={this.props.index} 
                     handleNoteEdit={this.props.handleNoteEdit}
                     />

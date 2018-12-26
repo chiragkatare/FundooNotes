@@ -60,7 +60,7 @@ class UserController extends Controller
                 return response()->json(['message' => 'Email Not Verified'], 211);
             }
             $token = $user->createToken('fundoo')->accessToken;
-            return response()->json(['token' => $token], 200);
+            return response()->json(['token' => $token,'userdetails'=>Auth::user()], 200);
         } else {
             return response()->json(['error' => 'Unauthorised'], 204);
         }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, AppBar, Toolbar, IconButton, Typography, InputBase, Avatar } from '@material-ui/core/';
+import { Button, AppBar, Toolbar, IconButton, Typography, InputBase, Avatar, Card, CardContent, Divider } from '@material-ui/core/';
 import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
@@ -17,6 +17,8 @@ export default class CAppBar extends React.Component {
             anchorEl: null,
             mobileMoreAnchorEl: null,
             profileMenu: false,
+            user:this.props.user,
+
         };
         this.handleProfileMenu = this.handleProfileMenu.bind(this);
         this.closeProfileMenu = this.closeProfileMenu.bind(this);
@@ -47,6 +49,7 @@ export default class CAppBar extends React.Component {
     };
 
     render() {
+        console.log('capp', this.state);
 
 
         return (
@@ -89,33 +92,52 @@ export default class CAppBar extends React.Component {
                             <img className='icon' src={require('../assets/icons/setting.svg')} alt="" />
                         </IconButton>
                     </div>
+                    <ClickAwayListener onClickAway={this.closeProfileMenu} >
                     <div className='appbar-avatar-btn'>
-                        <ClickAwayListener onClickAway={this.closeProfileMenu} >
+                        
                             <IconButton onClick={this.handleProfileMenu} >
-                                <Avatar alt="Remy Sharp" src={require('../assets/images/avatar.jpg')} />
+                                <Avatar className='profile-avatar' alt="Remy Sharp" >
+                                {/* {this.props.user.firstname.substr(0, 1)} */}
+                                </Avatar>
                             </IconButton>
-                        </ClickAwayListener>
-                        <Popper className='appbar-menu-profile' open={this.state.profileMenu} transition disablePortal>
-                            {({ TransitionProps, placement }) => (
-                                <Grow
-                                    {...TransitionProps}
-                                    style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-                                >
-                                    <Paper>
-                                        <MenuList>
-                                            {/* <MenuItem >Profile</MenuItem>
-                                            <MenuItem >My account</MenuItem> */}
-                                            <MenuItem >
-                                                <Button className='card-button-close' component="span" onClick={this.props.logout}>
+                        <div className='check'>
+                            <Popper className='appbar-menu-profile' open={this.state.profileMenu} anchorEl={this.state.anchorEl} transition disablePortal placement='bottom-end'>
+                                {({ TransitionProps, placement }) => (
+                                    <Grow
+                                        {...TransitionProps}
+                                        style={{ transformOrigin: 'center top' }}
+                                    >
+                                        <Card>
+                                            <CardContent className='profile-popper-cardcontent' >
+                                                <div className='inside-avatar-div'>
+                                                    <Avatar className='profile-popup-avatar' color='red' >
+                                                        {this.props.user.firstname.substr(0, 1)}
+                                                    </Avatar>
+                                                </div>
+                                                <div>
+                                                    <Typography variant='h6' component="p" >
+
+                                                        {this.props.user.firstname + ' ' + this.props.user.lastname}
+                                                    </Typography>
+                                                    <Typography component="p" >
+                                                        {this.props.user.email}
+                                                    </Typography>
+                                                </div>
+                                            </CardContent>
+                                            <Divider />
+                                            <div className='profile-popper-below-div'>
+                                                <Button variant='outlined' onClick={this.props.logout}>
                                                     LogOut
-                                                </Button>
-                                            </MenuItem>
-                                        </MenuList>
-                                    </Paper>
-                                </Grow>
-                            )}
-                        </Popper>
+                                        </Button>
+                                            </div>
+
+                                        </Card>
+                                    </Grow>
+                                )}
+                            </Popper>
+                        </div>
                     </div>
+                    </ClickAwayListener>
                 </Toolbar>
             </AppBar >
         );

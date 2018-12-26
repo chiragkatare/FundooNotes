@@ -21,6 +21,11 @@ export default class UserService {
 
     }
 
+    /**
+   * method to get all the notes of the registered user from the backend
+   * 
+   * @return {array} response
+   */
     getNotes() {
         //    / debugger;
         var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
@@ -32,8 +37,20 @@ export default class UserService {
                 // /console.log('rereerrors',error);
                 return error;
             });
-
     }
+
+    editNote(note) {
+        var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
+        return axios.post('/api/editnote', note, { headers: { Authorization: AuthStr } })
+            .then((response) => {
+                return response;
+            }
+            ).catch((error) => {
+                // /console.log('rereerrors',error);
+                return error;
+            });
+    }
+
 
 
 }
