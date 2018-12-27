@@ -28,6 +28,10 @@ class CreateNotesTable extends Migration
             $table->unsignedInteger('userid');
             //state of note pinned or unpinned
             $table->boolean('pinned')->default(false);
+            //getting if the note is archived or not
+            $table->boolean('archived')->default(false);
+            //for if note is deleted or not
+            $table->boolean('deleted')->default(false);
             //making the userid foreign key
             $table->foreign('userid')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

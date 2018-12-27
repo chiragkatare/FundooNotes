@@ -294,7 +294,10 @@ div .remainder-chip{
 }
 
 .note-icon-pin{
-   
+    float: right;
+    right: 4px;
+    top: 4px;
+    position: relative;
         opacity:0.5 ;
         /* margin: 5px; */
 }

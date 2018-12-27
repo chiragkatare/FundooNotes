@@ -13,7 +13,7 @@ export default class UserService {
         .then((response)=>{
             if (response.status==200){
                 localStorage.setItem('fundootoken',response.data.token);
-                localStorage.setItem('user',response.data.userdetails);
+                localStorage.setItem('username',response.data.userdetails.firstname+' '+response.data.userdetails.lastname);
             }
             return response ;
         }

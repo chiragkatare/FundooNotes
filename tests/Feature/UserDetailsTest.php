@@ -49,7 +49,7 @@ class UserDetailsTest extends TestCase
         // Passport::actingAs($user);
 
         $response = $this->get('/api/userdetails');
-            $response->assertStatus(201);
+            $response->assertStatus(302);
     }
 
     

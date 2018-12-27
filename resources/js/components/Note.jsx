@@ -30,11 +30,16 @@ const theme = createMuiTheme({
                 boxShadow: '0 0 0'
             },
         },
+        MuiCard:{
+            root:{
+                overflow:'inherit'
+            },
+        },
 
     }, typography: {
         useNextVariants: true,
     },
-    //..MuiPaper-elevation1-252  .MuiCardContent-root-276
+    //..MuiPaper-elevation1-252 .MuiCard-root-510  .MuiCardContent-root-276
 });
 
 
@@ -43,23 +48,20 @@ export default class Note extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            note:this.props.note,
-        };
 
         this.noteEdit = React.createRef();
     }
 
-    /**
-     * LIFECYCLE METHOD
-     * Called Automatically
-     * runs before mounting of the component
-     */
-    componentWillMount() {
-        this.setState({
-           note:this.props.note,
-        })
-    }
+    // /**
+    //  * LIFECYCLE METHOD
+    //  * Called Automatically
+    //  * runs before mounting of the component
+    //  */
+    // componentWillMount() {
+    //     this.setState({
+    //         note: this.props.note,
+    //     })
+    // }
 
     editNote = () => {
         this.noteEdit.current.handleClickOpen();
@@ -68,56 +70,78 @@ export default class Note extends React.Component {
     /**
      * 
      */
-    setReminder=(s)=>{
-       let tempNote =  this.state.note;
-       tempNote.reminder = s;
-       this.props.handleNoteEdit(this.props.index,tempNote);
+    setReminder = (s) => {
+        let tempNote = this.props.note;
+        tempNote.reminder = s;
+        this.props.handleNoteEdit(this.props.index, tempNote);
     }
 
     /**
      * 
      */
-    handleColor=(color)=>{
-        let tempNote =  this.state.note;
-        if(tempNote.color!==color){
-            debugger;
-            tempNote.color=color;
-            this.props.handleNoteEdit(this.props.index,tempNote);
+    handleColor = (color) => {
+        let tempNote = this.props.note;
+        if (tempNote.color !== color) {
+            // debugger;
+            tempNote.color = color;
+            this.props.handleNoteEdit(this.props.index, tempNote);
         }
     }
 
+    /**
+     * function to change the pin and unpin of note
+     */
+    handlePin = ()=>{
+        
+        let tempNote = this.props.note;
+            // debugger;
+            tempNote.pinned = (tempNote.pinned===false||tempNote.pinned==='0')?true:false;
+            this.props.handleNoteEdit(this.props.index, tempNote);
+        
+    }
+
+    handleArchive=()=>{
+        let tempNote = this.props.note;
+            // debugger;
+            console.log(this.props.note);
+            
+            tempNote.archived = (tempNote.archived===false||tempNote.archived==='0')?true:false;
+            this.props.handleNoteEdit(this.props.index, tempNote);
+    }
+
     render() {
-        // console.log('note'+this.props.index,this.state)
+        console.log('note'+this.props.index,this.props)
         return (
             <div className={this.props.gridView === true ? 'note-card-grid' : 'note-card'}>
                 <MuiThemeProvider theme={theme}>
-                    <Card className='note-card-def' style={{ border: '1px solid #dadce0' , backgroundColor:this.state.note.color }} >
+                    <div className='note-icon-pin' role='button'  onClick={this.handlePin} >
+                        <img src={(this.props.note.pinned === '1'||this.props.note.pinned === true )? require('../assets/icons/pin.svg') : require('../assets/icons/unpin.svg')} alt="" />
+                    </div>
+                    <Card className='note-card-def' style={{ border: '1px solid #dadce0', backgroundColor: this.props.note.color }} >
                         <CardContent className='note-card-content' onClick={this.editNote}>
                             <div className='note-top-div'>
 
                                 <Typography variant='h6' component="p">
-                                    {this.state.note.title}
+                                    {this.props.note.title}
                                 </Typography>
-                                <div className='note-icon-pin' role='button'>
-                                    <img src={this.state.note.pinned==='1'?require('../assets/icons/pin.svg'):require('../assets/icons/unpin.svg')} alt="" />
-                                </div>
+
                             </div>
                             <Typography className='note-body-text' component="p">
-                                {this.state.note.body}
+                                {this.props.note.body}
                             </Typography>
-                            <div className='note-card-chip-div' >{this.state.note.reminder === null ? <div> </div> : (
-                            <Chip
-                                className='remainder-chip'
-                                label={this.state.note.reminder}
-                                onDelete={this.deleteReminder}
-                                icon={<img className='icon' src={require('../assets/icons/ReminderClock.svg')} alt="" />}
-                                variant='default'
-                            />)}</div>
+                            <div className='note-card-chip-div' >{this.props.note.reminder === null ? <div> </div> : (
+                                <Chip
+                                    className='remainder-chip'
+                                    label={this.props.note.reminder}
+                                    onDelete={this.deleteReminder}
+                                    icon={<img className='icon' src={require('../assets/icons/ReminderClock.svg')} alt="" />}
+                                    variant='default'
+                                />)}</div>
                         </CardContent>
                         <div className='note-bottom-icons-div'>
                             <Reminder
-                            setReminder={this.setReminder}
-                             />
+                                setReminder={this.setReminder}
+                            />
 
 
                             <div className='note-icon-div' role='button'>
@@ -127,19 +151,23 @@ export default class Note extends React.Component {
                             <div className='note-icon-div' role='Button'>
                                 <img src={require('../assets/icons/AddImage.svg')} alt="" />
                             </div>
-                            <div className='note-icon-div' role='Button'>
-                                <img src={require('../assets/icons/Archive.svg')} alt="" />
+                            <div className='note-icon-div' role='Button' onClick={this.handleArchive} >
+                                <img 
+                                src={(this.props.note.archived===true||this.props.note.archived==='1')
+                                ?require('../assets/icons/Unarchive.svg')
+                                :require('../assets/icons/Archive.svg')} alt="" 
+                                />
                             </div>
                             <div className='note-icon-div' role='Button'>
                                 <img src={require('../assets/icons/More.svg')} alt="" />
                             </div>
                         </div>
                     </Card>
-                    <NoteEdit 
-                    ref={this.noteEdit} 
-                    note={this.props.note} 
-                    index={this.props.index} 
-                    handleNoteEdit={this.props.handleNoteEdit}
+                    <NoteEdit
+                        ref={this.noteEdit}
+                        note={this.props.note}
+                        index={this.props.index}
+                        handleNoteEdit={this.props.handleNoteEdit}
                     />
                 </MuiThemeProvider>
             </div>

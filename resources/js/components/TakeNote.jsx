@@ -41,6 +41,8 @@ export default class TakeNote extends React.Component {
             title: '',
             body: '',
             pinned: false,
+            archieved: false,
+            deleted: false,
             color: 'rgb(255, 255, 255)',
             reminder: null,
         };
@@ -49,8 +51,10 @@ export default class TakeNote extends React.Component {
 
     /**
      * function to handle creation of new note
+     * 
+     * @var string message for snakebar
      */
-    handleNewNote = () => {
+    handleNewNote = (message) => {
         // debugger;
         var Note = {
             id: '',
@@ -58,18 +62,35 @@ export default class TakeNote extends React.Component {
             body: this.state.body,
             reminder: this.state.reminder,
             pinned: this.state.pinned,
-            color:this.state.color,
+            color: this.state.color,
+            archieved: this.state.archieved,
+            deleted: this.state.deleted,
         }
         if ((Note.title !== '' || Note.body !== '')) {
             Note = this.sendNote(Note);
             this.props.sendNote(Note);
+            this.props.notify(message);
             this.setState({
                 id: '',
                 title: '',
                 body: '',
-                reminder: '',
+                reminder: null,
                 pinned: 0,
                 color: 'rgb(255, 255, 255)',
+                archieved: false,
+                deleted: false,
+            });
+        }
+        else{
+            this.setState({
+                // id: '',
+                // title: '',
+                // body: '',
+                reminder: null,
+                pinned: 0,
+                color: 'rgb(255, 255, 255)',
+                archieved: false,
+                // deleted: false,
             });
         }
     }
@@ -107,7 +128,7 @@ export default class TakeNote extends React.Component {
         this.setState({
             active: !this.state.active,
         });
-        this.handleNewNote();
+        this.handleNewNote('Note Created');
     }
 
     /**
@@ -117,7 +138,7 @@ export default class TakeNote extends React.Component {
         this.setState({
             active: false,
         });
-        this.handleNewNote();
+        this.handleNewNote('Note Created');
     }
 
     /**
@@ -144,13 +165,29 @@ export default class TakeNote extends React.Component {
     handlePin = () => {
         this.setState({
             pinned: !this.state.pinned
+            
         });
     }
 
+    /***
+     * 
+     */
     handleColor = (color) => {
         this.setState({
             color: color
         });
+    }
+
+    /**
+     * 
+     */
+    handleArchieved=()=>{
+        // debugger;
+        this.setState({
+            archieved:true,
+            active: !this.state.active,
+        });
+        this.handleNewNote('Note Archived');
     }
 
 
@@ -187,8 +224,8 @@ export default class TakeNote extends React.Component {
                         <div className='note-icon-div' role='Button'>
                             <img src={require('../assets/icons/AddImage.svg')} alt="" />
                         </div>
-                        <div className='note-icon-div' role='Button'>
-                            <img src={require('../assets/icons/Archive.svg')} alt="" />
+                        <div className='note-icon-div' role='Button' onClick={this.handleArchieved}>
+                            <img src={ this.state.archieved? require('../assets/icons/Unarchive.svg'):require('../assets/icons/Archive.svg')} alt="" />
                         </div>
                         <div className='note-icon-div' role='Button'>
                             <img src={require('../assets/icons/More.svg')} alt="" />

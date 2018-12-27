@@ -62,6 +62,8 @@ class NotesController extends Controller
                 'color' => $req->get('color'),
                 'userid' => $req->get('userid'),
                 'pinned' => $req->get('pinned'),
+                'archived' => $req->get('archived'),
+                'deleted' => $req->get('deleted'),
                 
             ]
         );
@@ -74,7 +76,7 @@ class NotesController extends Controller
         // $note->userid = $req->get('userid');
         // $note->pinned = $req->get('pinned');
         // $note->save();
-        return response()->json(['message' => $note], 201);
+        return response()->json(['message' => $note], 200);
 
     }
 }

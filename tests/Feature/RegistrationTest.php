@@ -7,18 +7,20 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Faker\Factory as Faker ;
+use App\Http\Controllers\UserController;
 
 class RegistrationTest extends TestCase
 {
     // use RefreshDatabase;
     /**
-     * A basic test example.
+     * A basic test example
      *
      * @return void
      */
     public function testExample()
     {
-        $this->assertTrue(true);
+       $usercont = new UserController();
+       $usercont->login();
     }
 
     /**

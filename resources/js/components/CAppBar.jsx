@@ -44,12 +44,12 @@ export default class CAppBar extends React.Component {
             anchorEl: event.currentTarget,
             profileMenu: !this.state.profileMenu,
         });
-        console.log('avatar', this.state);
+        // console.log('avatar', this.state);
 
     };
 
     render() {
-        console.log('capp', this.state);
+        // console.log('capp', this.state);
 
 
         return (
@@ -97,7 +97,7 @@ export default class CAppBar extends React.Component {
                         
                             <IconButton onClick={this.handleProfileMenu} >
                                 <Avatar className='profile-avatar' alt="Remy Sharp" >
-                                {/* {this.props.user.firstname.substr(0, 1)} */}
+                                {localStorage.getItem('username').substr(0, 1)}
                                 </Avatar>
                             </IconButton>
                         <div className='check'>

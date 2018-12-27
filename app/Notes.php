@@ -10,7 +10,7 @@ use Laravel\Passport\Bridge\User;
 class Notes extends Model
 {
     protected $fillable = [
-        'title', 'body', 'reminder', 'color', 'userid','pinned',
+        'title', 'body', 'reminder', 'color', 'userid','pinned','archived','deleted',
     ];
 
     public function createNewNote($data)
