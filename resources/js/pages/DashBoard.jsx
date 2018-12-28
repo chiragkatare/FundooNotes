@@ -7,6 +7,7 @@ import Note from "../components/Note";
 import NotesService from "../services/NotesService";
 import moment from 'moment';
 import SnakeBars from '../components/Snakebars';
+import NotesDisplay from '../components/NotesDisplay';
 import Draggable from 'react-draggable';
 // import NotesGrid from "../components/NotesGrid";
 // import SmallAppBar from '../components/SmallAppBar';
@@ -24,8 +25,8 @@ export default class DashBoard extends React.Component {
             Notes: [],
             gridView: false,
             smallScreen: false,
-            Page: 'notes',
-            pinnedNotes: false,
+            Page: 'FundooNotes',
+            pinnedNotes: true,
         }
         this.snakebar = React.createRef();
         this.handleMenuClick = this.handleMenuClick.bind(this);
@@ -33,29 +34,26 @@ export default class DashBoard extends React.Component {
         this.getNewNote = this.getNewNote.bind(this);
     }
 
+
+
+
     /**
      * LIFECYCLE METHOD 
      * Runs Automatically by react before mountinng a component
      */
     componentWillMount() {
         // debugger;
-        console.log('hwjhkjsdkjshjdghjsgd')
+        console.log('compwillmountdash');
+
         noteService.getNotes().then(
             resp => {
-                console.log(resp);
+                // console.log(resp);
 
                 if (resp.status === 200) {
-                    for (let i = 0; i < resp.data.message.length; i++) {
-                        const note = resp.data.message[i];
-                        if(note.pinned==='1'){
-                            this.setState({
-                                pinnedNotes:true
-                            });
-                            break;
-                        } 
-                    }
+                    var notes = resp.data.message.reverse();
+                    
                     this.setState({
-                        Notes: resp.data.message.reverse(),
+                        Notes: notes,
                     });
                 }
             }
@@ -68,10 +66,18 @@ export default class DashBoard extends React.Component {
             });
             localStorage.setItem('userFirstname', resp.data[0].firstname);
         }).catch(error => {
-            console.log(error);
+            console.log('error', error);
 
         });
     }
+
+    // shouldComponentUpdate(){
+
+    //     if(this.state.Notes.length===0){
+    //         return false;
+    //     }
+    //     return true ;
+    // }
 
     /**
      * change the stat
@@ -86,7 +92,7 @@ export default class DashBoard extends React.Component {
      * 
      */
     remind = () => {
-        console.log('hello');
+
         this.state.Notes.forEach(note => {
             if (note.reminder === moment().format('DD MMM YYYY , h:mm a')) {
                 this.notify(note.reminder);
@@ -121,18 +127,9 @@ export default class DashBoard extends React.Component {
     /**
      * handle the clock on remonder tab in sidbar by changin to show only reminder tab in the dashBoard
      */
-    handleReminderTab = () => {
+    handlePageTab = (page) => {
         this.setState({
-            Page: 'reminder',
-        });
-    }
-
-    /**
-     * 
-     */
-    handleNotesTab = () => {
-        this.setState({
-            Page: 'notes'
+            Page: page,
         });
     }
 
@@ -183,7 +180,7 @@ export default class DashBoard extends React.Component {
         });
     }
 
-    handlePinnedNotes=()=>{
+    handlePinnedNotes = () => {
         this.setState({
             pinnedNotes: true,
         });
@@ -196,23 +193,27 @@ export default class DashBoard extends React.Component {
         }
 
         var notes = (this.state.Notes.map((note, index) => {
-            return <Draggable key={note.id}>
-                <Note gridView={this.state.gridView}
-                    key={note.id}
-                    note={note}
-                    index={index}
-                    handleNoteEdit={this.handleNoteEdit}
-                    notify={this.notify}
-                >
-                </Note>
-            </Draggable>
+            if (note.archived==='0'&&note.pinned==='0') {
+                return <Draggable key={note.id}>
+                    <Note gridView={this.state.gridView}
+                        key={note.id}
+                        note={note}
+                        index={index}
+                        handleNoteEdit={this.handleNoteEdit}
+                        notify={this.notify}
+                    >
+                    </Note>
+                </Draggable>
 
+            }
         })
 
         );
+        console.log('notes',notes);
+        
 
         var reminderNotes = (this.state.Notes.map((note, index) => {
-            if (note.reminder !== null) {
+            if (note.reminder !== null&&( note.archived === '0')) {
 
                 return <Draggable key={note.id}>
                     <Note gridView={this.state.gridView}
@@ -228,10 +229,8 @@ export default class DashBoard extends React.Component {
 
         var pinnedNotes = (this.state.Notes.map((note, index) => {
             // debugger;
-            if (note.pinned === true || note.pinned === '1') {
-                // if (this.state.pinnedNotes === false) {
-                //     this.handlePinnedNotes();
-                // }
+            if (note.pinned === '1'&& note.archived === '0') {
+                
                 return <Draggable key={note.id}>
                     <Note gridView={this.state.gridView}
                         index={index}
@@ -243,7 +242,7 @@ export default class DashBoard extends React.Component {
                 </Draggable>
             }
         }));
-        console.log('pinned', pinnedNotes.length);
+        console.log('pinned', pinnedNotes);
         return (
 
 
@@ -253,11 +252,12 @@ export default class DashBoard extends React.Component {
                     menuClick={this.handleMenuClick}
                     changeView={this.changeView}
                     logout={this.logout}
+                    Page={this.state.Page}
                 /></div>
                 <div>
                     <SideDrawer
-                        reminderPage={this.handleReminderTab}
-                        notesPage={this.handleNotesTab}
+                        Page={this.state.Page}
+                        handlePage={this.handlePageTab}
                         open={this.state.drawerOpen}
                     />
                 </div>
@@ -268,17 +268,48 @@ export default class DashBoard extends React.Component {
                     />
                 </div>
                 {/* this.state.gridView===true? */}
-                <div className={this.state.gridView === true ? 'notes-div-grid' : 'notes-div'} >
-                {this.state.pinnedNotes ? pinnedNotes : ''}
-                    
-                </div>
-                <div className={this.state.gridView === true ? 'notes-div-grid' : 'notes-div'} >
-                    {/* {pinnedNotes} */}
-                    {this.state.Page==='reminder' ? reminderNotes : notes}
-                </div>
+                {(() => {
+                   
+
+                    switch (this.state.Page) {
+
+                        case 'FundooNotes':
+                            return <div><div className={this.state.gridView === true ? 'notes-div-grid' : 'notes-div'}>
+                                {pinnedNotes}
+                            </div>
+                                <div className={this.props.gridView === true ? 'notes-div-grid' : 'notes-div'}>
+                                    {notes}
+                                </div>
+                            </div>
+                        case 'Reminder':
+                            return <div className={this.state.gridView === true ? 'notes-div-grid' : 'notes-div'}>
+                                {reminderNotes}
+                            </div>
+                        case 'Archive':
+                            return <div className={this.state.gridView === true ? 'notes-div-grid' : 'notes-div'}>
+                                {(this.state.Notes.map((note, index) => {
+                                    if (note.archived === '1') {
+                                        return (
+                                            <Note gridView={this.state.gridView}
+                                                key={note.id}
+                                                note={note}
+                                                index={index}
+                                                handleNoteEdit={this.handleNoteEdit}
+                                                notify={this.notify}
+                                            >
+                                            </Note>)
+                                    }
+                                }))}
+                            </div>
+
+                        default:
+                        // component = <SalesStuffGroup />;
+                    }
+                })()}
                 <SnakeBars ref={this.snakebar} open={this.state.snakebarStatus} changeStatus={this.changeSnakebarStatus} />
 
             </div>
         );
     }
+
 }

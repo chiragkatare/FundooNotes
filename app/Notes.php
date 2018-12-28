@@ -28,7 +28,7 @@ class Notes extends Model
 
     public function getUserNotes()
     {
-        Cache::forget('notes' . Auth::user()->id);
+        // Cache::forget('notes' . Auth::user()->id);
         $notes = Cache::remember('notes' . Auth::user()->id, (30), function () {
             $nn = Notes::where('userid', Auth::user()->id)->get();
             return $nn;

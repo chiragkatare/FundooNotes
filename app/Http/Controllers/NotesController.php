@@ -67,6 +67,7 @@ class NotesController extends Controller
                 
             ]
         );
+        Cache::forget('notes' . Auth::user()->id);
 
         // $note->id = $req->get('id');
         // $note->title = $req->get('title');

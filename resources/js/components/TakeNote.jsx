@@ -40,8 +40,8 @@ export default class TakeNote extends React.Component {
             id: '',
             title: '',
             body: '',
-            pinned: false,
-            archieved: false,
+            pinned: '0',
+            archived: '0',
             deleted: false,
             color: 'rgb(255, 255, 255)',
             reminder: null,
@@ -55,6 +55,7 @@ export default class TakeNote extends React.Component {
      * @var string message for snakebar
      */
     handleNewNote = (message) => {
+        let ss = this.state;
         // debugger;
         var Note = {
             id: '',
@@ -63,7 +64,7 @@ export default class TakeNote extends React.Component {
             reminder: this.state.reminder,
             pinned: this.state.pinned,
             color: this.state.color,
-            archieved: this.state.archieved,
+            archived: this.state.archived,
             deleted: this.state.deleted,
         }
         if ((Note.title !== '' || Note.body !== '')) {
@@ -71,13 +72,14 @@ export default class TakeNote extends React.Component {
             this.props.sendNote(Note);
             this.props.notify(message);
             this.setState({
+                active: !this.state.active,
                 id: '',
                 title: '',
                 body: '',
                 reminder: null,
-                pinned: 0,
+                pinned: '0',
                 color: 'rgb(255, 255, 255)',
-                archieved: false,
+                archived: '0',
                 deleted: false,
             });
         }
@@ -86,10 +88,11 @@ export default class TakeNote extends React.Component {
                 // id: '',
                 // title: '',
                 // body: '',
+                active: !this.state.active,
                 reminder: null,
-                pinned: 0,
+                pinned: '0',
                 color: 'rgb(255, 255, 255)',
-                archieved: false,
+                archived: '0',
                 // deleted: false,
             });
         }
@@ -135,9 +138,9 @@ export default class TakeNote extends React.Component {
      * handle the click aeay event of take note
      */
     handleClickAway = () => {
-        this.setState({
+       ()=>{this.setState({
             active: false,
-        });
+        })};
         this.handleNewNote('Note Created');
     }
 
@@ -164,9 +167,11 @@ export default class TakeNote extends React.Component {
      */
     handlePin = () => {
         this.setState({
-            pinned: !this.state.pinned
+            pinned: this.state.pinned==='1'?'0':'1'
             
         });
+        console.log(this.state.pinned);
+        
     }
 
     /***
@@ -181,13 +186,15 @@ export default class TakeNote extends React.Component {
     /**
      * 
      */
-    handleArchieved=()=>{
+    handleArchived=()=>{
         // debugger;
         this.setState({
-            archieved:true,
-            active: !this.state.active,
+            archived:'1',
+        },()=>{
+            this.handleNewNote('Note Archived');
+            console.log('archived',this.state);
         });
-        this.handleNewNote('Note Archived');
+        
     }
 
 
@@ -201,7 +208,7 @@ export default class TakeNote extends React.Component {
                     <div className='note-top-div'>
                         <InputBase name='title' fullWidth placeholder='Title' onChange={this.handleInput} />
                         <div className='note-icon-pin' role='button' onClick={this.handlePin} >
-                            <img src={this.state.pinned ? require('../assets/icons/pin.svg') : require('../assets/icons/unpin.svg')} alt="" />
+                            <img src={this.state.pinned==='1' ? require('../assets/icons/pin.svg') : require('../assets/icons/unpin.svg')} alt="" />
                         </div>
                     </div>
                     <InputBase name='body' multiline fullWidth placeholder='Take a note..' onChange={this.handleInput} />
@@ -224,8 +231,8 @@ export default class TakeNote extends React.Component {
                         <div className='note-icon-div' role='Button'>
                             <img src={require('../assets/icons/AddImage.svg')} alt="" />
                         </div>
-                        <div className='note-icon-div' role='Button' onClick={this.handleArchieved}>
-                            <img src={ this.state.archieved? require('../assets/icons/Unarchive.svg'):require('../assets/icons/Archive.svg')} alt="" />
+                        <div className='note-icon-div' role='Button' onClick={this.handleArchived}>
+                            <img src={ this.state.archived==='1'? require('../assets/icons/Unarchive.svg'):require('../assets/icons/Archive.svg')} alt="" />
                         </div>
                         <div className='note-icon-div' role='Button'>
                             <img src={require('../assets/icons/More.svg')} alt="" />

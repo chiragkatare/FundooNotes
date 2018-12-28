@@ -13,7 +13,7 @@ export default class CAppBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            heading: 'FundooNotes',
+            heading: this.props.Page,
             anchorEl: null,
             mobileMoreAnchorEl: null,
             profileMenu: false,
@@ -61,12 +61,15 @@ export default class CAppBar extends React.Component {
                     >
                         <img className='icon' src={require('../assets/icons/menu.svg')} alt="" />
                     </IconButton>
-                    <div className='appbar-logo'>
+                    <div className='appbar-heading-div' >
+                    {this.props.Page==='FundooNotes'?<div className='appbar-logo'>
                         <img src={require('../assets/images/logo.svg')} alt="" />
-                    </div>
+                    </div>:''}
+                    
                     <Typography className='appbar-heading' variant="h6">
-                        {this.state.heading}
+                        {this.props.Page}
                     </Typography>
+                    </div>
                     <div className='appbar-search'>
                         <IconButton>
                             <img className='icon' src={require('../assets/icons/search.svg')} alt="" />

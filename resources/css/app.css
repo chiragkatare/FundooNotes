@@ -132,6 +132,10 @@ div .label-text{
     margin-left: auto;
     display: flex;
 }
+.appbar-heading-div{
+    display: flex;
+    min-width: 185px;
+}
 
 .appbar-search{
     margin-left: 30px;
@@ -183,13 +187,31 @@ div .label-text{
     margin-left:auto;
 }
 
-.appbar-heading{
+div .appbar-heading{
+    line-height: 50px;
     opacity:0.7 ;
 }
 
 #side-drawer{
     margin-top: 64px;
     width:280px
+}
+
+.sidedrawer-list{
+    cursor: pointer; 
+    border-radius: 0 25px 25px 0;
+}
+
+.sidedrawer-list-selected{
+    cursor: pointer; 
+    border-radius: 0 25px 25px 0;
+    background: #feefc3;
+}
+
+/* #feefc3; */
+.sidedrawer-list:hover{
+
+    background: rgba(0,0,0,0.07);
 }
 
 .takenote-div{
@@ -232,7 +254,7 @@ div .label-text{
 
 
 .note-card{
-    width:240px;
+    width:238px;
     margin: 6px 3px;
     margin-bottom: 0%;
     border: 1px solid rgb(255, 255, 255);
@@ -260,7 +282,7 @@ div .label-text{
 
 .notes-div{
 
-    width: 773px;
+    width: 765px;
     display: flex;
     flex-wrap: wrap;
     position: inherit;

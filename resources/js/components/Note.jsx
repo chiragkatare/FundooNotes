@@ -6,6 +6,7 @@ import Chip from '@material-ui/core/Chip';
 import { red } from "@material-ui/core/colors";
 import NoteEdit from './NoteEdit';
 import ColorPallate from './ColorPallate';
+import NoteOptions from './NoteOptions';
 // import Moment from 'react-moment';
 
 
@@ -95,27 +96,29 @@ export default class Note extends React.Component {
         
         let tempNote = this.props.note;
             // debugger;
-            tempNote.pinned = (tempNote.pinned===false||tempNote.pinned==='0')?true:false;
+            tempNote.pinned = (tempNote.pinned==='0')?'1':'0';
             this.props.handleNoteEdit(this.props.index, tempNote);
         
     }
 
     handleArchive=()=>{
+        debugger;
         let tempNote = this.props.note;
             // debugger;
-            console.log(this.props.note);
+            // console.log(this.props.note);
             
-            tempNote.archived = (tempNote.archived===false||tempNote.archived==='0')?true:false;
+            tempNote.archived = (tempNote.archived==='0')?'1':'0';
             this.props.handleNoteEdit(this.props.index, tempNote);
+            tempNote.archived==='0'?this.props.notify('Note Unarchived'):this.props.notify('Note Archived');
     }
 
     render() {
-        console.log('note'+this.props.index,this.props)
+        // console.log('note'+this.props.index,this.props)
         return (
             <div className={this.props.gridView === true ? 'note-card-grid' : 'note-card'}>
                 <MuiThemeProvider theme={theme}>
                     <div className='note-icon-pin' role='button'  onClick={this.handlePin} >
-                        <img src={(this.props.note.pinned === '1'||this.props.note.pinned === true )? require('../assets/icons/pin.svg') : require('../assets/icons/unpin.svg')} alt="" />
+                        <img src={(this.props.note.pinned === '1')? require('../assets/icons/pin.svg') : require('../assets/icons/unpin.svg')} alt="" />
                     </div>
                     <Card className='note-card-def' style={{ border: '1px solid #dadce0', backgroundColor: this.props.note.color }} >
                         <CardContent className='note-card-content' onClick={this.editNote}>
@@ -153,14 +156,12 @@ export default class Note extends React.Component {
                             </div>
                             <div className='note-icon-div' role='Button' onClick={this.handleArchive} >
                                 <img 
-                                src={(this.props.note.archived===true||this.props.note.archived==='1')
+                                src={(this.props.note.archived==='1')
                                 ?require('../assets/icons/Unarchive.svg')
                                 :require('../assets/icons/Archive.svg')} alt="" 
                                 />
                             </div>
-                            <div className='note-icon-div' role='Button'>
-                                <img src={require('../assets/icons/More.svg')} alt="" />
-                            </div>
+                            <NoteOptions/>
                         </div>
                     </Card>
                     <NoteEdit

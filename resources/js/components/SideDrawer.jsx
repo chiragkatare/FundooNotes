@@ -10,8 +10,8 @@ const theme = createMuiTheme({
                 top: 66,
                 width: 270,
             },
-            paperAnchorDockedLeft:{
-                borderRight:0,
+            paperAnchorDockedLeft: {
+                borderRight: 0,
             }
         }
     }, typography: {
@@ -32,31 +32,41 @@ export default class SideDrawer extends React.Component {
 
         var list = (
             <List component="nav">
-                <ListItem button onClick={this.props.notesPage} >
-                    <ListItemIcon><img src={require('../assets/icons/NotesBulb.svg')} alt="" /></ListItemIcon>
-                    <ListItemText primary='Notes' />
-                </ListItem>
-                <ListItem button onClick={this.props.reminderPage} >
-                    <ListItemIcon><img src={require('../assets/icons/Reminder.svg')} alt="" /></ListItemIcon>
-                    <ListItemText primary='Reminder' />
-                </ListItem>
+                <div className={this.props.Page==='FundooNotes'?'sidedrawer-list-selected':'sidedrawer-list'} role='button' onClick={() => this.props.handlePage('FundooNotes')}>
+                    <ListItem  >
+                        <ListItemIcon><img src={require('../assets/icons/NotesBulb.svg')} alt="" /></ListItemIcon>
+                        <ListItemText primary='Notes' />
+                    </ListItem>
+                </div>
+                <div className={this.props.Page==='Reminder'?'sidedrawer-list-selected':'sidedrawer-list'}  onClick={() => this.props.handlePage('Reminder')}>
+                    <ListItem >
+                        <ListItemIcon><img src={require('../assets/icons/Reminder.svg')} alt="" /></ListItemIcon>
+                        <ListItemText primary='Reminder' />
+                    </ListItem>
+                </div>
                 <Divider />
                 <Typography className='sidebar-labels' variant='h6' component='p' >
                     Labels
                 </Typography>
-                <ListItem button>
-                    <ListItemIcon><img src={require('../assets/icons/EditLabels.svg')} alt="" /></ListItemIcon>
-                    <ListItemText primary='Edit Labels' />
-                </ListItem>
-                <ListItem button>
+                <div className={this.props.Page==='Edit Labels'?'sidedrawer-list-selected':'sidedrawer-list'} >
+                    <ListItem >
+                        <ListItemIcon><img src={require('../assets/icons/EditLabels.svg')} alt="" /></ListItemIcon>
+                        <ListItemText primary='Edit Labels' />
+                    </ListItem>
+                </div>
+                <Divider />
+                <div className={this.props.Page==='Archive'?'sidedrawer-list-selected':'sidedrawer-list'} onClick={() => this.props.handlePage('Archive')}>
+                <ListItem>
                     <ListItemIcon><img src={require('../assets/icons/Archive.svg')} alt="" /></ListItemIcon>
                     <ListItemText primary='Archive' />
                 </ListItem>
-                <Divider />
-                <ListItem button>
+                </div>
+                <div className={this.props.Page==='Bin'?'sidedrawer-list-selected':'sidedrawer-list'} >
+                <ListItem >
                     <ListItemIcon><img src={require('../assets/icons/Bin.svg')} alt="" /></ListItemIcon>
                     <ListItemText primary='Bin' />
                 </ListItem>
+                </div>
             </List>
         );
 
