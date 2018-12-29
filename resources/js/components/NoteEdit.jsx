@@ -6,6 +6,7 @@ import ColorPallate from './ColorPallate';
 import { InputBase, DialogTitle, DialogContentText, DialogContent, DialogActions, Dialog, createMuiTheme, MuiThemeProvider } from '@material-ui/core/';
 // import Draggable from 'react-draggable';
 import withMobileDialog from '@material-ui/core/withMobileDialog';
+import NoteOptions from './NoteOptions';
 
 
 const theme = createMuiTheme({
@@ -53,7 +54,7 @@ export default class NoteEdit extends React.Component {
     index: this.props.index,
     note: this.props.note,
   };
-  
+
   handleClickOpen = () => {
     this.setState({ open: true });
   };
@@ -87,7 +88,7 @@ export default class NoteEdit extends React.Component {
     });
   }
 
-  handleDeleteReminder=()=>{
+  handleDeleteReminder = () => {
     let note = this.state.note;
     note.reminder = null;
     this.setState({
@@ -106,20 +107,29 @@ export default class NoteEdit extends React.Component {
   /**
    * 
    */
-  handleColor=(color)=>{
+  handleColor = (color) => {
     let note = this.state.note;
     note.color = color;
     this.setState({
       note: note,
     });
   }
-  
 
-  handleEditNote=()=>{
+
+  handleEditNote = () => {
     this.handleClose();
     //dashboard function
-    this.props.handleNoteEdit(this.props.index,this.state.note);
+    this.props.handleNoteEdit(this.props.index, this.state.note);
   }
+
+  handleNoteArchive = () => {
+    let note = this.state.note;
+    note.archived = note.archived === '0' ? '1' : '0';
+    this.setState({
+      note: note,
+    }, this.handleEditNote());
+  }
+
 
   render() {
     const { fullScreen } = this.props;
@@ -137,57 +147,62 @@ export default class NoteEdit extends React.Component {
             onClose={this.handleClose}
             aria-labelledby="responsive-dialog-title"
           >
-          <div style={{background: this.state.note.color}}>
-            <DialogTitle>
-              <InputBase
-                name='title'
-                fullWidth
-                placeholder='Title'
-                defaultValue={this.props.note.title}
-                onChange={this.handleTitleChange}
-              />
-            </DialogTitle>
-            <DialogContent>
-              <InputBase 
-              name='body' 
-              multiline 
-              fullWidth 
-              defaultValue={this.props.note.body} 
-              onChange={this.handleBodyChange}
-              />
-              <div className='note-chip-div'>{(this.state.note.reminder === null||this.state.note.reminder === '') ? ('') : 
-              (
-              <Chip
-                label={this.state.note.reminder}
-                onDelete={this.handleDeleteReminder}
-                icon={<img className='icon' src={require('../assets/icons/ReminderClock.svg')} alt="" />}
-                variant='default'
-              />)}</div>
-            </DialogContent>
-            <DialogActions>
-              <div className='takenote-bottom-icons-div'>
-                <div>
-                  <Reminder setReminder={this.handleReminderChange} />
-                </div>
+            <div style={{ background: this.state.note.color }}>
+              <DialogTitle>
+                <InputBase
+                  name='title'
+                  fullWidth
+                  placeholder='Title'
+                  defaultValue={this.props.note.title}
+                  onChange={this.handleTitleChange}
+                />
+              </DialogTitle>
+              <DialogContent>
+                <InputBase
+                  name='body'
+                  multiline
+                  fullWidth
+                  defaultValue={this.props.note.body}
+                  onChange={this.handleBodyChange}
+                />
+                <div className='note-chip-div'>{(this.state.note.reminder === null || this.state.note.reminder === '') ? ('') :
+                  (
+                    <Chip
+                      label={this.state.note.reminder}
+                      onDelete={this.handleDeleteReminder}
+                      icon={<img className='icon' src={require('../assets/icons/ReminderClock.svg')} alt="" />}
+                      variant='default'
+                    />)}</div>
+              </DialogContent>
+              <DialogActions>
+                <div className='takenote-bottom-icons-div'>
+                  <div>
+                    <Reminder setReminder={this.handleReminderChange} />
+                  </div>
 
-                <div className='note-icon-div' role='button'>
-                  <img src={require('../assets/icons/Collaborator.svg')} alt="" />
-                </div>
-                <ColorPallate setColor={this.handleColor} />
-                <div className='note-icon-div' role='Button'>
-                  <img src={require('../assets/icons/AddImage.svg')} alt="" />
-                </div>
-                <div className='note-icon-div' role='Button'>
-                  <img src={require('../assets/icons/Archive.svg')} alt="" />
-                </div>
-                <div className='note-icon-div' role='Button'>
-                  <img src={require('../assets/icons/More.svg')} alt="" />
-                </div>
-                <Button className='card-button-close' component="span" onClick={(this.handleEditNote)}>
-                  Close
+                  <div className='note-icon-div' role='button'>
+                    <img src={require('../assets/icons/Collaborator.svg')} alt="" />
+                  </div>
+                  <ColorPallate setColor={this.handleColor} />
+                  <div className='note-icon-div' role='Button'>
+                    <img src={require('../assets/icons/AddImage.svg')} alt="" />
+                  </div>
+                  <div className='note-icon-div' role='Button' onClick={this.handleNoteArchive} >
+                    <img
+                      src={(this.state.note.archived === '1')
+                        ? require('../assets/icons/Unarchive.svg')
+                        : require('../assets/icons/Archive.svg')} alt=""
+                    />
+                  </div>
+                  <NoteOptions
+                    note={this.props.note}
+                    handleNoteEdit={this.props.handleNoteEdit}
+                    index={this.props.index} />
+                  <Button className='card-button-close' component="span" onClick={(this.handleEditNote)}>
+                    Close
         </Button>
-              </div>
-            </DialogActions>
+                </div>
+              </DialogActions>
             </div>
           </Dialog>
 

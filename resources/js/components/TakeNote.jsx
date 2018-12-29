@@ -42,7 +42,7 @@ export default class TakeNote extends React.Component {
             body: '',
             pinned: '0',
             archived: '0',
-            deleted: false,
+            deleted: '0',
             color: 'rgb(255, 255, 255)',
             reminder: null,
         };
@@ -80,7 +80,7 @@ export default class TakeNote extends React.Component {
                 pinned: '0',
                 color: 'rgb(255, 255, 255)',
                 archived: '0',
-                deleted: false,
+                deleted: '0',
             });
         }
         else{
@@ -93,7 +93,7 @@ export default class TakeNote extends React.Component {
                 pinned: '0',
                 color: 'rgb(255, 255, 255)',
                 archived: '0',
-                // deleted: false,
+                deleted: '0',
             });
         }
     }

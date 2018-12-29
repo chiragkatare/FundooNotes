@@ -208,6 +208,10 @@ div .appbar-heading{
     background: #feefc3;
 }
 
+.sidebar-block-div{
+    margin: 8px 0px ;
+}
+
 /* #feefc3; */
 .sidedrawer-list:hover{
 
@@ -246,6 +250,7 @@ div .appbar-heading{
     bottom: 0;
     width: 100%;
 }
+
 
 .card-button-close{
     float: right;
@@ -356,6 +361,14 @@ div .remainder-chip{
     width: 100%;
 }
 
+.deletednote-bottom-icons-div{
+    display: flex;
+    justify-content: left;
+    padding: 3px;
+    bottom: 0;
+    width: 100%;
+}
+
 .noteEdit-dialog{
 
 }
@@ -424,6 +437,15 @@ div .profile-avatar{
 
     background: #f5f5f5;
     padding: 10px 0;
+}
+
+.noteoptions-list-div{
+    cursor: pointer;
+    padding : 2px 4px ;
+}
+
+.noteoptions-list-div:hover{
+    background: rgba(0,0,0,0.1);
 }
 
 @media only screen and (max-width: 780px ) {

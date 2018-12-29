@@ -1,11 +1,9 @@
 import React from "react";
 import { Card } from '@material-ui/core';
 import { Button, IconButton, Typography, InputBase, CardActions, CardContent, createMuiTheme, MuiThemeProvider } from '@material-ui/core/';
-import Reminder from './Reminder';
+import DeletedNoteDialog from './DeletedNoteDialog';
 import Chip from '@material-ui/core/Chip';
-import { red } from "@material-ui/core/colors";
 import NoteEdit from './NoteEdit';
-import ColorPallate from './ColorPallate';
 import NoteOptions from './NoteOptions';
 // import Moment from 'react-moment';
 
@@ -68,58 +66,13 @@ export default class Note extends React.Component {
         this.noteEdit.current.handleClickOpen();
     }
 
-    /**
-     * 
-     */
-    setReminder = (s) => {
-        let tempNote = this.props.note;
-        tempNote.reminder = s;
-        this.props.handleNoteEdit(this.props.index, tempNote);
-    }
-
-    /**
-     * 
-     */
-    handleColor = (color) => {
-        let tempNote = this.props.note;
-        if (tempNote.color !== color) {
-            // debugger;
-            tempNote.color = color;
-            this.props.handleNoteEdit(this.props.index, tempNote);
-        }
-    }
-
-    /**
-     * function to change the pin and unpin of note
-     */
-    handlePin = () => {
-
-        let tempNote = this.props.note;
-        // debugger;
-        tempNote.pinned = (tempNote.pinned === '0') ? '1' : '0';
-        this.props.handleNoteEdit(this.props.index, tempNote);
-
-    }
-
-    handleArchive = () => {
-        debugger;
-        let tempNote = this.props.note;
-        // debugger;
-        // console.log(this.props.note);
-
-        tempNote.archived = (tempNote.archived === '0') ? '1' : '0';
-        this.props.handleNoteEdit(this.props.index, tempNote);
-        tempNote.archived === '0' ? this.props.notify('Note Unarchived') : this.props.notify('Note Archived');
-    }
-
+    
     render() {
         // console.log('note'+this.props.index,this.props)
         return (
             <div className={this.props.gridView === true ? 'note-card-grid' : 'note-card'}>
                 <MuiThemeProvider theme={theme}>
-                    <div className='note-icon-pin' role='button' onClick={this.handlePin} >
-                        <img src={(this.props.note.pinned === '1') ? require('../assets/icons/pin.svg') : require('../assets/icons/unpin.svg')} alt="" />
-                    </div>
+                    
                     <Card className='note-card-def' style={{ border: '1px solid #dadce0', backgroundColor: this.props.note.color }} >
                         <CardContent className='note-card-content' onClick={this.editNote}>
                             <div className='note-top-div'>
@@ -136,31 +89,12 @@ export default class Note extends React.Component {
                                 <Chip
                                     className='remainder-chip'
                                     label={this.props.note.reminder}
-                                    onDelete={this.deleteReminder}
+                                    
                                     icon={<img className='icon' src={require('../assets/icons/ReminderClock.svg')} alt="" />}
                                     variant='default'
                                 />)}</div>
                         </CardContent>
-                        <div className='note-bottom-icons-div'>
-                            <Reminder
-                                setReminder={this.setReminder}
-                            />
-
-
-                            <div className='note-icon-div' role='button'>
-                                <img src={require('../assets/icons/Collaborator.svg')} alt="" />
-                            </div>
-                            <ColorPallate setColor={this.handleColor} />
-                            <div className='note-icon-div' role='Button'>
-                                <img src={require('../assets/icons/AddImage.svg')} alt="" />
-                            </div>
-                            <div className='note-icon-div' role='Button' onClick={this.handleArchive} >
-                                <img
-                                    src={(this.props.note.archived === '1')
-                                        ? require('../assets/icons/Unarchive.svg')
-                                        : require('../assets/icons/Archive.svg')} alt=""
-                                />
-                            </div>
+                        <div className='deletednote-bottom-icons-div'>
                             <NoteOptions
                                 index={this.props.index}
                                 note={this.props.note}
@@ -168,7 +102,8 @@ export default class Note extends React.Component {
                             />
                         </div>
                     </Card>
-                    <NoteEdit
+                    <DeletedNoteDialog
+                    notify = {this.props.notify}
                         ref={this.noteEdit}
                         note={this.props.note}
                         index={this.props.index}

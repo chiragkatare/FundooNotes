@@ -1,11 +1,26 @@
 import React from 'react';
-import { Button, AppBar, Toolbar, IconButton, Typography, InputBase, Avatar, Card, CardContent, Divider } from '@material-ui/core/';
+import { Button, AppBar, Toolbar, IconButton, Typography, InputBase, Avatar, Card, CardContent, Divider,createMuiTheme,MuiThemeProvider } from '@material-ui/core/';
 import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+
+
+const theme = createMuiTheme({
+    overrides: {
+        MuiPaper:{
+            elevation4:{
+                boxShadow:'0px 1px darkgrey'
+            }
+        }
+    }, typography: {
+        useNextVariants: true,
+    },
+    // .MuiDrawer-paper-107 .MuiPaper-elevation4-16 .MuiDrawer-paperAnchorDockedLeft-112
+})
+
 
 export default class CAppBar extends React.Component {
 
@@ -53,7 +68,10 @@ export default class CAppBar extends React.Component {
 
 
         return (
-            <AppBar style={{ backgroundColor: "white" }}>
+            <MuiThemeProvider theme={theme}>
+            <AppBar  
+            style={{ backgroundColor: "white" }}
+            >
                 <Toolbar>
                     <IconButton
                         color="inherit"
@@ -143,6 +161,7 @@ export default class CAppBar extends React.Component {
                     </ClickAwayListener>
                 </Toolbar>
             </AppBar >
+            </MuiThemeProvider>
         );
     }
 }

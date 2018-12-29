@@ -7,8 +7,8 @@ import Note from "../components/Note";
 import NotesService from "../services/NotesService";
 import moment from 'moment';
 import SnakeBars from '../components/Snakebars';
-import NotesDisplay from '../components/NotesDisplay';
 import Draggable from 'react-draggable';
+import DeletedNote from '../components/DeletedNote';
 // import NotesGrid from "../components/NotesGrid";
 // import SmallAppBar from '../components/SmallAppBar';
 
@@ -51,7 +51,7 @@ export default class DashBoard extends React.Component {
 
                 if (resp.status === 200) {
                     var notes = resp.data.message.reverse();
-                    
+
                     this.setState({
                         Notes: notes,
                     });
@@ -193,7 +193,7 @@ export default class DashBoard extends React.Component {
         }
 
         var notes = (this.state.Notes.map((note, index) => {
-            if (note.archived==='0'&&note.pinned==='0') {
+            if (note.deleted === '0'&&note.archived === '0' && note.pinned === '0') {
                 return <Draggable key={note.id}>
                     <Note gridView={this.state.gridView}
                         key={note.id}
@@ -209,11 +209,11 @@ export default class DashBoard extends React.Component {
         })
 
         );
-        console.log('notes',notes);
-        
+        console.log('notes', notes);
+
 
         var reminderNotes = (this.state.Notes.map((note, index) => {
-            if (note.reminder !== null&&( note.archived === '0')) {
+            if (note.reminder !== null && (note.archived === '0')) {
 
                 return <Draggable key={note.id}>
                     <Note gridView={this.state.gridView}
@@ -229,8 +229,8 @@ export default class DashBoard extends React.Component {
 
         var pinnedNotes = (this.state.Notes.map((note, index) => {
             // debugger;
-            if (note.pinned === '1'&& note.archived === '0') {
-                
+            if (note.pinned === '1' && note.archived === '0') {
+
                 return <Draggable key={note.id}>
                     <Note gridView={this.state.gridView}
                         index={index}
@@ -269,7 +269,7 @@ export default class DashBoard extends React.Component {
                 </div>
                 {/* this.state.gridView===true? */}
                 {(() => {
-                   
+
 
                     switch (this.state.Page) {
 
@@ -301,7 +301,22 @@ export default class DashBoard extends React.Component {
                                     }
                                 }))}
                             </div>
-
+                        case 'Bin':
+                            return <div className={this.state.gridView === true ? 'notes-div-grid' : 'notes-div'}>
+                                {(this.state.Notes.map((note, index) => {
+                                    if (note.deleted === '1') {
+                                        return (
+                                            <DeletedNote gridView={this.state.gridView}
+                                                key={note.id}
+                                                note={note}
+                                                index={index}
+                                                handleNoteEdit={this.handleNoteEdit}
+                                                notify={this.notify}
+                                            >
+                                            </DeletedNote>)
+                                    }
+                                }))}
+                            </div>
                         default:
                         // component = <SalesStuffGroup />;
                     }

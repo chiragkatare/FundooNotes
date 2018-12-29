@@ -33,7 +33,16 @@ export default class NoteOptions extends React.Component {
         });
     }
 
+    handleDelete=()=>{
 
+        let tempNote = this.props.note;
+        // debugger;
+        tempNote.pinned = '0';
+        tempNote.archived = '0';
+        tempNote.deleted = (tempNote.deleted === '0') ? '1' : '0';
+        this.props.handleNoteEdit(this.props.index, tempNote);
+
+    }
 
     render() {
 
@@ -47,7 +56,7 @@ export default class NoteOptions extends React.Component {
                         </div>
 
                         <div >
-                            <Popper className='reminder-popper' style={{ position: 'fixed' }} open={this.state.active} transition disablePortal
+                            <Popper className='reminder-popper' style={{position:'fixed'}}  open={this.state.active} transition disablePortal
                             >
                                 {({ TransitionProps, placement }) => (
                                     <Grow
@@ -57,9 +66,14 @@ export default class NoteOptions extends React.Component {
 
                                         <Paper>
                                             <MenuList>
-                                                <Typography align='center'>Delete Note</Typography>
+                                                <div className='noteoptions-list-div' onClick={this.handleDelete} >
+                                                <Typography align='center'>
+                                                {this.props.note.deleted==='0'?'Delete Note':'Restore'}
+                                                </Typography>
+                                                </div>
+                                                <div className='noteoptions-list-div'>
                                                 <Typography align='center'>Copy Note</Typography>
-                                                
+                                                </div>
                                             </MenuList>
                                         </Paper>
 
