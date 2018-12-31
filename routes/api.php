@@ -50,4 +50,6 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('/createnote', 'NotesController@create');
     Route::post('/editnote', 'NotesController@editNotes');
     Route::post('/deletenote', 'NotesController@deleteNote');
+    Route::post('/makelabel', 'LabelController@makeLabel');
+    Route::post('/addlabel', 'LabelController@addNoteLabel');
 });

@@ -17,12 +17,15 @@ class CreateLabelsNotesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('userid');
             $table->unsignedInteger('noteid');
+            $table->unsignedInteger('labelid');
             $table->timestamps();
         });
 
         Schema::table('labels_notes', function($table) {
             $table->foreign('userid')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('noteid')->references('id')->on('notes')->onDelete('cascade');
+            $table->foreign('labelid')->references('id')->on('labels')->onDelete('cascade');
+            
         });
     }
 

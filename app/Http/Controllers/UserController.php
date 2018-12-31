@@ -73,7 +73,7 @@ class UserController extends Controller
      */
     public function userDetails()
     {
-        $user = Auth::user();
+        $user = User::with('labels')->find(Auth::user()->id);
         return response()->json([$user], 200);
     }
 

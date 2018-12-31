@@ -40,7 +40,11 @@ class NotesController extends Controller
      */
     public function getNotes()
     {
-        $notes = Notes::getUserNotes();
+        Cache::forget('notes' . Auth::user()->id);
+        $notes = Cache::remember('notes' . Auth::user()->id, (30), function () {
+            $nn = Notes::with('labels')->where('userid', Auth::user()->id)->get();
+            return $nn;
+        });
         // $noteee = Cache::get('notes'.Auth::user()->id);
         // $ss = $noteee->where('id',24);
         return response()->json(['message' => $notes], 200);
@@ -55,7 +59,7 @@ class NotesController extends Controller
     {
         $data = $req->all();
         $notes = Cache::get('notes' . Auth::user()->id);
-        $note = Notes::where('id', $req->get('id'));
+        $note = Notes::with('labels')->where('id', $req->get('id'));
         $note->update(
             [
                 'id' => $req->get('id'),
