@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Redis;
 use Facades\App\Notes;
+// use App\Notes;
 
 
 
@@ -47,6 +48,8 @@ class NotesController extends Controller
 
     /**
      * Function to edit notes
+     * 
+     *  @return Response
      */
     public function editNotes(Request $req)
     {
@@ -64,7 +67,7 @@ class NotesController extends Controller
                 'pinned' => $req->get('pinned'),
                 'archived' => $req->get('archived'),
                 'deleted' => $req->get('deleted'),
-                
+
             ]
         );
         Cache::forget('notes' . Auth::user()->id);
@@ -79,5 +82,22 @@ class NotesController extends Controller
         // $note->save();
         return response()->json(['message' => $note], 200);
 
+    }
+
+    /**
+     * function to delete a note of the user
+     * 
+     *  @return Response
+     */
+    public function deleteNote(Request $req)
+    {
+        // $dqata = $req->all();
+        //destroy the model with the given id and return the no of models deleted
+        if (Notes::destroy($req->get('id')) > 0) {
+            Cache::forget('notes' . Auth::user()->id);
+            return response()->json(['message' => 'note deleted'], 200);
+        } else {
+            return response()->json(['message' => 'note not found'], 204);
+        }
     }
 }

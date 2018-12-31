@@ -66,13 +66,13 @@ export default class Note extends React.Component {
         this.noteEdit.current.handleClickOpen();
     }
 
-    
+
     render() {
         // console.log('note'+this.props.index,this.props)
         return (
             <div className={this.props.gridView === true ? 'note-card-grid' : 'note-card'}>
                 <MuiThemeProvider theme={theme}>
-                    
+
                     <Card className='note-card-def' style={{ border: '1px solid #dadce0', backgroundColor: this.props.note.color }} >
                         <CardContent className='note-card-content' onClick={this.editNote}>
                             <div className='note-top-div'>
@@ -89,7 +89,7 @@ export default class Note extends React.Component {
                                 <Chip
                                     className='remainder-chip'
                                     label={this.props.note.reminder}
-                                    
+
                                     icon={<img className='icon' src={require('../assets/icons/ReminderClock.svg')} alt="" />}
                                     variant='default'
                                 />)}</div>
@@ -99,15 +99,17 @@ export default class Note extends React.Component {
                                 index={this.props.index}
                                 note={this.props.note}
                                 handleNoteEdit={this.props.handleNoteEdit}
+                                handleNoteDelete={this.props.handleNoteDelete}
                             />
                         </div>
                     </Card>
                     <DeletedNoteDialog
-                    notify = {this.props.notify}
+                        notify={this.props.notify}
                         ref={this.noteEdit}
                         note={this.props.note}
                         index={this.props.index}
                         handleNoteEdit={this.props.handleNoteEdit}
+                        handleNoteDelete={this.props.handleNoteDelete}
                     />
                 </MuiThemeProvider>
             </div>

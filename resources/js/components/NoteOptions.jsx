@@ -27,13 +27,13 @@ export default class NoteOptions extends React.Component {
         });
     }
 
-    handleClick=()=>{
+    handleClick = () => {
         this.setState({
             active: !this.state.active,
         });
     }
 
-    handleDelete=()=>{
+    handleDelete = () => {
 
         let tempNote = this.props.note;
         // debugger;
@@ -56,23 +56,28 @@ export default class NoteOptions extends React.Component {
                         </div>
 
                         <div >
-                            <Popper className='reminder-popper' style={{position:'fixed'}}  open={this.state.active} transition disablePortal
+                            <Popper className='reminder-popper' style={{ position: 'fixed' }} open={this.state.active} transition disablePortal
                             >
                                 {({ TransitionProps, placement }) => (
                                     <Grow
                                         {...TransitionProps}
                                         style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
                                     >
-
                                         <Paper>
                                             <MenuList>
                                                 <div className='noteoptions-list-div' onClick={this.handleDelete} >
-                                                <Typography align='center'>
-                                                {this.props.note.deleted==='0'?'Delete Note':'Restore'}
-                                                </Typography>
+                                                    <Typography align='center'>
+                                                        {this.props.note.deleted === '0' ? 'Delete Note' : 'Restore'}
+                                                    </Typography>
                                                 </div>
                                                 <div className='noteoptions-list-div'>
-                                                <Typography align='center'>Copy Note</Typography>
+                                                {this.props.note.deleted === '1'?
+                                                  (  <Typography align='center'
+                                                    onClick={()=>this.props.handleNoteDelete(this.props.index)}
+                                                    >
+                                                    Delete Forever
+                                                    </Typography>):''
+                                                }
                                                 </div>
                                             </MenuList>
                                         </Paper>

@@ -39,9 +39,31 @@ export default class UserService {
             });
     }
 
+     /**
+   * method to edit the note in the database and return the updated note
+   * 
+   * @return {array} response
+   */
     editNote(note) {
         var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
         return axios.post('/api/editnote', note, { headers: { Authorization: AuthStr } })
+            .then((response) => {
+                return response;
+            }
+            ).catch((error) => {
+                // /console.log('rereerrors',error);
+                return error;
+            });
+    }
+
+     /**
+   * method to delete the note from the database and return the status of action
+   * 
+   * @return {array} response
+   */
+    deleteNote(note) {
+        var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
+        return axios.post('/api/deletenote', note, { headers: { Authorization: AuthStr } })
             .then((response) => {
                 return response;
             }

@@ -15,7 +15,6 @@ import DeletedNote from '../components/DeletedNote';
 var userService = new UserService();
 var noteService = new NotesService();
 
-
 export default class DashBoard extends React.Component {
     constructor(props) {
         super(props);
@@ -89,7 +88,7 @@ export default class DashBoard extends React.Component {
     }
 
     /**
-     * 
+     * method to remind the user about the reminder set and poppin up the snake bar
      */
     remind = () => {
 
@@ -163,6 +162,24 @@ export default class DashBoard extends React.Component {
     }
 
     /**
+     * 
+     */
+    handleNoteDelete = (index) => {
+        // debugger;
+        let TempNotes = this.state.Notes
+        noteService.deleteNote(TempNotes[index]).then(response => {
+            if (response.status === 200) {
+                TempNotes.splice(index, 1);
+                this.setState({
+                    Notes: TempNotes
+                })
+            }
+        }).catch(errors => {
+            console.log('errors', errors);
+        })
+    }
+
+    /**
     * function to logout the user from the app
     */
     logout() {
@@ -193,7 +210,7 @@ export default class DashBoard extends React.Component {
         }
 
         var notes = (this.state.Notes.map((note, index) => {
-            if (note.deleted === '0'&&note.archived === '0' && note.pinned === '0') {
+            if (note.deleted === '0' && note.archived === '0' && note.pinned === '0') {
                 return <Draggable key={note.id}>
                     <Note gridView={this.state.gridView}
                         key={note.id}
@@ -213,7 +230,7 @@ export default class DashBoard extends React.Component {
 
 
         var reminderNotes = (this.state.Notes.map((note, index) => {
-            if (note.reminder !== null && (note.archived === '0')) {
+            if (note.deleted === '0' && note.reminder !== null && note.archived === '0') {
 
                 return <Draggable key={note.id}>
                     <Note gridView={this.state.gridView}
@@ -311,6 +328,7 @@ export default class DashBoard extends React.Component {
                                                 note={note}
                                                 index={index}
                                                 handleNoteEdit={this.handleNoteEdit}
+                                                handleNoteDelete={this.handleNoteDelete}
                                                 notify={this.notify}
                                             >
                                             </DeletedNote>)

@@ -32,10 +32,14 @@ class CreateNotesTable extends Migration
             $table->boolean('archived')->default(false);
             //for if note is deleted or not
             $table->boolean('deleted')->default(false);
+            $table->string('label');
             //making the userid foreign key
             $table->foreign('userid')->references('id')->on('users')->onDelete('cascade');
+
+            
             $table->timestamps();
         });
+     
     }
 
     /**

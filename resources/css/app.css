@@ -317,6 +317,7 @@ div .appbar-heading{
 
 
 div .remainder-chip{
+    background-color: rgba(0,0,0,0.08);
     height: 24px;
 }
 

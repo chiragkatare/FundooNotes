@@ -101,7 +101,7 @@ export default class NoteEdit extends React.Component {
                                     (
                                         <Chip
                                             label={this.state.note.reminder}
-
+                                            className='remainder-chip'
                                             icon={<img className='icon' src={require('../assets/icons/ReminderClock.svg')} alt="" />}
                                             variant='default'
                                         />)}</div>
@@ -112,7 +112,9 @@ export default class NoteEdit extends React.Component {
                                     <NoteOptions
                                         note={this.props.note}
                                         handleNoteEdit={this.props.handleNoteEdit}
-                                        index={this.props.index} />
+                                        index={this.props.index} 
+                                        handleNoteDelete = {this.props.handleNoteDelete}
+                                        />
                                     <Button className='card-button-close' component="span" onClick={(this.handleClose)}>
                                         Close
                                     </Button>

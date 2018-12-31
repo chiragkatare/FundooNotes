@@ -168,6 +168,7 @@ export default class NoteEdit extends React.Component {
                 <div className='note-chip-div'>{(this.state.note.reminder === null || this.state.note.reminder === '') ? ('') :
                   (
                     <Chip
+                      className='remainder-chip'
                       label={this.state.note.reminder}
                       onDelete={this.handleDeleteReminder}
                       icon={<img className='icon' src={require('../assets/icons/ReminderClock.svg')} alt="" />}
@@ -197,6 +198,7 @@ export default class NoteEdit extends React.Component {
                   <NoteOptions
                     note={this.props.note}
                     handleNoteEdit={this.props.handleNoteEdit}
+                    
                     index={this.props.index} />
                   <Button className='card-button-close' component="span" onClick={(this.handleEditNote)}>
                     Close
