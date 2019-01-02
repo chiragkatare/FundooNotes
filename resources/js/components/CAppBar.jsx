@@ -69,6 +69,7 @@ export default class CAppBar extends React.Component {
 
         return (
             <MuiThemeProvider theme={theme}>
+            <div className='appbar-div'>
             <AppBar  
             style={{ backgroundColor: "white" }}
             >
@@ -161,6 +162,7 @@ export default class CAppBar extends React.Component {
                     </ClickAwayListener>
                 </Toolbar>
             </AppBar >
+            </div>
             </MuiThemeProvider>
         );
     }

@@ -48,7 +48,7 @@ export default class ColorPallate extends React.Component {
                 <div className='note-icon-div' role='Button' >
                     <img src={require('../assets/icons/ColorPallate.svg')} alt="" />
                 </div>
-                <Popper open={this.state.open} transition disablePortal anchorEl={this.state.anchorEl}
+                <Popper className='colorpallate-popper' open={this.state.open} transition disablePortal anchorEl={this.state.anchorEl}
                     placement={'top-start'}
                 >
                     {({ TransitionProps, placement }) => (

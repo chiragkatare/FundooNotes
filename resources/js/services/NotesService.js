@@ -73,6 +73,47 @@ export default class UserService {
             });
     }
 
+    createLabel(label) {
+        var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
+        return axios.post('/api/makelabel', {label:label}, { headers: { Authorization: AuthStr } })
+            .then((response) => {
+                return response;
+            }
+            ).catch((error) => {
+                // /console.log('rereerrors',error);
+                return error;
+            });
+    }
+
+    /**
+     * 
+     */
+    deleteLabel(labelid){
+        var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
+        return axios.post('/api/deletelabel', {labelid:labelid}, { headers: { Authorization: AuthStr } })
+            .then((response) => {
+                return response;
+            }
+            ).catch((error) => {
+                // /console.log('rereerrors',error);
+                return error;
+            });
+    }
+
+    /**
+     * 
+     */
+    editLabel(data){
+        var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
+        return axios.post('/api/editlabel', data, { headers: { Authorization: AuthStr } })
+            .then((response) => {
+                return response;
+            }
+            ).catch((error) => {
+                // /console.log('rereerrors',error);
+                return error;
+            });
+    }
 
 
 }

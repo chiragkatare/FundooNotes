@@ -2,6 +2,7 @@ import React from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import { Divider, List, ListItem, Typography, ListItemIcon, ListItemText } from '@material-ui/core/';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import EditLabels from './EditLabels'
 
 const theme = createMuiTheme({
     overrides: {
@@ -28,7 +29,24 @@ export default class SideDrawer extends React.Component {
         }
     }
 
+    componentWillMount(){
+
+    }
+
     render() {
+
+        console.log('hshdhsd',this.props.user);
+
+        var labels = this.props.user===null?'': this.props.user.labels.map((label,index) => {
+            return <div key = {index} className={this.props.Page === label.label ? 'sidedrawer-list-selected' : 'sidedrawer-list'} onClick={() => this.props.handlePage(label.label)}>
+                <ListItem  >
+                    <ListItemIcon><img src={require('../assets/icons/Label.svg')} alt="" /></ListItemIcon>
+                    <ListItemText primary={label.label} />
+                </ListItem>
+            </div>
+        })
+
+        // console.log('labels',labels);
 
         var list = (
             <List component="nav">
@@ -48,15 +66,16 @@ export default class SideDrawer extends React.Component {
                 </div>
                 <Divider />
                 <div className='sidebar-block-div' >
-                    <Typography className='sidebar-labels' variant='h6' component='p' >
-                        Labels
+                    <Typography className='sidebar-labels'  component='p' >
+                        LABELS
                     </Typography>
-                    <div className={this.props.Page === 'Edit Labels' ? 'sidedrawer-list-selected' : 'sidedrawer-list'} >
-                        <ListItem >
-                            <ListItemIcon><img src={require('../assets/icons/EditLabels.svg')} alt="" /></ListItemIcon>
-                            <ListItemText primary='Edit Labels' />
-                        </ListItem>
-                    </div>
+                    {labels}
+                   <EditLabels
+                   handleNewLabel = {this.props.handleNewLabel}
+                   handleDeleteLabel={this.props.handleDeleteLabel}
+                   handleEditLabel={this.props.handleEditLabel}
+                   user = {this.props.user}
+                   />
                 </div>
                 <Divider />
                 <div className='sidebar-block-div' >

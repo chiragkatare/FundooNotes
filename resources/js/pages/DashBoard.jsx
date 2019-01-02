@@ -179,6 +179,8 @@ export default class DashBoard extends React.Component {
         })
     }
 
+    
+
     /**
     * function to logout the user from the app
     */
@@ -191,22 +193,96 @@ export default class DashBoard extends React.Component {
         }).catch();
     }
 
+    /**
+     * 
+     */
     changeView = () => {
         this.setState({
             gridView: !this.state.gridView,
         });
     }
 
+    /**
+     * 
+     */
     handlePinnedNotes = () => {
         this.setState({
             pinnedNotes: true,
         });
     }
 
+    /**
+     * 
+     */
+    handleNewLabel = (label) => {
+        noteService.createLabel(label).then(resp => {
+            let label = resp.data.label;
+            let tempUser = this.state.user;
+            tempUser.labels.push(label);
+            this.setState({
+                user: tempUser,
+            });
+        }).catch(err => {
+            console.log('newLabel error', err);
+        });
+    }
+
+    /**
+     * 
+     */
+    handleDeleteLabel=(labelid,index)=>{
+        noteService.deleteLabel(labelid).then(resp=>{
+            if(resp.status===200){
+                let tempUser = this.state.user;
+                tempUser.labels.splice(index,1);
+                this.setState({
+                    user:tempUser,
+                });
+            }
+            else{
+                this.notify('Unable To delete');
+            }
+            
+        }).catch();
+    }
+
+    /**
+     * 
+     */
+    handleEditLabel=(data,index)=>{
+        noteService.editLabel(data).then(resp=>{
+            if(resp.status===200){
+                debugger;
+                let tempUser = this.state.user;
+                tempUser.labels[index]=resp.data.label;
+                this.setState({
+                    user:tempUser,
+                    Notes:resp.data.notes
+                });
+                
+            }
+            else{
+                this.notify('Unable To Edit');
+            }
+            
+        }).catch(err=>{
+            console.log('labeledit',err);
+            
+        });
+    }
+
+
+     /**
+      * 
+      */
     render() {
         console.log('dash', this.state);
         if ((localStorage.getItem('fundootoken')) === null) {
             this.props.history.push('/login');
+        }
+
+        if (this.state.user === null) {
+            return null;
         }
 
         var notes = (this.state.Notes.map((note, index) => {
@@ -263,7 +339,7 @@ export default class DashBoard extends React.Component {
         return (
 
 
-            <div >
+            <div className={this.state.drawerOpen === true ? 'main-div-drawer-open' : 'main-div'} >
                 <div><CAppBar gridView={this.state.gridView}
                     user={this.state.user}
                     menuClick={this.handleMenuClick}
@@ -273,9 +349,13 @@ export default class DashBoard extends React.Component {
                 /></div>
                 <div>
                     <SideDrawer
+                        user={this.state.user}
                         Page={this.state.Page}
                         handlePage={this.handlePageTab}
                         open={this.state.drawerOpen}
+                        handleNewLabel={this.handleNewLabel}
+                        handleDeleteLabel={this.handleDeleteLabel}
+                        handleEditLabel={this.handleEditLabel}
                     />
                 </div>
                 <div>

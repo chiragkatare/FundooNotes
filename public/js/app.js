@@ -5441,10 +5441,10 @@ function createChainedFunction() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__styles__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__styles___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__styles__);
 /* unused harmony reexport createGenerateClassName */
-/* harmony reexport (binding) */ if(__webpack_require__.o(__WEBPACK_IMPORTED_MODULE_1__styles__, "createMuiTheme")) __webpack_require__.d(__webpack_exports__, "v", function() { return __WEBPACK_IMPORTED_MODULE_1__styles__["createMuiTheme"]; });
+/* harmony reexport (binding) */ if(__webpack_require__.o(__WEBPACK_IMPORTED_MODULE_1__styles__, "createMuiTheme")) __webpack_require__.d(__webpack_exports__, "w", function() { return __WEBPACK_IMPORTED_MODULE_1__styles__["createMuiTheme"]; });
 /* unused harmony reexport createStyles */
 /* unused harmony reexport jssPreset */
-/* harmony reexport (binding) */ if(__webpack_require__.o(__WEBPACK_IMPORTED_MODULE_1__styles__, "MuiThemeProvider")) __webpack_require__.d(__webpack_exports__, "r", function() { return __WEBPACK_IMPORTED_MODULE_1__styles__["MuiThemeProvider"]; });
+/* harmony reexport (binding) */ if(__webpack_require__.o(__WEBPACK_IMPORTED_MODULE_1__styles__, "MuiThemeProvider")) __webpack_require__.d(__webpack_exports__, "s", function() { return __WEBPACK_IMPORTED_MODULE_1__styles__["MuiThemeProvider"]; });
 /* unused harmony reexport withStyles */
 /* unused harmony reexport withTheme */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__AppBar__ = __webpack_require__(447);
@@ -5500,7 +5500,7 @@ function createChainedFunction() {
 /* unused harmony reexport CircularProgress */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ClickAwayListener__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ClickAwayListener___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__ClickAwayListener__);
-/* unused harmony reexport ClickAwayListener */
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_19__ClickAwayListener___default.a; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__Collapse__ = __webpack_require__(103);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__Collapse___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__Collapse__);
 /* unused harmony reexport Collapse */
@@ -5509,22 +5509,22 @@ function createChainedFunction() {
 /* unused harmony reexport CssBaseline */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__Dialog__ = __webpack_require__(515);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__Dialog___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__Dialog__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_22__Dialog___default.a; });
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_22__Dialog___default.a; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__DialogActions__ = __webpack_require__(530);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__DialogActions___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23__DialogActions__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_23__DialogActions___default.a; });
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_23__DialogActions___default.a; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__DialogContent__ = __webpack_require__(532);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__DialogContent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24__DialogContent__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_24__DialogContent___default.a; });
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_24__DialogContent___default.a; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__DialogContentText__ = __webpack_require__(534);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__DialogContentText___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25__DialogContentText__);
 /* unused harmony reexport DialogContentText */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__DialogTitle__ = __webpack_require__(536);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__DialogTitle___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26__DialogTitle__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_26__DialogTitle___default.a; });
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "j", function() { return __WEBPACK_IMPORTED_MODULE_26__DialogTitle___default.a; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__Divider__ = __webpack_require__(538);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__Divider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27__Divider__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "j", function() { return __WEBPACK_IMPORTED_MODULE_27__Divider___default.a; });
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_27__Divider___default.a; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__Drawer__ = __webpack_require__(159);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__Drawer___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_28__Drawer__);
 /* unused harmony reexport Drawer */
@@ -5545,7 +5545,7 @@ function createChainedFunction() {
 /* unused harmony reexport Fab */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__Fade__ = __webpack_require__(98);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__Fade___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_34__Fade__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_34__Fade___default.a; });
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "l", function() { return __WEBPACK_IMPORTED_MODULE_34__Fade___default.a; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__FilledInput__ = __webpack_require__(160);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__FilledInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_35__FilledInput__);
 /* unused harmony reexport FilledInput */
@@ -5587,7 +5587,7 @@ function createChainedFunction() {
 /* unused harmony reexport Icon */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__IconButton__ = __webpack_require__(59);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__IconButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_48__IconButton__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "l", function() { return __WEBPACK_IMPORTED_MODULE_48__IconButton___default.a; });
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "m", function() { return __WEBPACK_IMPORTED_MODULE_48__IconButton___default.a; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__Input__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__Input___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_49__Input__);
 /* unused harmony reexport Input */
@@ -5596,7 +5596,7 @@ function createChainedFunction() {
 /* unused harmony reexport InputAdornment */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__InputBase__ = __webpack_require__(60);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__InputBase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_51__InputBase__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "m", function() { return __WEBPACK_IMPORTED_MODULE_51__InputBase___default.a; });
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "n", function() { return __WEBPACK_IMPORTED_MODULE_51__InputBase___default.a; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__InputLabel__ = __webpack_require__(166);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__InputLabel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_52__InputLabel__);
 /* unused harmony reexport InputLabel */
@@ -5605,22 +5605,22 @@ function createChainedFunction() {
 /* unused harmony reexport LinearProgress */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__List__ = __webpack_require__(168);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__List___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_54__List__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "n", function() { return __WEBPACK_IMPORTED_MODULE_54__List___default.a; });
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "o", function() { return __WEBPACK_IMPORTED_MODULE_54__List___default.a; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__ListItem__ = __webpack_require__(169);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__ListItem___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_55__ListItem__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "o", function() { return __WEBPACK_IMPORTED_MODULE_55__ListItem___default.a; });
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "p", function() { return __WEBPACK_IMPORTED_MODULE_55__ListItem___default.a; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__ListItemAvatar__ = __webpack_require__(584);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__ListItemAvatar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_56__ListItemAvatar__);
 /* unused harmony reexport ListItemAvatar */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__ListItemIcon__ = __webpack_require__(586);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__ListItemIcon___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_57__ListItemIcon__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "p", function() { return __WEBPACK_IMPORTED_MODULE_57__ListItemIcon___default.a; });
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "q", function() { return __WEBPACK_IMPORTED_MODULE_57__ListItemIcon___default.a; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__ListItemSecondaryAction__ = __webpack_require__(588);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__ListItemSecondaryAction___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_58__ListItemSecondaryAction__);
 /* unused harmony reexport ListItemSecondaryAction */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__ListItemText__ = __webpack_require__(590);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__ListItemText___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_59__ListItemText__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "q", function() { return __WEBPACK_IMPORTED_MODULE_59__ListItemText___default.a; });
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "r", function() { return __WEBPACK_IMPORTED_MODULE_59__ListItemText___default.a; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__ListSubheader__ = __webpack_require__(592);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__ListSubheader___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_60__ListSubheader__);
 /* unused harmony reexport ListSubheader */
@@ -5744,16 +5744,16 @@ function createChainedFunction() {
 /* unused harmony reexport Tabs */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_100__TextField__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_100__TextField___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_100__TextField__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "s", function() { return __WEBPACK_IMPORTED_MODULE_100__TextField___default.a; });
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "t", function() { return __WEBPACK_IMPORTED_MODULE_100__TextField___default.a; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_101__Toolbar__ = __webpack_require__(183);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_101__Toolbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_101__Toolbar__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "t", function() { return __WEBPACK_IMPORTED_MODULE_101__Toolbar___default.a; });
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "u", function() { return __WEBPACK_IMPORTED_MODULE_101__Toolbar___default.a; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_102__Tooltip__ = __webpack_require__(660);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_102__Tooltip___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_102__Tooltip__);
 /* unused harmony reexport Tooltip */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_103__Typography__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_103__Typography___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_103__Typography__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "u", function() { return __WEBPACK_IMPORTED_MODULE_103__Typography___default.a; });
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "v", function() { return __WEBPACK_IMPORTED_MODULE_103__Typography___default.a; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_104__withMobileDialog__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_104__withMobileDialog___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_104__withMobileDialog__);
 /* unused harmony reexport withMobileDialog */
@@ -9017,7 +9017,7 @@ var Input = function (_Component) {
     }, {
         key: "render",
         value: function render() {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__material_ui_core__["s" /* TextField */], {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__material_ui_core__["t" /* TextField */], {
                 className: "label",
                 name: this.props.name,
                 type: this.props.type,
@@ -10334,7 +10334,7 @@ var Reminder = function (_React$Component) {
                                                 __WEBPACK_IMPORTED_MODULE_5__material_ui_core_MenuList___default.a,
                                                 null,
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    __WEBPACK_IMPORTED_MODULE_8__material_ui_core__["u" /* Typography */],
+                                                    __WEBPACK_IMPORTED_MODULE_8__material_ui_core__["v" /* Typography */],
                                                     { align: 'center' },
                                                     'Reminder:'
                                                 ),
@@ -10504,14 +10504,14 @@ var ColorPallate = function (_React$Component) {
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_5__material_ui_core_Popper___default.a,
-                    { open: this.state.open, transition: true, disablePortal: true, anchorEl: this.state.anchorEl,
+                    { className: 'colorpallate-popper', open: this.state.open, transition: true, disablePortal: true, anchorEl: this.state.anchorEl,
                         placement: 'top-start'
                     },
                     function (_ref2) {
                         var TransitionProps = _ref2.TransitionProps,
                             placement = _ref2.placement;
                         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_7__material_ui_core__["k" /* Fade */],
+                            __WEBPACK_IMPORTED_MODULE_7__material_ui_core__["l" /* Fade */],
                             _extends({}, TransitionProps, {
                                 style: { transformOrigin: 'center bottom' }
                             }),
@@ -10661,7 +10661,7 @@ var NoteOptions = function (_React$Component) {
                                                     'div',
                                                     { className: 'noteoptions-list-div', onClick: _this2.handleDelete },
                                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        __WEBPACK_IMPORTED_MODULE_7__material_ui_core__["u" /* Typography */],
+                                                        __WEBPACK_IMPORTED_MODULE_7__material_ui_core__["v" /* Typography */],
                                                         { align: 'center' },
                                                         _this2.props.note.deleted === '0' ? 'Delete Note' : 'Restore'
                                                     )
@@ -10670,7 +10670,7 @@ var NoteOptions = function (_React$Component) {
                                                     'div',
                                                     { className: 'noteoptions-list-div' },
                                                     _this2.props.note.deleted === '1' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        __WEBPACK_IMPORTED_MODULE_7__material_ui_core__["u" /* Typography */],
+                                                        __WEBPACK_IMPORTED_MODULE_7__material_ui_core__["v" /* Typography */],
                                                         { align: 'center',
                                                             onClick: function onClick() {
                                                                 return _this2.props.handleNoteDelete(_this2.props.index);
@@ -29885,6 +29885,49 @@ var UserService = function () {
                 return error;
             });
         }
+    }, {
+        key: "createLabel",
+        value: function createLabel(label) {
+            var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
+            return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/api/makelabel', { label: label }, { headers: { Authorization: AuthStr } }).then(function (response) {
+                return response;
+            }).catch(function (error) {
+                // /console.log('rereerrors',error);
+                return error;
+            });
+        }
+
+        /**
+         * 
+         */
+
+    }, {
+        key: "deleteLabel",
+        value: function deleteLabel(labelid) {
+            var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
+            return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/api/deletelabel', { labelid: labelid }, { headers: { Authorization: AuthStr } }).then(function (response) {
+                return response;
+            }).catch(function (error) {
+                // /console.log('rereerrors',error);
+                return error;
+            });
+        }
+
+        /**
+         * 
+         */
+
+    }, {
+        key: "editLabel",
+        value: function editLabel(data) {
+            var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
+            return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/api/editlabel', data, { headers: { Authorization: AuthStr } }).then(function (response) {
+                return response;
+            }).catch(function (error) {
+                // /console.log('rereerrors',error);
+                return error;
+            });
+        }
     }]);
 
     return UserService;
@@ -41990,7 +42033,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var theme = Object(__WEBPACK_IMPORTED_MODULE_5__material_ui_core___["v" /* createMuiTheme */])({
+var theme = Object(__WEBPACK_IMPORTED_MODULE_5__material_ui_core___["w" /* createMuiTheme */])({
   overrides: {
     MuiChip: {
       label: {
@@ -42115,10 +42158,10 @@ var NoteEdit = function (_React$Component) {
         'div',
         null,
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_5__material_ui_core___["r" /* MuiThemeProvider */],
+          __WEBPACK_IMPORTED_MODULE_5__material_ui_core___["s" /* MuiThemeProvider */],
           { theme: theme },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_5__material_ui_core___["f" /* Dialog */],
+            __WEBPACK_IMPORTED_MODULE_5__material_ui_core___["g" /* Dialog */],
             {
               fullScreen: fullScreen,
               open: this.state.open,
@@ -42129,9 +42172,9 @@ var NoteEdit = function (_React$Component) {
               'div',
               { style: { background: this.state.note.color } },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_5__material_ui_core___["i" /* DialogTitle */],
+                __WEBPACK_IMPORTED_MODULE_5__material_ui_core___["j" /* DialogTitle */],
                 null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__material_ui_core___["m" /* InputBase */], {
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__material_ui_core___["n" /* InputBase */], {
                   name: 'title',
                   fullWidth: true,
                   placeholder: 'Title',
@@ -42140,9 +42183,9 @@ var NoteEdit = function (_React$Component) {
                 })
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_5__material_ui_core___["h" /* DialogContent */],
+                __WEBPACK_IMPORTED_MODULE_5__material_ui_core___["i" /* DialogContent */],
                 null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__material_ui_core___["m" /* InputBase */], {
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__material_ui_core___["n" /* InputBase */], {
                   name: 'body',
                   multiline: true,
                   fullWidth: true,
@@ -42162,7 +42205,7 @@ var NoteEdit = function (_React$Component) {
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_5__material_ui_core___["g" /* DialogActions */],
+                __WEBPACK_IMPORTED_MODULE_5__material_ui_core___["h" /* DialogActions */],
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'div',
@@ -89840,7 +89883,7 @@ var Login = function (_Component) {
               "div",
               null,
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["u" /* Typography */],
+                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["v" /* Typography */],
                 { variant: "h5", component: "h2", color: "primary", id: "login-text" },
                 "Login"
               ),
@@ -89894,7 +89937,7 @@ var Login = function (_Component) {
                 "span",
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["u" /* Typography */],
+                  __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["v" /* Typography */],
                   null,
                   "New User,",
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -122121,7 +122164,7 @@ exports = module.exports = __webpack_require__(667)(false);
 
 
 // module
-exports.push([module.i, "\n/* .label{\n    /* flexDirection: 'row' */\n/* } */\n\n\n\nbody {\n    /* background-color:lightgoldenrodyellow;  */\n    text-decoration: none;\n}\n\n\n#reg-text-login{\n    \n    margin-bottom: 10%;\n\n} \n\n#formcard{\n    margin: auto;\n    margin-top: 5%;\n    height: 500px;\n    width: 400px;\n    \n}\n\n#logincard{\n    margin: auto ;\n    margin-top: 5%;\n    height: 300px;\n    width:300px;\n    /* margin-top: 25%;\n    mar */\n    \n}\n\n#card-heading     {\n   text-align: center;\n}\n\n#login-text{\n    text-align: center;\n    /* padding: 0px 35px 0px 35px; */\n  \n}\n\n#left-text{\n    float: left;\n    text-decoration: none;\n}\n\n#right-text{\n    float: right;\n    text-decoration: none;\n}\n.form{\n    text-align: center;\n    padding: 0px 2% 0% 2%;\n}\n\n#register-btn-div{\nmargin: 25px;\n}\n\n#login-btn-div{\n    margin: 15px ;\n    margin-left: 27%;  \n}\n\n.register-btn{\n    width: 50%;\n    background-image: linear-gradient(to bottom right, rgb(0, 203, 253), rgb(0, 76, 255));\n    \n}\n\n.login-btn{\n    width: 70%;\n    background-image: linear-gradient(to bottom right, rgb(0, 203, 253), rgb(0, 76, 255));\n    \n}\n\nspan.below-txt{\n    float: right;\n}\n\n#newuser{\n    float: right\n}\n\n.error{\n    color: #F44336;\n    float: right;\n}\n\n/*\nemail Verificatio  page css\n*/\n#verify-card{\n    margin: auto;\n    margin-top: 5%;\n    height: 400px;\n    width: 350px;\n    \n}\n\n.logo{\n    margin: auto;\n    height: 70px;\n    width: 70px ;\n}\n\n.label-page{\n    padding: 10px;\n    background-color: rgb(54, 54, 54);\n    margin-bottom: 35px;\n    \n}\n\n.label-forgetpass{\n    padding: 10px;\n    background-color: rgb(54, 54, 54);\n    margin-bottom: 5px;    \n}\n\ndiv .label-text{\n    color: aliceblue;\n}\n\n\n.appbar-divbutton{\n    margin-left: auto;\n    display: flex;\n}\n.appbar-heading-div{\n    display: flex;\n    min-width: 185px;\n}\n\n.appbar-search{\n    margin-left: 30px;\n    border: solid 1px white;\n    box-shadow: 0px 0px 5px rgb(255, 255, 255) ; \n    border-radius: 8px;\n    padding-top: 0px;\n    line-height: 20%;\n    display: flex;\n    width : 650px; \n    background: rgba(0,0,0,0.04);\n}\n\n.appbar-search:hover{\n    margin-left: 30px;\n    border: solid 1px;\n    box-shadow: 0px 0px 5px grey ;\n    border-radius: 8px;\n    padding-top: 0px;\n    line-height: 20%;\n    display: flex;\n    width : 650px; \n    background: rgba(255, 255, 255, 0.04)\n}\n.appbar-search-active{\n    margin-left: 30px;\n    border: solid 1px;\n    box-shadow: 0px 0px 5px grey ;\n    border-radius: 8px;\n    padding-top: 0px;\n    line-height: 20%;\n    display: flex;\n    width : 650px; \n    background: rgba(0,0,0,0.04)\n}\n.icon{\n    opacity:0.5 ;\n}\n\n.icon:hover:hover {opacity: 1}\n\n.appbar-logo{\n    height: 48px;\n    width: 48px ;\n    padding-right: 15px;\n    \n}\n.appbar-avatar-btn{\n    margin-left:auto;\n}\n\ndiv .appbar-heading{\n    line-height: 50px;\n    opacity:0.7 ;\n}\n\n#side-drawer{\n    margin-top: 64px;\n    width:280px\n}\n\n.sidedrawer-list{\n    cursor: pointer; \n    border-radius: 0 25px 25px 0;\n}\n\n.sidedrawer-list-selected{\n    cursor: pointer; \n    border-radius: 0 25px 25px 0;\n    background: #feefc3;\n}\n\n.sidebar-block-div{\n    margin: 8px 0px ;\n}\n\n/* #feefc3; */\n.sidedrawer-list:hover{\n\n    background: rgba(0,0,0,0.07);\n}\n\n.takenote-div{\n    display: flex ;\n    padding: 6px 20px 6px 20px;\n    margin: 100px auto 0px auto ;\n    width:500px;\n    /* margin-left: 350px; */\n    height: 30px;\n    box-shadow: 0px 0px 5px rgb(44, 44, 44);\n    border-radius: 8px;\n    /* line-height: 10%; */\n}\n\n.takenote-div-open{\n    padding: 6px 20px 6px 20px;\n    margin: 100px auto 0px auto ;\n    width:500px;\n    /* margin-left: 350px; */\n    /* height: 100px; */\n    box-shadow: 0px 0px 5px rgb(44, 44, 44);\n    border-radius: 8px;\n    /* line-height: 10%;  */\n    justify-content: center;\n}\n\n.takenote-bottom-icons-div {\n    /* position: absolute; */\n    display: flex;\n    justify-content: space-between;\n    padding: 3px;\n    bottom: 0;\n    width: 100%;\n}\n\n\n.card-button-close{\n    float: right;\n}\n\n\n\n.note-card{\n    width:238px;\n    margin: 6px 3px;\n    margin-bottom: 0%;\n    border: 1px solid rgb(255, 255, 255);\n    border-radius: 2px;\n    /* bwlow experimental */\n    \n    /*\n    flex-direction: row; */\n}\n\n.note-card-grid{\n    width: 553px;\n    /* margin: 1%; */\n    /* margin-bottom: 0%; */\n    /* flex-direction: row; */\n    margin: 25px auto 0 auto;\n    /* width:600px;\n    margin: 1%;\n    margin-bottom: 0%; */\n    /*\n    flex-direction: row; */\n}\n\n\n\n.notes-div{\n\n    width: 765px;\n    display: flex;\n    flex-wrap: wrap;\n    position: inherit;\n\n\n    /* display: flex;\n    flex-wrap: wrap;\n    /* position: inherit; */\n    /* left: 142px;  */\n    \n    margin: 27px auto 0px auto\n\n}\n\n/* .notes-div-grid{\n    display: flex;\n    justify-content: center;\n    flex-direction: column;\n    left: 142px;\n    margin: 5% auto 0px 26%;\n\n} */\n/* \n.note-card .note-card-def .note-card-content{\n    padding-right: 4px,\n} */\n\n\ndiv .remainder-chip{\n    background-color: rgba(0,0,0,0.08);\n    height: 24px;\n}\n\n.note-icon-pin{\n    float: right;\n    right: 4px;\n    top: 4px;\n    position: relative;\n        opacity:0.5 ;\n        /* margin: 5px; */\n}\n\n.note-icon-div{\n    opacity:0.5 ;\n    /* margin: 5px; */\n}\n.note-icon-div img{\n    height: 20px;\n    /* margin: 5px; */\n} \n\n.note-top-div{\n    display: flex;\n    justify-content: space-between;\n}\n\n.note-body-text{\n    white-space: pre-line;\n}\n\n.note-icon-div:hover:hover {opacity: 1}\n\n.note-bottom-icons-div{\n    /* display: flex;\n    justify-content: space-evenly;\n    padding: 3px; */\n    /* position: absolute; */\n    display: flex;\n    justify-content: space-evenly;\n    padding: 3px;\n    bottom: 0;\n    width: 100%;\n}\n\n.deletednote-bottom-icons-div{\n    display: flex;\n    justify-content: left;\n    padding: 3px;\n    bottom: 0;\n    width: 100%;\n}\n\n.noteEdit-dialog{\n\n}\n\n.note-card .note-card-def:hover{\n    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);\n    transition-duration: .218s;\n    /* transition-property: background,opacity,box-shadow,transform; */\n}\n\n.note-card-grid .note-card-def:hover{\n    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);\n}\n\n\n\n.reminder-popper{\n    z-index: 1;\n    \n}\n\n.colorpallate-paper{\n    display: flex;\n    max-width: 120px;\n}\n\n.colorpallate-paper .colorpallate-avatar{\n    border: solid 1px white;\n    height: 26px;\n    width: 26px;\n    margin: 1px;\n}\n\n.colorpallate-paper .colorpallate-avatar:hover{\n    border: solid 1px grey;\n}\n\n.inside-avatar-div{\n    margin-right: 8px;\n}\n\n.inside-avatar-div .profile-popup-avatar{\n    height:96px;\n    width: 96px;\n    font-size: 3rem;\n    background-color: crimson;\n    display: flex;\n    \n}\n\ndiv .profile-avatar{\n    \n    \n    background-color: crimson;\n    \n}\n\n.profile-popper-cardcontent{\n    \n    display: flex;\n}\n\n.profile-popper-below-div{\n    display: flex;\n    justify-content: space-evenly;\n\n    background: #f5f5f5;\n    padding: 10px 0;\n}\n\n.noteoptions-list-div{\n    cursor: pointer;\n    padding : 2px 4px ;\n}\n\n.noteoptions-list-div:hover{\n    background: rgba(0,0,0,0.1);\n}\n\n@media only screen and (max-width: 780px ) {\n\n    .notes-div {\n        width: 500px;\n    }\n\n}\n\n\n@media only screen and (max-width: 720px ) {\n    \n    /* body {\n        background-color:lightgoldenrodyellow;\n    } */\n    \n    #formcard{\n        margin: auto;\n        margin-top: 30%;\n        height: 100%;\n        width: 100%;\n        bottom: 100%;\n        margin-bottom: 30%\n    }\n\n    #logincard{\n        margin: auto;\n        margin-top: 40%;\n        height: 100%;\n      \n        bottom: 100%;\n        margin-bottom: 30%\n    }\n\n    #verify-card{\n      /* /  margin: auto; */\n        margin-top: 30%;\n        height: 450px;\n        width: 400px;\n        \n    }\n\n    #login-btn-div{\n        margin: 15px ;\n        margin-left: 0%;  \n    }\n\n    .register-btn{\n        width:100%;\n    }\n\n    .login-btn{\n        width:100%;\n    }\n}\n\n/*********************************************************************************************************************\n********************/\n\n@media only screen and (max-width: 600px ) {\n    \n    /* body {\n        background-color:lightgoldenrodyellow;\n    } */\n    #formcard{\n        margin: auto;\n        margin-top: 30%;\n        height: 100%;\n        width: 100%;\n        bottom: 100%;\n        margin-bottom: 30%;\n\n    }\n\n    #logincard{\n        margin: auto;\n        margin-top: 40%;\n        height: 100%;\n        width: 100%;\n        bottom: 100%;\n        margin-bottom: 30%\n    }\n\n    #verify-card{\n        /* /  margin: auto; */\n          margin-top: 25%;\n          height: 400px;\n          width: 350px;\n          \n      }\n\n    #login-btn-div{\n        margin: 15px ;\n        margin-left: 0%;  \n    }\n\n    .register-btn{\n        width:100%;\n    }\n\n    .login-btn{\n        width:100%;\n    }\n\n    .appbar-search{\n        display: none;\n       \n    }\n\n    .notes-div-grid{\n        width: 100%;\n    \n    }\n\n    .notes-div{\n    width: 100%;\n    display: block;\n    }\n\n    .takenote-div{\n        display: flex ;\n        padding: 6px 20px 6px 20px;\n        margin: 100px auto 0px auto ;\n        width: auto;\n        /* margin-left: 350px; */\n        height: 30px;\n        box-shadow: 0px 0px 5px rgb(44, 44, 44);\n        border-radius: 8px;\n        /* line-height: 10%; */\n    }\n\n    .takenote-div-open{\n        width: auto;\n        min-width: 345;\n    }\n\n    button.MuiButtonBase-root-47.MuiIconButton-root-41.appbar-iconbutton-grid{\n       display:none;\n    }\n\n    \n\n.note-card {\n    width: 100%;\n\n}\n    .note-card-grid{\n        width: auto;\n        /* margin: 1%; */\n        /* margin-bottom: 0%; */\n        /* flex-direction: row; */\n        margin: 25px auto 0 auto;\n        /* width:600px;\n        margin: 1%;\n        margin-bottom: 0%; */\n        /*\n        flex-direction: row; */\n    }\n    .appbar-logo{\n        display: none;\n    }\n\n    .appbar-divbutton{\n        margin-left: auto;\n        display: flex;\n    }\n\n    .appbar-avatar-btn{\n        margin: 0;\n    }\n}\n\n@media only screen and (max-width: 320px ) {\n\n    .takenote-div-open{\n        width: 320;\n    }\n\n}\n/* 0px 35px 0px 35px */\n", ""]);
+exports.push([module.i, "\n/* .label{\n    /* flexDirection: 'row' */\n/* } */\n\n\n\n\nbody {\n    /* background-color:lightgoldenrodyellow;  */\n    text-decoration: none;\n}\n\n\n#reg-text-login{\n    \n    margin-bottom: 10%;\n\n} \n\n#formcard{\n    margin: auto;\n    margin-top: 5%;\n    height: 500px;\n    width: 400px;\n    \n}\n\n#logincard{\n    margin: auto ;\n    margin-top: 5%;\n    height: 300px;\n    width:300px;\n    /* margin-top: 25%;\n    mar */\n    \n}\n\n#card-heading     {\n   text-align: center;\n}\n\n#login-text{\n    text-align: center;\n    /* padding: 0px 35px 0px 35px; */\n  \n}\n\n#left-text{\n    float: left;\n    text-decoration: none;\n}\n\n#right-text{\n    float: right;\n    text-decoration: none;\n}\n.form{\n    text-align: center;\n    padding: 0px 2% 0% 2%;\n}\n\n#register-btn-div{\nmargin: 25px;\n}\n\n#login-btn-div{\n    margin: 15px ;\n    margin-left: 27%;  \n}\n\n.register-btn{\n    width: 50%;\n    background-image: linear-gradient(to bottom right, rgb(0, 203, 253), rgb(0, 76, 255));\n    \n}\n\n.login-btn{\n    width: 70%;\n    background-image: linear-gradient(to bottom right, rgb(0, 203, 253), rgb(0, 76, 255));\n    \n}\n\nspan.below-txt{\n    float: right;\n}\n\n#newuser{\n    float: right\n}\n\n.error{\n    color: #F44336;\n    float: right;\n}\n\n/*\nemail Verificatio  page css\n*/\n#verify-card{\n    margin: auto;\n    margin-top: 5%;\n    height: 400px;\n    width: 350px;\n    \n}\n\n.logo{\n    margin: auto;\n    height: 70px;\n    width: 70px ;\n}\n\n.label-page{\n    padding: 10px;\n    background-color: rgb(54, 54, 54);\n    margin-bottom: 35px;\n    \n}\n\n.label-forgetpass{\n    padding: 10px;\n    background-color: rgb(54, 54, 54);\n    margin-bottom: 5px;    \n}\n\ndiv .label-text{\n    color: aliceblue;\n}\n\n\n.appbar-divbutton{\n    margin-left: auto;\n    display: flex;\n}\n.appbar-heading-div{\n    display: flex;\n    min-width: 185px;\n}\n\n.appbar-search{\n    margin-left: 30px;\n    border: solid 1px white;\n    box-shadow: 0px 0px 5px rgb(255, 255, 255) ; \n    border-radius: 8px;\n    padding-top: 0px;\n    line-height: 20%;\n    display: flex;\n    width : 650px; \n    background: rgba(0,0,0,0.04);\n}\n\n.appbar-search:hover{\n    margin-left: 30px;\n    border: solid 1px;\n    box-shadow: 0px 0px 5px grey ;\n    border-radius: 8px;\n    padding-top: 0px;\n    line-height: 20%;\n    display: flex;\n    width : 650px; \n    background: rgba(255, 255, 255, 0.04)\n}\n.appbar-search-active{\n    margin-left: 30px;\n    border: solid 1px;\n    box-shadow: 0px 0px 5px grey ;\n    border-radius: 8px;\n    padding-top: 0px;\n    line-height: 20%;\n    display: flex;\n    width : 650px; \n    background: rgba(0,0,0,0.04)\n}\n.icon{\n    cursor: pointer;\n    opacity:0.5 ;\n}\n\n.icon:hover:hover {opacity: 1}\n\n.appbar-logo{\n    height: 48px;\n    width: 48px ;\n    padding-right: 15px;\n    \n}\n\n.colorpallate-popper{\n    z-index: 1;\n}\n\n.appbar-avatar-btn{\n    margin-left:auto;\n}\n\ndiv .appbar-heading{\n    line-height: 50px;\n    opacity:0.7 ;\n}\n\n#side-drawer{\n    margin-top: 64px;\n    width:280px\n}\n\n.sidedrawer-list{\n    cursor: pointer; \n    border-radius: 0 25px 25px 0;\n}\n\n.sidedrawer-list-selected{\n    cursor: pointer; \n    border-radius: 0 25px 25px 0;\n    background: #feefc3;\n}\n\n.sidebar-block-div{\n    margin: 8px 0px ;\n}\n\n.sidebar-labels{\n    padding-left: 26px;\n    font-size: 0.9rem;\n}\n\n/* #feefc3; */\n.sidedrawer-list:hover{\n\n    background: rgba(0,0,0,0.07);\n}\n\n.takenote-div{\n    display: flex ;\n    padding: 6px 20px 6px 20px;\n    margin: 100px auto 0px auto ;\n    width:500px;\n    /* margin-left: 350px; */\n    height: 30px;\n    box-shadow: 0px 0px 5px rgb(44, 44, 44);\n    border-radius: 8px;\n    /* line-height: 10%; */\n}\n\n.edit-labels-diag-div{\n\n    padding: 16px;\n}\n\n.edit-labels-diag-heading{\n\n    font-size: 15px;\n}\n\n.edit-labels-diag-content{\n    display: flex ;\n    padding: 2px 0px 2px 6px ;\n}\n\n.edit-labels-input{\n    padding: 0 7px;\n}\n\n.edit-note-diag-createlabel{\n    display: flex;\n}\n\ndiv .create-new-label{\n    padding: 0px 2px 0px 14px\n}\n\n.main-div-drawer-open{\n    margin-left: 280px;\n    transition: margin-left .25s cubic-bezier(0.4,0.0,0.2,1),visibility 0s linear .25s;\n    /* transition: margin-left 0.13s;\n    transition-timing-function: ease-out; */\n}\n\n.main-div{\n    transition: margin-left .25s cubic-bezier(0.4,0.0,0.2,1),visibility 0s linear .25s;\n    /* transition: margin-left 0.13s;\n    transition-timing-function: ease-out; */\n}\n\n.takenote-div-open{\n    padding: 6px 20px 6px 20px;\n    margin: 100px auto 0px auto ;\n    width:500px;\n    /* margin-left: 350px; */\n    /* height: 100px; */\n    box-shadow: 0px 0px 5px rgb(44, 44, 44);\n    border-radius: 8px;\n    /* line-height: 10%;  */\n    justify-content: center;\n}\n\n.takenote-bottom-icons-div {\n    /* position: absolute; */\n    display: flex;\n    cursor: pointer;\n    justify-content: space-between;\n    padding: 3px;\n    bottom: 0;\n    width: 100%;\n}\n\n\n.card-button-close{\n    float: right;\n}\n\n\n\n.note-card{\n    width:238px;\n    margin: 6px 3px;\n    margin-bottom: 0%;\n    border: 1px solid rgb(255, 255, 255);\n    border-radius: 2px;\n    /* bwlow experimental */\n    \n    /*\n    flex-direction: row; */\n}\n\n.note-card-grid{\n    width: 553px;\n    /* margin: 1%; */\n    /* margin-bottom: 0%; */\n    /* flex-direction: row; */\n    margin: 25px auto 0 auto;\n    /* width:600px;\n    margin: 1%;\n    margin-bottom: 0%; */\n    /*\n    flex-direction: row; */\n}\n\n\n\n.notes-div{\n\n    width: 765px;\n    display: flex;\n    flex-wrap: wrap;\n    position: inherit;\n\n\n    /* display: flex;\n    flex-wrap: wrap;\n    /* position: inherit; */\n    /* left: 142px;  */\n    \n    margin: 27px auto 0px auto\n\n}\n\n/* .notes-div-grid{\n    display: flex;\n    justify-content: center;\n    flex-direction: column;\n    left: 142px;\n    margin: 5% auto 0px 26%;\n\n} */\n/* \n.note-card .note-card-def .note-card-content{\n    padding-right: 4px,\n} */\n\n\ndiv .remainder-chip{\n    background-color: rgba(0,0,0,0.08);\n    height: 24px;\n}\n\n.note-icon-pin{\n    cursor: pointer;\n    float: right;\n    right: 4px;\n    top: 4px;\n    position: relative;\n        opacity:0.5 ;\n        /* margin: 5px; */\n}\n\n.note-icon-div{\n    cursor: pointer;\n    opacity:0.5 ;\n    /* margin: 5px; */\n}\n.note-icon-div img{\n    height: 20px;\n    /* margin: 5px; */\n} \n\n.note-top-div{\n    display: flex;\n    justify-content: space-between;\n}\n\n.note-body-text{\n    white-space: pre-line;\n}\n\n.note-icon-div:hover:hover {opacity: 1}\n\n.note-bottom-icons-div{\n    /* display: flex;\n    justify-content: space-evenly;\n    padding: 3px; */\n    /* position: absolute; */\n    display: flex;\n    justify-content: space-evenly;\n    padding: 3px;\n    bottom: 0;\n    width: 100%;\n}\n\n.deletednote-bottom-icons-div{\n    display: flex;\n    justify-content: left;\n    padding: 3px;\n    bottom: 0;\n    width: 100%;\n}\n\n.noteEdit-dialog{\n\n}\n\n.note-card .note-card-def:hover{\n    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);\n    transition-duration: .218s;\n    /* transition-property: background,opacity,box-shadow,transform; */\n}\n\n.note-card-grid .note-card-def:hover{\n    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);\n}\n\n\n\n.reminder-popper{\n    z-index: 1;\n    \n}\n\n.colorpallate-paper{\n    display: flex;\n    max-width: 120px;\n}\n\n.colorpallate-paper .colorpallate-avatar{\n    border: solid 1px white;\n    height: 26px;\n    width: 26px;\n    margin: 1px;\n}\n\n.colorpallate-paper .colorpallate-avatar:hover{\n    border: solid 1px grey;\n}\n\n.inside-avatar-div{\n    margin-right: 8px;\n}\n\n.inside-avatar-div .profile-popup-avatar{\n    height:96px;\n    width: 96px;\n    font-size: 3rem;\n    background-color: crimson;\n    display: flex;\n    \n}\n\ndiv .profile-avatar{\n    \n    \n    background-color: crimson;\n    \n}\n\n.profile-popper-cardcontent{\n    \n    display: flex;\n}\n\n.profile-popper-below-div{\n    display: flex;\n    justify-content: space-evenly;\n\n    background: #f5f5f5;\n    padding: 10px 0;\n}\n\n.noteoptions-list-div{\n    cursor: pointer;\n    padding : 2px 4px ;\n}\n\n.noteoptions-list-div:hover{\n    background: rgba(0,0,0,0.1);\n}\n\n@media only screen and (max-width: 780px ) {\n\n    .notes-div {\n        width: 500px;\n    }\n\n}\n\n\n@media only screen and (max-width: 720px ) {\n    \n    /* body {\n        background-color:lightgoldenrodyellow;\n    } */\n    \n    #formcard{\n        margin: auto;\n        margin-top: 30%;\n        height: 100%;\n        width: 100%;\n        bottom: 100%;\n        margin-bottom: 30%\n    }\n\n    #logincard{\n        margin: auto;\n        margin-top: 40%;\n        height: 100%;\n      \n        bottom: 100%;\n        margin-bottom: 30%\n    }\n\n    #verify-card{\n      /* /  margin: auto; */\n        margin-top: 30%;\n        height: 450px;\n        width: 400px;\n        \n    }\n\n    #login-btn-div{\n        margin: 15px ;\n        margin-left: 0%;  \n    }\n\n    .register-btn{\n        width:100%;\n    }\n\n    .login-btn{\n        width:100%;\n    }\n}\n\n/*********************************************************************************************************************\n********************/\n\n@media only screen and (max-width: 600px ) {\n    \n    /* body {\n        background-color:lightgoldenrodyellow;\n    } */\n\n    .appbar-heading-div {\n        display: flex;\n        min-width: 110px;\n    }\n    #formcard{\n        margin: auto;\n        margin-top: 30%;\n        height: 100%;\n        width: 100%;\n        bottom: 100%;\n        margin-bottom: 30%;\n\n    }\n\n    #logincard{\n        margin: auto;\n        margin-top: 40%;\n        height: 100%;\n        width: 100%;\n        bottom: 100%;\n        margin-bottom: 30%\n    }\n\n    #verify-card{\n        /* /  margin: auto; */\n          margin-top: 25%;\n          height: 400px;\n          width: 350px;\n          \n      }\n\n    #login-btn-div{\n        margin: 15px ;\n        margin-left: 0%;  \n    }\n\n    .register-btn{\n        width:100%;\n    }\n\n    .login-btn{\n        width:100%;\n    }\n\n    .appbar-search{\n        display: none;\n       \n    }\n\n    .notes-div-grid{\n        width: 100%;\n    \n    }\n\n    .notes-div{\n    width: 100%;\n    display: block;\n    }\n\n    .takenote-div{\n        display: flex ;\n        padding: 6px 20px 6px 20px;\n        margin: 100px auto 0px auto ;\n        width: auto;\n        min-width: 320px;\n        /* margin-left: 350px; */\n        height: 30px;\n        box-shadow: 0px 0px 5px rgb(44, 44, 44);\n        border-radius: 8px;\n        /* line-height: 10%; */\n    }\n\n    .takenote-div-open{\n        width: auto;\n        min-width: 345;\n    }\n\n    button.MuiButtonBase-root-47.MuiIconButton-root-41.appbar-iconbutton-grid{\n       display:none;\n    }\n\n    \n\n    .note-card {\n    width: 100%;\n    min-width: 320px ;\n    }\n    .note-card-grid{\n        width: auto;\n        /* margin: 1%; */\n        /* margin-bottom: 0%; */\n        /* flex-direction: row; */\n        margin: 25px auto 0 auto;\n        /* width:600px;\n        margin: 1%;\n        margin-bottom: 0%; */\n        /*\n        flex-direction: row; */\n    }\n    .appbar-logo{\n        display: none;\n    }\n\n    .appbar-divbutton{\n        margin-left: auto;\n        display: flex;\n    }\n\n    .appbar-avatar-btn{\n        margin: 0;\n    }\n}\n\n@media only screen and (max-width: 320px ) {\n\n    .takenote-div-open{\n        min-width: 320px;\n    }\n    \n\n}\n/* 0px 35px 0px 35px */\n", ""]);
 
 // exports
 
@@ -122855,7 +122898,7 @@ var Register = function (_Component) {
               'div',
               null,
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["u" /* Typography */],
+                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["v" /* Typography */],
                 { variant: 'h5', component: 'h2', className: 'login', color: 'primary', id: 'card-heading' },
                 'Register'
               ),
@@ -122925,7 +122968,7 @@ var Register = function (_Component) {
                   'span',
                   null,
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["u" /* Typography */],
+                    __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["v" /* Typography */],
                     { id: 'reg-text-login' },
                     'Already have an account ',
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -123045,7 +123088,7 @@ var UserDetails = function (_Component) {
                             'div',
                             null,
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["u" /* Typography */],
+                                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["v" /* Typography */],
                                 null,
                                 'Id : ',
                                 this.state.userDetails.id
@@ -123234,7 +123277,7 @@ var ForgotPassword = function (_Component) {
               "div",
               null,
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["u" /* Typography */],
+                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["v" /* Typography */],
                 { variant: "h6", component: "p" },
                 this.state.message
               ),
@@ -123247,7 +123290,7 @@ var ForgotPassword = function (_Component) {
               "div",
               null,
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["u" /* Typography */],
+                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["v" /* Typography */],
                 { variant: "h5", component: "h2", id: "login-text" },
                 "Forgot Password"
               ),
@@ -123394,12 +123437,12 @@ var EmailVerification = function (_Component) {
               "div",
               null,
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["u" /* Typography */],
+                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["v" /* Typography */],
                 { className: "label-text", align: "center", variant: "h5", component: "h4" },
                 "Welcome"
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["u" /* Typography */],
+                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["v" /* Typography */],
                 { className: "label-text", component: "p" },
                 "Glad to have you"
               )
@@ -123412,12 +123455,12 @@ var EmailVerification = function (_Component) {
               "div",
               null,
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["u" /* Typography */],
+                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["v" /* Typography */],
                 { align: "center", variant: "h5", component: "h4" },
                 this.state.message
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["u" /* Typography */],
+                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["v" /* Typography */],
                 { align: "center", component: "p" },
                 "Click On the Button to go to Login page"
               ),
@@ -123431,17 +123474,17 @@ var EmailVerification = function (_Component) {
               null,
               " ",
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["u" /* Typography */],
+                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["v" /* Typography */],
                 { align: "center", variant: "h5", component: "h4" },
                 "Just One More Step.."
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["u" /* Typography */],
+                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["v" /* Typography */],
                 { component: "p" },
                 "Click On the Button to Activate Your Account"
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["u" /* Typography */],
+                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["v" /* Typography */],
                 { align: "center", component: "p" },
                 "Email is ",
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -123599,11 +123642,11 @@ var EmailVerification = function (_Component) {
                             "div",
                             null,
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["u" /* Typography */],
+                                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["v" /* Typography */],
                                 { className: "label-text", align: "center", variant: "h5", component: "h4" },
                                 "Password Reset"
                             ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__material_ui_core___["u" /* Typography */], { className: "label-text", component: "p" })
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__material_ui_core___["v" /* Typography */], { className: "label-text", component: "p" })
                         )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -123613,12 +123656,12 @@ var EmailVerification = function (_Component) {
                             "div",
                             null,
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["u" /* Typography */],
+                                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["v" /* Typography */],
                                 { align: "center", variant: "h5", component: "h4" },
                                 this.state.message
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["u" /* Typography */],
+                                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["v" /* Typography */],
                                 { align: "center", component: "p" },
                                 "Click On the Button to go to Login page"
                             ),
@@ -123632,7 +123675,7 @@ var EmailVerification = function (_Component) {
                             null,
                             " ",
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["u" /* Typography */],
+                                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["v" /* Typography */],
                                 { align: "center", variant: "h5", component: "h4" },
                                 "Enter New Password"
                             ),
@@ -123799,6 +123842,51 @@ var DashBoard = function (_React$Component) {
             });
         };
 
+        _this.handleNewLabel = function (label) {
+            noteService.createLabel(label).then(function (resp) {
+                var label = resp.data.label;
+                var tempUser = _this.state.user;
+                tempUser.labels.push(label);
+                _this.setState({
+                    user: tempUser
+                });
+            }).catch(function (err) {
+                console.log('newLabel error', err);
+            });
+        };
+
+        _this.handleDeleteLabel = function (labelid, index) {
+            noteService.deleteLabel(labelid).then(function (resp) {
+                if (resp.status === 200) {
+                    var tempUser = _this.state.user;
+                    tempUser.labels.splice(index, 1);
+                    _this.setState({
+                        user: tempUser
+                    });
+                } else {
+                    _this.notify('Unable To delete');
+                }
+            }).catch();
+        };
+
+        _this.handleEditLabel = function (data, index) {
+            noteService.editLabel(data).then(function (resp) {
+                if (resp.status === 200) {
+                    debugger;
+                    var tempUser = _this.state.user;
+                    tempUser.labels[index] = resp.data.label;
+                    _this.setState({
+                        user: tempUser,
+                        Notes: resp.data.notes
+                    });
+                } else {
+                    _this.notify('Unable To Edit');
+                }
+            }).catch(function (err) {
+                console.log('labeledit', err);
+            });
+        };
+
         _this.state = {
             drawerOpen: false,
             user: null,
@@ -123915,14 +124003,48 @@ var DashBoard = function (_React$Component) {
                 _this3.props.history.push('/login');
             }).catch();
         }
+
+        /**
+         * 
+         */
+
+
+        /**
+         * 
+         */
+
+
+        /**
+         * 
+         */
+
+
+        /**
+         * 
+         */
+
+
+        /**
+         * 
+         */
+
     }, {
         key: "render",
+
+
+        /**
+         * 
+         */
         value: function render() {
             var _this4 = this;
 
             console.log('dash', this.state);
             if (localStorage.getItem('fundootoken') === null) {
                 this.props.history.push('/login');
+            }
+
+            if (this.state.user === null) {
+                return null;
             }
 
             var notes = this.state.Notes.map(function (note, index) {
@@ -123979,7 +124101,7 @@ var DashBoard = function (_React$Component) {
             console.log('pinned', pinnedNotes);
             return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                 "div",
-                null,
+                { className: this.state.drawerOpen === true ? 'main-div-drawer-open' : 'main-div' },
                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                     "div",
                     null,
@@ -123995,9 +124117,13 @@ var DashBoard = function (_React$Component) {
                     "div",
                     null,
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_SideDrawer__["a" /* default */], {
+                        user: this.state.user,
                         Page: this.state.Page,
                         handlePage: this.handlePageTab,
-                        open: this.state.drawerOpen
+                        open: this.state.drawerOpen,
+                        handleNewLabel: this.handleNewLabel,
+                        handleDeleteLabel: this.handleDeleteLabel,
+                        handleEditLabel: this.handleEditLabel
                     })
                 ),
                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
@@ -124119,7 +124245,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var theme = Object(__WEBPACK_IMPORTED_MODULE_1__material_ui_core___["v" /* createMuiTheme */])({
+var theme = Object(__WEBPACK_IMPORTED_MODULE_1__material_ui_core___["w" /* createMuiTheme */])({
     overrides: {
         MuiPaper: {
             elevation4: {
@@ -124190,147 +124316,151 @@ var CAppBar = function (_React$Component) {
 
 
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["r" /* MuiThemeProvider */],
+                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["s" /* MuiThemeProvider */],
                 { theme: theme },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["a" /* AppBar */],
-                    {
-                        style: { backgroundColor: "white" }
-                    },
+                    'div',
+                    { className: 'appbar-div' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["t" /* Toolbar */],
-                        null,
+                        __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["a" /* AppBar */],
+                        {
+                            style: { backgroundColor: "white" }
+                        },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["l" /* IconButton */],
-                            {
-                                color: 'inherit',
-                                onClick: this.props.menuClick
-                            },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon', src: __webpack_require__(678), alt: '' })
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'div',
-                            { className: 'appbar-heading-div' },
-                            this.props.Page === 'FundooNotes' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'div',
-                                { className: 'appbar-logo' },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __webpack_require__(64), alt: '' })
-                            ) : '',
+                            __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["u" /* Toolbar */],
+                            null,
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["u" /* Typography */],
-                                { className: 'appbar-heading', variant: 'h6' },
-                                this.props.Page
-                            )
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'div',
-                            { className: 'appbar-search' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["l" /* IconButton */],
-                                null,
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon', src: __webpack_require__(679), alt: '' })
+                                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["m" /* IconButton */],
+                                {
+                                    color: 'inherit',
+                                    onClick: this.props.menuClick
+                                },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon', src: __webpack_require__(678), alt: '' })
                             ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__material_ui_core___["m" /* InputBase */], {
-                                fullWidth: true,
-                                placeholder: 'Search\u2026'
-                            }),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["l" /* IconButton */],
-                                null,
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon', src: __webpack_require__(680), alt: '' })
-                            )
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'div',
-                            { className: 'appbar-divbutton' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["l" /* IconButton */],
-                                null,
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon', src: __webpack_require__(681), alt: '' })
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["l" /* IconButton */],
-                                { className: 'appbar-iconbutton-grid', onClick: this.props.changeView },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon', src: this.props.gridView === true ? __webpack_require__(682) : __webpack_require__(683), alt: '' })
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["l" /* IconButton */],
-                                null,
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon', src: __webpack_require__(684), alt: '' })
-                            )
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_7__material_ui_core_ClickAwayListener___default.a,
-                            { onClickAway: this.closeProfileMenu },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
-                                { className: 'appbar-avatar-btn' },
+                                { className: 'appbar-heading-div' },
+                                this.props.Page === 'FundooNotes' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'appbar-logo' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __webpack_require__(64), alt: '' })
+                                ) : '',
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["l" /* IconButton */],
-                                    { onClick: this.handleProfileMenu },
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["b" /* Avatar */],
-                                        { className: 'profile-avatar', alt: 'Remy Sharp' },
-                                        localStorage.getItem('username').substr(0, 1)
-                                    )
+                                    __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["v" /* Typography */],
+                                    { className: 'appbar-heading', variant: 'h6' },
+                                    this.props.Page
+                                )
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { className: 'appbar-search' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["m" /* IconButton */],
+                                    null,
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon', src: __webpack_require__(679), alt: '' })
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__material_ui_core___["n" /* InputBase */], {
+                                    fullWidth: true,
+                                    placeholder: 'Search\u2026'
+                                }),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["m" /* IconButton */],
+                                    null,
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon', src: __webpack_require__(680), alt: '' })
+                                )
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { className: 'appbar-divbutton' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["m" /* IconButton */],
+                                    null,
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon', src: __webpack_require__(681), alt: '' })
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["m" /* IconButton */],
+                                    { className: 'appbar-iconbutton-grid', onClick: this.props.changeView },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon', src: this.props.gridView === true ? __webpack_require__(682) : __webpack_require__(683), alt: '' })
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["m" /* IconButton */],
+                                    null,
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon', src: __webpack_require__(684), alt: '' })
+                                )
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_7__material_ui_core_ClickAwayListener___default.a,
+                                { onClickAway: this.closeProfileMenu },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'div',
-                                    { className: 'check' },
+                                    { className: 'appbar-avatar-btn' },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_4__material_ui_core_Popper___default.a,
-                                        { className: 'appbar-menu-profile', open: this.state.profileMenu, anchorEl: this.state.anchorEl, transition: true, disablePortal: true, placement: 'bottom-end' },
-                                        function (_ref) {
-                                            var TransitionProps = _ref.TransitionProps,
-                                                placement = _ref.placement;
-                                            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                __WEBPACK_IMPORTED_MODULE_2__material_ui_core_Grow___default.a,
-                                                _extends({}, TransitionProps, {
-                                                    style: { transformOrigin: 'center top' }
-                                                }),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["d" /* Card */],
-                                                    null,
+                                        __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["m" /* IconButton */],
+                                        { onClick: this.handleProfileMenu },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["b" /* Avatar */],
+                                            { className: 'profile-avatar', alt: 'Remy Sharp' },
+                                            localStorage.getItem('username').substr(0, 1)
+                                        )
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'check' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            __WEBPACK_IMPORTED_MODULE_4__material_ui_core_Popper___default.a,
+                                            { className: 'appbar-menu-profile', open: this.state.profileMenu, anchorEl: this.state.anchorEl, transition: true, disablePortal: true, placement: 'bottom-end' },
+                                            function (_ref) {
+                                                var TransitionProps = _ref.TransitionProps,
+                                                    placement = _ref.placement;
+                                                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    __WEBPACK_IMPORTED_MODULE_2__material_ui_core_Grow___default.a,
+                                                    _extends({}, TransitionProps, {
+                                                        style: { transformOrigin: 'center top' }
+                                                    }),
                                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["e" /* CardContent */],
-                                                        { className: 'profile-popper-cardcontent' },
+                                                        __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["d" /* Card */],
+                                                        null,
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                            'div',
-                                                            { className: 'inside-avatar-div' },
+                                                            __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["e" /* CardContent */],
+                                                            { className: 'profile-popper-cardcontent' },
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["b" /* Avatar */],
-                                                                { className: 'profile-popup-avatar', color: 'red' },
-                                                                _this2.props.user.firstname.substr(0, 1)
-                                                            )
-                                                        ),
-                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                            'div',
-                                                            null,
-                                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["u" /* Typography */],
-                                                                { variant: 'h6', component: 'p' },
-                                                                _this2.props.user.firstname + ' ' + _this2.props.user.lastname
+                                                                'div',
+                                                                { className: 'inside-avatar-div' },
+                                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                                    __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["b" /* Avatar */],
+                                                                    { className: 'profile-popup-avatar', color: 'red' },
+                                                                    _this2.props.user.firstname.substr(0, 1)
+                                                                )
                                                             ),
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["u" /* Typography */],
-                                                                { component: 'p' },
-                                                                _this2.props.user.email
+                                                                'div',
+                                                                null,
+                                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                                    __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["v" /* Typography */],
+                                                                    { variant: 'h6', component: 'p' },
+                                                                    _this2.props.user.firstname + ' ' + _this2.props.user.lastname
+                                                                ),
+                                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                                    __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["v" /* Typography */],
+                                                                    { component: 'p' },
+                                                                    _this2.props.user.email
+                                                                )
+                                                            )
+                                                        ),
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__material_ui_core___["k" /* Divider */], null),
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'div',
+                                                            { className: 'profile-popper-below-div' },
+                                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["c" /* Button */],
+                                                                { variant: 'outlined', onClick: _this2.props.logout },
+                                                                'LogOut'
                                                             )
                                                         )
-                                                    ),
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__material_ui_core___["j" /* Divider */], null),
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'div',
-                                                        { className: 'profile-popper-below-div' },
-                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                            __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["c" /* Button */],
-                                                            { variant: 'outlined', onClick: _this2.props.logout },
-                                                            'LogOut'
-                                                        )
                                                     )
-                                                )
-                                            );
-                                        }
+                                                );
+                                            }
+                                        )
                                     )
                                 )
                             )
@@ -124403,6 +124533,7 @@ module.exports = "/images/setting.svg?23e9f8ce8822c7fef3a15598e6dbf3b5";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Drawer___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__material_ui_core_Drawer__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_ui_core___ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_ui_core__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__EditLabels__ = __webpack_require__(711);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -124416,7 +124547,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var theme = Object(__WEBPACK_IMPORTED_MODULE_3__material_ui_core__["v" /* createMuiTheme */])({
+
+var theme = Object(__WEBPACK_IMPORTED_MODULE_3__material_ui_core__["w" /* createMuiTheme */])({
     overrides: {
         MuiDrawer: {
             paper: {
@@ -124448,12 +124580,38 @@ var SideDrawer = function (_React$Component) {
     }
 
     _createClass(SideDrawer, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {}
+    }, {
         key: 'render',
         value: function render() {
             var _this2 = this;
 
+            console.log('hshdhsd', this.props.user);
+
+            var labels = this.props.user === null ? '' : this.props.user.labels.map(function (label, index) {
+                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { key: index, className: _this2.props.Page === label.label ? 'sidedrawer-list-selected' : 'sidedrawer-list', onClick: function onClick() {
+                            return _this2.props.handlePage(label.label);
+                        } },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["p" /* ListItem */],
+                        null,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["q" /* ListItemIcon */],
+                            null,
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __webpack_require__(710), alt: '' })
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core___["r" /* ListItemText */], { primary: label.label })
+                    )
+                );
+            });
+
+            // console.log('labels',labels);
+
             var list = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["n" /* List */],
+                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["o" /* List */],
                 { component: 'nav' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
@@ -124464,14 +124622,14 @@ var SideDrawer = function (_React$Component) {
                                 return _this2.props.handlePage('FundooNotes');
                             } },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["o" /* ListItem */],
+                            __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["p" /* ListItem */],
                             null,
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["p" /* ListItemIcon */],
+                                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["q" /* ListItemIcon */],
                                 null,
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __webpack_require__(686), alt: '' })
                             ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core___["q" /* ListItemText */], { primary: 'Notes' })
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core___["r" /* ListItemText */], { primary: 'Notes' })
                         )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -124480,42 +124638,35 @@ var SideDrawer = function (_React$Component) {
                                 return _this2.props.handlePage('Reminder');
                             } },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["o" /* ListItem */],
+                            __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["p" /* ListItem */],
                             null,
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["p" /* ListItemIcon */],
+                                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["q" /* ListItemIcon */],
                                 null,
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __webpack_require__(687), alt: '' })
                             ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core___["q" /* ListItemText */], { primary: 'Reminder' })
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core___["r" /* ListItemText */], { primary: 'Reminder' })
                         )
                     )
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core___["j" /* Divider */], null),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core___["k" /* Divider */], null),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
                     { className: 'sidebar-block-div' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["u" /* Typography */],
-                        { className: 'sidebar-labels', variant: 'h6', component: 'p' },
-                        'Labels'
+                        __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["v" /* Typography */],
+                        { className: 'sidebar-labels', component: 'p' },
+                        'LABELS'
                     ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: this.props.Page === 'Edit Labels' ? 'sidedrawer-list-selected' : 'sidedrawer-list' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["o" /* ListItem */],
-                            null,
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["p" /* ListItemIcon */],
-                                null,
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __webpack_require__(688), alt: '' })
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core___["q" /* ListItemText */], { primary: 'Edit Labels' })
-                        )
-                    )
+                    labels,
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__EditLabels__["a" /* default */], {
+                        handleNewLabel: this.props.handleNewLabel,
+                        handleDeleteLabel: this.props.handleDeleteLabel,
+                        handleEditLabel: this.props.handleEditLabel,
+                        user: this.props.user
+                    })
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core___["j" /* Divider */], null),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core___["k" /* Divider */], null),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
                     { className: 'sidebar-block-div' },
@@ -124525,14 +124676,14 @@ var SideDrawer = function (_React$Component) {
                                 return _this2.props.handlePage('Archive');
                             } },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["o" /* ListItem */],
+                            __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["p" /* ListItem */],
                             null,
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["p" /* ListItemIcon */],
+                                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["q" /* ListItemIcon */],
                                 null,
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __webpack_require__(81), alt: '' })
                             ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core___["q" /* ListItemText */], { primary: 'Archive' })
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core___["r" /* ListItemText */], { primary: 'Archive' })
                         )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -124541,14 +124692,14 @@ var SideDrawer = function (_React$Component) {
                                 return _this2.props.handlePage('Bin');
                             } },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["o" /* ListItem */],
+                            __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["p" /* ListItem */],
                             null,
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["p" /* ListItemIcon */],
+                                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["q" /* ListItemIcon */],
                                 null,
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __webpack_require__(689), alt: '' })
                             ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core___["q" /* ListItemText */], { primary: 'Bin' })
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core___["r" /* ListItemText */], { primary: 'Bin' })
                         )
                     )
                 )
@@ -124558,7 +124709,7 @@ var SideDrawer = function (_React$Component) {
                 'div',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_3__material_ui_core__["r" /* MuiThemeProvider */],
+                    __WEBPACK_IMPORTED_MODULE_3__material_ui_core__["s" /* MuiThemeProvider */],
                     { theme: theme },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Drawer___default.a,
@@ -124641,7 +124792,7 @@ var noteService = new __WEBPACK_IMPORTED_MODULE_2__services_NotesService__["a" /
  * theme for material ui to override the defaults
  * 
  */
-var theme = Object(__WEBPACK_IMPORTED_MODULE_1__material_ui_core___["v" /* createMuiTheme */])({
+var theme = Object(__WEBPACK_IMPORTED_MODULE_1__material_ui_core___["w" /* createMuiTheme */])({
     overrides: {
         MuiChip: {
             label: {
@@ -124854,7 +125005,7 @@ var TakeNote = function (_React$Component) {
          */
         value: function render() {
             var Open = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["r" /* MuiThemeProvider */],
+                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["s" /* MuiThemeProvider */],
                 { theme: theme },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_6__material_ui_core_ClickAwayListener___default.a,
@@ -124865,14 +125016,14 @@ var TakeNote = function (_React$Component) {
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
                             { className: 'note-top-div' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__material_ui_core___["m" /* InputBase */], { name: 'title', fullWidth: true, placeholder: 'Title', onChange: this.handleInput }),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__material_ui_core___["n" /* InputBase */], { name: 'title', fullWidth: true, placeholder: 'Title', onChange: this.handleInput }),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
                                 { className: 'note-icon-pin', role: 'button', onClick: this.handlePin },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: this.state.pinned === '1' ? __webpack_require__(315) : __webpack_require__(316), alt: '' })
                             )
                         ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__material_ui_core___["m" /* InputBase */], { name: 'body', multiline: true, fullWidth: true, placeholder: 'Take a note..', onChange: this.handleInput }),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__material_ui_core___["n" /* InputBase */], { name: 'body', multiline: true, fullWidth: true, placeholder: 'Take a note..', onChange: this.handleInput }),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
                             { className: 'note-chip-div' },
@@ -124926,11 +125077,11 @@ var TakeNote = function (_React$Component) {
             var Close = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: 'takenote-div', onClick: this.handleTakeNote },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__material_ui_core___["m" /* InputBase */], { fullWidth: true, placeholder: 'Take a note..' })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__material_ui_core___["n" /* InputBase */], { fullWidth: true, placeholder: 'Take a note..' })
             );
 
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["r" /* MuiThemeProvider */],
+                __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["s" /* MuiThemeProvider */],
                 { theme: theme },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
@@ -125465,7 +125616,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * theme for material ui to override the defaults
  * 
  */
-var theme = Object(__WEBPACK_IMPORTED_MODULE_2__material_ui_core___["v" /* createMuiTheme */])({
+var theme = Object(__WEBPACK_IMPORTED_MODULE_2__material_ui_core___["w" /* createMuiTheme */])({
     overrides: {
         MuiCardContent: {
             root: {
@@ -125578,7 +125729,7 @@ var Note = function (_React$Component) {
                 'div',
                 { className: this.props.gridView === true ? 'note-card-grid' : 'note-card' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["r" /* MuiThemeProvider */],
+                    __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["s" /* MuiThemeProvider */],
                     { theme: theme },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
@@ -125595,13 +125746,13 @@ var Note = function (_React$Component) {
                                 'div',
                                 { className: 'note-top-div' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["u" /* Typography */],
+                                    __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["v" /* Typography */],
                                     { variant: 'h6', component: 'p' },
                                     this.props.note.title
                                 )
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["u" /* Typography */],
+                                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["v" /* Typography */],
                                 { className: 'note-body-text', component: 'p' },
                                 this.props.note.body
                             ),
@@ -128081,7 +128232,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * theme for material ui to override the defaults
  * 
  */
-var theme = Object(__WEBPACK_IMPORTED_MODULE_2__material_ui_core___["v" /* createMuiTheme */])({
+var theme = Object(__WEBPACK_IMPORTED_MODULE_2__material_ui_core___["w" /* createMuiTheme */])({
     overrides: {
         MuiCardContent: {
             root: {
@@ -128145,7 +128296,7 @@ var Note = function (_React$Component) {
                 'div',
                 { className: this.props.gridView === true ? 'note-card-grid' : 'note-card' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["r" /* MuiThemeProvider */],
+                    __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["s" /* MuiThemeProvider */],
                     { theme: theme },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_1__material_ui_core__["d" /* Card */],
@@ -128157,13 +128308,13 @@ var Note = function (_React$Component) {
                                 'div',
                                 { className: 'note-top-div' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["u" /* Typography */],
+                                    __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["v" /* Typography */],
                                     { variant: 'h6', component: 'p' },
                                     this.props.note.title
                                 )
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["u" /* Typography */],
+                                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["v" /* Typography */],
                                 { className: 'note-body-text', component: 'p' },
                                 this.props.note.body
                             ),
@@ -128244,7 +128395,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // import Draggable from 'react-draggable';
 
 
-var theme = Object(__WEBPACK_IMPORTED_MODULE_5__material_ui_core___["v" /* createMuiTheme */])({
+var theme = Object(__WEBPACK_IMPORTED_MODULE_5__material_ui_core___["w" /* createMuiTheme */])({
     overrides: {
         MuiChip: {
             label: {
@@ -128320,10 +128471,10 @@ var NoteEdit = function (_React$Component) {
                 'div',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_5__material_ui_core___["r" /* MuiThemeProvider */],
+                    __WEBPACK_IMPORTED_MODULE_5__material_ui_core___["s" /* MuiThemeProvider */],
                     { theme: theme },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_5__material_ui_core___["f" /* Dialog */],
+                        __WEBPACK_IMPORTED_MODULE_5__material_ui_core___["g" /* Dialog */],
                         {
                             fullScreen: fullScreen,
                             open: this.state.open,
@@ -128334,18 +128485,18 @@ var NoteEdit = function (_React$Component) {
                             'div',
                             { style: { background: this.state.note.color } },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_5__material_ui_core___["i" /* DialogTitle */],
+                                __WEBPACK_IMPORTED_MODULE_5__material_ui_core___["j" /* DialogTitle */],
                                 { onClick: this.handleEdit },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_5__material_ui_core___["u" /* Typography */],
+                                    __WEBPACK_IMPORTED_MODULE_5__material_ui_core___["v" /* Typography */],
                                     { variant: 'h6', component: 'p' },
                                     this.props.note.title
                                 )
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_5__material_ui_core___["h" /* DialogContent */],
+                                __WEBPACK_IMPORTED_MODULE_5__material_ui_core___["i" /* DialogContent */],
                                 { onClick: this.handleEdit },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__material_ui_core___["m" /* InputBase */], {
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__material_ui_core___["n" /* InputBase */], {
                                     name: 'body',
                                     multiline: true,
                                     fullWidth: true,
@@ -128363,7 +128514,7 @@ var NoteEdit = function (_React$Component) {
                                 )
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_5__material_ui_core___["g" /* DialogActions */],
+                                __WEBPACK_IMPORTED_MODULE_5__material_ui_core___["h" /* DialogActions */],
                                 null,
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'div',
@@ -128471,22 +128622,22 @@ var NotVerified = function (_Component) {
               "div",
               null,
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["u" /* Typography */],
+                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["v" /* Typography */],
                 { align: "center", variant: "h5", component: "h4" },
                 "!Email Not Verfied!"
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["u" /* Typography */],
+                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["v" /* Typography */],
                 { align: "center", component: "p" },
                 "Your email is not verified pls Verify your email"
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["u" /* Typography */],
+                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["v" /* Typography */],
                 { align: "center", component: "p" },
                 "Please Verify your email"
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["u" /* Typography */],
+                __WEBPACK_IMPORTED_MODULE_2__material_ui_core___["v" /* Typography */],
                 { align: "center", component: "p" },
                 "We have sent a link to your email , check you inbox"
               ),
@@ -128512,6 +128663,295 @@ var NotVerified = function (_Component) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 709 */,
+/* 710 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Label.svg?542d895765e235f0a3fa82b7f898eed7";
+
+/***/ }),
+/* 711 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_ui_core___ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LabelComp__ = __webpack_require__(716);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+var EditLabels = function (_React$Component) {
+    _inherits(EditLabels, _React$Component);
+
+    function EditLabels(props) {
+        _classCallCheck(this, EditLabels);
+
+        var _this = _possibleConstructorReturn(this, (EditLabels.__proto__ || Object.getPrototypeOf(EditLabels)).call(this, props));
+
+        _this.handleClickEditLabels = function () {
+            _this.setState({
+                open: !_this.state.open
+            });
+        };
+
+        _this.handleInputClick = function () {
+            _this.setState({
+                createNew: true
+            });
+        };
+
+        _this.handleInputClickAway = function () {
+            _this.setState({
+                createNew: false
+            });
+        };
+
+        _this.handleInputChange = function (e) {
+            _this.setState({
+                newLabel: e.target.value
+            });
+        };
+
+        _this.handleNewLabel = function () {
+            if (_this.state.newLabel !== '') {
+                _this.props.handleNewLabel(_this.state.newLabel);
+                _this.setState({
+                    newLabel: ''
+                });
+            }
+        };
+
+        _this.handleDeleteLabel = function (label, index) {
+            // debugger;
+            _this.props.handleDeleteLabel(label.id, index);
+        };
+
+        _this.state = {
+            open: false,
+            createNew: false,
+            newLabel: ''
+        };
+        return _this;
+    }
+
+    _createClass(EditLabels, [{
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            console.log('editlabel', this.state);
+
+            var fullScreen = this.props.fullScreen;
+
+            var labels = this.props.user.labels.map(function (label, index) {
+                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__LabelComp__["a" /* default */], {
+                    handleDeleteLabel: _this2.handleDeleteLabel,
+                    index: index,
+                    key: index,
+                    handleEditLabel: _this2.props.handleEditLabel,
+                    label: label
+                });
+            });
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: this.props.Page === 'Edit Labels' ? 'sidedrawer-list-selected' : 'sidedrawer-list', onClick: this.handleClickEditLabels },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["p" /* ListItem */],
+                        null,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["q" /* ListItemIcon */],
+                            null,
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __webpack_require__(688), alt: '' })
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__material_ui_core___["r" /* ListItemText */], { primary: 'Edit Labels' })
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["g" /* Dialog */],
+                    {
+                        fullScreen: fullScreen,
+                        open: this.state.open,
+                        onClose: this.handleClickEditLabels,
+                        'aria-labelledby': 'responsive-dialog-title'
+                    },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'edit-labels-diag-div' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { className: 'edit-labels-diag-heading' },
+                            'Edit Labels'
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1__material_ui_core___["f" /* ClickAwayListener */],
+                            {
+                                onClickAway: this.handleInputClickAway
+                            },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { className: 'edit-note-diag-createlabel' },
+                                this.state.createNew ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon', src: __webpack_require__(680), alt: '', style: { width: 18 }, onClick: this.handleInputClickAway }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon', src: __webpack_require__(717), alt: '' }),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__material_ui_core___["n" /* InputBase */], { onClick: this.handleInputClick,
+                                    className: 'create-new-label',
+                                    fullWidth: true,
+                                    value: this.state.newLabel,
+                                    placeholder: 'Create new label',
+                                    onChange: this.handleInputChange
+                                }),
+                                this.state.createNew ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', {
+                                    className: 'icon',
+                                    src: __webpack_require__(714),
+                                    alt: '',
+                                    onClick: this.handleNewLabel }) : ''
+                            )
+                        ),
+                        labels
+                    )
+                )
+            );
+        }
+    }]);
+
+    return EditLabels;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["a"] = (EditLabels);
+
+/***/ }),
+/* 712 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/LabelSolid.svg?662171981de5f89d8595a250b55330e2";
+
+/***/ }),
+/* 713 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/LabelEdit.svg?148eab823d10aaac481cd229459460b5";
+
+/***/ }),
+/* 714 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Oktick.svg?96b295adb45350aead808ae2dffc2056";
+
+/***/ }),
+/* 715 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Delete.svg?b180f6448f91345db605a4c1a0b59cd8";
+
+/***/ }),
+/* 716 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_ui_core___ = __webpack_require__(16);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+var LabelComp = function (_React$Component) {
+    _inherits(LabelComp, _React$Component);
+
+    function LabelComp() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, LabelComp);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = LabelComp.__proto__ || Object.getPrototypeOf(LabelComp)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+            labelHover: false,
+            label: _this.props.label.label
+        }, _this.handleHoverLabel = function () {
+            _this.setState({
+                labelHover: !_this.state.labelHover
+            });
+        }, _this.handleLabelChange = function (e) {
+            _this.setState({
+                label: e.target.value
+            });
+        }, _this.handleEditLabel = function () {
+            // debugger;
+            if (_this.state.label === _this.props.label.label) {
+                return;
+            }
+            debugger;
+            var data = {
+                label: _this.state.label,
+                labelid: _this.props.label.id
+            };
+            _this.props.handleEditLabel(data, _this.props.index);
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(LabelComp, [{
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            console.log('labelcomp', this.state);
+
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: 'edit-labels-diag-content', onMouseEnter: this.handleHoverLabel, onMouseLeave: this.handleHoverLabel },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon',
+                    src: this.state.labelHover ? __webpack_require__(715) : __webpack_require__(712),
+                    alt: '',
+                    onClick: function onClick() {
+                        return _this2.props.handleDeleteLabel(_this2.props.label, _this2.props.index);
+                    } }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__material_ui_core___["n" /* InputBase */], {
+                    className: 'edit-labels-input',
+                    fullWidth: true,
+                    onChange: this.handleLabelChange,
+                    defaultValue: this.props.label.label
+                }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon', src: __webpack_require__(713), alt: '', onClick: this.handleEditLabel })
+            );
+        }
+    }]);
+
+    return LabelComp;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["a"] = (LabelComp);
+
+/***/ }),
+/* 717 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/PlusSign.svg?ea3469ec31fe9fdaf54f42139bc6f416";
 
 /***/ })
 /******/ ]);
