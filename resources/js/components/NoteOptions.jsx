@@ -4,9 +4,11 @@ import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
+
 import TextField from '@material-ui/core/TextField';
 import { Typography } from '@material-ui/core';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import AddLabel from './AddLabel';
 
 export default class NoteOptions extends React.Component {
 
@@ -16,6 +18,7 @@ export default class NoteOptions extends React.Component {
             active: false,
             custom: false,
             anchorEl: null,
+            addLabel: false,
         };
     }
 
@@ -24,12 +27,14 @@ export default class NoteOptions extends React.Component {
     handleClickAway = () => {
         this.setState({
             active: false,
+            addLabel: false,
         });
     }
 
     handleClick = () => {
         this.setState({
             active: !this.state.active,
+            addLabel: false,
         });
     }
 
@@ -44,9 +49,14 @@ export default class NoteOptions extends React.Component {
 
     }
 
+    handleAddLAbelClick = () => {
+        this.setState({
+            active: false,
+            addLabel: true,
+        });
+    }
+
     render() {
-
-
         return (
             <div >
                 <ClickAwayListener onClickAway={this.handleClickAway} >
@@ -70,23 +80,37 @@ export default class NoteOptions extends React.Component {
                                                         {this.props.note.deleted === '0' ? 'Delete Note' : 'Restore'}
                                                     </Typography>
                                                 </div>
-                                                <div className='noteoptions-list-div'>
-                                                {this.props.note.deleted === '1'?
-                                                  (  <Typography align='center'
-                                                    onClick={()=>this.props.handleNoteDelete(this.props.index)}
-                                                    >
-                                                    Delete Forever
-                                                    </Typography>):''
-                                                }
-                                                </div>
+                                                {this.props.note.deleted === '1' ?
+                                                    <div className='noteoptions-list-div'>
+                                                        <Typography align='center'
+                                                            onClick={() => this.props.handleNoteDelete(this.props.index)}
+                                                        >
+                                                            Delete Forever
+                                                    </Typography>
+                                                    </div> : ''}
+
+                                                {this.props.note.deleted === '0' ?
+                                                    <div className='noteoptions-list-div'>
+                                                        <Typography align='center'
+                                                            onClick={this.handleAddLAbelClick}
+                                                        >
+                                                            Add Label
+                                                    </Typography>
+                                                    </div> : ''}
                                             </MenuList>
                                         </Paper>
-
                                     </Grow>
                                 )}
                             </Popper>
                         </div>
+                        <AddLabel
+                            anchorEl={this.state.anchorEl}
+                            open={this.state.addLabel}
+                            note={this.props.note}
+                            user={this.props.user}
+                        />
                     </div>
+
                 </ClickAwayListener>
             </div>
         );

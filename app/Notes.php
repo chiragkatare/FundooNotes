@@ -19,10 +19,10 @@ class Notes extends Model
         // $noteee = Cache::get('notes'.Auth::user()->id);
         // $ss = $noteee->where('id',24);
         $note = Notes::create($data);
-        Cache::remember('notes', (15), function () {
-            $nn = Notes::where('userid', Auth::user()->id)->get();
-            return $nn;
-        });
+        // Cache::remember('notes'.Auth::user()->id, (15), function () {
+        //     $nn = Notes::where('userid', Auth::user()->id)->get();
+        //     return $nn;
+        // });
         return $note;
     }
 
@@ -44,3 +44,4 @@ class Notes extends Model
     }
 
 }
+    

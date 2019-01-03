@@ -294,6 +294,7 @@ export default class DashBoard extends React.Component {
                         index={index}
                         handleNoteEdit={this.handleNoteEdit}
                         notify={this.notify}
+                        user={this.state.user}
                     >
                     </Note>
                 </Draggable>
@@ -315,6 +316,7 @@ export default class DashBoard extends React.Component {
                         note={note}
                         handleNoteEdit={this.handleNoteEdit}
                         notify={this.notify}
+                        user={this.state.user}
                     ></Note>
                 </Draggable>
             }
@@ -331,6 +333,7 @@ export default class DashBoard extends React.Component {
                         note={note}
                         handleNoteEdit={this.handleNoteEdit}
                         notify={this.notify}
+                        user={this.state.user}
                     ></Note>
                 </Draggable>
             }
@@ -393,6 +396,7 @@ export default class DashBoard extends React.Component {
                                                 index={index}
                                                 handleNoteEdit={this.handleNoteEdit}
                                                 notify={this.notify}
+                                                user={this.state.user}
                                             >
                                             </Note>)
                                     }
@@ -410,6 +414,7 @@ export default class DashBoard extends React.Component {
                                                 handleNoteEdit={this.handleNoteEdit}
                                                 handleNoteDelete={this.handleNoteDelete}
                                                 notify={this.notify}
+                                                user={this.state.user}
                                             >
                                             </DeletedNote>)
                                     }

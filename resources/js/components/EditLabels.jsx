@@ -54,7 +54,7 @@ export default class EditLabels extends React.Component {
     }
 
     render() {
-        console.log('editlabel', this.state);
+        // console.log('editlabel', this.state);
 
         const { fullScreen } = this.props;
         var labels = this.props.user.labels.map((label, index) => {
@@ -109,7 +109,6 @@ export default class EditLabels extends React.Component {
                             </div>
                         </ClickAwayListener>
                         {labels}
-
                     </div>
 
                 </Dialog>

@@ -144,7 +144,7 @@ export default class NoteEdit extends React.Component {
           <Dialog
             fullScreen={fullScreen}
             open={this.state.open}
-            onClose={this.handleClose}
+            onClose={this.handleEditNote}
             aria-labelledby="responsive-dialog-title"
           >
             <div style={{ background: this.state.note.color }}>
@@ -198,11 +198,12 @@ export default class NoteEdit extends React.Component {
                   <NoteOptions
                     note={this.props.note}
                     handleNoteEdit={this.props.handleNoteEdit}
+                    user={this.props.user}
                     
                     index={this.props.index} />
                   <Button className='card-button-close' component="span" onClick={(this.handleEditNote)}>
                     Close
-        </Button>
+                  </Button>
                 </div>
               </DialogActions>
             </div>

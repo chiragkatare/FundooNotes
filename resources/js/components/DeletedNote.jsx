@@ -100,6 +100,7 @@ export default class Note extends React.Component {
                                 note={this.props.note}
                                 handleNoteEdit={this.props.handleNoteEdit}
                                 handleNoteDelete={this.props.handleNoteDelete}
+                                user={this.props.user}
                             />
                         </div>
                     </Card>
@@ -110,6 +111,7 @@ export default class Note extends React.Component {
                         index={this.props.index}
                         handleNoteEdit={this.props.handleNoteEdit}
                         handleNoteDelete={this.props.handleNoteDelete}
+                        user={this.props.user}
                     />
                 </MuiThemeProvider>
             </div>

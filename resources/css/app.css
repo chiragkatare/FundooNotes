@@ -500,6 +500,14 @@ div .profile-avatar{
     padding : 2px 4px ;
 }
 
+.add-label-div{
+    cursor: pointer;
+    padding : 2px 4px ;
+}
+.add-label-div:hover{
+    background: rgba(0,0,0,0.1);
+}
+
 .noteoptions-list-div:hover{
     background: rgba(0,0,0,0.1);
 }
@@ -653,7 +661,7 @@ div .profile-avatar{
 
     .note-card {
     width: 100%;
-    min-width: 320px ;
+    min-width: 340px ;
     }
     .note-card-grid{
         width: auto;
