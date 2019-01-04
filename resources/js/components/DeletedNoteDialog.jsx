@@ -112,9 +112,11 @@ export default class NoteEdit extends React.Component {
                                     <NoteOptions
                                         note={this.props.note}
                                         handleNoteEdit={this.props.handleNoteEdit}
-                                        index={this.props.index} 
+                                        index={this.props.index}
                                         handleNoteDelete = {this.props.handleNoteDelete}
                                         user={this.props.user}
+                                        handleNoteEdit={this.props.handleNoteEdit}
+                                        handleNoteLabel={this.props.handleNoteLabel}
                                         />
                                     <Button className='card-button-close' component="span" onClick={(this.handleClose)}>
                                         Close

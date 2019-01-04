@@ -56,7 +56,7 @@ class Login extends Component {
    * 
    * @param {var} data 
    */
-   getDataFromInput(data){
+  getDataFromInput(data) {
     this.setState({
       [event.target.name]: data
     })
@@ -74,9 +74,9 @@ class Login extends Component {
         password: this.state.password,
       }
       userService.login(data).then(response => {
-        console.log("asasa",response);
+        console.log("asasa", response);
         console.log(this.state);
-        
+
         if (response.status === 200) {
           this.setState({
             isLoggedIn: true,
@@ -93,7 +93,7 @@ class Login extends Component {
           localStorage.removeItem('fundootoken');
           this.props.history.push('/notverified');
         }
-        
+
 
       }
       ).catch(error => {
@@ -120,39 +120,39 @@ class Login extends Component {
       <div>
         <Card id='logincard'>
           <CardContent>
-            <div>
-              <Typography variant="h5" component="h2" color='primary' id='login-text'>
-                Login
-        </Typography>
               <div>
-                <Input name='email' type={'Email'} placeholder={'Enter Your Email'} label={'Email'} onChange={this.getDataFromInput} />
-                <div className='error'>{this.state.error.email}</div>
-              </div>
-              <div>
-                <Input name='password' type={'Password'} placeholder={'Enter PassWord'} label={'PassWord'} onChange={this.getDataFromInput} />
-                <div className='error'>{this.state.error.password}</div>
-              </div>
-              <div id='login-btn-div'>
-                <Button variant="contained" color="primary" type='submit' onClick={this.handleClick} className='login-btn'>
+                <Typography variant="h5" component="h2" color='primary' id='login-text'>
                   Login
+        </Typography>
+                <div>
+                  <Input name='email' type={'Email'} placeholder={'Enter Your Email'} label={'Email'} onChange={this.getDataFromInput} />
+                  <div className='error'>{this.state.error.email}</div>
+                </div>
+                <div>
+                  <Input name='password' type={'Password'} placeholder={'Enter PassWord'} label={'PassWord'} onChange={this.getDataFromInput} />
+                  <div className='error'>{this.state.error.password}</div>
+                </div>
+                <div id='login-btn-div'>
+                  <Button variant="contained" color="primary" type='submit' onClick={this.handleClick} className='login-btn'>
+                    Login
                 </Button>
+                </div>
               </div>
-            </div>
-            <div >
-              <span className='below-txt' >
-                <span><a href="/forgetpassword">Forgot Password</a></span>
-              </span>
-              <span >
-                <Typography >New User,<a href="/register">SignUp</a></Typography>
-              </span>
-            </div>
+              <div >
+                <span className='below-txt' >
+                  <span><a href="/forgetpassword">Forgot Password</a></span>
+                </span>
+                <span >
+                  <Typography >New User,<a href="/register">SignUp</a></Typography>
+                </span>
+              </div>
           </CardContent>
         </Card>
       </div>
 
-    );
-  }
-
-}
-
+        );
+      }
+    
+    }
+    
 export default Login;

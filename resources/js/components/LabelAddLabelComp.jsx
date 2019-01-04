@@ -17,6 +17,8 @@ export default class AddLabel extends React.Component {
 
     componentDidMount(){
         // debugger;
+        console.log('labellllll mount');
+        
         for (let i = 0; i < this.props.note.labels.length; i++) {
             const element = this.props.note.labels[i];
             if(element.labelname.id===this.props.label.id){
@@ -28,8 +30,22 @@ export default class AddLabel extends React.Component {
         }
   }
 
+//   componentWillUpdate
+
   handleAddLableClick=()=>{
-      this.setState();  
+      this.setState({
+          added:!this.state.added,
+      },
+      ()=>{
+        //   debugger;
+          if(this.state.added===true){
+            this.props.handleNoteLabel(this.props.noteIndex,this.props.note.id,this.props.label.id);
+          }
+          else{
+            //   debugger;
+            this.props.handleDeleteNoteLabel(this.props.noteIndex,this.props.note.id,this.props.label.id);
+          }
+      });  
   }
 
     render(){

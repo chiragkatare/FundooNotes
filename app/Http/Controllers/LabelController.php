@@ -17,46 +17,50 @@ class LabelController extends Controller
     /**
      * Function to make a new label for the user in the data base
      */
-    public function makeLabel(Request $req){
+    public function makeLabel(Request $req)
+    {
 
         $label['label'] = $req->get('label');
-        $label['userid']= Auth::user()->id;
+        $label['userid'] = Auth::user()->id;
 
         $messages = [
             'label.unique' => 'Duplicate label',
         ];
 
         //validation for duplicate label of the same user
-        $validator = Validator::make($label, [
-            'label' => [
-                'required',
-                Rule::unique('labels')->where(function ($query) use($label) {
-                    return $query->where('label', $label['label'])
-                    ->where('userid', $label['userid']);
-                }),
+        $validator = Validator::make(
+            $label,
+            [
+                'label' => [
+                    'required',
+                    Rule::unique('labels')->where(function ($query) use ($label) {
+                        return $query->where('label', $label['label'])
+                            ->where('userid', $label['userid']);
+                    }),
+                ],
             ],
-        ],
-        $messages
+            $messages
         );
 
         //return proper response if duplicate entry is there
-        if($validator->fails()){
-           $err =  $validator->errors();
-            return response()->json(['message'=>'error'],210);  
+        if ($validator->fails()) {
+            $err = $validator->errors();
+            return response()->json(['message' => 'error'], 210);
         }
 
 
         //create a new label
         $label['label'] = $req->get('label');
-        $label['userid']= Auth::user()->id;
+        $label['userid'] = Auth::user()->id;
         $ll = Labels::create($label);
-        return response()->json(['message'=>'created','label'=>$ll],200);
+        return response()->json(['message' => 'created', 'label' => $ll], 200);
     }
 
     /**
      * function to delete a label from user
      */
-    public function deleteLabel(Request $req){
+    public function deleteLabel(Request $req)
+    {
         if (Labels::destroy($req->get('labelid')) > 0) {
             return response()->json(['message' => 'label deleted'], 200);
         } else {
@@ -67,27 +71,92 @@ class LabelController extends Controller
     /**
      * function to edit the label 
      */
-    public function editLabel(Request $req){
-        $label=Labels::where('id',$req->get('labelid'))->first();
-        if($label!==null){
+    public function editLabel(Request $req)
+    {
+        $label = Labels::where('id', $req->get('labelid'))->first();
+        if ($label !== null) {
             $label->update(
                 [
                     'label' => $req->get('label'),
                 ]
             );
-            return response()->json(['label'=>$label,'notes'=>Notes::getUserNotes()],200);
-        }
-        else{
-            return response()->json(['message'=>'Label Not Found',204]);
+            return response()->json(['label' => $label, 'notes' => Notes::getUserNotes()], 200);
+        } else {
+            return response()->json(['message' => 'Label Not Found', 204]);
         }
     }
 
-    public function addNoteLabel(Request $req){
+    /**
+     * 
+     */
+    public function addNoteLabel(Request $req)
+    {
         $label['labelid'] = $req->get('labelid');
         $label['noteid'] = $req->get('noteid');
-        $label['userid']= Auth::user()->id;
+        $label['userid'] = Auth::user()->id;
+
+        $messages = [
+            'labelid.unique' => 'Note Already has this label',
+        ];
+
+        //validation for duplicate label of the same user
+        $validator = Validator::make(
+            $label,
+            [
+                'labelid' => [
+                    'required',
+                    Rule::unique('labels_notes')->where(function ($query) use ($label) {
+                        return $query->where('labelid', $label['labelid'])
+                            ->where('noteid', $label['noteid']);
+                    }),
+                ],
+            ],
+            $messages
+        );
+        if ($validator->fails()) {
+            $err = $validator->errors();
+            return response()->json(['message' => $err], 210);
+        }
         LabelsNotes::create($label);
-        return response()->json('added',200);
+        $note = Notes::with('labels')->where('id', $req->get('noteid'));
+        return response()->json(['note'=>$note->get()], 200);
+    }
+
+      /**
+     * 
+     */
+    public function deleteNoteLabel(Request $req)
+    {
+        $label['labelid'] = $req->get('labelid');
+        $label['noteid'] = $req->get('noteid');
+        $messages = [
+            'labelid.unique' => 'Note has this label',
+        ];
+
+        //validation for duplicate label of the same user
+        $validator = Validator::make(
+            $label,
+            [
+                'labelid' => [
+                    'required',
+                    Rule::unique('labels_notes')->where(function ($query) use ($label) {
+                        return $query->where('labelid', $label['labelid'])
+                            ->where('noteid', $label['noteid']);
+                    }),
+                ],
+            ],
+            $messages
+        );
+        if ($validator->fails()) {
+            $ll = LabelsNotes::where('labelid', $label['labelid'])->where('noteid',$label['noteid'])->first();
+            $ll->delete();
+            $note = Notes::with('labels')->where('id', $label['noteid'])->get();
+            return response()->json(['note'=>$note], 200);
+        }
+        else{
+            return response()->json(['message' => 'label not found'], 210);
+        }
+       
     }
 
 }

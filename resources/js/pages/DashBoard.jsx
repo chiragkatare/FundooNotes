@@ -42,7 +42,7 @@ export default class DashBoard extends React.Component {
      */
     componentWillMount() {
         // debugger;
-        console.log('compwillmountdash');
+        // console.log('compwillmountdash');
 
         noteService.getNotes().then(
             resp => {
@@ -161,6 +161,7 @@ export default class DashBoard extends React.Component {
         });
     }
 
+
     /**
      * 
      */
@@ -179,7 +180,7 @@ export default class DashBoard extends React.Component {
         })
     }
 
-    
+
 
     /**
     * function to logout the user from the app
@@ -230,51 +231,94 @@ export default class DashBoard extends React.Component {
     /**
      * 
      */
-    handleDeleteLabel=(labelid,index)=>{
-        noteService.deleteLabel(labelid).then(resp=>{
-            if(resp.status===200){
+    handleDeleteLabel = (labelid, index) => {
+        noteService.deleteLabel(labelid).then(resp => {
+            if (resp.status === 200) {
                 let tempUser = this.state.user;
-                tempUser.labels.splice(index,1);
+                tempUser.labels.splice(index, 1);
                 this.setState({
-                    user:tempUser,
+                    user: tempUser,
                 });
             }
-            else{
+            else {
                 this.notify('Unable To delete');
             }
-            
+
         }).catch();
     }
 
     /**
      * 
      */
-    handleEditLabel=(data,index)=>{
-        noteService.editLabel(data).then(resp=>{
-            if(resp.status===200){
+    handleEditLabel = (data, index) => {
+        noteService.editLabel(data).then(resp => {
+            if (resp.status === 200) {
                 debugger;
                 let tempUser = this.state.user;
-                tempUser.labels[index]=resp.data.label;
+                tempUser.labels[index] = resp.data.label;
                 this.setState({
-                    user:tempUser,
-                    Notes:resp.data.notes
+                    user: tempUser,
+                    Notes: resp.data.notes
                 });
-                
+
             }
-            else{
+            else {
                 this.notify('Unable To Edit');
             }
-            
-        }).catch(err=>{
-            console.log('labeledit',err);
-            
+
+        }).catch(err => {
+            console.log('labeledit', err);
+
         });
     }
 
+    handleNoteLabel = (index, noteid, labelid) => {
+        // debugger;
+        let data = {
+            noteid: noteid,
+            labelid: labelid
+        };
+        noteService.addNoteLabel(data).then(resp => {
+            if (resp.status === 200) {
+                // debugger;
+                let note = resp.data.note;
+                let tempNotes = this.state.Notes;
+                tempNotes[index] = note[0];
+                this.setState({
+                    Notes: tempNotes,
+                });
+            }
+        }).catch(err => {
+            console.log('addlabelnoteserr', err);
 
-     /**
-      * 
-      */
+        });
+    }
+
+    handleDeleteNoteLabel = (index, noteid, labelid) => {
+        // debugger;
+        let data = {
+            noteid: noteid,
+            labelid: labelid
+        };
+        noteService.deleteNoteLabel(data).then(resp => {
+            if (resp.status === 200) {
+                // debugger;
+                let note = resp.data.note;
+                let tempNotes = this.state.Notes;
+                tempNotes[index] = note[0];
+                this.setState({
+                    Notes: tempNotes,
+                });
+            }
+        }).catch(err => {
+            console.log('deletelabelnoteserr', err);
+
+        });
+    }
+
+    /**
+     * 
+     */
     render() {
         console.log('dash', this.state);
         if ((localStorage.getItem('fundootoken')) === null) {
@@ -295,6 +339,8 @@ export default class DashBoard extends React.Component {
                         handleNoteEdit={this.handleNoteEdit}
                         notify={this.notify}
                         user={this.state.user}
+                        handleNoteLabel={this.handleNoteLabel}
+                        handleDeleteNoteLabel={this.handleDeleteNoteLabel}
                     >
                     </Note>
                 </Draggable>
@@ -303,7 +349,7 @@ export default class DashBoard extends React.Component {
         })
 
         );
-        console.log('notes', notes);
+        // console.log('notes', notes);
 
 
         var reminderNotes = (this.state.Notes.map((note, index) => {
@@ -317,6 +363,8 @@ export default class DashBoard extends React.Component {
                         handleNoteEdit={this.handleNoteEdit}
                         notify={this.notify}
                         user={this.state.user}
+                        handleNoteLabel={this.handleNoteLabel}
+                        handleDeleteNoteLabel={this.handleDeleteNoteLabel}
                     ></Note>
                 </Draggable>
             }
@@ -334,11 +382,13 @@ export default class DashBoard extends React.Component {
                         handleNoteEdit={this.handleNoteEdit}
                         notify={this.notify}
                         user={this.state.user}
+                        handleNoteLabel={this.handleNoteLabel}
+                        handleDeleteNoteLabel={this.handleDeleteNoteLabel}
                     ></Note>
                 </Draggable>
             }
         }));
-        console.log('pinned', pinnedNotes);
+        // console.log('pinned', pinnedNotes);
         return (
 
 
@@ -359,6 +409,7 @@ export default class DashBoard extends React.Component {
                         handleNewLabel={this.handleNewLabel}
                         handleDeleteLabel={this.handleDeleteLabel}
                         handleEditLabel={this.handleEditLabel}
+
                     />
                 </div>
                 <div>
@@ -397,6 +448,8 @@ export default class DashBoard extends React.Component {
                                                 handleNoteEdit={this.handleNoteEdit}
                                                 notify={this.notify}
                                                 user={this.state.user}
+                                                handleNoteLabel={this.handleNoteLabel}
+                                                handleDeleteNoteLabel={this.handleDeleteNoteLabel}
                                             >
                                             </Note>)
                                     }
@@ -415,12 +468,38 @@ export default class DashBoard extends React.Component {
                                                 handleNoteDelete={this.handleNoteDelete}
                                                 notify={this.notify}
                                                 user={this.state.user}
+                                                handleNoteLabel={this.handleNoteLabel}
+                                                handleDeleteNoteLabel={this.handleDeleteNoteLabel}
                                             >
                                             </DeletedNote>)
                                     }
                                 }))}
                             </div>
                         default:
+                            return <div className={this.state.gridView === true ? 'notes-div-grid' : 'notes-div'}>
+                                {(this.state.Notes.map((note, index) => {
+                                    for (let i = 0; i < note.labels.length; i++) {
+                                        const label = note.labels[i];
+                                        if (label.labelname.label === this.state.Page) {
+                                            if (note.deleted === '0') {
+                                                return (
+                                                    <Note gridView={this.state.gridView}
+                                                        key={note.id}
+                                                        note={note}
+                                                        index={index}
+                                                        handleNoteEdit={this.handleNoteEdit}
+                                                        notify={this.notify}
+                                                        user={this.state.user}
+                                                        handleNoteLabel={this.handleNoteLabel}
+                                                        handleDeleteNoteLabel={this.handleDeleteNoteLabel}
+                                                    >
+                                                    </Note>
+                                                )
+                                            }
+                                        }
+                                    }
+                                }))}
+                            </div>
                         // component = <SalesStuffGroup />;
                     }
                 })()}

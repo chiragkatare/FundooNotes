@@ -39,11 +39,11 @@ export default class UserService {
             });
     }
 
-     /**
-   * method to edit the note in the database and return the updated note
-   * 
-   * @return {array} response
-   */
+    /**
+  * method to edit the note in the database and return the updated note
+  * 
+  * @return {array} response
+  */
     editNote(note) {
         var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
         return axios.post('/api/editnote', note, { headers: { Authorization: AuthStr } })
@@ -56,11 +56,11 @@ export default class UserService {
             });
     }
 
-     /**
-   * method to delete the note from the database and return the status of action
-   * 
-   * @return {array} response
-   */
+    /**
+  * method to delete the note from the database and return the status of action
+  * 
+  * @return {array} response
+  */
     deleteNote(note) {
         var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
         return axios.post('/api/deletenote', note, { headers: { Authorization: AuthStr } })
@@ -75,7 +75,7 @@ export default class UserService {
 
     createLabel(label) {
         var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
-        return axios.post('/api/makelabel', {label:label}, { headers: { Authorization: AuthStr } })
+        return axios.post('/api/makelabel', { label: label }, { headers: { Authorization: AuthStr } })
             .then((response) => {
                 return response;
             }
@@ -88,9 +88,9 @@ export default class UserService {
     /**
      * 
      */
-    deleteLabel(labelid){
+    deleteLabel(labelid) {
         var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
-        return axios.post('/api/deletelabel', {labelid:labelid}, { headers: { Authorization: AuthStr } })
+        return axios.post('/api/deletelabel', { labelid: labelid }, { headers: { Authorization: AuthStr } })
             .then((response) => {
                 return response;
             }
@@ -102,10 +102,43 @@ export default class UserService {
 
     /**
      * 
+     * @param {object} data 
      */
-    editLabel(data){
+    editLabel(data) {
         var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
         return axios.post('/api/editlabel', data, { headers: { Authorization: AuthStr } })
+            .then((response) => {
+                return response;
+            }
+            ).catch((error) => {
+                console.log('rereerrors', error);
+                return error;
+            });
+    }
+
+    /**
+     * 
+     * @param {object} data 
+     */
+    addNoteLabel(data) {
+        var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
+        return axios.post('/api/addnotelabel', data, { headers: { Authorization: AuthStr } })
+            .then((response) => {
+                return response;
+            }
+            ).catch((error) => {
+                // /console.log('rereerrors',error);
+                return error;
+            });
+    }
+
+    /**
+     * 
+     * @param {object} data 
+     */
+    deleteNoteLabel(data) {
+        var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
+        return axios.post('/api/deletenotelabel', data, { headers: { Authorization: AuthStr } })
             .then((response) => {
                 return response;
             }

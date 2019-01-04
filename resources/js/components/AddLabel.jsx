@@ -38,9 +38,12 @@ export default class AddLabel extends React.Component {
     render() {
         var labels = this.props.user.labels.map((label, index) => {
             return <LabelAddLabelComp
+                noteIndex={this.props.noteIndex}
                 key={index}
                 label={label}
                 note={this.props.note}
+                handleNoteLabel={this.props.handleNoteLabel}
+                handleDeleteNoteLabel={this.props.handleDeleteNoteLabel}
             />
         });
         console.log('addlabelnote', labels);

@@ -66,6 +66,7 @@ export default class TakeNote extends React.Component {
             color: this.state.color,
             archived: this.state.archived,
             deleted: this.state.deleted,
+            labels:[],
         }
         if ((Note.title !== '' || Note.body !== '')) {
             Note = this.sendNote(Note);

@@ -140,6 +140,18 @@ export default class Note extends React.Component {
                                     icon={<img className='icon' src={require('../assets/icons/ReminderClock.svg')} alt="" />}
                                     variant='default'
                                 />)}</div>
+                                <div className='note-labels-div'>
+                                {this.props.note.labels.map((label,index)=>{
+                                    return <Chip
+                                    key={index}
+                                    className='remainder-chip'
+                                    label={label.labelname.label}
+                                    onDelete={this.deleteReminder}
+                                    icon={<img className='icon' src={require('../assets/icons/Label.svg')} alt="" />}
+                                    variant='default'
+                                />
+                                })}
+                                </div>
                         </CardContent>
                         <div className='note-bottom-icons-div'>
                             <Reminder
@@ -166,6 +178,8 @@ export default class Note extends React.Component {
                                 note={this.props.note}
                                 handleNoteEdit={this.props.handleNoteEdit}
                                 user={this.props.user}
+                                handleNoteLabel={this.props.handleNoteLabel}
+                                handleDeleteNoteLabel={this.props.handleDeleteNoteLabel}
                             />
                         </div>
                     </Card>
@@ -175,6 +189,8 @@ export default class Note extends React.Component {
                         index={this.props.index}
                         handleNoteEdit={this.props.handleNoteEdit}
                         user={this.props.user}
+                        handleNoteLabel={this.props.handleNoteLabel}
+                        handleDeleteNoteLabel={this.props.handleDeleteNoteLabel}
                     />
                 </MuiThemeProvider>
             </div>

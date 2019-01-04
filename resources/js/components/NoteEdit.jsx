@@ -174,6 +174,18 @@ export default class NoteEdit extends React.Component {
                       icon={<img className='icon' src={require('../assets/icons/ReminderClock.svg')} alt="" />}
                       variant='default'
                     />)}</div>
+                     <div className='note-labels-div'>
+                                {this.props.note.labels.map((label,index)=>{
+                                    return <Chip
+                                    key={index}
+                                    className='remainder-chip'
+                                    label={label.labelname.label}
+                                    onDelete={this.deleteReminder}
+                                    icon={<img className='icon' src={require('../assets/icons/Label.svg')} alt="" />}
+                                    variant='default'
+                                />
+                                })}
+                                </div>
               </DialogContent>
               <DialogActions>
                 <div className='takenote-bottom-icons-div'>
@@ -199,6 +211,8 @@ export default class NoteEdit extends React.Component {
                     note={this.props.note}
                     handleNoteEdit={this.props.handleNoteEdit}
                     user={this.props.user}
+                    handleNoteLabel={this.props.handleNoteLabel}
+                    handleDeleteNoteLabel={this.props.handleDeleteNoteLabel}
                     
                     index={this.props.index} />
                   <Button className='card-button-close' component="span" onClick={(this.handleEditNote)}>

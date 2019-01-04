@@ -104,10 +104,13 @@ export default class NoteOptions extends React.Component {
                             </Popper>
                         </div>
                         <AddLabel
+                            noteIndex={this.props.index}
                             anchorEl={this.state.anchorEl}
                             open={this.state.addLabel}
                             note={this.props.note}
                             user={this.props.user}
+                            handleNoteLabel={this.props.handleNoteLabel}
+                            handleDeleteNoteLabel={this.props.handleDeleteNoteLabel}
                         />
                     </div>
 
