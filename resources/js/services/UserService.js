@@ -105,4 +105,15 @@ export default class UserService {
             return error;
         });
     }
+
+    socialLogin(data){
+        return axios.post('/api/sociallogin',data)
+        .then((response)=>{
+            return response ;
+        }
+        ).catch((error)=>{
+            // /console.log('rereerrors',error);
+            return error;
+        });
+    }
 }

@@ -22,7 +22,7 @@ const theme = createMuiTheme({
 })
 
 
-export default class CAppBar extends React.Component {
+export default class CAppBar extends React.PureComponent{
 
 
     constructor(props) {

@@ -3,7 +3,11 @@ import Input from "../components/Input"
 import { Card, Typography, Button, CardContent } from '@material-ui/core/';
 import UserService from "../services/UserService";
 import { Redirect } from "react-router-dom"
+import GoogleLogin  from '../components/GoogleLogin';
+import FacebookLogin  from '../components/FacebookLogin';
+import GoogleTest from '../services/GoogleLoginService';
 
+var googleLoginService = new GoogleTest();
 var userService = new UserService();
 
 class Login extends Component {
@@ -103,6 +107,18 @@ class Login extends Component {
     }
   }
 
+  googleTest=()=>{
+    googleLoginService.googlelogin();
+  }
+
+  changeLoginStatus=()=>{
+    this.setState({
+      isLoggedIn:true,
+    });
+  }
+
+
+
   /**
    * render function to render on html page
    */
@@ -120,39 +136,48 @@ class Login extends Component {
       <div>
         <Card id='logincard'>
           <CardContent>
-              <div>
-                <Typography variant="h5" component="h2" color='primary' id='login-text'>
-                  Login
+            <div>
+              <Typography variant="h5" component="h2" color='primary' id='login-text'>
+                Login
         </Typography>
-                <div>
-                  <Input name='email' type={'Email'} placeholder={'Enter Your Email'} label={'Email'} onChange={this.getDataFromInput} />
-                  <div className='error'>{this.state.error.email}</div>
-                </div>
-                <div>
-                  <Input name='password' type={'Password'} placeholder={'Enter PassWord'} label={'PassWord'} onChange={this.getDataFromInput} />
-                  <div className='error'>{this.state.error.password}</div>
-                </div>
-                <div id='login-btn-div'>
-                  <Button variant="contained" color="primary" type='submit' onClick={this.handleClick} className='login-btn'>
-                    Login
+              <div>
+                <Input name='email' type={'Email'} placeholder={'Enter Your Email'} label={'Email'} onChange={this.getDataFromInput} />
+                <div className='error'>{this.state.error.email}</div>
+              </div>
+              <div>
+                <Input name='password' type={'Password'} placeholder={'Enter PassWord'} label={'PassWord'} onChange={this.getDataFromInput} />
+                <div className='error'>{this.state.error.password}</div>
+              </div>
+              <div id='login-btn-div'>
+                <Button variant="contained" color="primary" type='submit' onClick={this.handleClick} className='login-btn'>
+                  Login
                 </Button>
-                </div>
               </div>
-              <div >
-                <span className='below-txt' >
-                  <span><a href="/forgetpassword">Forgot Password</a></span>
-                </span>
-                <span >
-                  <Typography >New User,<a href="/register">SignUp</a></Typography>
-                </span>
-              </div>
+            </div>
+            <div >
+              <span className='below-txt' >
+                <span><a href="/forgetpassword">Forgot Password</a></span>
+              </span>
+              <span >
+                <Typography >New User,<a href="/register">SignUp</a></Typography>
+              </span>
+            </div>
+            <div className='social-login' >
+            {/* <Button variant="contained" color="primary" type='submit' onClick={this.googleTest} className='login-btn'>
+                  Google Test
+                </Button> */}
+            <GoogleLogin
+            changeLoginStatus={this.changeLoginStatus}/>
+            <FacebookLogin
+            changeLoginStatus={this.changeLoginStatus}/>
+            </div>
           </CardContent>
         </Card>
       </div>
 
-        );
-      }
-    
-    }
-    
+    );
+  }
+
+}
+
 export default Login;

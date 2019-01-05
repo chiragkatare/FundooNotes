@@ -5,6 +5,11 @@
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
         <meta name="csrf-token" value=''>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+<!-- 
+<script>src = "https://connect.facebook.net/en_US/sdk.js";
+  
+</script> -->
         <!-- <meta
         
   name="viewport"

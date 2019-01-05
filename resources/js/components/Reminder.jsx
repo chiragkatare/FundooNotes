@@ -9,7 +9,7 @@ import moment from 'moment';
 import { Typography } from '@material-ui/core';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 
-export default class Reminder extends React.Component {
+export default class Reminder extends React.PureComponent {
 
     constructor(props) {
         super(props);

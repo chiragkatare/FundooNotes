@@ -130,6 +130,16 @@ export default class NoteEdit extends React.Component {
     }, this.handleEditNote());
   }
 
+  /**
+   * 
+   */
+  handleDeleteNoteLabel=(labelid)=>{
+    this.props.handleDeleteNoteLabel(this.props.index,this.props.note.id,labelid);
+  }
+
+  handleDelete=()=>{
+    alert('kjosdhdkjhsk');
+  }
 
   render() {
     const { fullScreen } = this.props;
@@ -179,8 +189,8 @@ export default class NoteEdit extends React.Component {
                                     return <Chip
                                     key={index}
                                     className='remainder-chip'
+                                    onDelete={()=>this.handleDeleteNoteLabel(label.id)}
                                     label={label.labelname.label}
-                                    onDelete={this.deleteReminder}
                                     icon={<img className='icon' src={require('../assets/icons/Label.svg')} alt="" />}
                                     variant='default'
                                 />

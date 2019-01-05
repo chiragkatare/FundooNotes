@@ -10,7 +10,8 @@ import { Typography } from '@material-ui/core';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import AddLabel from './AddLabel';
 
-export default class NoteOptions extends React.Component {
+export default class NoteOptions extends React.PureComponent {
+
 
     constructor(props) {
         super(props);
@@ -21,8 +22,6 @@ export default class NoteOptions extends React.Component {
             addLabel: false,
         };
     }
-
-
 
     handleClickAway = () => {
         this.setState({

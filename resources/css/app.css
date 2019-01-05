@@ -230,6 +230,15 @@ div .appbar-heading{
     background: rgba(0,0,0,0.07);
 }
 
+.fb-button{
+    color: #F44336;
+}
+
+.social-login{
+    display: flex;
+    justify-content: space-between;
+}
+
 .takenote-div{
     display: flex ;
     padding: 6px 20px 6px 20px;

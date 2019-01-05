@@ -32,7 +32,7 @@ const theme = createMuiTheme({
 });//MuiChip-root-389 MuiChip-deletable-395
 
 
-export default class TakeNote extends React.Component {
+export default class TakeNote extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {

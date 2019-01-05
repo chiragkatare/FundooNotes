@@ -24,7 +24,7 @@ class UserController extends Controller
      */
     public function register(Request $request)
     {
-        $inp = $request->all();
+        $input = $request->all();
         $validator = Validator::make($request->all(), [
             'firstname' => 'required|max:20',
             'lastname' => 'required|max:20',
@@ -35,12 +35,10 @@ class UserController extends Controller
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 210);
         }
-        $input = $request->all();
         $input["created_at"] = now();
         $input['password'] = bcrypt($input['password']);
         $input['verifytoken'] = str_random(60);
         $user = User::create($input);
-        $success['firstname'] = $user->firstname;
         event(new UserRegistered($user, $input['verifytoken']));
         return response()->json(['message' => 'registration succesfull'], 201);
     }
@@ -60,7 +58,7 @@ class UserController extends Controller
                 return response()->json(['message' => 'Email Not Verified'], 211);
             }
             $token = $user->createToken('fundoo')->accessToken;
-            return response()->json(['token' => $token,'userdetails'=>Auth::user()], 200);
+            return response()->json(['token' => $token, 'userdetails' => Auth::user()], 200);
         } else {
             return response()->json(['error' => 'Unauthorised'], 204);
         }
@@ -124,6 +122,25 @@ class UserController extends Controller
         } else {
             return response()->json(['message' => "Email Already Verified"], 202);
         }
+    }
+
+    public function socialLogin(Request $request)
+    {
+        $input = $request->all();
+        $input["created_at"] = now();
+        $input["email_verified_at"] = now();
+        $input['password'] = bcrypt(str_random(8));
+        $input['verifytoken'] = str_random(60);
+        $user = User::where([
+            ['email', $input['email']]
+        ])->first();
+        if (!$user) {
+            $user = User::create($input);
+        // event(new UserRegistered($user, $input['verifytoken']));
+        }
+        Auth::login($user, true);
+        $token = Auth::user()->createToken('fundoo')->accessToken;
+        return response()->json(['token' => $token, 'userdetails' => Auth::user()], 200);
     }
 
 }
