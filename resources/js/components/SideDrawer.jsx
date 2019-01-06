@@ -21,7 +21,7 @@ const theme = createMuiTheme({
     // .MuiDrawer-paper-107  .MuiDrawer-paperAnchorDockedLeft-112
 })
 
-export default class SideDrawer extends React.PureComponent {
+export default class SideDrawer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

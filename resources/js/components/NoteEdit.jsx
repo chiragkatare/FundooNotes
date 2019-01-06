@@ -133,11 +133,11 @@ export default class NoteEdit extends React.Component {
   /**
    * 
    */
-  handleDeleteNoteLabel=(labelid)=>{
-    this.props.handleDeleteNoteLabel(this.props.index,this.props.note.id,labelid);
+  handleDeleteNoteLabel = (labelid) => {
+    this.props.handleDeleteNoteLabel(this.props.index, this.props.note.id, labelid);
   }
 
-  handleDelete=()=>{
+  handleDelete = () => {
     alert('kjosdhdkjhsk');
   }
 
@@ -184,18 +184,19 @@ export default class NoteEdit extends React.Component {
                       icon={<img className='icon' src={require('../assets/icons/ReminderClock.svg')} alt="" />}
                       variant='default'
                     />)}</div>
-                     <div className='note-labels-div'>
-                                {this.props.note.labels.map((label,index)=>{
-                                    return <Chip
-                                    key={index}
-                                    className='remainder-chip'
-                                    onDelete={()=>this.handleDeleteNoteLabel(label.id)}
-                                    label={label.labelname.label}
-                                    icon={<img className='icon' src={require('../assets/icons/Label.svg')} alt="" />}
-                                    variant='default'
-                                />
-                                })}
-                                </div>
+                <div className='note-labels-div'>
+                  {this.props.note.labels.map((label, index) => {
+                    // debugger;
+                    return <Chip
+                      key={index}
+                      className='remainder-chip'
+                      onDelete={() => this.handleDeleteNoteLabel(label.labelid)}
+                      label={label.labelname.label}
+                      icon={<img className='icon' src={require('../assets/icons/Label.svg')} alt="" />}
+                      variant='default'
+                    />
+                  })}
+                </div>
               </DialogContent>
               <DialogActions>
                 <div className='takenote-bottom-icons-div'>
@@ -223,7 +224,7 @@ export default class NoteEdit extends React.Component {
                     user={this.props.user}
                     handleNoteLabel={this.props.handleNoteLabel}
                     handleDeleteNoteLabel={this.props.handleDeleteNoteLabel}
-                    
+
                     index={this.props.index} />
                   <Button className='card-button-close' component="span" onClick={(this.handleEditNote)}>
                     Close

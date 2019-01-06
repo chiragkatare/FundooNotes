@@ -87,14 +87,19 @@ class LabelController extends Controller
     }
 
     /**
+     * function to add the label to the given note 
      * 
      */
     public function addNoteLabel(Request $req)
     {
+
+        //request contains the following values
         $label['labelid'] = $req->get('labelid');
         $label['noteid'] = $req->get('noteid');
         $label['userid'] = Auth::user()->id;
 
+
+        //declaring message for the the custom error validation
         $messages = [
             'labelid.unique' => 'Note Already has this label',
         ];
@@ -113,17 +118,25 @@ class LabelController extends Controller
             ],
             $messages
         );
+        //if validator fails means that the label is already added to the note
         if ($validator->fails()) {
             $err = $validator->errors();
+            //the it returns the error in the response 
             return response()->json(['message' => $err], 210);
         }
+
+        //or map the label to the note 
         LabelsNotes::create($label);
+        
+        //fetching the newly added note from the database
         $note = Notes::with('labels')->where('id', $req->get('noteid'));
         return response()->json(['note'=>$note->get()], 200);
     }
 
       /**
+     * function to delete the label from the note 
      * 
+     * @var req Request 
      */
     public function deleteNoteLabel(Request $req)
     {

@@ -22,7 +22,7 @@ const theme = createMuiTheme({
 })
 
 
-export default class CAppBar extends React.PureComponent{
+export default class CAppBar extends React.Component{
 
 
     constructor(props) {
@@ -62,6 +62,16 @@ export default class CAppBar extends React.PureComponent{
         // console.log('avatar', this.state);
 
     };
+
+    // shouldComponentUpdate(prevprops,nextprops){
+    //     // debugger;
+    //     console.log('appbar',prevprops,nextprops);
+    //     if(this.state.profileMenu===nextprops.profileMenu){
+            
+    //         return false;
+    //     }
+    //     return true ;
+    // }
 
     render() {
         // console.log('capp', this.state);
