@@ -162,7 +162,6 @@ export default class CAppBar extends React.Component{
                                                     LogOut
                                         </Button>
                                             </div>
-
                                         </Card>
                                     </Grow>
                                 )}

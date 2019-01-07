@@ -143,7 +143,7 @@ export default class NoteEdit extends React.Component {
 
   render() {
     const { fullScreen } = this.props;
-    // console.log('edit', this.state);
+    console.log('edit', this.state);
 
 
 

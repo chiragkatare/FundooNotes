@@ -236,8 +236,8 @@ export default class DashBoard extends React.Component {
      * 
      */
     handleDeleteLabel = (labelid, index) => {
-        noteService.deleteLabel(labelid).then(resp => {
-            if (resp.status === 200) {
+        noteService.deleteLabel(labelid).then(response => {
+            if (response.status === 200) {
                 let tempUser = this.state.user;
                 tempUser.labels.splice(index, 1);
                 this.setState({
@@ -255,14 +255,14 @@ export default class DashBoard extends React.Component {
      * 
      */
     handleEditLabel = (data, index) => {
-        noteService.editLabel(data).then(resp => {
-            if (resp.status === 200) {
-                debugger;
+        noteService.editLabel(data).then(response => {
+            if (response.status === 200) {
+                // debugger;
                 let tempUser = this.state.user;
-                tempUser.labels[index] = resp.data.label;
+                tempUser.labels[index] = response.data.label;
                 this.setState({
                     user: tempUser,
-                    Notes: resp.data.notes
+                    Notes: response.data.notes
                 });
 
             }
@@ -282,10 +282,10 @@ export default class DashBoard extends React.Component {
             noteid: noteid,
             labelid: labelid
         };
-        noteService.addNoteLabel(data).then(resp => {
-            if (resp.status === 200) {
-                // debugger;
-                let note = resp.data.note;
+        noteService.addNoteLabel(data).then(response => {
+            if (response.status === 200) {
+                debugger;
+                let note = response.data.note;
                 let tempNotes = this.state.Notes;
                 tempNotes[index] = note[0];
                 this.setState({
@@ -299,15 +299,15 @@ export default class DashBoard extends React.Component {
     }
 
     handleDeleteNoteLabel = (index, noteid, labelid) => {
-        // debugger;
+        debugger;
         let data = {
             noteid: noteid,
             labelid: labelid
         };
-        noteService.deleteNoteLabel(data).then(resp => {
-            if (resp.status === 200) {
-                // debugger;
-                let note = resp.data.note;
+        noteService.deleteNoteLabel(data).then(response => {
+            if (response.status === 200) {
+                debugger;
+                let note = response.data.note;
                 let tempNotes = this.state.Notes;
                 tempNotes[index] = note[0];
                 this.setState({
@@ -324,7 +324,7 @@ export default class DashBoard extends React.Component {
      * 
      */
     render() {
-        console.log('dash', this.state);
+        
         // if ((localStorage.getItem('fundootoken')) === null) {
             
         // }
@@ -332,6 +332,7 @@ export default class DashBoard extends React.Component {
         if (this.state.user === null) {
             return null;
         }
+        console.log('dash', this.state);
 
         var notes = (this.state.Notes.map((note, index) => {
             if (note.deleted === '0' && note.archived === '0' && note.pinned === '0') {

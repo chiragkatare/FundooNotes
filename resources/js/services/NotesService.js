@@ -124,6 +124,7 @@ export default class UserService {
         var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
         return axios.post('/api/addnotelabel', data, { headers: { Authorization: AuthStr } })
             .then((response) => {
+                // debugger;
                 return response;
             }
             ).catch((error) => {
@@ -140,6 +141,7 @@ export default class UserService {
         var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
         return axios.post('/api/deletenotelabel', data, { headers: { Authorization: AuthStr } })
             .then((response) => {
+                // debugger;
                 return response;
             }
             ).catch((error) => {

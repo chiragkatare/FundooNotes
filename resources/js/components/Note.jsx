@@ -102,7 +102,7 @@ export default class Note extends React.Component {
     }
 
     handleArchive = () => {
-        debugger;
+        // debugger;
         let tempNote = this.props.note;
         // debugger;
         // console.log(this.props.note);
