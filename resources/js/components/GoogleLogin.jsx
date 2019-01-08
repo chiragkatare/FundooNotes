@@ -14,10 +14,14 @@ export default class GoogleLogin extends React.Component {
      * method to handle the state at the time of getting successfull responce from the user logging in user 
      */
     handleSocialLogin = (user) => {
+        console.log(user);
+        
        var data = {
            email:user.profile.email,
            firstname:user.profile.firstName,
            lastname:user.profile.lastName, 
+           provider:user.provider,
+           providerprofile:user.profile.profilePicURL, 
        }
        userService.socialLogin(data).then(response=>{
            console.log('sociallogin',response);

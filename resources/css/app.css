@@ -234,6 +234,12 @@ div .appbar-heading{
     color: #F44336;
 }
 
+.profilepic-input-div{
+    width: 97px;
+    display: flex;
+    opacity: 0.3;
+}
+
 .social-login{
     display: flex;
     justify-content: space-between;

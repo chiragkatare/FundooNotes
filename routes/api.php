@@ -56,4 +56,5 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('/deletenotelabel', 'LabelController@deleteNoteLabel');
     Route::post('/deletelabel', 'LabelController@deleteLabel');
     Route::post('/editlabel', 'LabelController@editLabel');
+    Route::post('/addprofilepic', 'UserController@addProfilepic');
 });

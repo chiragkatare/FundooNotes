@@ -116,4 +116,15 @@ export default class UserService {
             return error;
         });
     }
+    addProfilePicture(data){
+        var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
+        return axios.post('/api/addprofilepic', data, { headers: { Authorization: AuthStr } })
+        .then((response)=>{
+            return response ;
+        }
+        ).catch((error)=>{
+            // /console.log('rereerrors',error);
+            return error;
+        });
+    }
 }

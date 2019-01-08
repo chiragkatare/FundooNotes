@@ -127,7 +127,7 @@ class UserController extends Controller
     public function socialLogin(Request $request)
     {
         $input = $request->all();
-        $input["created_at"] = now();
+        // $input["created_at"] = now();
         $input["email_verified_at"] = now();
         $input['password'] = bcrypt(str_random(8));
         $input['verifytoken'] = str_random(60);
@@ -136,11 +136,33 @@ class UserController extends Controller
         ])->first();
         if (!$user) {
             $user = User::create($input);
+            $user->email_verified_at = now();
         // event(new UserRegistered($user, $input['verifytoken']));
         }
+        $user->provider= $input['provider'];
+        $user->providerprofile= $input['providerprofile'];
+        $user->save();
         Auth::login($user, true);
         $token = Auth::user()->createToken('fundoo')->accessToken;
         return response()->json(['token' => $token, 'userdetails' => Auth::user()], 200);
     }
+
+    public function addProfilepic(Request $req){
+        $reqss = $req->all();
+        if($req->hasFile('profilepic')){
+            //filename
+            $origImage=$req->file('profilepic');
+            $ext = $req->file('profilepic')->getClientOriginalExtension();
+            if($ext==='svg'){
+                $ext='svg+xml';
+            }
+            $path = $req->file('profilepic')->getRealPath();
+            $base64 = 'data:image/' . $ext . ';base64,' . base64_encode(file_get_contents($path));
+            $user= Auth::user();
+            $user->profilepic = $base64;
+            $user->save();
+            return response()->json(['message'=>'done','data'=> User::with('labels')->find($user->id)],200);
+        }
+     }
 
 }

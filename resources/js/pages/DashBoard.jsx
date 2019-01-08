@@ -9,6 +9,7 @@ import moment from 'moment';
 import SnakeBars from '../components/Snakebars';
 import Draggable from 'react-draggable';
 import DeletedNote from '../components/DeletedNote';
+import FormData from 'form-data';
 // import NotesGrid from "../components/NotesGrid";
 // import SmallAppBar from '../components/SmallAppBar';
 
@@ -320,6 +321,25 @@ export default class DashBoard extends React.Component {
         });
     }
 
+    handleProfilePic=(profile)=>{
+        // debugger;
+        // var tempUser = this.state.user;
+        // tempUser.profilepic=profile;
+        let formData = new FormData();
+        formData.append('profilepic',profile)
+        userService.addProfilePicture(formData  ).then(resp=>{
+            console.log(resp);
+            debugger;
+            this.setState({
+                user:resp.data.data,
+            });
+            
+        }).catch(err=>{
+            console.log(err,'error');
+            
+        });
+    }
+
     /**
      * 
      */
@@ -404,6 +424,7 @@ export default class DashBoard extends React.Component {
                     changeView={this.changeView}
                     logout={this.logout}
                     Page={this.state.Page}
+                    handleProfilePic={this.handleProfilePic}
                 /></div>
                 <div>
                     <SideDrawer

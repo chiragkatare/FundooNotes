@@ -14,10 +14,14 @@ export default class FacebookLogin extends React.Component {
 
     
     handleSocialLogin = (user) => {
+        console.log(user);
+        
         var data = {
             email:user.profile.email,
             firstname:user.profile.firstName,
-            lastname:user.profile.lastName, 
+            lastname:user.profile.lastName,
+            provider:user.provider,
+            providerprofile:user.profile.profilePicURL, 
         }
         userService.socialLogin(data).then(response=>{
             console.log('sociallogin',response);
