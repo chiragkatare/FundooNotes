@@ -1,6 +1,9 @@
 {
     "private": true,
     "scripts": {
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "test:coverage": "jest --coverage",
         "dev": "npm run development",
         "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "watch": "npm run development -- --watch",
@@ -9,18 +12,28 @@
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
+    "jest": {
+      "setupFiles": ["./test/jestsetup.js"],
+      "snapshotSerializers": ["enzyme-to-json/serializer"]
+    },
     "devDependencies": {
         "axios": "^0.18.0",
+        "babel-jest": "^23.6.0",
         "babel-plugin-transform-class-properties": "^6.24.1",
         "babel-preset-react": "^6.23.0",
         "bootstrap": "^4.0.0",
         "cross-env": "^5.1",
+        "enzyme": "^3.8.0",
+        "enzyme-adapter-react-16": "^1.7.1",
+        "enzyme-to-json": "^3.3.5",
+        "jest": "^23.6.0",
         "jquery": "^3.2",
         "laravel-mix": "^2.0",
         "lodash": "^4.17.5",
         "popper.js": "^1.12",
         "react": "^16.2.0",
-        "react-dom": "^16.2.0"
+        "react-dom": "^16.2.0",
+        "react-test-renderer": "^16.7.0"
     },
     "dependencies": {
         "@material-ui/core": "^3.6.0",

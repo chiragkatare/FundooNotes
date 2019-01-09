@@ -7,6 +7,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import axios from 'axios';
+import SearchBar from './Search';
 
 const theme = createMuiTheme({
     overrides: {
@@ -35,6 +36,7 @@ export default class CAppBar extends React.Component {
             user: this.props.user,
             selectedFile: null,
 
+
         };
         this.handleProfileMenu = this.handleProfileMenu.bind(this);
         this.closeProfileMenu = this.closeProfileMenu.bind(this);
@@ -47,10 +49,12 @@ export default class CAppBar extends React.Component {
      * method to close the profile menu on
      */
     closeProfileMenu() {
-        this.setState({
-            anchorEl: event.currentTarget,
-            profileMenu: false,
-        });
+        if (this.state.profileMenu) {
+            this.setState({
+                anchorEl: event.currentTarget,
+                profileMenu: false,
+            });
+        }
     }
 
     /**
@@ -74,7 +78,7 @@ export default class CAppBar extends React.Component {
 
     }
 
-    handleProfileButton=()=>{}
+    handleProfileButton = () => { }
 
     // shouldComponentUpdate(prevprops,nextprops){
     //     // debugger;
@@ -85,6 +89,8 @@ export default class CAppBar extends React.Component {
     //     }
     //     return true ;
     // }
+
+
 
     render() {
         // console.log('capp', this.state);
@@ -112,20 +118,11 @@ export default class CAppBar extends React.Component {
                                     {this.props.Page}
                                 </Typography>
                             </div>
-                            <div className='appbar-search'>
-                                <IconButton>
-                                    <img className='icon' src={require('../assets/icons/search.svg')} alt="" />
-                                </IconButton>
-
-                                <InputBase
-                                    fullWidth
-                                    placeholder="Search…"
-                                />
-                                <IconButton>
-                                    <img className='icon' src={require('../assets/icons/close.svg')} alt="" />
-                                </IconButton>
-
-                            </div>
+                            <SearchBar
+                                handleSearchTerm={this.props.handleSearchTerm}
+                                handleSearchBar={this.props.handleSearchBar}
+                                searchBarStatus={this.props.searchBarStatus}
+                            />
                             <div className='appbar-divbutton'>
                                 <IconButton>
                                     <img className='icon' src={require('../assets/icons/refresh.svg')} alt="" />

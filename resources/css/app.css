@@ -150,7 +150,20 @@ div .label-text{
     background: rgba(0,0,0,0.04);
 }
 
-.appbar-search:hover{
+.appbar-search-focus{
+    margin-left: 30px;
+    border: solid 1px;
+    box-shadow: 0px 0px 5px grey ;
+    border-radius: 8px;
+    padding-top: 0px;
+    line-height: 20%;
+    display: flex;
+    width : 650px; 
+    background: rgba(255, 255, 255, 0.04);
+    transition: background 100ms ease-in,width 1000ms ease-out;
+}
+
+/* .appbar-search:hover{
     margin-left: 30px;
     border: solid 1px;
     box-shadow: 0px 0px 5px grey ;
@@ -160,7 +173,7 @@ div .label-text{
     display: flex;
     width : 650px; 
     background: rgba(255, 255, 255, 0.04)
-}
+} */
 .appbar-search-active{
     margin-left: 30px;
     border: solid 1px;
@@ -170,7 +183,8 @@ div .label-text{
     line-height: 20%;
     display: flex;
     width : 650px; 
-    background: rgba(0,0,0,0.04)
+    background: rgba(0,0,0,0.04);
+        transition: background 100ms ease-in, width 100ms ease-out;
 }
 .icon{
     cursor: pointer;
@@ -286,15 +300,17 @@ div .create-new-label{
 
 .main-div-drawer-open{
     margin-left: 280px;
-    transition: margin-left .25s cubic-bezier(0.4,0.0,0.2,1),visibility 0s linear .25s;
-    /* transition: margin-left 0.13s;
-    transition-timing-function: ease-out; */
+    /* transition: margin-left .25s cubic-bezier(0.4,0.0,0.2,1),visibility 0s linear .25s; */
+    transition: margin-left 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+    /* transition: margin-left 0.13s; */
+    /* transition-timing-function: ease-out;  */
 }
 
 .main-div{
-    transition: margin-left .25s cubic-bezier(0.4,0.0,0.2,1),visibility 0s linear .25s;
-    /* transition: margin-left 0.13s;
-    transition-timing-function: ease-out; */
+    transition: margin-left 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+    /* transition: margin-left .25s cubic-bezier(0.4,0.0,0.2,1),visibility 0s linear .25s; */
+    /* transition: margin-left 0.13s;   */
+    /* transition-timing-function: ease-out;  */
 }
 
 .takenote-div-open{

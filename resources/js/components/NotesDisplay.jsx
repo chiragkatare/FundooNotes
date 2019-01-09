@@ -1,5 +1,5 @@
 import React from 'react';
-import Note from "../components/Note";
+import Note from "./Note";
 
 
 export default class NotesDisplay extends React.Component {

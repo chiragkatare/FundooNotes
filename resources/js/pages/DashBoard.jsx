@@ -27,15 +27,14 @@ export default class DashBoard extends React.Component {
             smallScreen: false,
             Page: 'FundooNotes',
             pinnedNotes: true,
+            search:null,
+            searchBarStatus:false
         }
         this.snakebar = React.createRef();
         this.handleMenuClick = this.handleMenuClick.bind(this);
         this.logout = this.logout.bind(this);
         this.getNewNote = this.getNewNote.bind(this);
     }
-
-
-
 
     /**
      * LIFECYCLE METHOD 
@@ -91,6 +90,8 @@ export default class DashBoard extends React.Component {
             snakebarStatus: status,
         });
     }
+
+    
 
     /**
      * method to remind the user about the reminder set and poppin up the snake bar
@@ -162,7 +163,9 @@ export default class DashBoard extends React.Component {
             
             // this.notify('Note Updated');
         }).catch(error => {
-            alert(error);
+            console.log(error);
+            
+            this.notify('Offline');
         }
         );
         TempNotes[index] = note;
@@ -348,6 +351,23 @@ export default class DashBoard extends React.Component {
     /**
      * 
      */
+    handleSearchTerm=(word)=>{
+        // debugger;
+        this.setState({
+            search:word,
+        });
+    }
+    handleSearchBar=()=>{
+        this.setState({
+            searchBarStatus:!this.state.searchBarStatus
+        });
+        
+    }
+
+    
+    /**
+     * 
+     */
     render() {
         
         // if ((localStorage.getItem('fundootoken')) === null) {
@@ -358,6 +378,7 @@ export default class DashBoard extends React.Component {
             return null;
         }
         console.log('dash', this.state);
+
 
         var notes = (this.state.Notes.map((note, index) => {
             if (note.deleted === '0' && note.archived === '0' && note.pinned === '0') {
@@ -430,6 +451,9 @@ export default class DashBoard extends React.Component {
                     logout={this.logout}
                     Page={this.state.Page}
                     handleProfilePic={this.handleProfilePic}
+                    handleSearchTerm={this.handleSearchTerm}
+                    handleSearchBar={this.handleSearchBar}
+                    searchBarStatus={this.state.searchBarStatus}
                 /></div>
                 <div>
                     <SideDrawer
@@ -443,12 +467,15 @@ export default class DashBoard extends React.Component {
 
                     />
                 </div>
-                <div>
+                {this.state.Page==='Bin'?<div className='notes-div'
+                >
+   
+                </div>:<div>
                     <TakeNote
                         sendNote={this.getNewNote}
                         notify={this.notify}
                     />
-                </div>
+                </div>}
                 {/* this.state.gridView===true? */}
                 {(() => {
 
