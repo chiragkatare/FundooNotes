@@ -18,7 +18,7 @@ export default class LabelComp extends React.Component {
         // this.setState({
         //     searchFocus: !this.state.searchFocus
         // })
-        this.props.handleSearchBar();
+        this.props.handleSearchBar(); 
     }
 
     handleSearchInput=(event)=>{
