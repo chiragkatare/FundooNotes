@@ -84,7 +84,7 @@ class NotesController extends Controller
         // $note->userid = $req->get('userid');
         // $note->pinned = $req->get('pinned');
         // $note->save();
-        return response()->json(['message' => $note], 200);
+        return response()->json(['message' => Notes::with('labels')->where('id', $req->get('id'))->get()], 200);
 
     }
 

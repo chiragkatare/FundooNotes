@@ -176,7 +176,7 @@ export default class CAppBar extends React.Component {
                                                                     />
 
                                                                 </div>
-                                                                <div><Typography className='note-body-text' component="p">change</Typography></div>
+                                                                {/* <div><Typography className='note-body-text' component="p">change</Typography></div> */}
                                                             </div>
 
                                                             <div>

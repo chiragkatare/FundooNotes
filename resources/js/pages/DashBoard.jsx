@@ -155,6 +155,11 @@ export default class DashBoard extends React.Component {
         // debugger;
         let TempNotes = this.state.Notes;
         noteService.editNote(note).then(resp => {
+            TempNotes[index]=resp.data.message[0];
+            this.setState(
+                {Notes:TempNotes}
+            );
+            
             // this.notify('Note Updated');
         }).catch(error => {
             alert(error);
@@ -300,7 +305,7 @@ export default class DashBoard extends React.Component {
     }
 
     handleDeleteNoteLabel = (index, noteid, labelid) => {
-        debugger;
+        // debugger;
         let data = {
             noteid: noteid,
             labelid: labelid
@@ -329,7 +334,7 @@ export default class DashBoard extends React.Component {
         formData.append('profilepic',profile)
         userService.addProfilePicture(formData  ).then(resp=>{
             console.log(resp);
-            debugger;
+            // debugger;
             this.setState({
                 user:resp.data.data,
             });

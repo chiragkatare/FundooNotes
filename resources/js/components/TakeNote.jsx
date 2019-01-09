@@ -176,7 +176,7 @@ export default class TakeNote extends React.PureComponent {
     }
 
     /***
-     * 
+     * function to handle change the color of the notes
      */
     handleColor = (color) => {
         this.setState({
@@ -185,7 +185,7 @@ export default class TakeNote extends React.PureComponent {
     }
 
     /**
-     * 
+     * function to handle the note archive and send it to the dashboard
      */
     handleArchived=()=>{
         // debugger;
