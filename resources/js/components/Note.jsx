@@ -7,6 +7,8 @@ import { red } from "@material-ui/core/colors";
 import NoteEdit from './NoteEdit';
 import ColorPallate from './ColorPallate';
 import NoteOptions from './NoteOptions';
+import Draggable from 'react-draggable';
+
 // import Moment from 'react-moment';
 
 
@@ -64,26 +66,26 @@ export default class Note extends React.Component {
     //     })
     // }
 
-    // shouldComponentUpdate(nextProps,nextStates){
-    //     // debugger;
-    //     if(this.props.dashState.drawerOpen!==nextProps.dashState.drawerOpen){
+    shouldComponentUpdate(nextProps,nextStates){
+        // debugger;
+        if(this.props.dashState.drawerOpen!==nextProps.dashState.drawerOpen){
 
-    //         return false;
-    //     }
+            return false;
+        }
 
-    //     if(this.props.dashState.search!==nextProps.dashState.search){
+        if(this.props.dashState.search!==nextProps.dashState.search){
 
-    //         return false;
-    //     }
+            return false;
+        }
 
         
 
-    //     if(this.props.dashState.searchBarStatus!==nextProps.dashState.searchBarStatus){
-    //         return false;
-    //     }
+        if(this.props.dashState.searchBarStatus!==nextProps.dashState.searchBarStatus){
+            return false;
+        }
 
-    //     return true ;
-    // }
+        return true ;
+    }
    
 
     editNote = () => {
@@ -134,10 +136,36 @@ export default class Note extends React.Component {
         tempNote.archived === '0' ? this.props.notify('Note Unarchived') : this.props.notify('Note Archived');
     }
 
+    /**
+     * function to handle the start of the drag
+     */
+    handleDragStart=(e )=>{
+        console.log('dragstart',this.props.index);
+        e.dataTransfer.setData('noteIndex',this.props.index);
+        console.log('dragstart',e);
+        console.log(e.dataTransfer);
+        }
+
+        handleDragOver=(e)=>{
+            console.log('dragstart'+this.props.index,e);
+        }
+
     render() {
         // console.log('note'+this.props.index,this.props)
         return (
-            <div className={this.props.gridView === true ? 'note-card-grid' : 'note-card'}>
+            // <Draggable axis="x"
+            // handle=".handle"
+            // defaultPosition={{ x: 0, y: 0 }}
+            // position={null}
+            // grid={[25, 25]}
+            // scale={1}
+            // onStart={this.handleStart}
+            // onDrag={this.handleDrag}
+            // onStop={this.handleStop}>
+            <div draggable 
+            onDragStart={this.handleDragStart}
+            onDragOver={this.handleDragOver}
+            className={this.props.gridView === true ? 'note-card-grid' : 'note-card'}>
                 <MuiThemeProvider theme={theme}>
                     <div className='note-icon-pin' role='button' onClick={this.handlePin} >
                         <img src={(this.props.note.pinned === '1') ? require('../assets/icons/pin.svg') : require('../assets/icons/unpin.svg')} alt="" />
@@ -216,6 +244,7 @@ export default class Note extends React.Component {
                     />
                 </MuiThemeProvider>
             </div>
+            // </Draggable>
         );
     }
 }

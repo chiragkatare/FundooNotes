@@ -1,11 +1,32 @@
 import React from 'react';
 import Note from "./Note";
+import Draggable from 'react-draggable';
 
 
 export default class SearchPage extends React.Component {
 
    
     
+
+    noteCreate=(note,index)=>{
+        if (note.deleted === '0' && note.archived === '0' && note.pinned === '0') {
+            return <Draggable key={note.id}>
+                <Note gridView={this.props.gridView}
+                    dashState={this.props.dashState}
+                    key={note.id}
+                    note={note}
+                    index={index}
+                    handleNoteEdit={this.props.handleNoteEdit}
+                    notify={this.props.notify}
+                    user={this.props.user}
+                    handleNoteLabel={this.props.handleNoteLabel}
+                    handleDeleteNoteLabel={this.props.handleDeleteNoteLabel}
+                >
+                </Note>
+            </Draggable>
+
+        }
+    }
 
     /**
      * 
@@ -15,17 +36,17 @@ export default class SearchPage extends React.Component {
         
         if(note.title!==null&&note.title.includes(this.props.search)){
             // debugger;
-            return {Note : note,Index : index}  ;
+            return  this.noteCreate(note,index) ;
         }
         // if(){}
         if(note.body!==null&&note.body.includes(this.props.search)){  
-            return {note,index} ;
+            return this.noteCreate(note,index) ;
         }
         for (let i = 0; i < note.labels.length; i++) {
             const label = note.labels[i];
            
             if(label.labelname.label.includes(this.props.search)){
-                return {note,index}  ;
+                return this.noteCreate(note,index) ;
             }
             
         }
@@ -33,33 +54,17 @@ export default class SearchPage extends React.Component {
 
     render() {
         if(this.props.search.length>2){
-            var notes = this.props.Notes.filter(this.handleSearch)
+            var searchedNotes = this.props.Notes.map((note,index)=>this.handleSearch(note,index));
         }
+        // debugger ;
+        // console.log('searched notes', notes);
+       if (searchedNotes===null){
+           return null ;
+       }
         
-        console.log('searched notes', notes);
-        // var searchedNotes = (this.state.Notes.map((note, index) => {
-        //     if (note.deleted === '0' && note.archived === '0' && note.pinned === '0') {
-        //         return <Draggable key={note.id}>
-        //             <Note gridView={this.state.gridView}
-        //                 key={note.id}
-        //                 note={note}
-        //                 index={index}
-        //                 handleNoteEdit={this.handleNoteEdit}
-        //                 notify={this.notify}
-        //                 user={this.state.user}
-        //                 handleNoteLabel={this.handleNoteLabel}
-        //                 handleDeleteNoteLabel={this.handleDeleteNoteLabel}
-        //             >
-        //             </Note>
-        //         </Draggable>
-
-        //     }
-        // })
-
-        // );
         return (
-            <div></div>
-            // {searchedNotes}
+           <div>{searchedNotes}</div>
+            
         );
     }
 }

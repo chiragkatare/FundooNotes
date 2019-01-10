@@ -29,23 +29,23 @@ export default class SideDrawer extends React.Component {
         }
     }
 
-    // shouldComponentUpdate(nextProps,nextStates){
-    //     // console.log('shoudkdl',nextProps,nextStates)
-    //     if(this.props.dashState.searchBarStatus!==nextProps.dashState.searchBarStatus){
-    //         return false;
-    //     }
-    //     if(this.props.dashState.gridView!==nextProps.dashState.gridView){
-    //         return false;
-    //     }
+    shouldComponentUpdate(nextProps,nextStates){
+        // console.log('shoudkdl',nextProps,nextStates)
+        if(this.props.dashState.searchBarStatus!==nextProps.dashState.searchBarStatus){
+            return false;
+        }
+        if(this.props.dashState.gridView!==nextProps.dashState.gridView){
+            return false;
+        }
 
-    //     if(this.props.dashState.search!==nextProps.dashState.search){
+        if(this.props.dashState.search!==nextProps.dashState.search){
 
-    //         return false;
-    //     }
+            return false;
+        }
 
         
-    //     return true;
-    // }
+        return true;
+    }
 
     render() {
 

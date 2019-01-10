@@ -13,8 +13,12 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "jest": {
-      "setupFiles": ["./test/jestsetup.js"],
-      "snapshotSerializers": ["enzyme-to-json/serializer"]
+        "setupFiles": [
+            "./test/jestsetup.js"
+        ],
+        "snapshotSerializers": [
+            "enzyme-to-json/serializer"
+        ]
     },
     "devDependencies": {
         "axios": "^0.18.0",
@@ -41,7 +45,7 @@
         "form-data": "^2.3.3",
         "material-ui-pickers": "^2.0.4",
         "moment": "^2.23.0",
-        "react-draggable": "^3.1.0",
+        "react-draggable": "^3.1.1",
         "react-moment": "^0.8.4",
         "react-router-dom": "^4.3.1",
         "react-social-login": "^3.4.3",
