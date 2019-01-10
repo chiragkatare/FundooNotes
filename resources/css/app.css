@@ -300,17 +300,17 @@ div .create-new-label{
 
 .main-div-drawer-open{
     margin-left: 280px;
-    /* transition: margin-left .25s cubic-bezier(0.4,0.0,0.2,1),visibility 0s linear .25s; */
-    transition: margin-left 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
-    /* transition: margin-left 0.13s; */
-    /* transition-timing-function: ease-out;  */
+    transition: margin-left .25s cubic-bezier(0.4,0.0,0.2,1),visibility 0s linear .25s;
+    /* transition: margin-left 225ms cubic-bezier(0, 0, 0.2, 1) 0ms; */
+    /* transition: margin-left 0.13s; 
+ transition-timing-function: ease-out;  */
 }
 
 .main-div{
-    transition: margin-left 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
-    /* transition: margin-left .25s cubic-bezier(0.4,0.0,0.2,1),visibility 0s linear .25s; */
-    /* transition: margin-left 0.13s;   */
-    /* transition-timing-function: ease-out;  */
+    /* transition: margin-left 225ms cubic-bezier(0, 0, 0.2, 1) 0ms; */
+    transition: margin-left .25s cubic-bezier(0.4,0.0,0.2,1),visibility 0s linear .25s;
+    /* transition: margin-left 0.13s;    */
+     /* transition-timing-function: ease-out;  */
 }
 
 .takenote-div-open{

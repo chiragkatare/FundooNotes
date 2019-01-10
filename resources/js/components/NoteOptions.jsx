@@ -24,11 +24,12 @@ export default class NoteOptions extends React.Component {
     }
 
     handleClickAway = () => {
-        
+        if(this.state.active===true ||this.state.addLabel===true ){
         this.setState({
             active: false,
             addLabel: false,
         });
+    }
     }
 
     handleClick = () => {

@@ -18,13 +18,10 @@ export default class NotesDisplay extends React.Component {
         });
     }
 
-    shouldComponentUpdate(){
-        return true ;
-    }
-
+   
     render() {
 
-        console.log('disp',this.props.Notes);
+        // console.log('disp',this.props.Notes);
         
 
         var notes = (this.state.Notes.map((note, index) => {
@@ -42,7 +39,7 @@ export default class NotesDisplay extends React.Component {
                     </Note>)
             }
         }));
-        console.log('dispNotes',notes);
+        // console.log('dispNotes',notes);
 
         var pinned = (this.props.Notes.map((note, index) => {
             // debugger;

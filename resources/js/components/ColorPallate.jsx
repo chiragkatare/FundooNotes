@@ -26,7 +26,7 @@ export default class ColorPallate extends React.Component {
     }
 
     onColorChange=(color)=>{
-        console.log('index',color);
+        // console.log('index',color);
         this.props.setColor(color);
         
     }

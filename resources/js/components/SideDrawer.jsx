@@ -29,13 +29,27 @@ export default class SideDrawer extends React.Component {
         }
     }
 
-    componentWillMount(){
+    // shouldComponentUpdate(nextProps,nextStates){
+    //     // console.log('shoudkdl',nextProps,nextStates)
+    //     if(this.props.dashState.searchBarStatus!==nextProps.dashState.searchBarStatus){
+    //         return false;
+    //     }
+    //     if(this.props.dashState.gridView!==nextProps.dashState.gridView){
+    //         return false;
+    //     }
 
-    }
+    //     if(this.props.dashState.search!==nextProps.dashState.search){
+
+    //         return false;
+    //     }
+
+        
+    //     return true;
+    // }
 
     render() {
 
-        console.log('hshdhsd',this.props.user);
+        // console.log('hshdhsd',this.props.user);
 
         var labels = this.props.user===null?'': this.props.user.labels.map((label,index) => {
             return <div key = {index} className={this.props.Page === label.label ? 'sidedrawer-list-selected' : 'sidedrawer-list'} onClick={() => this.props.handlePage(label.label)}>

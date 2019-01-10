@@ -35,7 +35,7 @@ export default class LabelComp extends React.Component {
     }
 
     render() {
-        console.log('labelcomp', this.state);
+        // console.log('labelcomp', this.state);
         return (
             <div className={this.props.searchBarStatus ? 'appbar-search-focus' : 'appbar-search'}>
                 <IconButton>
@@ -45,7 +45,8 @@ export default class LabelComp extends React.Component {
                 <InputBase
                     onFocus={this.handleSearchFocus}
                     onBlur={this.handleSearchFocus}
-                    onChange={this.handleSearchInput}
+                    onChange={this.handleSearchTerm}
+                    // {this.handleSearchInput}
                     fullWidth
                     placeholder="Search…"
                 />

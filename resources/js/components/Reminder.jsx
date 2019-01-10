@@ -26,7 +26,7 @@ export default class Reminder extends React.PureComponent {
      * */
     customDate = (event) => {
         var reminder = moment(event.target.value).format('DD MMM YYYY , h:mm a');
-        console.log('remnder', reminder);
+        // console.log('remnder', reminder);
 
         this.props.setReminder(reminder);
     }
