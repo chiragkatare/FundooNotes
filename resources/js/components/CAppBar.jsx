@@ -80,13 +80,17 @@ export default class CAppBar extends React.Component {
 
     handleProfileButton = () => { }
 
-    // shouldComponentUpdate(prevprops,nextprops){
+    // shouldComponentUpdate(nextProps,nextStates){
     //     // debugger;
-    //     console.log('appbar',prevprops,nextprops);
-    //     if(this.state.profileMenu===nextprops.profileMenu){
+    //     if(this.props.dashState.drawerOpen!==nextProps.dashState.drawerOpen){
 
     //         return false;
     //     }
+
+    //     // if(this.props.dashState.searchBarStatus!==nextProps.dashState.searchBarStatus){
+    //     //     return false;
+    //     // }
+
     //     return true ;
     // }
 

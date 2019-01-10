@@ -64,6 +64,28 @@ export default class Note extends React.Component {
     //     })
     // }
 
+    // shouldComponentUpdate(nextProps,nextStates){
+    //     // debugger;
+    //     if(this.props.dashState.drawerOpen!==nextProps.dashState.drawerOpen){
+
+    //         return false;
+    //     }
+
+    //     if(this.props.dashState.search!==nextProps.dashState.search){
+
+    //         return false;
+    //     }
+
+        
+
+    //     if(this.props.dashState.searchBarStatus!==nextProps.dashState.searchBarStatus){
+    //         return false;
+    //     }
+
+    //     return true ;
+    // }
+   
+
     editNote = () => {
         this.noteEdit.current.handleClickOpen();
     }

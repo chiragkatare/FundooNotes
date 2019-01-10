@@ -17,7 +17,7 @@ export default class AddLabel extends React.Component {
 
     componentDidMount(){
         // debugger;
-        console.log('labellllll mount');
+        // console.log('labellllll mount');
         
         for (let i = 0; i < this.props.note.labels.length; i++) {
             const element = this.props.note.labels[i];
@@ -49,7 +49,7 @@ export default class AddLabel extends React.Component {
   }
 
     render(){
-        console.log('lablcomp',this.state);
+        // console.log('lablcomp',this.state);
         return(
             <div className='add-label-div' onClick={this.handleAddLableClick} >
                 <Checkbox disableRipple defaultChecked

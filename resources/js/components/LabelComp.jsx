@@ -35,7 +35,7 @@ export default class LabelComp extends React.Component{
     }
 
     render(){
-        console.log('labelcomp',this.state);
+        // console.log('labelcomp',this.state);
         
         return(<div  className='edit-labels-diag-content' onMouseEnter={this.handleHoverLabel} onMouseLeave={this.handleHoverLabel}  >
         <img className='icon' 

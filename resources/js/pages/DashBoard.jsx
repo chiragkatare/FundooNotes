@@ -10,6 +10,7 @@ import SnakeBars from '../components/Snakebars';
 import Draggable from 'react-draggable';
 import DeletedNote from '../components/DeletedNote';
 import FormData from 'form-data';
+import SearchPage from '../components/SearchedPage';
 // import NotesGrid from "../components/NotesGrid";
 // import SmallAppBar from '../components/SmallAppBar';
 
@@ -27,8 +28,8 @@ export default class DashBoard extends React.Component {
             smallScreen: false,
             Page: 'FundooNotes',
             pinnedNotes: true,
-            search:null,
-            searchBarStatus:false
+            search: '',
+            searchBarStatus: false
         }
         this.snakebar = React.createRef();
         this.handleMenuClick = this.handleMenuClick.bind(this);
@@ -43,7 +44,7 @@ export default class DashBoard extends React.Component {
     componentWillMount() {
         // debugger;
         // console.log('compwillmountdash');
-        if(localStorage.getItem('fundootoken')===null){
+        if (localStorage.getItem('fundootoken') === null) {
             this.props.history.push('/login');
             return;
         }
@@ -61,7 +62,7 @@ export default class DashBoard extends React.Component {
                 }
             }
         ).catch();
-        setInterval(this.remind, 60000);
+        // setInterval(this.remind, 60000);
 
         userService.getUserData().then(resp => {
             this.setState({
@@ -91,7 +92,7 @@ export default class DashBoard extends React.Component {
         });
     }
 
-    
+
 
     /**
      * method to remind the user about the reminder set and poppin up the snake bar
@@ -154,24 +155,25 @@ export default class DashBoard extends React.Component {
      */
     handleNoteEdit = (index, note) => {
         // debugger;
-        let TempNotes = this.state.Notes;
+        
+        let Notes = [...this.state.Notes];
         noteService.editNote(note).then(resp => {
-            TempNotes[index]=resp.data.message[0];
+            Notes[index]=resp.data.message[0];
             this.setState(
-                {Notes:TempNotes}
+                { Notes}
             );
-            
+
             // this.notify('Note Updated');
         }).catch(error => {
             console.log(error);
-            
+
             this.notify('Offline');
         }
         );
-        TempNotes[index] = note;
-        this.setState({
-            Notes: TempNotes
-        });
+        // TempNotes[index] = note;
+        // this.setState({
+        //     Notes: TempNotes
+        // });
     }
 
 
@@ -329,49 +331,47 @@ export default class DashBoard extends React.Component {
         });
     }
 
-    handleProfilePic=(profile)=>{
+    handleProfilePic = (profile) => {
         // debugger;
         // var tempUser = this.state.user;
         // tempUser.profilepic=profile;
         let formData = new FormData();
-        formData.append('profilepic',profile)
-        userService.addProfilePicture(formData  ).then(resp=>{
+        formData.append('profilepic', profile)
+        userService.addProfilePicture(formData).then(resp => {
             console.log(resp);
             // debugger;
             this.setState({
-                user:resp.data.data,
+                user: resp.data.data,
             });
-            
-        }).catch(err=>{
-            console.log(err,'error');
-            
+
+        }).catch(err => {
+            console.log(err, 'error');
+
         });
     }
 
     /**
      * 
      */
-    handleSearchTerm=(word)=>{
+    handleSearchTerm = (word) => {
         // debugger;
-        this.setState({
-            search:word,
-        });
+        this.setState({...this.state,search:word});
     }
-    handleSearchBar=()=>{
+    handleSearchBar = () => {
         this.setState({
-            searchBarStatus:!this.state.searchBarStatus
+            searchBarStatus: !this.state.searchBarStatus
         });
-        
+
     }
 
-    
+
     /**
      * 
      */
     render() {
-        
+
         // if ((localStorage.getItem('fundootoken')) === null) {
-            
+
         // }
 
         if (this.state.user === null) {
@@ -384,6 +384,7 @@ export default class DashBoard extends React.Component {
             if (note.deleted === '0' && note.archived === '0' && note.pinned === '0') {
                 return <Draggable key={note.id}>
                     <Note gridView={this.state.gridView}
+                    dashState={this.state}
                         key={note.id}
                         note={note}
                         index={index}
@@ -408,6 +409,7 @@ export default class DashBoard extends React.Component {
 
                 return <Draggable key={note.id}>
                     <Note gridView={this.state.gridView}
+                    dashState={this.state}
                         index={index}
                         key={note.id}
                         note={note}
@@ -427,6 +429,7 @@ export default class DashBoard extends React.Component {
 
                 return <Draggable key={note.id}>
                     <Note gridView={this.state.gridView}
+                    dashState={this.state}
                         index={index}
                         key={note.id}
                         note={note}
@@ -445,6 +448,7 @@ export default class DashBoard extends React.Component {
 
             <div className={this.state.drawerOpen === true ? 'main-div-drawer-open' : 'main-div'} >
                 <div><CAppBar gridView={this.state.gridView}
+                    dashState={this.state}
                     user={this.state.user}
                     menuClick={this.handleMenuClick}
                     changeView={this.changeView}
@@ -457,6 +461,7 @@ export default class DashBoard extends React.Component {
                 /></div>
                 <div>
                     <SideDrawer
+                        dashState={this.state}
                         user={this.state.user}
                         Page={this.state.Page}
                         handlePage={this.handlePageTab}
@@ -467,15 +472,16 @@ export default class DashBoard extends React.Component {
 
                     />
                 </div>
-                {this.state.Page==='Bin'?<div className='notes-div'
-                >
-   
-                </div>:<div>
-                    <TakeNote
-                        sendNote={this.getNewNote}
-                        notify={this.notify}
-                    />
-                </div>}
+                <SearchPage
+                Notes={this.state.Notes}
+                search = {this.state.search}
+                />
+                {this.state.Page === 'Bin' ? <div className='notes-div'></div> : <div>
+                        <TakeNote
+                            sendNote={this.getNewNote}
+                            notify={this.notify}
+                        />
+                    </div>}
                 {/* this.state.gridView===true? */}
                 {(() => {
 
@@ -500,6 +506,7 @@ export default class DashBoard extends React.Component {
                                     if (note.archived === '1') {
                                         return (
                                             <Note gridView={this.state.gridView}
+                                            dashState={this.state}
                                                 key={note.id}
                                                 note={note}
                                                 index={index}
@@ -519,6 +526,7 @@ export default class DashBoard extends React.Component {
                                     if (note.deleted === '1') {
                                         return (
                                             <DeletedNote gridView={this.state.gridView}
+                                            dashState={this.state}
                                                 key={note.id}
                                                 note={note}
                                                 index={index}
@@ -542,6 +550,7 @@ export default class DashBoard extends React.Component {
                                             if (note.deleted === '0') {
                                                 return (
                                                     <Note gridView={this.state.gridView}
+                                                    dashState={this.state}
                                                         key={note.id}
                                                         note={note}
                                                         index={index}
