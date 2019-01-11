@@ -28,7 +28,8 @@ export default class DashBoard extends React.Component {
             Page: 'FundooNotes',
             pinnedNotes: true,
             search: '',
-            searchBarStatus: false
+            searchBarStatus: false,
+            dragNote: null,
         }
         this.snakebar = React.createRef();
         this.handleMenuClick = this.handleMenuClick.bind(this);
@@ -366,31 +367,68 @@ export default class DashBoard extends React.Component {
     }
     handleDrag = () => {
         console.log("handleDrag");
-        
+
     }
     handleStart = () => {
-        console.log("handleStart"); 
+        console.log("handleStart");
     }
     handleStop = () => {
-        console.log("handleStop"); 
+        console.log("handleStop");
     }
     noteComponent = (note, index) => {
-        return  <Note gridView={this.state.gridView}
-                dashState={this.state}
-                index={index}
-                key={note.id}
-                note={note}
-                handleNoteEdit={this.handleNoteEdit}
-                notify={this.notify}
-                user={this.state.user}
-                handleNoteLabel={this.handleNoteLabel}
-                handleDeleteNoteLabel={this.handleDeleteNoteLabel}
-            ></Note>
+        return <Note gridView={this.state.gridView}
+            dashState={this.state}
+            index={index}
+            key={note.id}
+            note={note}
+            handleNoteEdit={this.handleNoteEdit}
+            notify={this.notify}
+            user={this.state.user}
+            handleNoteLabel={this.handleNoteLabel}
+            handleDeleteNoteLabel={this.handleDeleteNoteLabel}
+            handleSetDragNote={this.handleSetDragNote}
+            // dragNote={this.state.dragNote}
+            noteDrop={this.noteDrop}
+        ></Note>
     }
 
-    handleDragOver=(event)=>{
-        console.log('draggg',event);
-        
+    handleDragOver = (event) => {
+
+        console.log('draggg', event);
+
+    }
+
+    handleSetDragNote = (index) => {
+        this.setState({
+            dragNote: index
+        });
+    }
+
+
+    noteDrop = (dropIndex) => {
+
+        var Notes = [...this.state.Notes];
+        if (dropIndex > this.state.dragNote) {
+            // debugger;
+            var note = this.state.Notes[this.state.dragNote];
+            for (let i = this.state.dragNote; i < dropIndex; i++) {
+                Notes[i] = Notes[i + 1];
+            }
+            Notes[dropIndex] = note;
+        }
+
+        else {
+            // debugger;
+            var note = Notes[this.state.dragNote];
+            for (let i = this.state.dragNote; i > dropIndex; i--) {
+                console.log(i);
+                Notes[i] = Notes[i - 1];
+            }
+            Notes[dropIndex] = note;
+        }
+        this.setState({
+            Notes: Notes,
+        });
     }
 
     /**
@@ -461,7 +499,7 @@ export default class DashBoard extends React.Component {
                     />
                 </div>
 
-                {this.state.searchBarStatus ? <div className={this.state.gridView === true ? 'notes-div-grid' : 'notes-div'} >
+                {this.state.search.length > 2 ?
                     <SearchPage
                         Notes={this.state.Notes}
                         search={this.state.search}
@@ -473,8 +511,7 @@ export default class DashBoard extends React.Component {
                         handleNoteLabel={this.handleNoteLabel}
                         handleDeleteNoteLabel={this.handleDeleteNoteLabel}
                         dashState={this.state}
-                    />
-                </div> : <div>
+                    /> : <div>
                         {this.state.Page === 'Bin' ? <div className='notes-div'></div> : <div>
                             <TakeNote
                                 sendNote={this.getNewNote}

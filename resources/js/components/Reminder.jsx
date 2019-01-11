@@ -33,14 +33,22 @@ export default class Reminder extends React.PureComponent {
 
     handleReminder = (event) => {
         this.setState({
-            active: !this.state.active,
+            active: true,
+            anchorEl:event.currentTarget
         });
+        if(typeof(this.props.handleButtonShow)==='function'){
+            this.props.handleButtonShow()
+        }
     }
 
     handleClickAway = () => {
         this.setState({
             active: false,
         });
+        if(typeof(this.props.handleButtonHide)==='function'){
+            this.props.handleButtonHide()
+        }
+        
     }
 
     handleCustom = (event) => {
@@ -82,7 +90,7 @@ export default class Reminder extends React.PureComponent {
                             <img src={require('../assets/icons/RemindMe.svg')} alt="" />
                         </div>
                         <div >
-                            <Popper className='reminder-popper' style={{position:'fixed'}} open={this.state.active} transition disablePortal
+                            <Popper className='reminder-popper' anchorEl={this.state.anchorEl} style={{position:'fixed'}} open={this.state.active} transition disablePortal
                             >
                                 {({ TransitionProps, placement }) => (
                                     <Grow

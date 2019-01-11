@@ -7,7 +7,7 @@ import { red } from "@material-ui/core/colors";
 import NoteEdit from './NoteEdit';
 import ColorPallate from './ColorPallate';
 import NoteOptions from './NoteOptions';
-import Draggable from 'react-draggable';
+import ImageUpload from './ImageUpload';
 
 // import Moment from 'react-moment';
 
@@ -51,7 +51,10 @@ export default class Note extends React.Component {
 
     constructor(props) {
         super(props);
-
+        this.state = {
+            mouseShowIcon: false,
+            buttonShowIcon: false,
+        }
         this.noteEdit = React.createRef();
     }
 
@@ -66,27 +69,27 @@ export default class Note extends React.Component {
     //     })
     // }
 
-    shouldComponentUpdate(nextProps,nextStates){
+    shouldComponentUpdate(nextProps, nextStates) {
         // debugger;
-        if(this.props.dashState.drawerOpen!==nextProps.dashState.drawerOpen){
+        if (this.props.dashState.drawerOpen !== nextProps.dashState.drawerOpen) {
 
             return false;
         }
 
-        if(this.props.dashState.search!==nextProps.dashState.search){
+        if (this.props.dashState.search !== nextProps.dashState.search) {
 
             return false;
         }
 
-        
 
-        if(this.props.dashState.searchBarStatus!==nextProps.dashState.searchBarStatus){
+
+        if (this.props.dashState.searchBarStatus !== nextProps.dashState.searchBarStatus) {
             return false;
         }
 
-        return true ;
+        return true;
     }
-   
+
 
     editNote = () => {
         this.noteEdit.current.handleClickOpen();
@@ -139,16 +142,68 @@ export default class Note extends React.Component {
     /**
      * function to handle the start of the drag
      */
-    handleDragStart=(e )=>{
-        console.log('dragstart',this.props.index);
-        e.dataTransfer.setData('noteIndex',this.props.index);
-        console.log('dragstart',e);
-        console.log(e.dataTransfer);
+    handleDragStart = (e) => {
+        if (this.props.dashState.dragNote !== this.props.index) {
+            this.props.handleSetDragNote(this.props.index);
         }
+        //perventin default will stop the dragging of the item
+        // e.preventDefault();
+        e.dataTransfer.setData('text/plain', this.props.index);
+        e.target.display = 'hidden';
 
-        handleDragOver=(e)=>{
-            console.log('dragstart'+this.props.index,e);
+    }
+
+    handleDragOver = (e) => {
+        if (this.props.dashState.dragNote === this.props.index) {
+            return;
         }
+        e.preventDefault();
+        this.props.handleSetDragNote(this.props.index);
+        var ss = event.dataTransfer.getData('text')
+        // e.dataTransfer.dropEffect = "move"
+        this.props.noteDrop(this.props.index);
+
+    }
+    handleDrop = (e) => {
+
+        var ss = event.dataTransfer.getData('text')
+
+
+
+
+
+    }
+    handleMouseOver = () => {
+
+
+        if (this.state.mouseShowIcon !== true) {
+
+            this.setState({
+                mouseShowIcon: true,
+            });
+        }
+    }
+
+    handleMouseLeave = () => {
+        this.setState({
+            mouseShowIcon: false,
+        });
+
+    }
+
+    /**
+     * 
+     */
+    handleButtonShow = () => {
+        this.setState({
+            buttonShowIcon: true,
+        });
+    }
+    handleButtonHide = () => {
+        this.setState({
+            buttonShowIcon: false,
+        });
+    }
 
     render() {
         // console.log('note'+this.props.index,this.props)
@@ -162,10 +217,14 @@ export default class Note extends React.Component {
             // onStart={this.handleStart}
             // onDrag={this.handleDrag}
             // onStop={this.handleStop}>
-            <div draggable 
-            onDragStart={this.handleDragStart}
-            onDragOver={this.handleDragOver}
-            className={this.props.gridView === true ? 'note-card-grid' : 'note-card'}>
+            <div
+                onMouseOver={this.handleMouseOver}
+                onMouseOut={this.handleMouseLeave}
+                draggable
+                onDragStart={this.handleDragStart}
+                onDragOver={(e) => this.handleDragOver(e)}
+                onDrop={(e) => this.handleDrop(e)}
+                className={this.props.gridView === true ? 'note-card-grid' : 'note-card'}>
                 <MuiThemeProvider theme={theme}>
                     <div className='note-icon-pin' role='button' onClick={this.handlePin} >
                         <img src={(this.props.note.pinned === '1') ? require('../assets/icons/pin.svg') : require('../assets/icons/unpin.svg')} alt="" />
@@ -190,21 +249,23 @@ export default class Note extends React.Component {
                                     icon={<img className='icon' src={require('../assets/icons/ReminderClock.svg')} alt="" />}
                                     variant='default'
                                 />)}</div>
-                                <div className='note-labels-div'>
-                                {this.props.note.labels.map((label,index)=>{
+                            <div className='note-labels-div'>
+                                {this.props.note.labels.map((label, index) => {
                                     return <Chip
-                                    key={index}
-                                    className='remainder-chip'
-                                    label={label.labelname.label}
-                                    onDelete={this.deleteReminder}
-                                    icon={<img className='icon' src={require('../assets/icons/Label.svg')} alt="" />}
-                                    variant='default'
-                                />
+                                        key={index}
+                                        className='remainder-chip'
+                                        label={label.labelname.label}
+                                        onDelete={this.deleteReminder}
+                                        icon={<img className='icon' src={require('../assets/icons/Label.svg')} alt="" />}
+                                        variant='default'
+                                    />
                                 })}
-                                </div>
+                            </div>
                         </CardContent>
-                        <div className='note-bottom-icons-div'>
+                        <div className='note-bottom-icons-div' style={(this.state.mouseShowIcon || this.state.buttonShowIcon) ? {} : { opacity: 0 }} >
                             <Reminder
+                                handleButtonShow={this.handleButtonShow}
+                                handleButtonHide={this.handleButtonHide}
                                 setReminder={this.setReminder}
                             />
 
@@ -212,10 +273,11 @@ export default class Note extends React.Component {
                             <div className='note-icon-div' role='button'>
                                 <img src={require('../assets/icons/Collaborator.svg')} alt="" />
                             </div>
-                            <ColorPallate setColor={this.handleColor} />
-                            <div className='note-icon-div' role='Button'>
-                                <img src={require('../assets/icons/AddImage.svg')} alt="" />
-                            </div>
+                            <ColorPallate
+                                setColor={this.handleColor}
+                                handleButtonShow={this.handleButtonShow}
+                            />
+                            <ImageUpload/>
                             <div className='note-icon-div' role='Button' onClick={this.handleArchive} >
                                 <img
                                     src={(this.props.note.archived === '1')
@@ -230,6 +292,7 @@ export default class Note extends React.Component {
                                 user={this.props.user}
                                 handleNoteLabel={this.props.handleNoteLabel}
                                 handleDeleteNoteLabel={this.props.handleDeleteNoteLabel}
+                                handleButtonShow={this.handleButtonShow}
                             />
                         </div>
                     </Card>

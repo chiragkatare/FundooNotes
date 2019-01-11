@@ -63,7 +63,7 @@ export default class SearchPage extends React.Component {
        }
         
         return (
-           <div>{searchedNotes}</div>
+           <div  className={this.props.dashState.gridView === true ? 'notes-div-grid' : 'notes-div'} >{searchedNotes}</div>
             
         );
     }

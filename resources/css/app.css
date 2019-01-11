@@ -418,6 +418,7 @@ div .remainder-chip{
 .note-icon-div{
     cursor: pointer;
     opacity:0.5 ;
+ 
     /* margin: 5px; */
 }
 .note-icon-div img{
@@ -446,6 +447,12 @@ div .remainder-chip{
     padding: 3px;
     bottom: 0;
     width: 100%;
+    -webkit-transition-duration: .218s;
+    transition-duration: .218s;
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
 }
 
 .deletednote-bottom-icons-div{
@@ -454,6 +461,12 @@ div .remainder-chip{
     padding: 3px;
     bottom: 0;
     width: 100%;
+    -webkit-transition-duration: .218s;
+    transition-duration: .218s;
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
 }
 
 /* .noteEdit-dialog{
