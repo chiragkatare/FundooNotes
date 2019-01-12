@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Redis;
 use Facades\App\Notes;
+use App\NoteImages;
 // use App\Notes;
 
 
@@ -104,4 +105,51 @@ class NotesController extends Controller
             return response()->json(['message' => 'note not found'], 204);
         }
     }
+
+    /**
+     * function to add a image to the note 
+     */
+    public function addNotePic(Request $req)
+    {
+        $rere = $req->get('noteid');
+        //we check if request has a file 
+        if ($req->hasFile('notePic')) {
+            //filename
+            $origImage = $req->file('notePic');
+            $ext = $req->file('notePic')->getClientOriginalExtension();
+            //if image is svg
+            if ($ext === 'svg') {
+                $ext = 'svg+xml';
+            }
+            //getting the path of image in temp folder
+            $path = $req->file('notePic')->getRealPath();
+            //converting to base64 to save it in database
+            $base64 = 'data:image/' . $ext . ';base64,' . base64_encode(file_get_contents($path));
+
+            $input['noteid'] = $req->get('noteid');
+            $input['pic'] = $base64;
+
+            NoteImages::create($input);
+            return response()->json(['message' => 'Picture Added', 'note' => Notes::with('labels')->where('id', $req->get('noteid'))->get()], 200);
+        }
+
+        return response()->json(['meassage' => 'Picture Note Found'], 200);
+    }
+
+    /**
+     * function to delete a note image by id
+     */
+    public function deleteNotePic(Request $req)
+    {
+          // we delete a note and check if no of items deleted is greater than 1
+        if (NoteImages::destroy($req->get('imageid')) > 0) {
+            Cache::forget('notes' . Auth::user()->id);
+            //
+            return response()->json(['message' => 'image Deleted'], 200);
+        } else {
+            //return the not found message 
+            return response()->json(['message' => 'image note found'], 204);
+        }
+    }
+
 }

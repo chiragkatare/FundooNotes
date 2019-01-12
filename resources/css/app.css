@@ -340,7 +340,10 @@ div .create-new-label{
     float: right;
 }
 
-
+.note-images{
+    max-width: 100%;
+    height: auto;
+}
 
 .note-card{
     width:238px;
@@ -394,10 +397,14 @@ div .create-new-label{
     margin: 5% auto 0px 26%;
 
 } */
-/* 
-.note-card .note-card-def .note-card-content{
-    padding-right: 4px,
-} */
+
+
+.note-card .note-card-def {
+    overflow: inherit;
+    border-radius: 6px;
+    padding-top: 6,;
+                padding-bottom: 6,;
+} 
 
 
 div .remainder-chip{
@@ -410,9 +417,16 @@ div .remainder-chip{
     float: right;
     right: 4px;
     top: 4px;
-    position: relative;
-        opacity:0.5 ;
+    position: absolute;
+    border: 1px solid transparent;
+    opacity: 0.9;
         /* margin: 5px; */
+}
+
+.note-images-div{
+    direction: ltr;
+    border-radius: 6px;
+    overflow: hidden;
 }
 
 .note-icon-div{
@@ -476,11 +490,13 @@ div .remainder-chip{
 .note-card .note-card-def:hover{
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
     transition-duration: .218s;
+   
     /* transition-property: background,opacity,box-shadow,transform; */
 }
 
 .note-card-grid .note-card-def:hover{
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+   
 }
 
 

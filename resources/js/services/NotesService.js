@@ -12,6 +12,7 @@ export default class UserService {
         var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
         return axios.post('/api/createnote', data, { headers: { Authorization: AuthStr } })
             .then((response) => {
+                // debugger
                 return response;
             }
             ).catch((error) => {
@@ -149,6 +150,39 @@ export default class UserService {
                 return error;
             });
     }
+
+    /**
+     * function to call backend api to add the note to the image
+     */
+    addNoteImage(data) {
+        var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
+        return axios.post('/api/addnotepic', data, { headers: { Authorization: AuthStr } })
+            .then((response) => {
+                // debugger;
+                return response;
+            }
+            ).catch((error) => {
+                // /console.log('rereerrors',error);
+                return error;
+            });
+    }
+
+    /**
+     * function to call the backend api to delete the note image
+     */
+    deleteNoteImage() {
+        var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
+        return axios.post('/api/deletenotepic', data, { headers: { Authorization: AuthStr } })
+            .then((response) => {
+                // debugger;
+                return response;
+            }
+            ).catch((error) => {
+                // /console.log('rereerrors',error);
+                return error;
+            });
+    }
+
 
 
 }

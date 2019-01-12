@@ -199,9 +199,11 @@ export default class NoteEdit extends React.Component {
                 </div>
               </DialogContent>
               <DialogActions>
-                <div className='takenote-bottom-icons-div'>
-                  <div>
-                    <Reminder setReminder={this.handleReminderChange} />
+                <div className='takenote-bottom-icons-div'  >
+                  <div  >
+                    <Reminder 
+                    Parent='NoteEdit'
+                    setReminder={this.handleReminderChange} />
                   </div>
 
                   <div className='note-icon-div' role='button'>

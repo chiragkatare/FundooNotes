@@ -120,7 +120,7 @@ export default class DashBoard extends React.Component {
         // debugger;
 
         // debugger;
-        this.forceUpdate();
+        // this.forceUpdate();
 
         var arr = this.state.Notes;
         arr.unshift(note);
@@ -319,7 +319,7 @@ export default class DashBoard extends React.Component {
         };
         noteService.deleteNoteLabel(data).then(response => {
             if (response.status === 200) {
-                debugger;
+                // debugger;
                 let note = response.data.note;
                 let tempNotes = this.state.Notes;
                 tempNotes[index] = note[0];
@@ -353,6 +353,13 @@ export default class DashBoard extends React.Component {
     }
 
     /**
+     * function to add pictures to note
+     */
+    handleNotePic = (file, noteIndex) => {
+
+    }
+
+    /**
      * 
      */
     handleSearchTerm = (word) => {
@@ -375,6 +382,9 @@ export default class DashBoard extends React.Component {
     handleStop = () => {
         console.log("handleStop");
     }
+    /**
+     * 
+     */
     noteComponent = (note, index) => {
         return <Note gridView={this.state.gridView}
             dashState={this.state}
@@ -388,6 +398,7 @@ export default class DashBoard extends React.Component {
             handleDeleteNoteLabel={this.handleDeleteNoteLabel}
             handleSetDragNote={this.handleSetDragNote}
             // dragNote={this.state.dragNote}
+            handleImageUpload={this.handleImageUpload}
             noteDrop={this.noteDrop}
         ></Note>
     }
@@ -428,6 +439,31 @@ export default class DashBoard extends React.Component {
         }
         this.setState({
             Notes: Notes,
+        });
+    }
+
+    /**
+     * function to add image to the note and send the image to backend
+     */
+    handleImageUpload = (image, noteindex) => {
+        // debugger;
+        // var tempUser = this.state.user;
+        // tempUser.profilepic=profile;
+        let formData = new FormData();
+        formData.append('notePic', image)
+        formData.append('noteid', this.state.Notes[noteindex].id)
+        noteService.addNoteImage(formData).then(resp => {
+            console.log(resp);
+            debugger;
+            let Notes = [...this.state.Notes];
+            Notes[noteindex] = resp.data.note[0];
+            this.setState({
+                Notes
+            });
+
+        }).catch(err => {
+            console.log(err, 'error');
+            // this.notify('Image Cannot Be Uploaded')
         });
     }
 

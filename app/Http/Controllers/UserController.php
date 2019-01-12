@@ -172,7 +172,6 @@ class UserController extends Controller
             if($ext==='svg'){
                 $ext='svg+xml';
             }
-
             //getting the path of image in temp folder
             $path = $req->file('profilepic')->getRealPath();
             //converting to base64 to save it in database
@@ -182,10 +181,10 @@ class UserController extends Controller
             //adding the profile pic to the user and saving it in the database
             $user->profilepic = $base64;
             $user->save();
-
             //returning the response to the user
             return response()->json(['message'=>'done','data'=> User::with('labels')->find($user->id)],200);
         }
      }
 
+    
 }

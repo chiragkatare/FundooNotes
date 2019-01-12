@@ -67,6 +67,7 @@ export default class TakeNote extends React.PureComponent {
             archived: this.state.archived,
             deleted: this.state.deleted,
             labels:[],
+            images:[],
         }
         if ((Note.title !== '' || Note.body !== '')) {
             Note = this.sendNote(Note);
