@@ -11,8 +11,8 @@ export default class Snackbars extends React.Component {
         this.fileInput.click();
     }
 
-    handleNotePic=(e)=>{
-        
+    handleNotePic = (e) => {
+
         this.props.handleImageUpload(e.target.files[0]);
     }
 

@@ -89,8 +89,8 @@ export default class Reminder extends React.PureComponent {
                         <div className='note-icon-div' role='Button' onClick={this.handleReminder} >
                             <img src={require('../assets/icons/RemindMe.svg')} alt="" />
                         </div>
-                        <div style={this.props.Parent=='NoteEdit'?{position:'fixed'}:{}}>
-                            <Popper className='reminder-popper' anchorEl={this.state.anchorEl} style={{position:'fixed'}} open={this.state.active} transition disablePortal
+                        <div style={(this.props.Parent=='NoteEdit'&&this.props.ImagesLength===0)?{position:'fixed'}:{}}>
+                        <Popper anchorEl={this.state.anchorEl} className='reminder-popper' style={{ position: 'fixed' }} open={this.state.active} transition disablePortal
                             >
                                 {({ TransitionProps, placement }) => (
                                     <Grow

@@ -7,6 +7,8 @@ import { InputBase, DialogTitle, DialogContentText, DialogContent, DialogActions
 // import Draggable from 'react-draggable';
 import withMobileDialog from '@material-ui/core/withMobileDialog';
 import NoteOptions from './NoteOptions';
+import NoteImageDisplay from './NoteImageDisplay';
+import ImageUpload from './ImageUpload';
 
 
 const theme = createMuiTheme({
@@ -141,6 +143,21 @@ export default class NoteEdit extends React.Component {
     alert('kjosdhdkjhsk');
   }
 
+  /**
+   * 
+   */
+  handleImageUpload = (file) => {
+    // debugger;
+    this.props.handleImageUpload(file, this.props.index);
+  }
+
+  /**
+   * 
+   */
+  handleImageDelete = (imageid) => {
+    this.props.handleImageDelete(this.props.index, imageid);
+  }
+
   render() {
     const { fullScreen } = this.props;
     // console.log('edit', this.state);
@@ -158,6 +175,11 @@ export default class NoteEdit extends React.Component {
             aria-labelledby="responsive-dialog-title"
           >
             <div style={{ background: this.state.note.color }}>
+              <div className='note-images-div' >
+                <NoteImageDisplay
+                  handleImageDelete={this.handleImageDelete}
+                  images={this.props.note.images} />
+              </div>
               <DialogTitle>
                 <InputBase
                   name='title'
@@ -201,18 +223,18 @@ export default class NoteEdit extends React.Component {
               <DialogActions>
                 <div className='takenote-bottom-icons-div'  >
                   <div  >
-                    <Reminder 
-                    Parent='NoteEdit'
-                    setReminder={this.handleReminderChange} />
+                    <Reminder
+                      Parent='NoteEdit'
+                      ImagesLength={this.props.note.images.length}
+                      setReminder={this.handleReminderChange} />
                   </div>
 
                   <div className='note-icon-div' role='button'>
                     <img src={require('../assets/icons/Collaborator.svg')} alt="" />
                   </div>
                   <ColorPallate setColor={this.handleColor} />
-                  <div className='note-icon-div' role='Button'>
-                    <img src={require('../assets/icons/AddImage.svg')} alt="" />
-                  </div>
+                  <ImageUpload
+                    handleImageUpload={this.handleImageUpload} />
                   <div className='note-icon-div' role='Button' onClick={this.handleNoteArchive} >
                     <img
                       src={(this.state.note.archived === '1')
@@ -221,6 +243,8 @@ export default class NoteEdit extends React.Component {
                     />
                   </div>
                   <NoteOptions
+                    Parent='NoteEdit'
+                    ImagesLength={this.props.note.images.length}
                     note={this.props.note}
                     handleNoteEdit={this.props.handleNoteEdit}
                     user={this.props.user}

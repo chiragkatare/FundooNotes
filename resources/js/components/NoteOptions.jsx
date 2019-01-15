@@ -32,10 +32,11 @@ export default class NoteOptions extends React.Component {
     }
     }
 
-    handleClick = () => {
+    handleClick = (event) => {
         this.setState({
             active: !this.state.active,
             addLabel: false,
+            anchorEl:event.currentTarget,
         });
     }
 
@@ -66,8 +67,8 @@ export default class NoteOptions extends React.Component {
                             <img src={require('../assets/icons/More.svg')} alt="" />
                         </div>
 
-                        <div >
-                            <Popper className='reminder-popper' style={{ position: 'fixed' }} open={this.state.active} transition disablePortal
+                        <div  >
+                            <Popper anchorEl={this.state.anchorEl} className='reminder-popper' style={{ position: 'fixed' }} open={this.state.active} transition disablePortal
                             >
                                 {({ TransitionProps, placement }) => (
                                     <Grow

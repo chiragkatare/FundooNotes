@@ -92,6 +92,8 @@ export default class Note extends React.Component {
 
 
     editNote = () => {
+        console.log("lelelelelel");
+
         this.noteEdit.current.handleClickOpen();
     }
 
@@ -213,18 +215,17 @@ export default class Note extends React.Component {
         this.props.handleImageUpload(file, this.props.index);
     }
 
+    /**
+     * 
+     */
+    handleImageDelete = (imageid) => {
+        this.props.handleImageDelete(this.props.index, imageid);
+    }
+
     render() {
         // console.log('note'+this.props.index,this.props)
         return (
-            // <Draggable axis="x"
-            // handle=".handle"
-            // defaultPosition={{ x: 0, y: 0 }}
-            // position={null}
-            // grid={[25, 25]}
-            // scale={1}
-            // onStart={this.handleStart}
-            // onDrag={this.handleDrag}
-            // onStop={this.handleStop}>
+
             <div
                 onMouseOver={this.handleMouseOver}
                 onMouseOut={this.handleMouseLeave}
@@ -233,19 +234,21 @@ export default class Note extends React.Component {
                 onDragOver={(e) => this.handleDragOver(e)}
                 onDrop={(e) => this.handleDrop(e)}
                 className={this.props.gridView === true ? 'note-card-grid' : 'note-card'}>
-                
 
 
-                    <Card className='note-card-def' style={{ position: 'relative', border: '1px solid #dadce0', backgroundColor: this.props.note.color }} >
-                        <div className='note-images-div' >
-                            <NoteImageDisplay
-                                images={this.props.note.images} />
-                        </div>
-                        <div className='note-icon-pin' role='button' onClick={this.handlePin} >
-                            <img src={(this.props.note.pinned === '1') ? require('../assets/icons/pin.svg') : require('../assets/icons/unpin.svg')} alt="" />
-                        </div>
 
- <MuiThemeProvider theme={theme}>
+                <Card className='note-card-def' style={{ position: 'relative', border: '1px solid #dadce0', backgroundColor: this.props.note.color }} >
+                    <div className='note-images-div'  >
+                        <NoteImageDisplay
+                            handleImageDelete={this.handleImageDelete}
+                            editNote={this.editNote}
+                            images={this.props.note.images} />
+                    </div>
+                    <div className='note-icon-pin' role='button' onClick={this.handlePin} >
+                        <img src={(this.props.note.pinned === '1') ? require('../assets/icons/pin.svg') : require('../assets/icons/unpin.svg')} alt="" />
+                    </div>
+
+                    <MuiThemeProvider theme={theme}>
                         <CardContent className='note-card-content' onClick={this.editNote}>
                             <div className='note-top-div'>
 
@@ -278,52 +281,54 @@ export default class Note extends React.Component {
                                 })}
                             </div>
                         </CardContent>
-                        </MuiThemeProvider>
-                        <div className='note-bottom-icons-div' style={(this.state.mouseShowIcon || this.state.buttonShowIcon) ? {} : { opacity: 0 }} >
-                            <Reminder
-                                handleButtonShow={this.handleButtonShow}
-                                handleButtonHide={this.handleButtonHide}
-                                setReminder={this.setReminder}
-                            />
+                    </MuiThemeProvider>
+                    <div className='note-bottom-icons-div' style={(this.state.mouseShowIcon || this.state.buttonShowIcon) ? {} : { opacity: 0 }} >
+                        <Reminder
+                            handleButtonShow={this.handleButtonShow}
+                            handleButtonHide={this.handleButtonHide}
+                            setReminder={this.setReminder}
+                        />
 
 
-                            <div className='note-icon-div' role='button'>
-                                <img src={require('../assets/icons/Collaborator.svg')} alt="" />
-                            </div>
-                            <ColorPallate
-                                setColor={this.handleColor}
-                                handleButtonShow={this.handleButtonShow}
-                            />
-                            <ImageUpload
-                                handleImageUpload={this.handleImageUpload} />
-                            <div className='note-icon-div' role='Button' onClick={this.handleArchive} >
-                                <img
-                                    src={(this.props.note.archived === '1')
-                                        ? require('../assets/icons/Unarchive.svg')
-                                        : require('../assets/icons/Archive.svg')} alt=""
-                                />
-                            </div>
-                            <NoteOptions
-                                index={this.props.index}
-                                note={this.props.note}
-                                handleNoteEdit={this.props.handleNoteEdit}
-                                user={this.props.user}
-                                handleNoteLabel={this.props.handleNoteLabel}
-                                handleDeleteNoteLabel={this.props.handleDeleteNoteLabel}
-                                handleButtonShow={this.handleButtonShow}
+                        <div className='note-icon-div' role='button'>
+                            <img src={require('../assets/icons/Collaborator.svg')} alt="" />
+                        </div>
+                        <ColorPallate
+                            setColor={this.handleColor}
+                            handleButtonShow={this.handleButtonShow}
+                        />
+                        <ImageUpload
+                            handleImageUpload={this.handleImageUpload} />
+                        <div className='note-icon-div' role='Button' onClick={this.handleArchive} >
+                            <img
+                                src={(this.props.note.archived === '1')
+                                    ? require('../assets/icons/Unarchive.svg')
+                                    : require('../assets/icons/Archive.svg')} alt=""
                             />
                         </div>
-                    </Card>
-                    <NoteEdit
-                        ref={this.noteEdit}
-                        note={this.props.note}
-                        index={this.props.index}
-                        handleNoteEdit={this.props.handleNoteEdit}
-                        user={this.props.user}
-                        handleNoteLabel={this.props.handleNoteLabel}
-                        handleDeleteNoteLabel={this.props.handleDeleteNoteLabel}
-                    />
-                
+                        <NoteOptions
+                            index={this.props.index}
+                            note={this.props.note}
+                            handleNoteEdit={this.props.handleNoteEdit}
+                            user={this.props.user}
+                            handleNoteLabel={this.props.handleNoteLabel}
+                            handleDeleteNoteLabel={this.props.handleDeleteNoteLabel}
+                            handleButtonShow={this.handleButtonShow}
+                        />
+                    </div>
+                </Card>
+                <NoteEdit
+                    ref={this.noteEdit}
+                    note={this.props.note}
+                    index={this.props.index}
+                    handleNoteEdit={this.props.handleNoteEdit}
+                    user={this.props.user}
+                    handleNoteLabel={this.props.handleNoteLabel}
+                    handleDeleteNoteLabel={this.props.handleDeleteNoteLabel}
+                    handleImageUpload={this.props.handleImageUpload}
+                    handleImageDelete={this.props.handleImageDelete}
+                />
+
             </div>
             // </Draggable>
         );

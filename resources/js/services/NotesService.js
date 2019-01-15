@@ -170,7 +170,7 @@ export default class UserService {
     /**
      * function to call the backend api to delete the note image
      */
-    deleteNoteImage() {
+    deleteNoteImage(data) {
         var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
         return axios.post('/api/deletenotepic', data, { headers: { Authorization: AuthStr } })
             .then((response) => {

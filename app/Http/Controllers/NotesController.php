@@ -145,7 +145,7 @@ class NotesController extends Controller
         if (NoteImages::destroy($req->get('imageid')) > 0) {
             Cache::forget('notes' . Auth::user()->id);
             //
-            return response()->json(['message' => 'image Deleted'], 200);
+            return response()->json(['message' => 'image Deleted', 'note' => Notes::with('labels')->where('id', $req->get('noteid'))->get()], 200);
         } else {
             //return the not found message 
             return response()->json(['message' => 'image note found'], 204);

@@ -62,7 +62,7 @@ export default class DashBoard extends React.Component {
                 }
             }
         ).catch();
-        // setInterval(this.remind, 60000);
+        setInterval(this.remind, 30000);
 
         userService.getUserData().then(resp => {
             this.setState({
@@ -400,6 +400,7 @@ export default class DashBoard extends React.Component {
             // dragNote={this.state.dragNote}
             handleImageUpload={this.handleImageUpload}
             noteDrop={this.noteDrop}
+            handleImageDelete={this.handleImageDelete}
         ></Note>
     }
 
@@ -464,6 +465,23 @@ export default class DashBoard extends React.Component {
         }).catch(err => {
             console.log(err, 'error');
             // this.notify('Image Cannot Be Uploaded')
+        });
+    }
+
+    handleImageDelete=(noteindex,imageid)=>{
+        
+        var data = {imageid:imageid,
+                    noteid:this.state.Notes[noteindex].id}
+        noteService.deleteNoteImage(data).then(resp=>{
+            debugger;
+            let Notes = [...this.state.Notes];
+            Notes[noteindex] = resp.data.note[0];
+            this.setState({
+                Notes
+            });
+        }).catch(error=>{
+            debugger;
+            alert('Image Delete',error);
         });
     }
 
