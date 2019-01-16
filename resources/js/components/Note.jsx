@@ -150,12 +150,13 @@ export default class Note extends React.Component {
         }
         //perventin default will stop the dragging of the item
         // e.preventDefault();
-        e.dataTransfer.setData('text/plain', this.props.index);
+        e.dataTransfer.setData('index', this.props.index);
         e.target.display = 'hidden';
 
     }
 
     handleDragOver = (e) => {
+        e.preventDefault();
         if (this.props.dashState.dragNote === this.props.index) {
             return;
         }
@@ -167,8 +168,10 @@ export default class Note extends React.Component {
 
     }
     handleDrop = (e) => {
-        console.log('droppppppppppp');
-        var ss = event.dataTransfer.getData('text')
+        
+        var ss = event.dataTransfer.getData('index')
+        console.log('droppppppppppp',ss,this.props.index);
+        this.props.handlePosition(ss,this.props.index);
     }
 
     /**

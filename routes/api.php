@@ -59,4 +59,5 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('/addprofilepic', 'UserController@addProfilepic');
     Route::post('/addnotepic', 'NotesController@addNotePic');
     Route::post('/deletenotepic', 'NotesController@deleteNotePic');
+    Route::post('/saveindex', 'NotesController@saveIndex');
 });

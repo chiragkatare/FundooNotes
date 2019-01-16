@@ -183,6 +183,25 @@ export default class UserService {
             });
     }
 
+     /**
+     * function to call the backend api to move the position of the on drag and drop 
+     * 
+     * @param {array} data 
+     * @return {promise} response
+     */
+    saveIndex(data) {
+        var AuthStr = "Bearer ".concat(localStorage.getItem('fundootoken'));
+        return axios.post('/api/saveindex', data, { headers: { Authorization: AuthStr } })
+            .then((response) => {
+                // debugger;
+                return response;
+            }
+            ).catch((error) => {
+                // /console.log('rereerrors',error);
+                return error;
+            });
+    }
+
 
 
 }

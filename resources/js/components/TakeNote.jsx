@@ -66,6 +66,7 @@ export default class TakeNote extends React.PureComponent {
             color: this.state.color,
             archived: this.state.archived,
             deleted: this.state.deleted,
+            index: this.props.Notes.length,
             labels:[],
             images:[],
         }

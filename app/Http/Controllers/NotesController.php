@@ -96,9 +96,16 @@ class NotesController extends Controller
      */
     public function deleteNote(Request $req)
     {
-        // $dqata = $req->all();
+        $data = $req->all();
         //destroy the model with the given id and return the no of models deleted
         if (Notes::destroy($req->get('id')) > 0) {
+            $notes = Notes::where('userid', Auth::user()->id)->get();
+            foreach ($notes as $note) {
+                if ($note->index > $data['index']) {
+                    $note->index -= 1;
+                    $note->save();
+                }
+            }
             Cache::forget('notes' . Auth::user()->id);
             return response()->json(['message' => 'note deleted'], 200);
         } else {
@@ -149,6 +156,53 @@ class NotesController extends Controller
         } else {
             //return the not found message 
             return response()->json(['message' => 'image note found'], 204);
+        }
+    }
+
+     /**
+     * function to save the  indexes of the note in the backend
+     * 
+     * @var Request
+     * @return Response 
+     */
+    public function saveIndex(Request $req)
+    {
+        $dragIndex = $req->get('dragIndex');
+        $dropIndex = $req->get('dropIndex');
+        if ($dragIndex === $dropIndex) {
+            return response()->json(["message" => "success"], 200);
+        }
+
+        $notes = Notes::where('userid', Auth::user()->id)->get();
+
+        if ($dropIndex > $dragIndex) {
+            foreach ($notes as $note) {
+                if ($note->index > $dragIndex && $note->index <= $dropIndex) {
+                    $note->index -= 1;
+                    $note->save();
+                } elseif ($note->index === $dragIndex) {
+                    $note->index = $dropIndex;
+                    $note->save();
+                } 
+                // elseif ($note->index === $dropIndex) {
+                //     $note->index = $dragIndex;
+                //     $note->save();
+                // }
+            }
+            return response()->json(["message" => "success"], 200);
+
+        } else {
+            foreach ($notes as $note) {
+                if ($note->index >= $dropIndex && $note->index < $dragIndex) {
+                    $note->index += 1;
+                    $note->save();
+
+                } elseif ($note->index === $dragIndex) {
+                    $note->index = $dropIndex;
+                    $note->save();
+                }
+            }
+            return response()->json(["message" => "success"], 200);
         }
     }
 

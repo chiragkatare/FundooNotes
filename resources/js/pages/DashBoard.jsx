@@ -54,10 +54,13 @@ export default class DashBoard extends React.Component {
                 // console.log(resp);
 
                 if (resp.status === 200) {
-                    var notes = resp.data.message.reverse();
-
+                    var Notes = [];
+                    var notes = resp.data.message;
+                    notes.forEach(note => {
+                        Notes[note.index] = note
+                    });
                     this.setState({
-                        Notes: notes,
+                        Notes: Notes,
                     });
                 }
             }
@@ -401,6 +404,7 @@ export default class DashBoard extends React.Component {
             handleImageUpload={this.handleImageUpload}
             noteDrop={this.noteDrop}
             handleImageDelete={this.handleImageDelete}
+            handlePosition={this.handlePosition}
         ></Note>
     }
 
@@ -482,6 +486,22 @@ export default class DashBoard extends React.Component {
         }).catch(error=>{
             debugger;
             alert('Image Delete',error);
+        });
+    }
+
+    /**
+     * function to call the noteservice to save note positions at backend api on drag and drop
+     * 
+     * 
+     */
+    handlePosition = (dragIndex, dropIndex) => {
+        var data = { dragIndex, dropIndex };
+        noteService.saveIndex(data).then(resp => {
+            console.log('Notes Moved', resp);
+
+        }).catch(err => {
+            console.log('Notes Not Moved', err);
+
         });
     }
 
@@ -570,6 +590,7 @@ export default class DashBoard extends React.Component {
                             <TakeNote
                                 sendNote={this.getNewNote}
                                 notify={this.notify}
+                                Notes={this.state.Notes}
                             />
                         </div>}
                         {/* this.state.gridView===true? */}
