@@ -83,8 +83,8 @@ class UserController extends Controller
     public function logout()
     {
         Auth::user()->token()->revoke();
-        echo 'logout successfull';
-        // return response()->json(['message'=>'Logout SuccesFull'],204);
+        
+        return response()->json(['message'=>'Logout SuccesFull'],200);
     }
 
     /**
