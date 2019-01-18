@@ -17,11 +17,11 @@ class CreateNoteImagesTable extends Migration
             $table->increments('id');
             // $table->binary('pic');
             $table->unsignedInteger('noteid'); 
+            $table->string('pic');
             $table->foreign('noteid')->references('id')->on('notes')->onDelete('cascade');
             $table->timestamps();
         });
 
-        DB::statement("ALTER TABLE note_images ADD column pic MEDIUMBLOB");
     }
 
     /**

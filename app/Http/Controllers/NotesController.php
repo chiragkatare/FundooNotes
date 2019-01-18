@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Redis;
 use Facades\App\Notes;
 use App\NoteImages;
+use JD\Cloudder\Facades\Cloudder;
 // use App\Notes;
 
 
@@ -124,17 +125,22 @@ class NotesController extends Controller
             //filename
             $origImage = $req->file('notePic');
             $ext = $req->file('notePic')->getClientOriginalExtension();
-            //if image is svg
-            if ($ext === 'svg') {
-                $ext = 'svg+xml';
-            }
+           
             //getting the path of image in temp folder
             $path = $req->file('notePic')->getRealPath();
-            //converting to base64 to save it in database
-            $base64 = 'data:image/' . $ext . ';base64,' . base64_encode(file_get_contents($path));
 
+
+
+
+            Cloudder::upload($path, null);
+
+            list($width, $height) = getimagesize($path);
+
+            $url = Cloudder::show(Cloudder::getPublicId(), ["width" => $width, "height" => $height]);
+            $url="https://res.cloudinary.com/fundoonotes/image/fetch/".$url;
+            list($width, $height) = getimagesize($path);
             $input['noteid'] = $req->get('noteid');
-            $input['pic'] = $base64;
+            $input['pic'] = $url;
 
             NoteImages::create($input);
             return response()->json(['message' => 'Picture Added', 'note' => Notes::with('labels')->where('id', $req->get('noteid'))->get()], 200);
@@ -159,7 +165,7 @@ class NotesController extends Controller
         }
     }
 
-     /**
+    /**
      * function to save the  indexes of the note in the backend
      * 
      * @var Request
